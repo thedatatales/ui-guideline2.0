@@ -1,0 +1,207 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Quill Editor</h1>
+    <p class="subtitle">
+      The Quill Editor component provides a rich text editor built on top of Quill with extended functionality
+      including voice-to-text conversion, file/image attachments, customizable toolbar actions, contextual chips, and responsive design.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Quill Editor</h2>
+    <p class="section-description">
+      Basic Quill Editor with default configuration. Provides a rich text editing experience
+      with formatting options and toolbar.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-quill-editor
+            [(ngModel)]="editorData"
+          >
+          </bntv-quill-editor>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Quill Editor</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Actions</h2>
+    <p class="section-description">
+      Quill Editor with custom action icons. The <code>leftActionsList</code> and <code>rightActionsList</code>
+      properties allow adding custom icons on both sides of the toolbar.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-quill-editor
+            [(ngModel)]="editorData"
+            [leftActionsList]="leftIconList"
+            [rightActionsList]="rightIconList"
+          >
+          </bntv-quill-editor>
+          <a class="view-code-link" (click)="onVariantClick('withActions', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Actions</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withActions')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withActions'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Mentions</h2>
+    <p class="section-description">
+      Quill Editor with mention functionality. The <code>mentionListConfig</code> property enables
+      @mentions with autocomplete suggestions from an API.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-quill-editor
+            [(ngModel)]="editorData"
+            [mentionListConfig]="mentionListConfig"
+          >
+          </bntv-quill-editor>
+          <a class="view-code-link" (click)="onVariantClick('withMentions', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Mentions</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withMentions')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withMentions'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Context</h2>
+    <p class="section-description">
+      Quill Editor with context chips. The <code>contextConfig</code> property enables
+      contextual chips that can be inserted into the editor content.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-quill-editor
+            [(ngModel)]="editorData"
+            [contextConfig]="contextConfig"
+          >
+          </bntv-quill-editor>
+          <a class="view-code-link" (click)="onVariantClick('withContext', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Context</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withContext')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withContext'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Microphone</h2>
+    <p class="section-description">
+      Quill Editor with voice-to-text functionality. The <code>micConfig</code> property enables
+      microphone input for voice-to-text conversion.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-quill-editor
+            [(ngModel)]="editorData"
+            [micConfig]="micConfig"
+          >
+          </bntv-quill-editor>
+          <a class="view-code-link" (click)="onVariantClick('withMic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Microphone</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withMic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withMic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

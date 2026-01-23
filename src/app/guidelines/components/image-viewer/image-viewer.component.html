@@ -1,0 +1,134 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Image Viewer</h1>
+    <p class="subtitle">
+      The Image Viewer component displays images from various sources including URLs, base64 strings, 
+      or blob objects. It supports zoom functionality and optional face comparison features.
+    </p>
+  </div>
+
+  <!-- Basic Image Viewer Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Image Viewer</h2>
+    <p class="section-description">
+      Display an image using the Image Viewer component. The component supports images from URLs, 
+      base64 strings, or blob objects.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; max-width: 600px;">
+          <div class="coming-soon-placeholder">
+            <p class="coming-soon-text">Coming Soon</p>
+            <p class="coming-soon-subtext">This component is currently in development</p>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Image Viewer</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Options Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Options</h2>
+    <p class="section-description">
+      Configure the Image Viewer with custom options such as showing download button, 
+      zoom controls, and other display options.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; max-width: 600px;">
+          <div class="coming-soon-placeholder">
+            <p class="coming-soon-text">Coming Soon</p>
+            <p class="coming-soon-subtext">This component is currently in development</p>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('withOptions', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Options</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withOptions')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withOptions'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Zoom Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Zoom Level</h2>
+    <p class="section-description">
+      Set a custom zoom level for the image viewer. The zoom level controls how much 
+      the image is magnified when displayed.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; max-width: 600px;">
+          <div class="coming-soon-placeholder">
+            <p class="coming-soon-text">Coming Soon</p>
+            <p class="coming-soon-subtext">This component is currently in development</p>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('withZoom', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Zoom Level</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withZoom')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withZoom'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

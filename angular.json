@@ -1,0 +1,208 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ui-guidelines": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "dist/apps/ui-guidelines",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/nst_favicon.png",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/shared/gx-assets/src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@enttribe/core/layout/assets",
+                "output": "assets/layout"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@enttribe/core/tools/src/assets",
+                "output": "assets/core/tools"
+              }
+            ],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/@enttribe/themes-gx-theme/src/lib/_global.scss",
+              "node_modules/@enttribe/themes-gx-theme/src/lib/resources/icomoon/style.scss",
+              "node_modules/quill/dist/quill.core.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill-table-up/dist/index.css",
+              "node_modules/quill-table-up/dist/table-creator.css",
+              {
+                "input": "node_modules/@enttribe/themes-theme-indigo/src/styles/theme-indigo.scss",
+                "inject": true,
+                "bundleName": "theme-indigo"
+              },
+              {
+                "input": "node_modules/@enttribe/themes-theme-black/src/styles/theme-black.scss",
+                "inject": true,
+                "bundleName": "theme-black"
+              },
+              {
+                "input": "node_modules/@enttribe/themes-theme-greenwave/src/styles/theme-greenwave.scss",
+                "inject": true,
+                "bundleName": "theme-greenwave"
+              },
+              {
+                "input": "node_modules/@enttribe/themes-gx-theme/src/lib/variables.scss",
+                "inject": true,
+                "bundleName": "gx-theme"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/@enttribe/themes-gx-theme/src/lib/",
+                "node_modules/@ag-grid-community/",
+                "node_modules/ngx-drag-to-select/",
+                "@sourceloop/user-onboarding-client/"
+              ]
+            },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/quill/dist/quill.core.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "crypto-js",
+              "moment-timezone",
+              "core-js",
+              "raf",
+              "keycloak-js",
+              "dompurify",
+              "html2canvas",
+              "moment",
+              "@tweenjs/tween.js",
+              "js-sha256",
+              "base64-js",
+              "rgbcolor",
+              "uuid",
+              "fast-deep-equal",
+              "html-to-image",
+              "iv-viewer",
+              "codemirror",
+              "diff-match-patch",
+              "fiql-parser",
+              "js-base64",
+              "fabric",
+              "recordrtc",
+              "leaflet-side-by-side",
+              "leaflet.markercluster",
+              "dom-to-image",
+              "highcharts",
+              "csv2geojson",
+              "createjs-module",
+              "leaflet-freedraw",
+              "highcharts-custom-events",
+              "highcharts-rounded-corners",
+              "systemjs-webpack-interop",
+              "@enttribe/ckeditor5-custom-build/assets/build/ckeditor",
+              "@fullcalendar/core/locales-all",
+              "leaflet-tile-loading-progress-control",
+              "leaflet-lasso",
+              "leaflet-canvas-layer",
+              "leaflet",
+              "jshint",
+              "jsonlint",
+              "file-saver",
+              "xlsx",
+              "ng2-konva",
+              "lodash.deburr",
+              "numbro"
+            ],
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "50mb",
+                  "maximumError": "50mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10kb",
+                  "maximumError": "12kb"
+                }
+              ],
+              "outputHashing": "none"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "servePath": "/ui-guidelines/"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ui-guidelines:build:production"
+            },
+            "development": {
+              "buildTarget": "ui-guidelines:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "su  rvey:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/nst_favicon.png",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

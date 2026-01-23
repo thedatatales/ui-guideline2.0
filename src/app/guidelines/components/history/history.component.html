@@ -1,0 +1,261 @@
+<div class="history-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">History Component</h1>
+    <p class="subtitle">
+      The history component displays a timeline of events or activities with customizable templates and styling. 
+      It supports grouping, sorting, custom templates, and different timeline styles.
+    </p>
+  </div>
+
+  <!-- Basic History Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic History</h2>
+    <p class="section-description">
+      Basic history displays a simple timeline of events. The <code>config</code> property is used to configure 
+      the display format and which fields to show.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="history-demo">
+        <div class="history-item">
+          <bntv-history
+            [historyList]="basicHistoryList"
+            [config]="basicConfig"
+          ></bntv-history>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic History</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- History with Icons Section -->
+  <section class="content-section">
+    <h2 class="section-title">History with Icons</h2>
+    <p class="section-description">
+      History component can display icons in the timeline. The <code>iconTimeline</code> property is set to 
+      <code>true</code> and custom templates are used for left and right content.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="history-demo">
+        <div class="history-item">
+          <bntv-history
+            [historyList]="iconHistoryList"
+            [config]="iconConfig"
+            [iconTimeline]="true"
+            [templateRef]="historyRightTemplateRef"
+            [historyLeftContentTemplate]="historyLeftContentTemplate"
+          ></bntv-history>
+          <a class="view-code-link" (click)="onVariantClick('icons', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">History with Icons</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('icons')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['icons'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Grouped History Section -->
+  <section class="content-section">
+    <h2 class="section-title">Grouped History</h2>
+    <p class="section-description">
+      History items can be grouped by date or other criteria. The <code>isGrouping</code> property is set to 
+      <code>true</code> to enable grouping.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="history-demo">
+        <div class="history-item">
+          <bntv-history
+            [historyList]="groupedHistoryList"
+            [config]="basicConfig"
+            [isGrouping]="true"
+          ></bntv-history>
+          <a class="view-code-link" (click)="onVariantClick('grouped', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Grouped History</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('grouped')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['grouped'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>config</code></td>
+          <td><code>IHistoryConfig</code></td>
+          <td>-</td>
+          <td>Configuration object for the history component</td>
+        </tr>
+        <tr>
+          <td><code>historyList</code></td>
+          <td><code>any[]</code></td>
+          <td><code>[]</code></td>
+          <td>Array of history items to display</td>
+        </tr>
+        <tr>
+          <td><code>templateRef</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Custom template for rendering history items</td>
+        </tr>
+        <tr>
+          <td><code>historyLeftContentTemplate</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Template for the left content section of history items</td>
+        </tr>
+        <tr>
+          <td><code>historyRightActionTemplate</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Template for right action buttons/content</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td><code>ThemePalette</code></td>
+          <td><code>'primary'</code></td>
+          <td>Material theme color palette</td>
+        </tr>
+        <tr>
+          <td><code>showMoreOption</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to show more options in the history items</td>
+        </tr>
+        <tr>
+          <td><code>height</code></td>
+          <td><code>string</code></td>
+          <td><code>'100%'</code></td>
+          <td>Height of the history component</td>
+        </tr>
+        <tr>
+          <td><code>overflow</code></td>
+          <td><code>string</code></td>
+          <td><code>'auto'</code></td>
+          <td>Overflow behavior of the component</td>
+        </tr>
+        <tr>
+          <td><code>iconTimeline</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to show icons in the timeline</td>
+        </tr>
+        <tr>
+          <td><code>isGrouping</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to group history items</td>
+        </tr>
+        <tr>
+          <td><code>lastItemHasLine</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether the last item should have a connecting line</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Timeline Display:</strong> Use history component to display chronological events, activity logs, or audit trails</li>
+      <li><strong>Custom Templates:</strong> Use custom templates to format history items according to your design requirements</li>
+      <li><strong>Grouping:</strong> Enable grouping for better organization when displaying many history items</li>
+      <li><strong>Icons:</strong> Use icon timeline for visual enhancement and better user experience</li>
+      <li><strong>Configuration:</strong> Configure the display format using the config object to show/hide specific fields</li>
+      <li><strong>Infinite Scroll:</strong> The component supports infinite scroll for loading more history items</li>
+      <li><strong>Date Formatting:</strong> Customize date and time formats using the leftConfig.dateTimeFormat property</li>
+    </ul>
+  </section>
+</div>
+
+<ng-template #historyLeftContentTemplate let-optionRef="optionRef">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+    <bntv-icon
+      [iconName]="optionRef?.leftIcon"
+      [fontSet]="'icomoon'"
+      [type]="'fontset'"
+    ></bntv-icon>
+    <span>{{ optionRef?.createdTime | date:'MM/dd/yyyy HH:mm:ss' }}</span>
+  </div>
+</ng-template>
+
+<ng-template #historyRightTemplateRef let-history="optionRef">
+  <span>Action: {{ history.data.actionName }}</span>
+  <span>Message: {{ history.data.message }}</span>
+</ng-template>

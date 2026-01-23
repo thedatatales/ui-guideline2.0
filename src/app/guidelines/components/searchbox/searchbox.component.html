@@ -1,0 +1,168 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Searchbox</h1>
+    <p class="subtitle">
+      The Searchbox component provides a search input field with icon support. It can display
+      as an icon-only button that expands to show the input field, or as a full search input.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Searchbox</h2>
+    <p class="section-description">
+      Basic searchbox with input field visible. The <code>inputShown</code> property is set to
+      <code>true</code> to display the input field by default.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-search-box
+            [label]="'Search'"
+            [inputShown]="true"
+          >
+          </bntv-search-box>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Searchbox</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Icon Only</h2>
+    <p class="section-description">
+      Searchbox displaying only an icon that expands to show the input field when clicked.
+      The <code>inputShown</code> property is set to <code>false</code> or omitted.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-search-box
+            [label]="'Search'"
+          >
+          </bntv-search-box>
+          <a class="view-code-link" (click)="onVariantClick('iconOnly', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Icon Only</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('iconOnly')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['iconOnly'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Right Icon</h2>
+    <p class="section-description">
+      Searchbox with icon positioned on the right side. The <code>isLeftIconEnabled</code>
+      property is set to <code>false</code> to disable the left icon and show the icon on the right.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-search-box
+            [label]="'Search'"
+            [isLeftIconEnabled]="false"
+            [inputShown]="true"
+          >
+          </bntv-search-box>
+          <a class="view-code-link" (click)="onVariantClick('rightIcon', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Right Icon</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('rightIcon')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['rightIcon'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled searchbox. The <code>disabled</code> property is set to <code>true</code>
+      to prevent user interaction.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-search-box
+            [label]="'Search'"
+            [inputShown]="true"
+            [disabled]="true"
+          >
+          </bntv-search-box>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

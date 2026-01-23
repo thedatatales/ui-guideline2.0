@@ -1,0 +1,19 @@
+@use '../shared-styles' as *;
+
+.document-preview-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.document-preview-demo {
+  margin-bottom: 0;
+}
+
+.document-preview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100%;
+  flex: 0 0 100%;
+}

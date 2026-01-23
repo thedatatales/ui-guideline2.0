@@ -1,0 +1,76 @@
+@use '../_shared-styles' as *;
+
+.component-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkbox-demo {
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.component-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 280px;
+  flex: 0 1 auto;
+  margin-bottom: 16px;
+  
+  // Ensure checkbox labels are fully visible - override internal checkbox styles
+  ::ng-deep {
+    .app-checkbox {
+      width: 100%;
+      max-width: 100%;
+      
+      .checkbox__lable,
+      .checkbox__lable--checked,
+      .checkbox__lable--normal,
+      .checkbox__lable--disabled,
+      .label_outside,
+      .label_outside--checked,
+      .label_outside--normal,
+      .label_outside--disabled {
+        white-space: normal !important;
+        text-overflow: unset !important;
+        overflow: visible !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        max-width: 100% !important;
+        width: auto !important;
+        line-height: 1.4 !important;
+      }
+      
+      // Ensure the mat-checkbox container allows wrapping
+      .checkboxes {
+        max-width: 100%;
+        
+        ::ng-deep {
+          .mdc-form-field {
+            width: 100%;
+            
+            .mdc-form-field__label {
+              white-space: normal !important;
+              word-wrap: break-word !important;
+            }
+          }
+        }
+      }
+    }
+    
+    // Extended checkbox styles
+    bntv-extended-check-box {
+      width: 100%;
+      max-width: 100%;
+      
+      .extended-check-box-header {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+      }
+    }
+  }
+}

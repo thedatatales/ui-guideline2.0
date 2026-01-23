@@ -1,0 +1,325 @@
+<div class="progress-bar-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Progress Bar Component</h1>
+    <p class="subtitle">
+      The progress bar component displays progress indicators for operations. It supports multiple types including 
+      line, spinner, and circle progress bars with determinate, indeterminate, and buffer modes.
+    </p>
+  </div>
+
+  <!-- Line Progress Bar Section -->
+  <section class="content-section">
+    <h2 class="section-title">Line Progress Bar</h2>
+    <p class="section-description">
+      Line progress bars display progress horizontally. The <code>type</code> property is set to <code>'line'</code> 
+      and <code>mode</code> can be <code>'determinate'</code> or <code>'indeterminate'</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="progress-bar-demo">
+        <div class="progress-bar-item">
+          <bntv-progress-bar
+            [type]="'line'"
+            [mode]="'determinate'"
+            [value]="lineProgress"
+            [theme]="'primary'"
+          ></bntv-progress-bar>
+          <bntv-progress-bar
+            [type]="'line'"
+            [mode]="'indeterminate'"
+            [theme]="'primary'"
+            style="margin-top: 16px;"
+          ></bntv-progress-bar>
+          <a class="view-code-link" (click)="onVariantClick('line', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Line Progress Bar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('line')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['line'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Spinner Progress Bar Section -->
+  <section class="content-section">
+    <h2 class="section-title">Spinner Progress Bar</h2>
+    <p class="section-description">
+      Spinner progress bars display a circular spinner. The <code>type</code> property is set to <code>'spinner'</code> 
+      and is typically used with <code>mode</code> set to <code>'indeterminate'</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="progress-bar-demo">
+        <div class="progress-bar-item">
+          <bntv-progress-bar
+            [type]="'spinner'"
+            [mode]="'indeterminate'"
+            [diameter]="50"
+            [strokeWidth]="5"
+            [theme]="'primary'"
+          ></bntv-progress-bar>
+          <a class="view-code-link" (click)="onVariantClick('spinner', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Spinner Progress Bar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('spinner')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['spinner'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Circle Progress Bar Section -->
+  <section class="content-section">
+    <h2 class="section-title">Circle Progress Bar</h2>
+    <p class="section-description">
+      Circle progress bars display progress in a circular format. The <code>type</code> property is set to 
+      <code>'circle'</code> and supports various customization options including colors, stroke width, and labels.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="progress-bar-demo">
+        <div class="progress-bar-item">
+          <bntv-progress-bar
+            [type]="'circle'"
+            [mode]="'determinate'"
+            [value]="circleProgress"
+            [percent]="circleProgress"
+            [radius]="50"
+            [outerStrokeWidth]="8"
+            [innerStrokeWidth]="4"
+            [outerStrokeColor]="'var(--accentColor500)'"
+            [innerStrokeColor]="'var(--grayColor200)'"
+            [showTitle]="true"
+            [showSubtitle]="false"
+          ></bntv-progress-bar>
+          <a class="view-code-link" (click)="onVariantClick('circle', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Circle Progress Bar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('circle')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['circle'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Buffer Progress Bar Section -->
+  <section class="content-section">
+    <h2 class="section-title">Buffer Progress Bar</h2>
+    <p class="section-description">
+      Buffer progress bars show both progress and buffer values. The <code>mode</code> property is set to 
+      <code>'buffer'</code> and requires both <code>value</code> and <code>bufferValue</code> properties.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="progress-bar-demo">
+        <div class="progress-bar-item">
+          <bntv-progress-bar
+            [type]="'line'"
+            [mode]="'buffer'"
+            [value]="bufferProgress"
+            [bufferValue]="bufferValue"
+            [theme]="'primary'"
+          ></bntv-progress-bar>
+          <a class="view-code-link" (click)="onVariantClick('buffer', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Buffer Progress Bar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('buffer')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['buffer'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>type</code></td>
+          <td><code>'line' | 'spinner' | 'circle'</code></td>
+          <td><code>'line'</code></td>
+          <td>Type of progress bar</td>
+        </tr>
+        <tr>
+          <td><code>mode</code></td>
+          <td><code>'determinate' | 'indeterminate' | 'buffer' | 'query'</code></td>
+          <td>-</td>
+          <td>Mode of the progress bar</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td><code>number</code></td>
+          <td><code>50</code></td>
+          <td>Value of the progress bar (0-100)</td>
+        </tr>
+        <tr>
+          <td><code>bufferValue</code></td>
+          <td><code>number</code></td>
+          <td><code>75</code></td>
+          <td>Buffer value for buffer mode</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td><code>ThemePalette</code></td>
+          <td><code>'accent'</code></td>
+          <td>Material theme color palette</td>
+        </tr>
+        <tr>
+          <td><code>color</code></td>
+          <td><code>string</code></td>
+          <td><code>''</code></td>
+          <td>Custom color for the progress bar</td>
+        </tr>
+        <tr>
+          <td><code>diameter</code></td>
+          <td><code>number</code></td>
+          <td><code>50</code></td>
+          <td>Diameter for spinner type (in pixels)</td>
+        </tr>
+        <tr>
+          <td><code>strokeWidth</code></td>
+          <td><code>number</code></td>
+          <td><code>5</code></td>
+          <td>Stroke width for spinner type</td>
+        </tr>
+        <tr>
+          <td><code>radius</code></td>
+          <td><code>number</code></td>
+          <td>-</td>
+          <td>Radius for circle type</td>
+        </tr>
+        <tr>
+          <td><code>outerStrokeWidth</code></td>
+          <td><code>number</code></td>
+          <td>-</td>
+          <td>Outer stroke width for circle type</td>
+        </tr>
+        <tr>
+          <td><code>innerStrokeWidth</code></td>
+          <td><code>number</code></td>
+          <td>-</td>
+          <td>Inner stroke width for circle type</td>
+        </tr>
+        <tr>
+          <td><code>outerStrokeColor</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Outer stroke color for circle type</td>
+        </tr>
+        <tr>
+          <td><code>innerStrokeColor</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Inner stroke color for circle type</td>
+        </tr>
+        <tr>
+          <td><code>showTitle</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Show title in circle progress bar</td>
+        </tr>
+        <tr>
+          <td><code>showSubtitle</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Show subtitle in circle progress bar</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Determinate Mode:</strong> Use when you know the exact progress percentage (e.g., file uploads, downloads)</li>
+      <li><strong>Indeterminate Mode:</strong> Use when progress cannot be determined (e.g., loading data, processing)</li>
+      <li><strong>Buffer Mode:</strong> Use to show both progress and buffering status (e.g., video loading)</li>
+      <li><strong>Line Type:</strong> Best for horizontal progress indicators in forms or cards</li>
+      <li><strong>Spinner Type:</strong> Best for loading states and indeterminate operations</li>
+      <li><strong>Circle Type:</strong> Best for compact progress display and percentage visualization</li>
+      <li><strong>Accessibility:</strong> Ensure progress bars have proper ARIA labels for screen readers</li>
+      <li><strong>Color Coding:</strong> Use theme colors consistently (primary for normal, accent for highlights)</li>
+    </ul>
+  </section>
+</div>

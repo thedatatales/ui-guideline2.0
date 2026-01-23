@@ -1,0 +1,129 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Angular Calendar</h1>
+    <p class="subtitle">
+      The Angular Calendar component provides a flexible calendar interface using the angular-calendar
+      library. It supports month, week, and day views with customizable events and navigation.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Month View</h2>
+    <p class="section-description">
+      Month view displays events in a monthly calendar grid. The <code>mwl-calendar-month-view</code>
+      component shows all days of the month with events displayed on their respective dates.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <mwl-calendar-month-view
+            [viewDate]="viewDate"
+            [events]="events"
+          >
+          </mwl-calendar-month-view>
+          <a class="view-code-link" (click)="onVariantClick('month', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Month View</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('month')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['month'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Week View</h2>
+    <p class="section-description">
+      Week view displays events in a weekly timeline format. The <code>mwl-calendar-week-view</code>
+      component shows events across the days of the week with hourly segments.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <mwl-calendar-week-view
+            [viewDate]="viewDate"
+            [events]="events"
+            [hourSegments]="4"
+          >
+          </mwl-calendar-week-view>
+          <a class="view-code-link" (click)="onVariantClick('week', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Week View</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('week')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['week'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Day View</h2>
+    <p class="section-description">
+      Day view displays events for a single day in a timeline format. The <code>mwl-calendar-day-view</code>
+      component shows events throughout the day with hourly segments.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <mwl-calendar-day-view
+            [viewDate]="viewDate"
+            [events]="events"
+            [hourSegments]="4"
+          >
+          </mwl-calendar-day-view>
+          <a class="view-code-link" (click)="onVariantClick('day', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Day View</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('day')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['day'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

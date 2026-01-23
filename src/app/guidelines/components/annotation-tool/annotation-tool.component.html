@@ -1,0 +1,147 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Annotation Tool</h1>
+    <p class="subtitle">
+      The Annotation Tool component provides image annotation capabilities, allowing users to
+      draw shapes, add text, arrows, and custom images on images. It supports capturing
+      annotated images and exporting annotation data.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Annotation Tool</h2>
+    <p class="section-description">
+      Basic annotation tool with standard drawing capabilities. The <code>imageJson</code>
+      property stores all annotation data including circles, rectangles, lines, arrows, and text.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-image-annotation
+            [(imageJson)]="imageJson"
+            [style.height]="'400px'"
+            [style.width]="'100%'"
+          >
+          </bntv-image-annotation>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Annotation Tool</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Custom Images</h2>
+    <p class="section-description">
+      Annotation tool with custom images that can be dragged onto the canvas. The
+      <code>customImage</code> property enables custom images, and <code>customImageList</code>
+      provides the list of available images.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-image-annotation
+            [(imageJson)]="imageJson"
+            [customImage]="true"
+            [customImageList]="customImageList"
+            (annotationReady)="onAnnotationReady($event)"
+            [style.height]="'400px'"
+            [style.width]="'100%'"
+          >
+          </bntv-image-annotation>
+          <a class="view-code-link" (click)="onVariantClick('withCustomImages', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Custom Images</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withCustomImages')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withCustomImages'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Capture Annotation</h2>
+    <p class="section-description">
+      Annotation tool with capture functionality. The <code>annotationReady</code> event
+      provides access to the component API, which can be used to capture the annotated image.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-image-annotation
+            #annotation
+            [(imageJson)]="imageJson"
+            [annotatinOptions]="annotationOptions"
+            (annotationReady)="onAnnotationReady($event)"
+            [style.height]="'400px'"
+            [style.width]="'100%'"
+          >
+          </bntv-image-annotation>
+          <div style="margin-top: 12px;">
+            <bntv-mat-button
+              [value]="'Capture'"
+              [theme]="'primary'"
+              [type]="'raised'"
+              (clickButton)="capture()"
+            >
+            </bntv-mat-button>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('capture', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Capture Annotation</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('capture')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['capture'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

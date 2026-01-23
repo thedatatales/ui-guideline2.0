@@ -1,0 +1,699 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Stepper Component</h1>
+    <p class="subtitle">
+      The stepper component provides a wizard-like workflow by dividing content into logical steps. 
+      It supports multiple variants including horizontal, vertical, compact progress, progress timeline, and card steppers. 
+      It also supports linear progression with form validation and custom step templates.
+    </p>
+  </div>
+
+  <!-- Basic Stepper Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Horizontal Stepper</h2>
+    <p class="section-description">
+      Basic stepper displays steps horizontally. Each step is defined using <code>bntv-step</code> component 
+      with a <code>stepLabel</code> property.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-stepper #basicStepper [labelPosition]="'bottom'">
+            <bntv-step [stepLabel]="'Step 1'">
+              <div>
+                <p>Content for step 1</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextBasicStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step [stepLabel]="'Step 2'">
+              <div>
+                <p>Content for step 2</p>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousBasicStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextBasicStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step [stepLabel]="'Step 3'">
+              <div>
+                <p>Content for step 3</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousBasicStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+          </bntv-stepper>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Horizontal Stepper</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Vertical Stepper Section -->
+  <section class="content-section">
+    <h2 class="section-title">Vertical Stepper</h2>
+    <p class="section-description">
+      Stepper can be displayed vertically by setting the <code>type</code> property to <code>'vertical'</code>. 
+      Vertical steppers are useful for mobile devices or when you have limited horizontal space.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-stepper 
+            #verticalStepper
+            [type]="'vertical'"
+            [labelPosition]="'end'"
+          >
+            <bntv-step [stepLabel]="'Step 1'" [stepDescription]="'Description for step 1'">
+              <div>
+                <p>Content for step 1</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextVerticalStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step [stepLabel]="'Step 2'" [stepDescription]="'Description for step 2'">
+              <div>
+                <p>Content for step 2</p>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousVerticalStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextVerticalStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step [stepLabel]="'Step 3'">
+              <div>
+                <p>Content for step 3</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousVerticalStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+          </bntv-stepper>
+          <a class="view-code-link" (click)="onVariantClick('vertical', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Vertical Stepper</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('vertical')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['vertical'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Linear Stepper Section -->
+  <section class="content-section">
+    <h2 class="section-title">Linear Stepper with Form Validation</h2>
+    <p class="section-description">
+      Linear stepper requires users to complete each step before proceeding to the next. Set <code>isLinear</code> 
+      to <code>true</code> and provide <code>stepFormGroup</code> for form validation.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-stepper #linearStepper [isLinear]="true" [labelPosition]="'bottom'">
+            <bntv-step 
+              [stepLabel]="'Account Information'"
+              [stepFormGroup]="step1FormGroup"
+            >
+              <div>
+                <bntv-input-box
+                  [label]="'Name'"
+                  [formControl]="nameControl"
+                ></bntv-input-box>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextLinearStep()"
+                    [theme]="'primary'"
+                    [disabled]="!step1FormGroup.valid"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step 
+              [stepLabel]="'Contact Details'"
+              [stepFormGroup]="step2FormGroup"
+            >
+              <div>
+                <bntv-input-box
+                  [label]="'Email'"
+                  [formControl]="emailControl"
+                ></bntv-input-box>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousLinearStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextLinearStep()"
+                    [theme]="'primary'"
+                    [disabled]="!step2FormGroup.valid"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step [stepLabel]="'Review'">
+              <div>
+                <p>Review your information</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousLinearStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+          </bntv-stepper>
+          <a class="view-code-link" (click)="onVariantClick('linear', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Linear Stepper with Form Validation</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('linear')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['linear'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Compact Progress Stepper Section -->
+  <section class="content-section">
+    <h2 class="section-title">Compact Progress Stepper</h2>
+    <p class="section-description">
+      Compact Progress Stepper displays a compact horizontal progress timeline with stages. It's ideal for workflows 
+      where you need a space-efficient progress indicator. Set <code>type</code> to <code>'compactProgress'</code> and 
+      use <code>iconName</code> on steps to add custom icons.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-stepper 
+            #compactStepper
+            [type]="'compactProgress'"
+            [labelPosition]="'bottom'"
+            [isStreched]="true"
+          >
+            <bntv-step 
+              [stepLabel]="'Step 1'"
+              [iconName]="'Delete-Outline'"
+            >
+              <div>
+                <p>Content for step 1</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextCompactStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step 
+              [stepLabel]="'Step 2'"
+              [iconName]="'Edit-Outline'"
+            >
+              <div>
+                <p>Content for step 2</p>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousCompactStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextCompactStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step 
+              [stepLabel]="'Step 3'"
+              [iconName]="'Plus'"
+            >
+              <div>
+                <p>Content for step 3</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousCompactStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+          </bntv-stepper>
+          <a class="view-code-link" (click)="onVariantClick('compactProgress', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Compact Progress Stepper</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('compactProgress')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['compactProgress'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Progress Timeline Stepper Section -->
+  <section class="content-section">
+    <h2 class="section-title">Progress Timeline Stepper</h2>
+    <p class="section-description">
+      Progress Timeline Stepper displays a timeline view with timestamps and durations for each step. It's perfect for 
+      tracking processes with time-based information. Set <code>type</code> to <code>'progressTimeline'</code> and use 
+      <code>stepDescription</code> to show time information.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-stepper 
+            #timelineStepper
+            [type]="'progressTimeline'"
+            [selectedIndex]="0"
+          >
+            <bntv-step 
+              [stepLabel]="'New'"
+              [stepDescription]="'10:00 AM • 20min'"
+            >
+              <div>
+                <p>Step 1: New - This step has been completed.</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextTimelineStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step 
+              [stepLabel]="'Open'"
+              [stepDescription]="'10:20 AM • 1h 50min'"
+            >
+              <div>
+                <p>Step 2: Open - This step has been completed.</p>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousTimelineStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextTimelineStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step 
+              [stepLabel]="'Provisioning'"
+              [stepDescription]="'Started: 12:10 PM • Elapsed: 1h 55min'"
+            >
+              <div>
+                <p>Step 3: Provisioning (Current) - This is the current active step.</p>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousTimelineStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextTimelineStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+            <bntv-step 
+              [stepLabel]="'Delivered'"
+              [stepDescription]="'Not Started • 1h'"
+            >
+              <div>
+                <p>Step 4: Delivered - This step hasn't started yet.</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousTimelineStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step>
+          </bntv-stepper>
+          <a class="view-code-link" (click)="onVariantClick('progressTimeline', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Progress Timeline Stepper</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('progressTimeline')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['progressTimeline'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Card Stepper Section -->
+  <section class="content-section">
+    <h2 class="section-title">Card Stepper</h2>
+    <p class="section-description">
+      Card Stepper displays steps as cards, providing a card-based navigation interface. Use <code>bntv-card-stepper</code> 
+      with <code>bntv-step-card</code> components to create a card-based stepper workflow.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-card-stepper #cardStepper [cardType]="'normal'">
+            <bntv-step-card [heading]="'Card 1'">
+              <div>
+                <p>Content for card 1</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextCardStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step-card>
+            <bntv-step-card [heading]="'Card 2'">
+              <div>
+                <p>Content for card 2</p>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousCardStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                  <bntv-mat-button
+                    [value]="'Next'"
+                    (clickButton)="nextCardStep()"
+                    [theme]="'primary'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step-card>
+            <bntv-step-card [heading]="'Card 3'">
+              <div>
+                <p>Content for card 3</p>
+                <div style="margin-top: 16px;">
+                  <bntv-mat-button
+                    [value]="'Previous'"
+                    (clickButton)="previousCardStep()"
+                    [theme]="'accent'"
+                    [type]="'stroked'"
+                  ></bntv-mat-button>
+                </div>
+              </div>
+            </bntv-step-card>
+          </bntv-card-stepper>
+          <a class="view-code-link" (click)="onVariantClick('cardStepper', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Card Stepper</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('cardStepper')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['cardStepper'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>type</code></td>
+          <td><code>'horizontal' | 'vertical' | 'compactProgress' | 'progressTimeline'</code></td>
+          <td><code>'horizontal'</code></td>
+          <td>Type of the stepper layout. Use 'compactProgress' for compact progress view, 'progressTimeline' for timeline view</td>
+        </tr>
+        <tr>
+          <td><code>isLinear</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether the validity of previous steps should be checked</td>
+        </tr>
+        <tr>
+          <td><code>labelPosition</code></td>
+          <td><code>'end' | 'bottom'</code></td>
+          <td><code>'bottom'</code></td>
+          <td>Position of the step label</td>
+        </tr>
+        <tr>
+          <td><code>selectedIndex</code></td>
+          <td><code>number</code></td>
+          <td><code>0</code></td>
+          <td>The index of the selected step</td>
+        </tr>
+        <tr>
+          <td><code>disableRipple</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether ripples should be disabled for step headers</td>
+        </tr>
+        <tr>
+          <td><code>stepLabel</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Plain text label of the step</td>
+        </tr>
+        <tr>
+          <td><code>stepDescription</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Description text for the step</td>
+        </tr>
+        <tr>
+          <td><code>stepFormGroup</code></td>
+          <td><code>UntypedFormGroup</code></td>
+          <td>-</td>
+          <td>The top level abstract control of the step (for validation)</td>
+        </tr>
+        <tr>
+          <td><code>isEditable</code></td>
+          <td><code>boolean</code></td>
+          <td><code>true</code></td>
+          <td>Whether the user can return to this step once completed</td>
+        </tr>
+        <tr>
+          <td><code>stepperSelectionChange</code></td>
+          <td><code>EventEmitter</code></td>
+          <td>-</td>
+          <td>Event emitted when the selected step has changed</td>
+        </tr>
+        <tr>
+          <td><code>iconName</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Icon name for the step (used in compact progress stepper)</td>
+        </tr>
+        <tr>
+          <td><code>isStreched</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether steps should be stretched to fill available space</td>
+        </tr>
+        <tr>
+          <td><code>cardType</code></td>
+          <td><code>'normal' | 'fullScreen'</code></td>
+          <td><code>'normal'</code></td>
+          <td>Card type for card stepper (bntv-card-stepper only)</td>
+        </tr>
+        <tr>
+          <td><code>heading</code></td>
+          <td><code>any</code></td>
+          <td>-</td>
+          <td>Heading text for card step (bntv-step-card only)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Wizard Workflows:</strong> Use stepper for multi-step forms, wizards, or processes that require sequential completion</li>
+      <li><strong>Form Validation:</strong> Use linear stepper with form groups to enforce step-by-step validation</li>
+      <li><strong>Layout:</strong> Choose horizontal layout for desktop and vertical for mobile or narrow spaces</li>
+      <li><strong>Compact Progress:</strong> Use compact progress stepper when you need a space-efficient progress indicator with custom icons</li>
+      <li><strong>Progress Timeline:</strong> Use progress timeline stepper for time-based workflows where you need to display timestamps and durations</li>
+      <li><strong>Card Stepper:</strong> Use card stepper for card-based navigation interfaces where each step is displayed as a card</li>
+      <li><strong>Step Labels:</strong> Provide clear, concise labels for each step</li>
+      <li><strong>Step Descriptions:</strong> Add descriptions to provide additional context for each step, especially useful for timeline steppers</li>
+      <li><strong>Icons:</strong> Use iconName property to add custom icons to steps in compact progress stepper</li>
+      <li><strong>Navigation:</strong> Control step navigation programmatically using selectedIndex property</li>
+      <li><strong>Custom Templates:</strong> Use stepLabelTemplateRef to customize step label appearance</li>
+      <li><strong>Progress Indicators:</strong> Stepper automatically shows progress indicators for completed, current, and upcoming steps</li>
+    </ul>
+  </section>
+</div>

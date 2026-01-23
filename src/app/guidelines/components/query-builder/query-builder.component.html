@@ -1,0 +1,185 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Query Builder</h1>
+    <p class="subtitle">
+      The query builder component provides a dynamic interface for creating complex query rules.
+      It supports various field types, operators, and nested rule sets with AND/OR conditions.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Query Builder</h2>
+    <p class="section-description">
+      Basic query builder with default configuration. Users can add rules, select fields,
+      operators, and values to build queries.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-query-builder
+            [fieldList]="fieldList"
+            [data]="basicData"
+            [formGroup]="formGroup"
+            [ruleSetConfig]="ruleSetConfig"
+            [ruleConfig]="ruleConfig"
+            [enableValidation]="true"
+          >
+          </bntv-query-builder>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Query Builder</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Nested Rules</h2>
+    <p class="section-description">
+      Query builder with nested rule sets. Users can create complex queries with multiple levels
+      of AND/OR conditions.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-query-builder
+            [fieldList]="fieldList"
+            [data]="nestedData"
+            [formGroup]="queryFormGroup"
+            [ruleSetConfig]="ruleSetConfig"
+            [ruleConfig]="ruleConfig"
+            [enableValidation]="true"
+          >
+          </bntv-query-builder>
+          <a class="view-code-link" (click)="onVariantClick('nested', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Nested Rules</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('nested')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['nested'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Custom Style</h2>
+    <p class="section-description">
+      Query builder with custom styling. The <code>styleConfig</code> property allows customization
+      of background color and nested border visibility.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-query-builder
+            [fieldList]="fieldList"
+            [data]="basicData"
+            [formGroup]="formGroup"
+            [ruleSetConfig]="ruleSetConfig"
+            [ruleConfig]="ruleConfig"
+            [styleConfig]="styleConfig"
+            [enableValidation]="true"
+          >
+          </bntv-query-builder>
+          <a class="view-code-link" (click)="onVariantClick('customStyle', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Style</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customStyle')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customStyle'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled query builder. The <code>disabled</code> property is set to <code>true</code>
+      to prevent user interaction.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-query-builder
+            [fieldList]="fieldList"
+            [data]="basicData"
+            [formGroup]="formGroup"
+            [ruleSetConfig]="ruleSetConfig"
+            [ruleConfig]="ruleConfig"
+            [disabled]="true"
+            [enableValidation]="true"
+          >
+          </bntv-query-builder>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

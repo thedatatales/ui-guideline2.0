@@ -1,0 +1,230 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Auto Complete</h1>
+    <p class="subtitle">
+      The Auto Complete component provides an input field with autocomplete suggestions.
+      It supports single and multi-select modes, API integration, and custom display expressions.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Auto Complete</h2>
+    <p class="section-description">
+      Basic auto complete with a static list of options. The <code>autocompleteoptions</code> property
+      provides the list of suggestions, and <code>displayExpression</code> defines how to display each option.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-auto-complete
+            [label]="'Select Person'"
+            [required]="true"
+            [trackByKey]="'id'"
+            [displayExpression]="'$name'"
+            [autocompleteoptions]="allPersons"
+            [(data)]="selectedValue"
+          >
+          </bntv-auto-complete>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Auto Complete</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Icon</h2>
+    <p class="section-description">
+      Auto complete with a prefix icon. The <code>leftIconName</code> property displays an icon
+      on the left side of the input field.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-auto-complete
+            [label]="'Select Person'"
+            [required]="true"
+            [leftIconName]="'users-bold'"
+            [iconType]="'fontset'"
+            [fontSet]="'icomoon'"
+            [trackByKey]="'id'"
+            [displayExpression]="'$name'"
+            [autocompleteoptions]="allPersons"
+            [(data)]="selectedValue"
+          >
+          </bntv-auto-complete>
+          <a class="view-code-link" (click)="onVariantClick('withIcon', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Icon</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withIcon')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withIcon'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Multi Select</h2>
+    <p class="section-description">
+      Auto complete with multi-select capability. The <code>type</code> property is set to
+      <code>'multiselect'</code> to allow selecting multiple items.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-auto-complete
+            [label]="'Select Multiple'"
+            [required]="true"
+            [type]="'multiselect'"
+            [trackByKey]="'id'"
+            [displayExpression]="'$name'"
+            [autocompleteoptions]="allPersons"
+            [(data)]="selectedMultiValue"
+          >
+          </bntv-auto-complete>
+          <a class="view-code-link" (click)="onVariantClick('multiselect', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Multi Select</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('multiselect')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['multiselect'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With API</h2>
+    <p class="section-description">
+      Auto complete with API integration. The <code>urlMetaData</code> property provides
+      the API endpoint and configuration for fetching suggestions dynamically.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-auto-complete
+            [label]="'Search Items'"
+            [required]="true"
+            [trackByKey]="'id'"
+            [displayExpression]="'$name'"
+          >
+          </bntv-auto-complete>
+          <a class="view-code-link" (click)="onVariantClick('withApi', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With API</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withApi')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withApi'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled auto complete. The <code>disabled</code> property is set to <code>true</code>
+      to prevent user interaction.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-auto-complete
+            [label]="'Select Person'"
+            [required]="true"
+            [trackByKey]="'id'"
+            [displayExpression]="'$name'"
+            [autocompleteoptions]="allPersons"
+            [(data)]="selectedValue"
+            [disabled]="true"
+          >
+          </bntv-auto-complete>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

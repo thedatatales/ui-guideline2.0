@@ -1,0 +1,89 @@
+@use '../_shared-styles' as *;
+
+.component-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chip-variants-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.chip-variant-item {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.chip-variant-demo {
+  flex-shrink: 0;
+  min-width: 200px;
+}
+
+.chip-variant-info {
+  flex: 1;
+}
+
+.variant-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.variant-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.variant-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.variant-label {
+  font-weight: 500;
+  color: #424242;
+  min-width: 100px;
+}
+
+.variant-value {
+  font-family: 'Courier New', monospace;
+  color: var(--accentColor500);
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #e5e7eb;
+    text-decoration: underline;
+  }
+}
+
+.variant-hex {
+  font-family: 'Courier New', monospace;
+  color: var(--grayColor700);
+  cursor: pointer;
+  padding: 4px 8px;
+  background-color: #f9fafb;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #e5e7eb;
+    text-decoration: underline;
+  }
+}

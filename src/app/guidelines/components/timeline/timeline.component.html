@@ -1,0 +1,134 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Timeline</h1>
+    <p class="subtitle">
+      The Timeline component displays a chronological list of events or history items.
+      It supports icons, grouping, custom templates, and various display configurations.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Timeline</h2>
+    <p class="section-description">
+      Basic timeline displaying history items without icons. The <code>iconTimeline</code>
+      property is set to <code>false</code>.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-history
+            [historyList]="historyList"
+            [config]="historyConfig"
+            [iconTimeline]="false"
+            [height]="'400px'"
+          >
+          </bntv-history>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Timeline</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Timeline with Icons</h2>
+    <p class="section-description">
+      Timeline displaying icons for each history item. The <code>iconTimeline</code>
+      property is set to <code>true</code>.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-history
+            [historyList]="historyList"
+            [config]="historyConfig"
+            [iconTimeline]="true"
+            [height]="'400px'"
+          >
+          </bntv-history>
+          <a class="view-code-link" (click)="onVariantClick('withIcons', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Timeline with Icons</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withIcons')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withIcons'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Custom Timeline</h2>
+    <p class="section-description">
+      Timeline with custom configuration including grouping and custom height.
+      The <code>isGrouping</code> property is set to <code>true</code>.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-history
+            [historyList]="historyList"
+            [config]="historyConfig"
+            [iconTimeline]="true"
+            [isGrouping]="true"
+            [height]="'400px'"
+          >
+          </bntv-history>
+          <a class="view-code-link" (click)="onVariantClick('custom', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Timeline</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('custom')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['custom'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

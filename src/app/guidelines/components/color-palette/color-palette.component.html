@@ -1,0 +1,237 @@
+<div class="color-palette-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Color Palette</h1>
+    <p class="subtitle">
+      The color palette defines the color system used throughout the application. Each theme provides 
+      a consistent set of colors for primary, accent, warning, and gray scales.
+    </p>
+  </div>
+
+  <!-- Theme Sections -->
+  @for (theme of themes; track theme.name) {
+    <section class="theme-section">
+      <h2 class="theme-title">{{ theme.name }} Theme</h2>
+      
+      <!-- Primary Colors -->
+      <div class="color-group">
+        <h3 class="color-group-title">Primary Colors</h3>
+        <p class="color-group-description">
+          Primary colors are used for main actions, navigation, and key UI elements.
+        </p>
+        <div class="color-swatches">
+          @for (color of theme.colors.primary; track color.name) {
+            <div class="color-swatch" (click)="copyColor(color.value)">
+              <div class="color-box" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-name">{{ color.name }}</span>
+                <span class="color-value">{{ color.value }}</span>
+                @if (color.variableName) {
+                  <span class="color-variable" (click)="copyVariable(color.variableName, $event)">
+                    {{ color.variableName }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <bntv-divider></bntv-divider>
+
+      <!-- Accent Colors -->
+      <div class="color-group">
+        <h3 class="color-group-title">Accent Colors</h3>
+        <p class="color-group-description">
+          Accent colors are used for secondary actions and highlights.
+        </p>
+        <div class="color-swatches">
+          @for (color of theme.colors.accent; track color.name) {
+            <div class="color-swatch" (click)="copyColor(color.value)">
+              <div class="color-box" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-name">{{ color.name }}</span>
+                <span class="color-value">{{ color.value }}</span>
+                @if (color.variableName) {
+                  <span class="color-variable" (click)="copyVariable(color.variableName, $event)">
+                    {{ color.variableName }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <bntv-divider></bntv-divider>
+
+      <!-- Warn Colors -->
+      <div class="color-group">
+        <h3 class="color-group-title">Warning Colors</h3>
+        <p class="color-group-description">
+          Warning colors are used for error states, alerts, and destructive actions.
+        </p>
+        <div class="color-swatches">
+          @for (color of theme.colors.warn; track color.name) {
+            <div class="color-swatch" (click)="copyColor(color.value)">
+              <div class="color-box" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-name">{{ color.name }}</span>
+                <span class="color-value">{{ color.value }}</span>
+                @if (color.variableName) {
+                  <span class="color-variable" (click)="copyVariable(color.variableName, $event)">
+                    {{ color.variableName }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <bntv-divider></bntv-divider>
+
+      <!-- Gray Colors -->
+      <div class="color-group">
+        <h3 class="color-group-title">Gray Scale</h3>
+        <p class="color-group-description">
+          Gray scale colors are used for text, borders, backgrounds, and neutral elements.
+        </p>
+        <div class="color-swatches">
+          @for (color of theme.colors.gray; track color.name) {
+            <div class="color-swatch" (click)="copyColor(color.value)">
+              <div class="color-box" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-name">{{ color.name }}</span>
+                <span class="color-value">{{ color.value }}</span>
+                @if (color.variableName) {
+                  <span class="color-variable" (click)="copyVariable(color.variableName, $event)">
+                    {{ color.variableName }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    @if (!$last) {
+      <bntv-divider style="margin: 48px 0;"></bntv-divider>
+    }
+  }
+
+  <bntv-divider style="margin: 48px 0;"></bntv-divider>
+
+  <!-- CSS Variables Section -->
+  <section class="css-variables-section">
+    <h2 class="section-title">CSS Variables (from variables.scss)</h2>
+    <p class="section-description">
+      These CSS variables are defined in the global variables.scss file and can be used throughout 
+      the application. They provide semantic color naming and consistent theming.
+    </p>
+
+    @for (variableGroup of cssVariables; track variableGroup.category) {
+      <div class="color-group">
+        <h3 class="color-group-title">{{ variableGroup.category }}</h3>
+        <p class="color-group-description">{{ variableGroup.description }}</p>
+        <div class="color-swatches">
+          @for (color of variableGroup.colors; track color.name) {
+            <div class="color-swatch" (click)="copyColor(color.value)">
+              <div class="color-box" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-name">{{ color.name }}</span>
+                <span class="color-value">{{ color.value }}</span>
+                @if (color.variableName) {
+                  <span class="color-variable" (click)="copyVariable(color.variableName, $event)">
+                    {{ color.variableName }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      @if (!$last) {
+        <bntv-divider style="margin: 32px 0;"></bntv-divider>
+      }
+    }
+
+    <!-- CSS Variable Names Reference -->
+    <div class="variable-reference">
+      <h3 class="color-group-title">CSS Variable Names</h3>
+      <p class="color-group-description">
+        Use these variable names in your CSS/SCSS files:
+      </p>
+      <div class="variable-list">
+        <div class="variable-category">
+          <h4>VisionWave Colors</h4>
+          <ul>
+            <li><code>--vw-color-blue-50</code> through <code>--vw-color-blue-900</code></li>
+            <li><code>--vw-color-teal-50</code> through <code>--vw-color-teal-900</code></li>
+            <li><code>--vw-color-green-50</code> through <code>--vw-color-green-900</code></li>
+            <li><code>--vw-color-amber-50</code> through <code>--vw-color-amber-900</code></li>
+            <li><code>--vw-color-red-50</code> through <code>--vw-color-red-900</code></li>
+          </ul>
+        </div>
+        <div class="variable-category">
+          <h4>Semantic Colors</h4>
+          <ul>
+            <li><code>--vw-color-info</code>, <code>--vw-color-info-hover</code>, <code>--vw-color-info-active</code></li>
+            <li><code>--vw-color-success</code>, <code>--vw-color-success-hover</code>, <code>--vw-color-success-active</code></li>
+            <li><code>--vw-color-warning</code>, <code>--vw-color-warning-hover</code>, <code>--vw-color-warning-active</code></li>
+            <li><code>--vw-color-danger</code>, <code>--vw-color-danger-hover</code>, <code>--vw-color-danger-active</code></li>
+          </ul>
+        </div>
+        <div class="variable-category">
+          <h4>Surface & Background</h4>
+          <ul>
+            <li><code>--vw-color-background</code></li>
+            <li><code>--vw-color-surface</code>, <code>--vw-color-surface-hover</code>, <code>--vw-color-surface-active</code></li>
+            <li><code>--vw-color-surface-selected</code>, <code>--vw-color-surface-disabled</code></li>
+          </ul>
+        </div>
+        <div class="variable-category">
+          <h4>Text Colors</h4>
+          <ul>
+            <li><code>--vw-color-text-primary</code>, <code>--vw-color-text-secondary</code></li>
+            <li><code>--vw-color-text-tertiary</code>, <code>--vw-color-text-disabled</code></li>
+            <li><code>--vw-color-text-link</code>, <code>--vw-color-text-link-hover</code></li>
+          </ul>
+        </div>
+        <div class="variable-category">
+          <h4>Border Colors</h4>
+          <ul>
+            <li><code>--vw-color-border</code>, <code>--vw-color-border-hover</code>, <code>--vw-color-border-focus</code></li>
+            <li><code>--vw-color-border-error</code>, <code>--vw-color-border-success</code></li>
+          </ul>
+        </div>
+        <div class="variable-category">
+          <h4>Icon Colors</h4>
+          <ul>
+            <li><code>--vw-color-icon-primary</code>, <code>--vw-color-icon-secondary</code></li>
+            <li><code>--vw-color-icon-disabled</code>, <code>--vw-color-icon-interactive</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider style="margin: 48px 0;"></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="usage-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Primary Colors:</strong> Use primary colors for main actions, navigation bars, and key UI elements</li>
+      <li><strong>Accent Colors:</strong> Use accent colors for secondary actions, links, and highlights</li>
+      <li><strong>Warning Colors:</strong> Use warning colors for error messages, alerts, and destructive actions</li>
+      <li><strong>Gray Scale:</strong> Use gray scale for text, borders, backgrounds, and neutral UI elements</li>
+      <li><strong>Contrast:</strong> Ensure sufficient contrast between text and background colors for accessibility</li>
+      <li><strong>Consistency:</strong> Use color values consistently across the application to maintain visual harmony</li>
+      <li><strong>CSS Variables:</strong> Colors are available as CSS variables (e.g., <code>var(--primaryColor500)</code>)</li>
+      <li><strong>Click to Copy:</strong> Click on any color swatch to copy its hex value to the clipboard</li>
+    </ul>
+  </section>
+</div>

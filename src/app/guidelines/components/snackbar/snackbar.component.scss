@@ -1,0 +1,19 @@
+@use '../shared-styles' as *;
+
+.snackbar-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.snackbar-demo {
+  margin-bottom: 0;
+}
+
+.snackbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 200px;
+  flex: 0 0 auto;
+}

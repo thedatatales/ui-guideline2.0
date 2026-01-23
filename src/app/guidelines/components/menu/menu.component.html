@@ -1,0 +1,235 @@
+<div class="menu-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Menu Component</h1>
+    <p class="subtitle">
+      The menu component provides a dropdown menu interface with support for nested menus, icons, and custom templates. 
+      It is built on top of Angular Material's menu component.
+    </p>
+  </div>
+
+  <!-- Basic Menu Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Menu</h2>
+    <p class="section-description">
+      Basic menu displays a simple list of menu items. The <code>list</code> property contains the menu items, 
+      and <code>resultAction</code> event is emitted when a menu item is clicked.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="menu-demo">
+        <div class="menu-item">
+          <button mat-button [matMenuTriggerFor]="basicMenu.childMenu">Open Menu</button>
+          <bntv-menu
+            #basicMenu
+            [list]="basicMenuItems"
+            (resultAction)="onMenuAction($event)"
+          ></bntv-menu>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Menu</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Menu with Icons Section -->
+  <section class="content-section">
+    <h2 class="section-title">Menu with Icons</h2>
+    <p class="section-description">
+      Menu items can display icons alongside text. Set the <code>icon</code>, <code>iconType</code>, and 
+      <code>fontSet</code> properties on menu items to show icons.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="menu-demo">
+        <div class="menu-item">
+          <button mat-button [matMenuTriggerFor]="iconMenu.childMenu">Open Menu</button>
+          <bntv-menu
+            #iconMenu
+            [list]="menuWithIcons"
+            (resultAction)="onMenuAction($event)"
+          ></bntv-menu>
+          <a class="view-code-link" (click)="onVariantClick('icons', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Menu with Icons</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('icons')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['icons'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Nested Menu Section -->
+  <section class="content-section">
+    <h2 class="section-title">Nested Menu</h2>
+    <p class="section-description">
+      Menu component supports nested submenus. Add a <code>child</code> array to menu items to create nested menus.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="menu-demo">
+        <div class="menu-item">
+          <button mat-button [matMenuTriggerFor]="nestedMenu.childMenu">Open Menu</button>
+          <bntv-menu
+            #nestedMenu
+            [list]="nestedMenuItems"
+            (resultAction)="onMenuAction($event)"
+          ></bntv-menu>
+          <a class="view-code-link" (click)="onVariantClick('nested', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Nested Menu</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('nested')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['nested'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>list</code></td>
+          <td><code>MenuItem[]</code></td>
+          <td>-</td>
+          <td>List of all menu items</td>
+        </tr>
+        <tr>
+          <td><code>matMenu</code></td>
+          <td><code>MatMenu</code></td>
+          <td>-</td>
+          <td>Reference to Angular Material menu</td>
+        </tr>
+        <tr>
+          <td><code>overlapTrigger</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether the menu should overlap its trigger</td>
+        </tr>
+        <tr>
+          <td><code>yPosition</code></td>
+          <td><code>'above' | 'below'</code></td>
+          <td><code>'below'</code></td>
+          <td>Position of the menu in the Y axis</td>
+        </tr>
+        <tr>
+          <td><code>xPosition</code></td>
+          <td><code>'before' | 'after'</code></td>
+          <td><code>'after'</code></td>
+          <td>Position of the menu in the X axis</td>
+        </tr>
+        <tr>
+          <td><code>dynamicMenuClass</code></td>
+          <td><code>string</code></td>
+          <td><code>''</code></td>
+          <td>Dynamic class for the menu</td>
+        </tr>
+        <tr>
+          <td><code>backdropClass</code></td>
+          <td><code>string</code></td>
+          <td><code>'cdk-overlay-transparent-backdrop'</code></td>
+          <td>Backdrop class for the menu</td>
+        </tr>
+        <tr>
+          <td><code>template</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Template for custom menu content</td>
+        </tr>
+        <tr>
+          <td><code>optionTemplate</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Template for custom menu item rendering</td>
+        </tr>
+        <tr>
+          <td><code>resultAction</code></td>
+          <td><code>EventEmitter&lt;string&gt;</code></td>
+          <td>-</td>
+          <td>Event emitted when a menu item is clicked</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Menu Triggers:</strong> Use Angular Material's matMenuTriggerFor directive to attach menu to buttons or other elements</li>
+      <li><strong>Menu Items:</strong> Define menu items with title, action, and optional icon properties</li>
+      <li><strong>Nested Menus:</strong> Create nested menus by adding child arrays to menu items</li>
+      <li><strong>Icons:</strong> Add icons to menu items using icon, iconType, and fontSet properties</li>
+      <li><strong>Custom Templates:</strong> Use optionTemplate to customize the appearance of menu items</li>
+      <li><strong>Positioning:</strong> Control menu position using yPosition and xPosition properties</li>
+      <li><strong>Actions:</strong> Handle menu item clicks using the resultAction event emitter</li>
+      <li><strong>Disabled Items:</strong> Set disabled property on menu items to disable them</li>
+    </ul>
+  </section>
+</div>

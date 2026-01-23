@@ -1,0 +1,446 @@
+<div class="typography-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Typography Guidelines</h1>
+    <p class="subtitle">
+      A comprehensive guide to using typography in the Design System
+    </p>
+  </div>
+
+  <!-- 1. Typeface Section -->
+  <section class="content-section">
+    <h2 class="section-title">1. Typeface</h2>
+    
+    <div class="typeface-info">
+      <div class="typeface-item">
+        <h3 class="typeface-label">Primary Font</h3>
+        <p class="typeface-value">Poppins (sans-serif)</p>
+        <p class="typeface-description">
+          Used across the product for clarity, consistency, and accessibility.
+        </p>
+      </div>
+      
+      <div class="typeface-item">
+        <h3 class="typeface-label">Font Stack</h3>
+        <div class="code-block-inline">
+          <code>font-family: var(--fontFamily);</code>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyToClipboard('font-family: var(--fontFamily);')"
+            class="copy-icon-small"
+          ></bntv-icon>
+        </div>
+        <p class="typeface-description">
+          Default value: <code>'Poppins'</code>
+        </p>
+      </div>
+      
+      <div class="typeface-item">
+        <h3 class="typeface-label">Rationale</h3>
+        <ul class="rationale-list">
+          <li>Optimized for UI readability</li>
+          <li>Excellent performance at small sizes</li>
+          <li>Industry-standard choice for modern applications</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 2. Type Scale & Styles Section -->
+  <section class="content-section">
+    <h2 class="section-title">2. Type Scale & Styles</h2>
+    
+    <div class="type-scale-section">
+      <h3 class="subsection-title">Heading Styles</h3>
+      <table class="typography-table">
+        <thead>
+          <tr>
+            <th>Style</th>
+            <th>Font Size</th>
+            <th>Line Height</th>
+            <th>Weight</th>
+            <th>Color</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>H1</code></td>
+            <td>1.75em (28px)</td>
+            <td>2.5rem (40px)</td>
+            <td>600</td>
+            <td><code>--grayColor800</code></td>
+            <td>Page titles, main headings</td>
+          </tr>
+          <tr>
+            <td><code>H2</code></td>
+            <td>1.5em (24px)</td>
+            <td>2.25rem (36px)</td>
+            <td>600</td>
+            <td><code>--grayColor800</code></td>
+            <td>Major sections</td>
+          </tr>
+          <tr>
+            <td><code>H3</code></td>
+            <td>1.25em (20px)</td>
+            <td>1.875rem (30px)</td>
+            <td>600</td>
+            <td><code>--grayColor800</code></td>
+            <td>Subsections</td>
+          </tr>
+          <tr>
+            <td><code>H4</code></td>
+            <td>1em (16px)</td>
+            <td>1.5rem (24px)</td>
+            <td>600</td>
+            <td><code>--grayColor800</code></td>
+            <td>Cards, groups</td>
+          </tr>
+          <tr>
+            <td><code>H5</code></td>
+            <td>0.94em (15px)</td>
+            <td>1.25rem (20px)</td>
+            <td>500</td>
+            <td><code>--grayColor800</code></td>
+            <td>Small titles</td>
+          </tr>
+          <tr>
+            <td><code>H6</code></td>
+            <td>0.875em (14px)</td>
+            <td>1.15rem (18px)</td>
+            <td>500</td>
+            <td><code>--grayColor800</code></td>
+            <td>Small labels, tags</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="type-scale-section" style="margin-top: 40px;">
+      <h3 class="subsection-title">Body & Supporting Text</h3>
+      <table class="typography-table">
+        <thead>
+          <tr>
+            <th>Style</th>
+            <th>Font Size</th>
+            <th>Line Height</th>
+            <th>Weight</th>
+            <th>Color</th>
+            <th>Usage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>.body-1</code></td>
+            <td>0.875em (14px)</td>
+            <td>1.25rem (20px)</td>
+            <td>400</td>
+            <td><code>--grayColor800</code></td>
+            <td>Primary content, body text</td>
+          </tr>
+          <tr>
+            <td><code>.body-2</code></td>
+            <td>0.75em (12px)</td>
+            <td>1.125rem (18px)</td>
+            <td>400</td>
+            <td><code>--grayColor600</code></td>
+            <td>Supporting info, secondary text</td>
+          </tr>
+          <tr>
+            <td><code>.body-3</code></td>
+            <td>0.625em (10px)</td>
+            <td>0.825rem (13px)</td>
+            <td>400</td>
+            <td><code>--grayColor600</code></td>
+            <td>Labels, metadata, captions</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 3. Hierarchy Rules Section -->
+  <section class="content-section">
+    <h2 class="section-title">3. Hierarchy Rules</h2>
+    <p class="section-description">
+      Typography hierarchy follows this order of priority:
+    </p>
+    <ol class="hierarchy-list">
+      <li><strong>Font size</strong> (primary) - Most important for establishing hierarchy</li>
+      <li><strong>Font weight</strong> (secondary) - Adds emphasis and structure</li>
+      <li><strong>Color</strong> (tertiary) - Provides additional visual distinction</li>
+      <li><strong>Spacing</strong> - Grouping and rhythm for readability</li>
+    </ol>
+    <div class="accessibility-note">
+      <bntv-icon
+        [iconName]="'Info-Outline'"
+        [type]="'fontset'"
+        [fontSet]="'icomoon'"
+        [color]="'#ffc107'"
+        style="margin-right: 8px;"
+      ></bntv-icon>
+      <strong>Note:</strong> Do not rely on color alone to convey hierarchy or meaning.
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 4. Line Height & Readability Section -->
+  <section class="content-section">
+    <h2 class="section-title">4. Line Height & Readability</h2>
+    <div class="readability-info">
+      <div class="readability-item">
+        <strong>Headings:</strong> 1.4-1.5x font size
+      </div>
+      <div class="readability-item">
+        <strong>Body text:</strong> 1.4-1.5x font size
+      </div>
+      <div class="readability-item">
+        <strong>Small text:</strong> Never below 1.4x
+      </div>
+    </div>
+    <p class="section-description" style="margin-top: 16px;">
+      These ratios improve readability and visual flow. Proper line height ensures text is comfortable to read and maintains visual rhythm.
+    </p>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 5. Color Usage & Accessibility Section -->
+  <section class="content-section">
+    <h2 class="section-title">5. Color Usage & Accessibility</h2>
+    
+    <table class="typography-table">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Usage</th>
+          <th>WCAG AA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>--grayColor800</code></td>
+          <td>Primary, body text, headings</td>
+          <td>Pass</td>
+        </tr>
+        <tr>
+          <td><code>--grayColor700</code></td>
+          <td>Secondary text</td>
+          <td>Pass</td>
+        </tr>
+        <tr>
+          <td><code>--grayColor600</code></td>
+          <td>Supporting info, captions</td>
+          <td>Pass</td>
+        </tr>
+        <tr>
+          <td><code>--grayColor500</code></td>
+          <td>Disabled text, metadata</td>
+          <td>Limited</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="accessibility-rules" style="margin-top: 24px;">
+      <h3 class="subsection-title">Accessibility Rules</h3>
+      <ul class="rules-list">
+        <li><code>--grayColor500</code> and lighter must never be used for critical information</li>
+        <li>Long-form text must use <code>--grayColor800</code> or <code>--grayColor700</code></li>
+        <li>Minimum contrast ratios:
+          <ul>
+            <li>Normal text: 4.5:1</li>
+            <li>Large text (18px+): 3:1</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 6. Spacing & Rhythm Section -->
+  <section class="content-section">
+    <h2 class="section-title">6. Spacing & Rhythm</h2>
+    <div class="spacing-info">
+      <div class="spacing-item">
+        <strong>Heading + content:</strong> 0.5-1.5x line height
+      </div>
+      <div class="spacing-item">
+        <strong>Paragraph spacing:</strong> 1x line height
+      </div>
+      <div class="spacing-item">
+        <strong>Section spacing:</strong> 2-3x body line height
+      </div>
+    </div>
+    <p class="section-description" style="margin-top: 16px;">
+      Consistent spacing is essential for typographic rhythm. Use spacing tokens to maintain visual consistency across the application.
+    </p>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 7. Layout Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">7. Layout Guidelines</h2>
+    <ul class="layout-list">
+      <li><strong>Text alignment:</strong> Left-aligned for body text and paragraphs</li>
+      <li><strong>Optimal line length:</strong> 45-75 characters for optimal readability</li>
+      <li><strong>Max content width:</strong> 600-720px for reading comfort</li>
+      <li><strong>Avoid:</strong> Center-aligned text for paragraphs and long-form content</li>
+    </ul>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 8. Accessibility Compliance Section -->
+  <section class="content-section">
+    <h2 class="section-title">8. Accessibility Compliance</h2>
+    <p class="section-description">This typography system:</p>
+    <ul class="compliance-list">
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Meets WCAG 2.1 AA standards
+      </li>
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Avoids low-contrast text for primary content
+      </li>
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Uses minimum 14px body text
+      </li>
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Supports screen readers with semantic HTML (h1-h6, p)
+      </li>
+    </ul>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 9. Do & Don't Section -->
+  <section class="content-section">
+    <h2 class="section-title">9. Do & Don't</h2>
+    
+    <div class="do-dont-container">
+      <div class="do-section">
+        <h3 class="do-dont-title">
+          <bntv-icon
+            [iconName]="'Check-Circle'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'#4caf50'"
+            style="margin-right: 8px;"
+          ></bntv-icon>
+          Do
+        </h3>
+        <ul class="do-list">
+          <li>Use defined styles only (h1-h6, .body-1, .body-2, .body-3)</li>
+          <li>Maintain consistent hierarchy</li>
+          <li>Use proper semantic HTML (h1-h6, p)</li>
+          <li>Follow spacing guidelines for rhythm</li>
+        </ul>
+      </div>
+      
+      <div class="dont-section">
+        <h3 class="do-dont-title">
+          <bntv-icon
+            [iconName]="'Close-Circle'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'#f44336'"
+            style="margin-right: 8px;"
+          ></bntv-icon>
+          Don't
+        </h3>
+        <ul class="dont-list">
+          <li>Introduce new font sizes without approval</li>
+          <li>Use light colors (--grayColor500 or lighter) for important content</li>
+          <li>Use multiple fonts unnecessarily</li>
+          <li>Center-align long paragraphs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 10. System Status Section -->
+  <section class="content-section">
+    <h2 class="section-title">10. System Status</h2>
+    <ul class="status-list">
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Industry-standard
+      </li>
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Scales across web and product UI
+      </li>
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        WCAG AA compliant
+      </li>
+      <li>
+        <bntv-icon
+          [iconName]="'Check-Circle'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          [color]="'#4caf50'"
+          style="margin-right: 8px;"
+        ></bntv-icon>
+        Ready for design & development handoff
+      </li>
+    </ul>
+  </section>
+</div>

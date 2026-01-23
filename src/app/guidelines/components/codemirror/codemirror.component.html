@@ -1,0 +1,209 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">CodeMirror</h1>
+    <p class="subtitle">
+      The CodeMirror component provides a versatile code editor with syntax highlighting,
+      line numbers, linting, and support for multiple programming languages and formats.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic CodeMirror</h2>
+    <p class="section-description">
+      Basic CodeMirror editor with default configuration. Supports various code modes
+      and provides a rich editing experience.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-codemirror
+            [config]="jsonConfig"
+            [(ngModel)]="sampleJson"
+          >
+          </bntv-codemirror>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic CodeMirror</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">JSON Mode</h2>
+    <p class="section-description">
+      CodeMirror configured for JSON editing with linting enabled. The <code>mode</code> property
+      is set to <code>'application/ld+json'</code> and linting is enabled.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-codemirror
+            [config]="jsonConfig"
+            [(ngModel)]="sampleJson"
+          >
+          </bntv-codemirror>
+          <a class="view-code-link" (click)="onVariantClick('json', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">JSON Mode</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('json')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['json'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">SQL Mode</h2>
+    <p class="section-description">
+      CodeMirror configured for SQL editing. The <code>mode</code> property is set to <code>'sql'</code>
+      with bracket matching and auto-closing enabled.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-codemirror
+            [config]="sqlConfig"
+            [(ngModel)]="sampleSql"
+          >
+          </bntv-codemirror>
+          <a class="view-code-link" (click)="onVariantClick('sql', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">SQL Mode</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('sql')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['sql'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Readonly</h2>
+    <p class="section-description">
+      Readonly CodeMirror editor. The <code>readOnly</code> property is set to <code>true</code>
+      to prevent editing while still displaying code with syntax highlighting.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-codemirror
+            [config]="jsReadonlyConfig"
+            [(ngModel)]="sampleJs"
+          >
+          </bntv-codemirror>
+          <a class="view-code-link" (click)="onVariantClick('readonly', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Readonly</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('readonly')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['readonly'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Label</h2>
+    <p class="section-description">
+      CodeMirror editor with a label. The <code>label</code> property displays a label
+      above the editor, and <code>required</code> can be set for form validation.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-codemirror
+            [config]="jsonConfig"
+            [label]="'JSON Editor'"
+            [(ngModel)]="sampleJson"
+            [required]="true"
+          >
+          </bntv-codemirror>
+          <a class="view-code-link" (click)="onVariantClick('withLabel', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Label</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withLabel')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withLabel'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

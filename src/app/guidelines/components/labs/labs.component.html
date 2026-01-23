@@ -1,0 +1,56 @@
+<div class="labs-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Labs</h1>
+    <p class="subtitle">
+      Color palette comparison and experimental features
+    </p>
+  </div>
+
+  <!-- Two Column Layout -->
+  <div class="palette-comparison" fxLayout="row" fxLayoutGap="24px">
+    <!-- Column 1: bntv-palette -->
+    <div class="palette-column" fxFlex="1 1 50%">
+      <h2 class="column-title">bntv-palette</h2>
+      @for (group of bntvPalette; track group.colorName) {
+        <div class="color-group">
+          <h3 class="color-group-title">{{ group.colorName }}</h3>
+          @for (color of group.colors; track color.variableName; let last = $last) {
+            <div class="color-row">
+              <div class="color-swatch" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-hex">hex:{{ color.value }}</span>
+                <span class="color-variable">{{ color.variableName }}</span>
+              </div>
+            </div>
+            @if (!last) {
+              <div class="color-divider"></div>
+            }
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Column 2: theme-colors -->
+    <div class="palette-column" fxFlex="1 1 50%">
+      <h2 class="column-title">theme-colors</h2>
+      @for (group of themeColors; track group.colorName) {
+        <div class="color-group">
+          <h3 class="color-group-title">{{ group.colorName }}</h3>
+          @for (color of group.colors; track color.variableName; let last = $last) {
+            <div class="color-row">
+              <div class="color-swatch" [style.background-color]="color.value"></div>
+              <div class="color-info">
+                <span class="color-hex">hex:{{ color.value }}</span>
+                <span class="color-variable">{{ color.variableName }}</span>
+              </div>
+            </div>
+            @if (!last) {
+              <div class="color-divider"></div>
+            }
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

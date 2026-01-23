@@ -1,0 +1,92 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Iframe</h1>
+    <p class="subtitle">
+      The Iframe component allows you to embed external web pages or applications within your application. 
+      It provides a secure way to display content from other sources.
+    </p>
+  </div>
+
+  <!-- Basic Iframe Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Iframe</h2>
+    <p class="section-description">
+      Embed an external URL in an iframe. The component automatically sanitizes the URL and adds 
+      embed parameters for proper integration.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-embeded-iframe
+            [url]="'https://www.example.com'"
+          >
+          </bntv-embeded-iframe>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Iframe</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Dynamic URL Section -->
+  <section class="content-section">
+    <h2 class="section-title">Dynamic URL</h2>
+    <p class="section-description">
+      Use a dynamic URL that can be changed programmatically. The iframe will automatically 
+      update when the URL changes.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-embeded-iframe
+            [url]="iframeUrl"
+          >
+          </bntv-embeded-iframe>
+          <a class="view-code-link" (click)="onVariantClick('withUrl', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Dynamic URL</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withUrl')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withUrl'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

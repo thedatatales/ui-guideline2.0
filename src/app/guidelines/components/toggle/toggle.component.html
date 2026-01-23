@@ -1,0 +1,469 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Toggle Component</h1>
+    <p class="subtitle">
+      The toggle component provides various toggle interfaces including slide toggles, button toggles, and extended toggles. Toggles allow users to switch between two states (on/off).
+    </p>
+  </div>
+
+  <!-- Slide Toggle Section -->
+  <section class="content-section">
+    <h2 class="section-title">Slide Toggle</h2>
+    <p class="section-description">
+      Slide toggle component with different style types. Use <code>text</code> for the label, <code>checked</code> for two-way binding, and <code>styleType</code> to specify the visual style ('box' or 'inlineBox').
+    </p>
+    
+    <!-- Box Type (default) -->
+    <h3 class="subsection-title" style="margin-top: 24px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Style Type: box (default)</h3>
+    <div class="demo-container">
+      <div class="toggle-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Active</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue"
+            [styleType]="'box'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleBox', 'active')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Inactive</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue2"
+            [styleType]="'box'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleBox', 'inactive')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Active Disabled</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue3"
+            [disabled]="true"
+            [styleType]="'box'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleBox', 'activeDisabled')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Inactive Disabled</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue4"
+            [disabled]="true"
+            [styleType]="'box'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleBox', 'inactiveDisabled')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- InlineBox Type -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Style Type: inlineBox</h3>
+    <div class="demo-container">
+      <div class="toggle-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Active</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue5"
+            [styleType]="'inlineBox'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleInlineBox', 'active')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Inactive</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue6"
+            [styleType]="'inlineBox'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleInlineBox', 'inactive')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Active Disabled</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue7"
+            [disabled]="true"
+            [styleType]="'inlineBox'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleInlineBox', 'activeDisabled')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Inactive Disabled</div>
+          <bntv-slide-toggle
+            [text]="'Advanced'"
+            [(checked)]="slideToggleValue8"
+            [disabled]="true"
+            [styleType]="'inlineBox'"
+          ></bntv-slide-toggle>
+          <a class="view-code-link" (click)="onVariantClick('slideToggleInlineBox', 'inactiveDisabled')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section" *ngIf="activeCodeSection === 'slideToggleBox' || activeCodeSection === 'slideToggleInlineBox' || activeCodeSection === 'slideToggleBoxDisabled' || activeCodeSection === 'slideToggleInlineBoxDisabled'">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Slide Toggle</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode(activeCodeSection)"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode[activeCodeSection] || '' }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Extended Toggle Section -->
+  <section class="content-section">
+    <h2 class="section-title">Extended Toggle</h2>
+    <p class="section-description">
+      Extended toggle with label and description. Use <code>label</code> for the main text, <code>description</code> for additional context, <code>bgColor</code> for background styling, and <code>labelIconConfig</code> for icon configuration.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="toggle-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="toggle-item" style="min-width: 100%;">
+          <bntv-extended-toggle
+            [label]="'Extended toggle button'"
+            [description]="'Extended toggle button description'"
+            [disabled]="false"
+            [required]="false"
+            [(data)]="extendedToggleValue"
+          ></bntv-extended-toggle>
+          <a class="view-code-link" (click)="onVariantClick('extendedToggle', 'default')">view code</a>
+        </div>
+        <div class="toggle-item" style="min-width: 100%;">
+          <bntv-extended-toggle
+            [label]="'Extended toggle button with background color and icon'"
+            [description]="'Extended toggle button description long sentence to check the ellipsis and show description line clamp as the default max line count is 2'"
+            [disabled]="false"
+            [required]="false"
+            [bgColor]="'var(--bgColor10)'"
+            [labelIconConfig]="{ fontSize: '1.2em', name: 'Info-Outline', color: 'var(--grayColor600)' }"
+            [(data)]="extendedToggleValue2"
+          ></bntv-extended-toggle>
+          <a class="view-code-link" (click)="onVariantClick('extendedToggleWithBg', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section" *ngIf="activeCodeSection === 'extendedToggle' || activeCodeSection === 'extendedToggleWithBg'">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Extended Toggle</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode(activeCodeSection)"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode[activeCodeSection] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Button Toggle Section -->
+  <section class="content-section">
+    <h2 class="section-title">Button Toggle</h2>
+    <p class="section-description">
+      Button toggle group for selecting from multiple options. Supports text, icon, icon with label, and multiple selection modes. Use <code>type</code> to specify 'flat' (default) or 'stroked' style.
+    </p>
+    
+    <!-- Type: flat (default) -->
+    <h3 class="subsection-title" style="margin-top: 24px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Type: flat (default)</h3>
+    <div class="demo-container">
+      <div class="toggle-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Text</div>
+          <bntv-button-toggle [list]="andOrList"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleText', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Text Disabled</div>
+          <bntv-button-toggle [list]="andOrList" [disabled]="true"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleTextDisabled', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon</div>
+          <bntv-button-toggle [(list)]="iconList"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleIcon', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon Disabled</div>
+          <bntv-button-toggle [(list)]="iconList" [disabled]="true"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleIconDisabled', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon Label</div>
+          <bntv-button-toggle [(list)]="iconList1"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleIconLabel', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon Label Disabled</div>
+          <bntv-button-toggle [(list)]="iconList1" [disabled]="true"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleIconLabelDisabled', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Multiple</div>
+          <bntv-button-toggle
+            [multiple]="true"
+            (selectedItem)="onButtonToggleChange($event)"
+            [list]="multipleList"
+          ></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleMultiple', 'default')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Multiple Disabled</div>
+          <bntv-button-toggle
+            [multiple]="true"
+            [disabled]="true"
+            (selectedItem)="onButtonToggleChange($event)"
+            [list]="multipleList"
+          ></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleMultipleDisabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type: stroked -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Type: stroked</h3>
+    <div class="demo-container">
+      <div class="toggle-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Text</div>
+          <bntv-button-toggle [list]="andOrList" [type]="'stroked'"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'text')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Text Disabled</div>
+          <bntv-button-toggle [list]="andOrList" [disabled]="true" [type]="'stroked'"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'textDisabled')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon</div>
+          <bntv-button-toggle [(list)]="iconList" [type]="'stroked'"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'icon')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon Disabled</div>
+          <bntv-button-toggle [(list)]="iconList" [disabled]="true" [type]="'stroked'"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'iconDisabled')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon Label</div>
+          <bntv-button-toggle [(list)]="iconList1" [type]="'stroked'"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'iconLabel')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Icon Label Disabled</div>
+          <bntv-button-toggle [(list)]="iconList1" [disabled]="true" [type]="'stroked'"></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'iconLabelDisabled')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Multiple</div>
+          <bntv-button-toggle
+            [multiple]="true"
+            [type]="'stroked'"
+            (selectedItem)="onButtonToggleChange($event)"
+            [list]="multipleList"
+          ></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'multiple')">view code</a>
+        </div>
+        <div class="toggle-item">
+          <div style="margin-bottom: 8px;">Multiple Disabled</div>
+          <bntv-button-toggle
+            [multiple]="true"
+            [type]="'stroked'"
+            [disabled]="true"
+            (selectedItem)="onButtonToggleChange($event)"
+            [list]="multipleList"
+          ></bntv-button-toggle>
+          <a class="view-code-link" (click)="onVariantClick('buttonToggleStroked', 'multipleDisabled')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section" *ngIf="activeCodeSection.startsWith('buttonToggle')">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Button Toggle</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode(activeCodeSection)"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode[activeCodeSection] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4" style="font-weight: 600; background-color: #f5f5f5;">Slide Toggle</td>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Label text for the toggle</td>
+        </tr>
+        <tr>
+          <td><code>checked</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Toggle state - use two-way binding [(checked)]</td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable the toggle</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td>string</td>
+          <td><code>'accent'</code></td>
+          <td>Theme color: 'primary', 'accent', 'warn'</td>
+        </tr>
+        <tr>
+          <td><code>styleType</code></td>
+          <td>string</td>
+          <td><code>'box'</code></td>
+          <td>Visual style type: 'box' (default) or 'inlineBox'</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="font-weight: 600; background-color: #f5f5f5;">Extended Toggle</td>
+        </tr>
+        <tr>
+          <td><code>label</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Main label text</td>
+        </tr>
+        <tr>
+          <td><code>description</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Description text below the label</td>
+        </tr>
+        <tr>
+          <td><code>data</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Toggle state - use two-way binding [(data)]</td>
+        </tr>
+        <tr>
+          <td><code>bgColor</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Background color for the toggle container</td>
+        </tr>
+        <tr>
+          <td><code>labelIconConfig</code></td>
+          <td>object</td>
+          <td>-</td>
+          <td>Configuration for label icon: {{ '{' }} fontSize: string, name: string, color: string {{ '}' }}</td>
+        </tr>
+        <tr>
+          <td><code>required</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Mark toggle as required</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="font-weight: 600; background-color: #f5f5f5;">Button Toggle</td>
+        </tr>
+        <tr>
+          <td><code>list</code></td>
+          <td>any[]</td>
+          <td>-</td>
+          <td>Array of toggle options</td>
+        </tr>
+        <tr>
+          <td><code>displayExpression</code></td>
+          <td>string</td>
+          <td><code>'$label'</code></td>
+          <td>Expression to display option text</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Key name for the option value</td>
+        </tr>
+        <tr>
+          <td><code>multiple</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Allow multiple selections</td>
+        </tr>
+        <tr>
+          <td><code>type</code></td>
+          <td>string</td>
+          <td><code>'flat'</code></td>
+          <td>Button style: 'flat' or 'stroked'</td>
+        </tr>
+        <tr>
+          <td><code>selectedItem</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when an item is selected</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Slide Toggle</strong>: Use for simple on/off switches and binary choices</li>
+      <li><strong>Extended Toggle</strong>: Use when you need to provide additional context with a description</li>
+      <li><strong>Button Toggle</strong>: Use for selecting from multiple related options</li>
+      <li><strong>State Management</strong>: Always use two-way binding for toggle state management</li>
+      <li><strong>Visual Feedback</strong>: Provide clear visual indication of the current toggle state</li>
+      <li><strong>Accessibility</strong>: Ensure toggles have proper labels and keyboard navigation</li>
+      <li><strong>Grouping</strong>: Use button toggles for mutually exclusive options</li>
+    </ol>
+  </section>
+</div>

@@ -1,0 +1,150 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Carousel Slider</h1>
+    <p class="subtitle">
+      The Carousel Slider component displays a carousel of items with customizable navigation,
+      auto-play, and transition effects. It supports custom templates for rendering carousel items.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Carousel</h2>
+    <p class="section-description">
+      Basic carousel slider displaying items in a loop. The <code>type</code> property is set
+      to <code>'custom'</code> to enable custom content templates.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <bntv-carousel-slider
+            [type]="'custom'"
+            [listData]="listData"
+            [contentTemplate]="cardTemplate"
+          >
+          </bntv-carousel-slider>
+          <ng-template #cardTemplate let-item="item">
+            <div style="padding: 12px; background: var(--bgColor50); border-radius: 8px; margin: 8px;">
+              <h3 style="margin: 0 0 8px 0;">{{ item.title }}</h3>
+              <p style="margin: 0; color: var(--grayColor600);">{{ item.date }}</p>
+            </div>
+          </ng-template>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Carousel</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Navigation Buttons</h2>
+    <p class="section-description">
+      Carousel with navigation buttons and dot indicators. The <code>carouselOptions</code>
+      property configures navigation, dots, and slide behavior.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <bntv-carousel-slider
+            [type]="'custom'"
+            [carouselOptions]="carouselOptionsWithNav"
+            [listData]="listData"
+            [contentTemplate]="cardTemplate"
+          >
+          </bntv-carousel-slider>
+          <ng-template #cardTemplate let-item="item">
+            <div style="padding: 12px; background: var(--bgColor50); border-radius: 8px; margin: 8px;">
+              <h3 style="margin: 0 0 8px 0;">{{ item.title }}</h3>
+              <p style="margin: 0; color: var(--grayColor600);">{{ item.date }}</p>
+            </div>
+          </ng-template>
+          <a class="view-code-link" (click)="onVariantClick('withNavigation', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Navigation Buttons</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withNavigation')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withNavigation'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Auto Slide</h2>
+    <p class="section-description">
+      Carousel with automatic sliding. The <code>autoplay</code> and <code>autoplayTimeout</code>
+      properties control the auto-play behavior.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <bntv-carousel-slider
+            [type]="'custom'"
+            [carouselOptions]="carouselOptionsAutoSlide"
+            [listData]="listData"
+            [contentTemplate]="cardTemplate"
+          >
+          </bntv-carousel-slider>
+          <ng-template #cardTemplate let-item="item">
+            <div style="padding: 12px; background: var(--bgColor50); border-radius: 8px; margin: 8px;">
+              <h3 style="margin: 0 0 8px 0;">{{ item.title }}</h3>
+              <p style="margin: 0; color: var(--grayColor600);">{{ item.date }}</p>
+            </div>
+          </ng-template>
+          <a class="view-code-link" (click)="onVariantClick('autoSlide', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Auto Slide</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('autoSlide')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['autoSlide'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

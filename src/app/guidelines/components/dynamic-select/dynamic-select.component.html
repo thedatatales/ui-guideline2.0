@@ -1,0 +1,145 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Dynamic Select</h1>
+    <p class="subtitle">
+      The Dynamic Select component extends the Selectbox component with dynamic data loading
+      capabilities. It supports server-side data fetching, infinite scroll, and batched loading
+      for handling large datasets efficiently.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Dynamic Mode</h2>
+    <p class="section-description">
+      Dynamic select that fetches data from a server endpoint. The <code>mode</code> property
+      is set to <code>'dynamic'</code>, and <code>urlMetaData</code> provides the API configuration.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <bntv-select-box
+            [label]="'Dynamic Select'"
+            [mode]="'dynamic'"
+            [urlMetaData]="urlMetaData"
+            [displayExpression]="'$name'"
+            [uniqueItemKey]="'id'"
+            [batchSize]="10"
+            [isMultipleSelect]="true"
+          >
+          </bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('dynamic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Dynamic Mode</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('dynamic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['dynamic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Batched Mode</h2>
+    <p class="section-description">
+      Batched select that loads data in batches from a provided list. The <code>mode</code>
+      property is set to <code>'batched'</code>, and data is loaded incrementally.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <bntv-select-box
+            [label]="'Batched Select'"
+            [mode]="'batched'"
+            [itemList]="mockBankList"
+            [displayExpression]="'$name'"
+            [uniqueItemKey]="'id'"
+            [isMultipleSelect]="true"
+            [displaySelectedCount]="2"
+          >
+          </bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('batched', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Batched Mode</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('batched')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['batched'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Infinite Scroll</h2>
+    <p class="section-description">
+      Dynamic select with infinite scroll capability. The <code>enableOnscroll</code> property
+      enables infinite scrolling, and the <code>onScroll</code> event loads more data as the
+      user scrolls.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%;">
+          <bntv-select-box
+            [label]="'Infinite Scroll Select'"
+            [mode]="'batched'"
+            [itemList]="mockBankList"
+            [displayExpression]="'$name'"
+            [uniqueItemKey]="'id'"
+            [enableOnscroll]="true"
+            [infiniteScrollComplete]="false"
+            [isMultipleSelect]="true"
+          >
+          </bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('infiniteScroll', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Infinite Scroll</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('infiniteScroll')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['infiniteScroll'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,180 @@
+<div class="grid-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Grid Component</h1>
+    <p class="subtitle">
+      The grid component provides a powerful data table with features like sorting, filtering, pagination, and server-side data loading. It's built on top of AG-Grid and supports both client-side and server-side data modes.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic grid component with client-side data. Use <code>agGridConfig</code> to provide column definitions and row data. Set <code>agGridMode</code> to <code>'clientSide'</code> for client-side data handling.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="grid-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="grid-item">
+          <bntv-gx-ag-grid
+            [agGridName]="'basic-grid'"
+            [agGridMode]="'clientSide'"
+            [agGridConfig]="basicGridConfig"
+            [style.height]="'400px'"
+            (agGridOnReady)="onGridReady($event)"
+          ></bntv-gx-ag-grid>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Server-Side Section -->
+  <section class="content-section">
+    <h2 class="section-title">Server-Side Grid</h2>
+    <p class="section-description">
+      Grid with server-side data loading. Set <code>agGridMode</code> to <code>'serverSide'</code> and configure <code>rowModelType</code> as <code>'serverSide'</code> in gridOptions. Use <code>agGridInitialApiCall</code> to trigger initial data load.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="grid-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="grid-item">
+          <bntv-gx-ag-grid
+            [agGridName]="'server-grid'"
+            [agGridMode]="'serverSide'"
+            [agGridConfig]="serverSideGridConfig"
+            [agGridInitialApiCall]="false"
+            [style.height]="'400px'"
+            (agGridOnReady)="onGridReady($event)"
+          ></bntv-gx-ag-grid>
+          <a class="view-code-link" (click)="onVariantClick('serverSide', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Server-Side Grid</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('serverSide')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['serverSide'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>agGridName</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Unique identifier for the grid instance</td>
+        </tr>
+        <tr>
+          <td><code>agGridMode</code></td>
+          <td>string</td>
+          <td><code>'serverSide'</code></td>
+          <td>Grid mode: 'clientSide' or 'serverSide'</td>
+        </tr>
+        <tr>
+          <td><code>agGridConfig</code></td>
+          <td>IGridConfig</td>
+          <td>-</td>
+          <td>Grid configuration object with columnDefs and gridOptions</td>
+        </tr>
+        <tr>
+          <td><code>agGridInitialApiCall</code></td>
+          <td>boolean</td>
+          <td><code>true</code></td>
+          <td>Trigger initial API call for server-side grids</td>
+        </tr>
+        <tr>
+          <td><code>agGridModuleName</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Module name for grid context</td>
+        </tr>
+        <tr>
+          <td><code>type</code></td>
+          <td>string</td>
+          <td><code>'grid'</code></td>
+          <td>Grid type: 'grid', 'kanban', 'timeline', etc.</td>
+        </tr>
+        <tr>
+          <td><code>agGridOnReady</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when grid is ready</td>
+        </tr>
+        <tr>
+          <td><code>agGridOnFilterApply</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when filters are applied</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Grid Mode</strong>: Use 'clientSide' for small datasets, 'serverSide' for large datasets</li>
+      <li><strong>Column Definitions</strong>: Define columns using columnDefs array with headerName, field, and width</li>
+      <li><strong>Row Data</strong>: Provide rowData array for client-side grids</li>
+      <li><strong>Server-Side</strong>: Configure datasource for server-side grids to handle data fetching</li>
+      <li><strong>Performance</strong>: Use pagination, virtual scrolling, and server-side mode for large datasets</li>
+      <li><strong>Filtering</strong>: Grid supports built-in filtering and custom filter components</li>
+      <li><strong>Sorting</strong>: Enable sorting on columns using sortable property in columnDefs</li>
+      <li><strong>Accessibility</strong>: Ensure grid has proper ARIA labels and keyboard navigation</li>
+    </ol>
+  </section>
+</div>

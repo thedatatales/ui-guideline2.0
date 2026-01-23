@@ -1,0 +1,189 @@
+<div class="drag-box-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Drag Box Component</h1>
+    <p class="subtitle">
+      The drag box component provides a draggable container with a label or custom template content. 
+      It displays a drag handle icon and is commonly used in form builders and drag-and-drop interfaces.
+    </p>
+  </div>
+
+  <!-- Basic Drag Box Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Drag Box</h2>
+    <p class="section-description">
+      Basic drag box displays a label with a drag handle icon. Use the <code>label</code> property 
+      to set the text displayed in the drag box.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="drag-box-demo">
+        <div class="drag-box-item">
+          <bntv-drag-drop-box [label]="'Drag Me'"></bntv-drag-drop-box>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Drag Box</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Drag Box with Template Section -->
+  <section class="content-section">
+    <h2 class="section-title">Drag Box with Custom Template</h2>
+    <p class="section-description">
+      Drag box can use a custom template instead of a simple label. Use the <code>templateRef</code> 
+      property to provide a custom template for more complex content.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="drag-box-demo">
+        <div class="drag-box-item">
+          <bntv-drag-drop-box [templateRef]="customTemplate"></bntv-drag-drop-box>
+          <a class="view-code-link" (click)="onVariantClick('withTemplate', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Drag Box with Custom Template</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withTemplate')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withTemplate'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Drag Box without Icon Section -->
+  <section class="content-section">
+    <h2 class="section-title">Drag Box without Icon</h2>
+    <p class="section-description">
+      Hide the drag handle icon by setting <code>hideIcon</code> to <code>true</code>. This is useful 
+      when you want a label-only display without the drag indicator.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="drag-box-demo">
+        <div class="drag-box-item">
+          <bntv-drag-drop-box 
+            [label]="'No Drag Icon'"
+            [hideIcon]="true"
+          ></bntv-drag-drop-box>
+          <a class="view-code-link" (click)="onVariantClick('hideIcon', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Drag Box without Icon</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('hideIcon')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['hideIcon'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>label</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Text label to display in the drag box</td>
+        </tr>
+        <tr>
+          <td><code>templateRef</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Custom template for drag box content (alternative to label)</td>
+        </tr>
+        <tr>
+          <td><code>hideIcon</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Hide the drag handle icon</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Form Builders:</strong> Use drag box in form builders to create draggable form field containers</li>
+      <li><strong>List Reordering:</strong> Implement drag box in lists to enable item reordering</li>
+      <li><strong>Custom Templates:</strong> Use templateRef for complex content that requires formatting or multiple elements</li>
+      <li><strong>Visual Indicator:</strong> The drag icon provides a visual cue that the item is draggable</li>
+      <li><strong>Accessibility:</strong> Ensure drag functionality is accessible via keyboard navigation</li>
+      <li><strong>Integration:</strong> Integrate with Angular CDK drag-drop for full drag-and-drop functionality</li>
+      <li><strong>Styling:</strong> Customize appearance to match your application's design system</li>
+      <li><strong>Performance:</strong> Use drag box efficiently in large lists with virtualization if needed</li>
+    </ul>
+  </section>
+</div>
+
+<ng-template #customTemplate>
+  <div fxLayout="column" fxLayoutGap="8px">
+    <h4 style="margin: 0; font-size: 1.1em;">Custom Content</h4>
+    <p style="margin: 0; color: var(--grayColor600);">This is custom content in the drag box</p>
+  </div>
+</ng-template>

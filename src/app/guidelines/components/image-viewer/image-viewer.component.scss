@@ -1,0 +1,46 @@
+@use '../_shared-styles' as *;
+
+.component-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.component-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.component-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.coming-soon-placeholder {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--grayColor50, #f5f5f5);
+  border: 2px dashed var(--grayColor300, #d1d1d1);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+}
+
+.coming-soon-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--grayColor600, #666);
+  margin: 0 0 8px 0;
+}
+
+.coming-soon-subtext {
+  font-size: 14px;
+  color: var(--grayColor500, #888);
+  margin: 0;
+}

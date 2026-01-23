@@ -1,0 +1,182 @@
+<div class="inline-edit-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Inline Edit Component</h1>
+    <p class="subtitle">
+      The inline edit component allows users to edit content directly in place without navigating to a separate edit page. It supports various trigger modes and save behaviors.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic inline edit functionality. Configure the <code>inlineEditorConfig</code> property to enable inline editing with click-to-edit behavior.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="inline-edit-demo" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="inline-edit-item">
+          <bntv-input-box
+            [label]="'Inline Edit'"
+            [(data)]="inlineEditValue"
+            [inlineEditorConfig]="inlineConfig"
+            (onSave)="onSave($event)"
+            (onCancelInline)="onCancel($event)"
+            (onEditing)="onEditing($event)"
+          >
+          </bntv-input-box>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Configuration Section -->
+  <section class="content-section">
+    <h2 class="section-title">Configuration Options</h2>
+    <p class="section-description">
+      Inline edit supports various configuration options for trigger modes and save behaviors. Use <code>editableOn</code> to set trigger mode and <code>saveOn</code> to set save behavior.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="inline-edit-demo" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="inline-edit-item">
+          <bntv-input-box
+            [label]="'Double Click to Edit'"
+            [(data)]="inlineEditValue2"
+            [inlineEditorConfig]="inlineConfigDoubleClick"
+            (onSave)="onSave($event)"
+            (onCancelInline)="onCancel($event)"
+            (onEditing)="onEditing($event)"
+          >
+          </bntv-input-box>
+          <a class="view-code-link" (click)="onVariantClick('config', 'doubleClick')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Configuration Options</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('config')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['config'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>inlineEditorConfig</code></td>
+          <td>IConfigInlineEditor</td>
+          <td>-</td>
+          <td>Configuration object for inline editor behavior</td>
+        </tr>
+        <tr>
+          <td><code>editable</code></td>
+          <td>boolean</td>
+          <td><code>true</code></td>
+          <td>Whether the field is editable</td>
+        </tr>
+        <tr>
+          <td><code>editableOn</code></td>
+          <td>EditOptions</td>
+          <td><code>EditOptions.CLICK</code></td>
+          <td>Trigger mode: EditOptions.CLICK, EditOptions.DB_CLICK, EditOptions.ICON_CLICK</td>
+        </tr>
+        <tr>
+          <td><code>saveOn</code></td>
+          <td>SaveOnType</td>
+          <td><code>SaveOnType.OUTSIDE_CLICK</code></td>
+          <td>Save behavior: SaveOnType.OUTSIDE_CLICK, SaveOnType.ICON_CLICK, SaveOnType.VALUE_CHANGE</td>
+        </tr>
+        <tr>
+          <td><code>displayMode</code></td>
+          <td>ModeType</td>
+          <td><code>ModeType.LABEL_WRAP</code></td>
+          <td>Display mode: ModeType.LABEL_WRAP, ModeType.EDITOR</td>
+        </tr>
+        <tr>
+          <td><code>onSave</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when changes are saved</td>
+        </tr>
+        <tr>
+          <td><code>onCancelInline</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when editing is cancelled</td>
+        </tr>
+        <tr>
+          <td><code>onEditing</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when editing starts</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Trigger Modes</strong>: Use 'Click' for quick edits, 'DB_Click' to prevent accidental edits</li>
+      <li><strong>Save Behavior</strong>: Use 'Outside_Click' for intuitive save, 'Enter' for keyboard-friendly editing</li>
+      <li><strong>Editor Mode</strong>: Use 'text' for simple text, 'editor' for rich text editing</li>
+      <li><strong>User Feedback</strong>: Provide visual feedback when entering edit mode</li>
+      <li><strong>Validation</strong>: Validate input before saving inline edits</li>
+      <li><strong>Accessibility</strong>: Ensure inline edit has proper keyboard navigation and ARIA labels</li>
+      <li><strong>Cancel Option</strong>: Always allow users to cancel inline edits</li>
+    </ol>
+  </section>
+</div>

@@ -1,0 +1,263 @@
+<div class="tooltip-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Tooltip Component</h1>
+    <p class="subtitle">
+      The tooltip component provides contextual help and information on hover. It supports multiple directives 
+      including <code>appTooltip</code> and <code>appTippy</code>, with options for custom templates and styling.
+    </p>
+  </div>
+
+  <!-- Basic Tooltip Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Tooltip</h2>
+    <p class="section-description">
+      Basic tooltips display text on hover. Use the <code>appTooltip</code> directive with a string value 
+      to display simple tooltip messages.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="tooltip-demo">
+        <div class="tooltip-item">
+          <button mat-button [appTooltip]="'This is a basic tooltip message'">
+            Hover me for tooltip
+          </button>
+          <button mat-button 
+            [appTooltip]="'Tooltip with custom offset'"
+            [offsetX]="10"
+            [offsetY]="20"
+            style="margin-left: 16px;">
+            Hover me (offset)
+          </button>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Tooltip</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Tippy Tooltip Section -->
+  <section class="content-section">
+    <h2 class="section-title">Tippy Tooltip</h2>
+    <p class="section-description">
+      Tippy tooltips use Tippy.js library for advanced tooltip features. Use the <code>appTippyTitle</code> 
+      directive with various placement and styling options.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="tooltip-demo">
+        <div class="tooltip-item">
+          <button mat-button 
+            [appTippyTitle]="'Tippy Tooltip'"
+            [tippyTitlePosition]="'top'">
+            Hover me (Tippy)
+          </button>
+          <button mat-button 
+            [appTippyTitle]="'Bottom placement'"
+            [tippyTitlePosition]="'bottom'"
+            style="margin-left: 16px;">
+            Hover me (Bottom)
+          </button>
+          <a class="view-code-link" (click)="onVariantClick('tippy', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Tippy Tooltip</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('tippy')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['tippy'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Custom Template Tooltip Section -->
+  <section class="content-section">
+    <h2 class="section-title">Tooltip with Custom Template</h2>
+    <p class="section-description">
+      Tooltips can use custom templates for rich content. Pass a <code>TemplateRef</code> to the 
+      <code>templateRef</code> property of the tooltip directive.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="tooltip-demo">
+        <div class="tooltip-item">
+          <button mat-button 
+            [appTooltip]="'Custom tooltip'"
+            [templateRef]="customTooltipTemplate">
+            Hover me (Custom Template)
+          </button>
+          <a class="view-code-link" (click)="onVariantClick('customTemplate', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Tooltip with Custom Template</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customTemplate')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customTemplate'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Directive Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>appTooltip</code></td>
+          <td><code>string</code></td>
+          <td><code>''</code></td>
+          <td>Text to display in the tooltip</td>
+        </tr>
+        <tr>
+          <td><code>templateRef</code></td>
+          <td><code>TemplateRef&lt;any&gt;</code></td>
+          <td>-</td>
+          <td>Custom template for tooltip content</td>
+        </tr>
+        <tr>
+          <td><code>offsetX</code></td>
+          <td><code>number</code></td>
+          <td><code>0</code></td>
+          <td>Horizontal offset for tooltip position</td>
+        </tr>
+        <tr>
+          <td><code>offsetY</code></td>
+          <td><code>number</code></td>
+          <td><code>50</code></td>
+          <td>Vertical offset for tooltip position</td>
+        </tr>
+        <tr>
+          <td><code>appTippyTitle</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Title/content for Tippy tooltip</td>
+        </tr>
+        <tr>
+          <td><code>tippyTitlePosition</code></td>
+          <td><code>string</code></td>
+          <td><code>'bottom-start'</code></td>
+          <td>Position of Tippy tooltip: 'top', 'bottom', 'left', 'right', 'top-start', 'bottom-start', etc.</td>
+        </tr>
+        <tr>
+          <td><code>tippyBgColor</code></td>
+          <td><code>string</code></td>
+          <td><code>'var(--tooltipBgColor)'</code></td>
+          <td>Background color for Tippy tooltip</td>
+        </tr>
+        <tr>
+          <td><code>tippyColor</code></td>
+          <td><code>string</code></td>
+          <td><code>'var(--grayColor1000)'</code></td>
+          <td>Text color for Tippy tooltip</td>
+        </tr>
+        <tr>
+          <td><code>tippyAllowHTML</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to allow HTML content in Tippy tooltip</td>
+        </tr>
+        <tr>
+          <td><code>tippyDisabled</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to disable the Tippy tooltip</td>
+        </tr>
+        <tr>
+          <td><code>tippyOptions</code></td>
+          <td><code>any</code></td>
+          <td>-</td>
+          <td>Custom Tippy.js options object for advanced configuration</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Contextual Help:</strong> Use tooltips to provide additional information without cluttering the UI</li>
+      <li><strong>Icon Explanations:</strong> Add tooltips to icon-only buttons to clarify their purpose</li>
+      <li><strong>Form Fields:</strong> Use tooltips to explain form field requirements or provide examples</li>
+      <li><strong>Placement:</strong> Choose appropriate placement (top, bottom, left, right) based on available space</li>
+      <li><strong>Content Length:</strong> Keep tooltip text concise and informative</li>
+      <li><strong>Custom Templates:</strong> Use custom templates for rich content with formatting, icons, or links</li>
+      <li><strong>Tippy.js:</strong> Use Tippy tooltips for advanced features like HTML content, animations, and themes</li>
+      <li><strong>Accessibility:</strong> Ensure tooltips are accessible via keyboard navigation and screen readers</li>
+    </ul>
+  </section>
+</div>
+
+<ng-template #customTooltipTemplate>
+  <div fxLayout="column" fxLayoutGap="4px" style="padding: 8px;">
+    <strong>Custom Tooltip</strong>
+    <span>This is a custom template with formatted content</span>
+    <bntv-icon
+      [iconName]="'Info-Outline'"
+      [fontSet]="'icomoon'"
+      [type]="'fontset'"
+      [color]="'var(--accentColor500)'"
+    ></bntv-icon>
+  </div>
+</ng-template>

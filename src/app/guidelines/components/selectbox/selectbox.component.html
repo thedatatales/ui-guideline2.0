@@ -1,0 +1,512 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Selectbox Component</h1>
+    <p class="subtitle">
+      The selectbox component provides a dropdown selection interface for single or multiple options. It supports search, icons, grouping, and various display configurations.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic selectbox component with a list of options. Use <code>itemList</code> to provide options, <code>displayExpression</code> to define how options are displayed, and <code>value</code> to specify the value key.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Select Option'"
+            [placeholder]="'Choose an option'"
+            [itemList]="itemList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [(data)]="selectedValue"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Disabled Section -->
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled selectbox component. Set the <code>disabled</code> property to <code>true</code> to prevent user interaction.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Select Option (Disabled)'"
+            [placeholder]="'Choose an option'"
+            [itemList]="itemList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [(data)]="selectedValue2"
+            [disabled]="true"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Multi Select Section -->
+  <section class="content-section">
+    <h2 class="section-title">Multi Select</h2>
+    <p class="section-description">
+      Multi-select selectbox allows users to select multiple options. Set <code>isMultipleSelect</code> to <code>true</code> to enable multiple selection. Multi-select supports various features like icons, disabled options, select-all, search, and chip display.
+    </p>
+    
+    <!-- Basic Multi Select -->
+    <h3 class="subsection-title" style="margin-top: 24px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Basic Multi Select</h3>
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Select Multiple Options'"
+            [placeholder]="'Choose options'"
+            [itemList]="itemList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [isMultipleSelect]="true"
+            [(data)]="selectedValue3"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('multiSelect', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi Select with Icon -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Multi Select with Icon</h3>
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Simple Multiple-Select-box with an optional affix icon'"
+            [placeholder]="'input'"
+            [iconName]="'lock-simple-bold'"
+            [iconPosition]="'left'"
+            [required]="true"
+            [isMultipleSelect]="true"
+            [iconColor]="'red'"
+            [iconFontSize]="'1em'"
+            [itemList]="statusList"
+            [(data)]="multiSelectWithIcon"
+            [infoMessage]="'Select-box configured with an optional affix icon'"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('multiSelectWithIcon', 'withIcon')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi Select with Disabled Options -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Multi Select with Disabled Options</h3>
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Multiple-Select-box with a few disabled options'"
+            [appearance]="'outline'"
+            [placeholder]="'Select item'"
+            [(data)]="multiSelectWithDisabled"
+            [itemList]="hobbiesArr"
+            [displayExpression]="'$name'"
+            [isMultipleSelect]="true"
+            [isDefaultOption]="true"
+            [required]="true"
+            [optionDisabledFn]="optionDisabledFn"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('multiSelectWithDisabled', 'withDisabled')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi Select with Select All -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Multi Select with Select All & Advanced Features</h3>
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Multiple-Select-box with a select-all option'"
+            [appearance]="'outline'"
+            [placeholder]="'Select item'"
+            [trackByKey]="'id'"
+            [(data)]="multiSelectWithSelectAll"
+            [itemList]="defaultItemList"
+            [displayExpression]="'$name'"
+            [isMultipleSelect]="true"
+            [isDefaultOption]="true"
+            [required]="true"
+            [displaySelectedCount]="1"
+            [formControlKey]="'select'"
+            [search]="true"
+            [optionDisabledFn]="optionDisabledFn"
+            [dynamicClass]="'inheritFontSize'"
+            [iconName]="'search'"
+            [triggerTemplate]="'chip'"
+            [uniqueItemKey]="'id'"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('multiSelectWithSelectAll', 'withSelectAll')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multi Select Disabled -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Multi Select Disabled</h3>
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Multiple-Select-box (disabled)'"
+            [appearance]="'outline'"
+            [placeholder]="'Select item'"
+            [trackByKey]="'id'"
+            [(data)]="multiSelectDisabled"
+            [itemList]="defaultItemList"
+            [displayExpression]="'$name ($id)'"
+            [isMultipleSelect]="true"
+            [isDefaultOption]="true"
+            [required]="true"
+            [disabled]="true"
+            [displaySelectedCount]="1"
+            [formControlKey]="'select'"
+            [search]="true"
+            [optionDisabledFn]="optionDisabledFn"
+            [dynamicClass]="'inheritFontSize'"
+            [iconName]="'search'"
+            [triggerTemplate]="'chip'"
+            [uniqueItemKey]="'id'"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('multiSelectDisabled', 'disabled')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Multi Select Variants</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('multiSelect')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['multiSelect'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Required Section -->
+  <section class="content-section">
+    <h2 class="section-title">Required</h2>
+    <p class="section-description">
+      Required selectbox with validation. Set the <code>required</code> property to <code>true</code> to make the field required.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Select Option (Required)'"
+            [placeholder]="'Choose an option'"
+            [itemList]="itemList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [(data)]="selectedValue4"
+            [required]="true"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('required', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Required</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('required')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['required'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Icon Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Icon</h2>
+    <p class="section-description">
+      Selectbox with prefix or suffix icon. Use <code>iconName</code>, <code>iconPosition</code>, and <code>iconColor</code> to customize the icon.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="selectbox-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="selectbox-item">
+          <bntv-select-box
+            [label]="'Select Option with Icon'"
+            [placeholder]="'Choose an option'"
+            [itemList]="itemList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [(data)]="selectedValue"
+            [iconName]="'circle-filled'"
+            [iconPosition]="'left'"
+            [iconColor]="'green'"
+          ></bntv-select-box>
+          <a class="view-code-link" (click)="onVariantClick('withIcon', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Icon</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withIcon')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withIcon'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>label</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Label text for the selectbox</td>
+        </tr>
+        <tr>
+          <td><code>placeholder</code></td>
+          <td>string</td>
+          <td><code>'Please Select'</code></td>
+          <td>Placeholder text when no option is selected</td>
+        </tr>
+        <tr>
+          <td><code>itemList</code></td>
+          <td>any[]</td>
+          <td>-</td>
+          <td>Array of options to display</td>
+        </tr>
+        <tr>
+          <td><code>displayExpression</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Expression to display option text (e.g., '$name')</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Key name for the option value</td>
+        </tr>
+        <tr>
+          <td><code>data</code></td>
+          <td>any</td>
+          <td>-</td>
+          <td>Selected value(s) - use two-way binding [(data)]</td>
+        </tr>
+        <tr>
+          <td><code>isMultipleSelect</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Enable multiple selection</td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable the selectbox</td>
+        </tr>
+        <tr>
+          <td><code>required</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Make the field required</td>
+        </tr>
+        <tr>
+          <td><code>iconName</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Icon name to display</td>
+        </tr>
+        <tr>
+          <td><code>iconPosition</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Icon position: 'left' or 'right'</td>
+        </tr>
+        <tr>
+          <td><code>appearance</code></td>
+          <td>string</td>
+          <td><code>'outline'</code></td>
+          <td>Form field appearance: 'outline', 'fill', 'legacy', 'standard'</td>
+        </tr>
+        <tr>
+          <td><code>search</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Enable search functionality in dropdown</td>
+        </tr>
+        <tr>
+          <td><code>trackByKey</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Key for tracking items (improves performance with large lists)</td>
+        </tr>
+        <tr>
+          <td><code>uniqueItemKey</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Unique key property name for items (used for optimization)</td>
+        </tr>
+        <tr>
+          <td><code>displaySelectedCount</code></td>
+          <td>number</td>
+          <td>-</td>
+          <td>Display selected count when number of selections exceeds this value (multi-select)</td>
+        </tr>
+        <tr>
+          <td><code>triggerTemplate</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Template type for selected items display: 'chip' (multi-select)</td>
+        </tr>
+        <tr>
+          <td><code>optionDisabledFn</code></td>
+          <td>Function</td>
+          <td>-</td>
+          <td>Function to determine if an option should be disabled: (option: any) => boolean</td>
+        </tr>
+        <tr>
+          <td><code>isDefaultOption</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Show default "Select All" option (multi-select)</td>
+        </tr>
+        <tr>
+          <td><code>dynamicClass</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Additional CSS class to apply dynamically</td>
+        </tr>
+        <tr>
+          <td><code>infoMessage</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Info message text displayed with info icon</td>
+        </tr>
+        <tr>
+          <td><code>infoMessageTemplateRef</code></td>
+          <td>TemplateRef</td>
+          <td>-</td>
+          <td>Template reference for custom info message</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Option Lists</strong>: Provide clear, descriptive option labels</li>
+      <li><strong>Display Expression</strong>: Use displayExpression to format complex option displays</li>
+      <li><strong>Multi-Select</strong>: Use multi-select for scenarios where users need to choose multiple options</li>
+      <li><strong>Search</strong>: Selectbox includes built-in search functionality for long lists</li>
+      <li><strong>Validation</strong>: Use required property with form validation for mandatory fields</li>
+      <li><strong>Accessibility</strong>: Ensure selectbox has proper labels and keyboard navigation</li>
+      <li><strong>Performance</strong>: For large lists, consider using dynamic mode or pagination</li>
+    </ol>
+  </section>
+</div>

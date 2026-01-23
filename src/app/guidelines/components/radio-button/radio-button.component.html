@@ -1,0 +1,678 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Radio Button Component</h1>
+    <p class="subtitle">
+      The radio button component allows users to select a single option from a group of options. It supports single radio buttons and radio button groups with various themes and states.
+    </p>
+  </div>
+
+  <!-- Single Section -->
+  <section class="content-section">
+    <h2 class="section-title">Single Radio Button</h2>
+    <p class="section-description">
+      Single radio button for boolean or toggle-like selections. Set the <code>type</code> property to <code>'single'</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'single'"
+            [text]="'Checked Radio'"
+            [checked]="true"
+            [direction]="'row'"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('single', 'default')">view code</a>
+        </div>
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'single'"
+            [text]="'Unchecked Radio'"
+            [checked]="false"
+            [direction]="'row'"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('single', 'unchecked')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Single Radio Button</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('single')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['single'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Group Section -->
+  <section class="content-section">
+    <h2 class="section-title">Radio Button Group</h2>
+    <p class="section-description">
+      Radio button group for selecting one option from multiple choices. Set the <code>type</code> property to <code>'group'</code> and provide an <code>itemList</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Select Option'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [(data)]="groupRadioValue"
+            [direction]="'row'"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('group', 'default')">view code</a>
+        </div>
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Select Option (Column)'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [(data)]="groupRadioValue2"
+            [direction]="'column'"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('group', 'column')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Radio Button Group</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('group')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['group'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Themes Section -->
+  <section class="content-section">
+    <h2 class="section-title">Themes</h2>
+    <p class="section-description">
+      Radio buttons support different themes. The <code>theme</code> property can be set to <code>'primary'</code>, <code>'accent'</code>, or <code>'warn'</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Primary Theme'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [theme]="'primary'"
+            [(data)]="groupRadioValue"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('themes', 'primary')">view code</a>
+        </div>
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Accent Theme'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [theme]="'accent'"
+            [(data)]="groupRadioValue"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('themes', 'accent')">view code</a>
+        </div>
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Warn Theme'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [theme]="'warn'"
+            [(data)]="groupRadioValue"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('themes', 'warn')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Themes</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('themes')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['themes'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- States Section -->
+  <section class="content-section">
+    <h2 class="section-title">States</h2>
+    <p class="section-description">
+      Radio buttons can be in different states: disabled, required, etc. Use the <code>disabled</code> and <code>required</code> properties to control these states.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Disabled Group'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [disabled]="true"
+            [(data)]="groupRadioValue"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('states', 'disabled')">view code</a>
+        </div>
+        <div class="radio-button-item">
+          <bntv-radio
+            [type]="'group'"
+            [label]="'Required Group'"
+            [itemList]="radioOptions"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [required]="true"
+            [(data)]="groupRadioValue"
+            (onchange)="onRadioChange($event)"
+          >
+          </bntv-radio>
+          <a class="view-code-link" (click)="onVariantClick('states', 'required')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">States</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('states')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['states'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Extended Radio Button Section -->
+  <section class="content-section">
+    <h2 class="section-title">Extended Radio Button</h2>
+    <p class="section-description">
+      Extended radio buttons provide additional functionality with descriptions, card layouts, icon cards, and customizable column layouts. Use <code>bntv-extended-radio</code> when you need to display more context, visual card-based selection, or icon-based options.
+    </p>
+    
+    <!-- Default Layout -->
+    <h3 class="subsection-title" style="margin-top: 24px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Default Layout</h3>
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Radio default'"
+            [(data)]="extendedRadioDefault"
+            [itemList]="actionTypeRowList"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for default layout of radio button'"
+            [labelIconConfig]="{ name: 'Info-Outline', fontSize: '1.2em', color: 'var(--grayColor600)' }"
+            (onchange)="onRadioChange($event)"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radio Card Layout -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Radio Card Layout</h3>
+    <p class="section-description" style="margin-bottom: 16px;">
+      Card-based layout using <code>[layoutType]="'radioCard'"</code>. Supports multiple column configurations.
+    </p>
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Radio Card (2 Columns)'"
+            [(data)]="extendedRadioCard2"
+            [itemList]="actionTypeRowList"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="2"
+            [layoutType]="'radioCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for radio card layout of radio button'"
+            [labelIconConfig]="{ name: 'Info-Outline', fontSize: '1.2em', color: 'var(--grayColor600)' }"
+            (onchange)="onRadioChange($event)"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'radioCard2')">view code</a>
+        </div>
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Radio Card (3 Columns)'"
+            [(data)]="extendedRadioCard3"
+            [itemList]="actionTypeRowList"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="3"
+            [layoutType]="'radioCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for radio card layout of radio button'"
+            [labelIconConfig]="{ name: 'Info-Outline', fontSize: '1.2em', color: 'var(--grayColor600)' }"
+            (onchange)="onRadioChange($event)"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'radioCard3')">view code</a>
+        </div>
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Radio Card (4 Columns)'"
+            [(data)]="extendedRadioCard4"
+            [itemList]="actionTypeRowList"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="4"
+            [layoutType]="'radioCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for radio card layout of radio button'"
+            [labelIconConfig]="{ name: 'Info-Outline', fontSize: '1.2em', color: 'var(--grayColor600)' }"
+            (onchange)="onRadioChange($event)"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'radioCard4')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icon Card Layout -->
+    <h3 class="subsection-title" style="margin-top: 32px; margin-bottom: 16px; font-size: 18px; font-weight: 600;">Icon Card Layout</h3>
+    <p class="section-description" style="margin-bottom: 16px;">
+      Icon-based card layout using <code>[layoutType]="'iconCard'"</code>. Supports icons, descriptions, and various column configurations.
+    </p>
+    <div class="demo-container">
+      <div class="radio-button-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Icon Card (3 Columns)'"
+            [(data)]="extendedIconCard3"
+            [itemList]="iconCardList"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="3"
+            [layoutType]="'iconCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for icon card layout of radio button'"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'iconCard3')">view code</a>
+        </div>
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Icon Card without check mark (4 Columns)'"
+            [(data)]="extendedIconCardNoCheck"
+            [itemList]="iconCardList"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [suppressCheckMark]="true"
+            [numberOfColumns]="4"
+            [layoutType]="'iconCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for icon card layout of radio button'"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'iconCardNoCheck')">view code</a>
+        </div>
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Icon Card without description (5 Columns)'"
+            [(data)]="extendedIconCardNoDesc"
+            [itemList]="iconCardListWithoutDescription"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="5"
+            [layoutType]="'iconCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for icon card layout of radio button'"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'iconCardNoDesc')">view code</a>
+        </div>
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Icon Card without icon (6 Columns)'"
+            [(data)]="extendedIconCardNoIcon"
+            [itemList]="iconCardListWithoutIcon"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="6"
+            [layoutType]="'iconCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for icon card layout of radio button'"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'iconCardNoIcon')">view code</a>
+        </div>
+        <div class="radio-button-item" style="min-width: 100%;">
+          <bntv-extended-radio
+            [label]="'Icon Card without icon and description (7 Columns)'"
+            [(data)]="extendedIconCardNoIconDesc"
+            [itemList]="iconCardListWithoutIconAndDescription"
+            [displayExpression]="'$label'"
+            [value]="'value'"
+            [numberOfColumns]="7"
+            [layoutType]="'iconCard'"
+            [descriptionKey]="'description'"
+            [description]="'This is a description for icon card layout of radio button'"
+          ></bntv-extended-radio>
+          <a class="view-code-link" (click)="onVariantClick('extended', 'iconCardNoIconDesc')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Extended Radio Button</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('extended')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['extended'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>type</code></td>
+          <td>string</td>
+          <td><code>'group'</code></td>
+          <td>Radio type: 'single' or 'group'</td>
+        </tr>
+        <tr>
+          <td><code>data</code></td>
+          <td>any</td>
+          <td>-</td>
+          <td>Two-way binding for selected value</td>
+        </tr>
+        <tr>
+          <td><code>itemList</code></td>
+          <td>array</td>
+          <td>-</td>
+          <td>List of options for group type</td>
+        </tr>
+        <tr>
+          <td><code>displayExpression</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Expression to display option text (e.g., '$label')</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Property name for option value</td>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Text for single radio button</td>
+        </tr>
+        <tr>
+          <td><code>label</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Label for radio button group</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td>ThemePalette</td>
+          <td><code>'accent'</code></td>
+          <td>Theme color: 'primary', 'accent', 'warn'</td>
+        </tr>
+        <tr>
+          <td><code>direction</code></td>
+          <td>string</td>
+          <td><code>'row'</code></td>
+          <td>Layout direction: 'row', 'column', 'row-reverse', 'column-reverse'</td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable the radio button(s)</td>
+        </tr>
+        <tr>
+          <td><code>required</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Mark radio button as required</td>
+        </tr>
+        <tr>
+          <td><code>checked</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Whether single radio is checked</td>
+        </tr>
+        <tr>
+          <td><code>onchange</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when selection changes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title" style="margin-top: 32px;">bntv-extended-radio Properties</h3>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>label</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Label text displayed above the radio group</td>
+        </tr>
+        <tr>
+          <td><code>description</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Description text displayed below the label</td>
+        </tr>
+        <tr>
+          <td><code>data</code></td>
+          <td>any</td>
+          <td>-</td>
+          <td>Two-way binding for selected value</td>
+        </tr>
+        <tr>
+          <td><code>itemList</code></td>
+          <td>array</td>
+          <td>-</td>
+          <td>List of options for the radio group</td>
+        </tr>
+        <tr>
+          <td><code>displayExpression</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Expression to display option text (e.g., '$label')</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Property name for option value</td>
+        </tr>
+        <tr>
+          <td><code>descriptionKey</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Property name in itemList for option description</td>
+        </tr>
+        <tr>
+          <td><code>iconKey</code></td>
+          <td>string</td>
+          <td><code>'icon'</code></td>
+          <td>Property name in itemList for option icon</td>
+        </tr>
+        <tr>
+          <td><code>layoutType</code></td>
+          <td>string</td>
+          <td><code>'default'</code></td>
+          <td>Layout type: 'default', 'chip', 'radioCard', 'iconCard'</td>
+        </tr>
+        <tr>
+          <td><code>numberOfColumns</code></td>
+          <td>number</td>
+          <td><code>2</code></td>
+          <td>Number of columns for card layouts: 1, 2, 3, 4, 5, 6, or 7</td>
+        </tr>
+        <tr>
+          <td><code>suppressCheckMark</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Hide check mark in icon card layout</td>
+        </tr>
+        <tr>
+          <td><code>labelIconConfig</code></td>
+          <td>LabelInfoIconConfig</td>
+          <td><code>null</code></td>
+          <td>Configuration object for info icon: {{ '{' }} name: string, fontSize: string, color: string {{ '}' }}</td>
+        </tr>
+        <tr>
+          <td><code>marginBottom</code></td>
+          <td>string</td>
+          <td><code>'2em'</code></td>
+          <td>Bottom margin for the extended radio container</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td>ThemePalette</td>
+          <td><code>'accent'</code></td>
+          <td>Theme color: 'primary', 'accent', 'warn' (inherited from RadioComponent)</td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable the radio button(s) (inherited from RadioComponent)</td>
+        </tr>
+        <tr>
+          <td><code>required</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Mark radio button as required (inherited from RadioComponent)</td>
+        </tr>
+        <tr>
+          <td><code>onchange</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when selection changes</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Single Selection</strong>: Use radio buttons when users must select exactly one option from a set</li>
+      <li><strong>Group vs Single</strong>: Use 'group' for multiple options, 'single' for boolean/toggle scenarios</li>
+      <li><strong>Layout Direction</strong>: Use 'row' for horizontal layout, 'column' for vertical layout</li>
+      <li><strong>Display Expression</strong>: Use displayExpression to format option display (e.g., '$name ($code)')</li>
+      <li><strong>Disabled State</strong>: Disable radio buttons when options are not available</li>
+      <li><strong>Required Fields</strong>: Mark radio groups as required for form validation</li>
+      <li><strong>Accessibility</strong>: Ensure radio buttons have proper labels and keyboard navigation</li>
+    </ol>
+  </section>
+</div>

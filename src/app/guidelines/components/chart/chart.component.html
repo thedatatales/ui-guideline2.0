@@ -1,0 +1,174 @@
+<div class="chart-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Chart Component</h1>
+    <p class="subtitle">
+      The chart component provides data visualization capabilities using Highcharts. It supports various chart types including column, line, pie, bar, and many more.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic chart component with column chart. Use the <code>options</code> property to provide chart configuration. Options can be provided as an Observable or a plain object.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="chart-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="chart-item">
+          <bntv-chart [options]="chartOptions$" [style.width]="'100%'" [style.height]="'400px'"></bntv-chart>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Line Chart Section -->
+  <section class="content-section">
+    <h2 class="section-title">Line Chart</h2>
+    <p class="section-description">
+      Line chart for displaying trends over time. Set the chart type to <code>'line'</code> in the options.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="chart-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="chart-item">
+          <bntv-chart [options]="lineChartOptions$" [style.width]="'100%'" [style.height]="'400px'"></bntv-chart>
+          <a class="view-code-link" (click)="onVariantClick('line', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Line Chart</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('line')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['line'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Pie Chart Section -->
+  <section class="content-section">
+    <h2 class="section-title">Pie Chart</h2>
+    <p class="section-description">
+      Pie chart for displaying proportional data. Set the chart type to <code>'pie'</code> in the options.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="chart-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="chart-item">
+          <bntv-chart [options]="pieChartOptions$" [style.width]="'100%'" [style.height]="'400px'"></bntv-chart>
+          <a class="view-code-link" (click)="onVariantClick('pie', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Pie Chart</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('pie')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['pie'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>options</code></td>
+          <td>Observable&lt;any&gt; | any</td>
+          <td>-</td>
+          <td>Chart configuration options (Highcharts options object or Observable)</td>
+        </tr>
+        <tr>
+          <td><code>colorType</code></td>
+          <td>string</td>
+          <td><code>'default'</code></td>
+          <td>Color type: 'default' or 'theme'</td>
+        </tr>
+        <tr>
+          <td><code>chartListener</code></td>
+          <td>Observable&lt;any&gt;</td>
+          <td>-</td>
+          <td>Observable for chart export events</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Chart Types</strong>: Supports various chart types: column, line, pie, bar, area, scatter, and more</li>
+      <li><strong>Options Format</strong>: Use Highcharts configuration format for chart options</li>
+      <li><strong>Observable Support</strong>: Options can be provided as Observable for dynamic updates</li>
+      <li><strong>Responsive Design</strong>: Charts automatically adapt to container size</li>
+      <li><strong>Export Functionality</strong>: Charts support export to various formats (PNG, SVG, PDF, CSV)</li>
+      <li><strong>Performance</strong>: For large datasets, consider using server-side data processing</li>
+      <li><strong>Accessibility</strong>: Ensure chart data is accessible through proper labels and descriptions</li>
+    </ol>
+  </section>
+</div>

@@ -1,0 +1,267 @@
+<div class="rating-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Rating Component</h1>
+    <p class="subtitle">
+      The rating component allows users to provide feedback by selecting a rating value using stars. It supports customizable number of stars, colors, and sizes.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic rating star component with default configuration. The <code>noOfStars</code> property sets the total number of stars, and <code>value</code> sets the current rating.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="rating-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="rating-item">
+          <bntv-rating-star
+            [noOfStars]="5"
+            [value]="ratingValue"
+            (starClick)="onRatingClick($event)"
+          ></bntv-rating-star>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Custom Stars Section -->
+  <section class="content-section">
+    <h2 class="section-title">Custom Number of Stars</h2>
+    <p class="section-description">
+      Rating component with a custom number of stars. Use the <code>noOfStars</code> property to set any number of stars (e.g., 10 stars for a more granular rating).
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="rating-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="rating-item">
+          <bntv-rating-star
+            [noOfStars]="noOfStars2"
+            [value]="ratingValue2"
+            (starClick)="onRatingClick($event)"
+          ></bntv-rating-star>
+          <a class="view-code-link" (click)="onVariantClick('customStars', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Number of Stars</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customStars')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customStars'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Disabled Section -->
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled rating component. Set the <code>disable</code> property to <code>true</code> to prevent user interaction.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="rating-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="rating-item">
+          <bntv-rating-star
+            [noOfStars]="5"
+            [value]="ratingValue3"
+            [disable]="true"
+          ></bntv-rating-star>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Custom Colors Section -->
+  <section class="content-section">
+    <h2 class="section-title">Custom Colors</h2>
+    <p class="section-description">
+      Rating component with custom colors. Use the <code>color</code> property for filled stars and <code>fillColor</code> for unfilled stars. The <code>fontSize</code> property controls the size.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="rating-demo" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="32px">
+        <div class="rating-item">
+          <bntv-rating-star
+            [noOfStars]="5"
+            [value]="ratingValue4"
+            [color]="'#FF6B6B'"
+            [fillColor]="'#E0E0E0'"
+            [fontSize]="'2em'"
+            (starClick)="onRatingClick($event)"
+          ></bntv-rating-star>
+          <a class="view-code-link" (click)="onVariantClick('customColors', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Colors</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customColors')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customColors'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>noOfStars</code></td>
+          <td>number</td>
+          <td><code>5</code></td>
+          <td>Total number of stars to display</td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>number</td>
+          <td><code>0</code></td>
+          <td>Current rating value (number of filled stars)</td>
+        </tr>
+        <tr>
+          <td><code>disable</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable user interaction</td>
+        </tr>
+        <tr>
+          <td><code>color</code></td>
+          <td>string</td>
+          <td><code>'var(--accentColor500)'</code></td>
+          <td>Color of filled stars</td>
+        </tr>
+        <tr>
+          <td><code>fillColor</code></td>
+          <td>string</td>
+          <td><code>'var(--bgColor400)'</code></td>
+          <td>Color of unfilled stars</td>
+        </tr>
+        <tr>
+          <td><code>fontSize</code></td>
+          <td>string</td>
+          <td><code>'1.2em'</code></td>
+          <td>Font size of the stars</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td>string</td>
+          <td><code>'accent'</code></td>
+          <td>Theme color: 'primary', 'accent', 'warn'</td>
+        </tr>
+        <tr>
+          <td><code>starClick</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when a star is clicked</td>
+        </tr>
+        <tr>
+          <td><code>ratedValue</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when rating value changes</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Rating Scale</strong>: Use 5 stars for most cases, 10 stars for more granular feedback</li>
+      <li><strong>Visual Feedback</strong>: Provide clear visual indication of the current rating value</li>
+      <li><strong>Color Coding</strong>: Use consistent colors across your application for rating components</li>
+      <li><strong>Accessibility</strong>: Ensure rating components have proper ARIA labels and keyboard navigation</li>
+      <li><strong>Read-only Mode</strong>: Use disabled state to display ratings without allowing changes</li>
+      <li><strong>Size Consistency</strong>: Maintain consistent star sizes throughout your application</li>
+      <li><strong>User Feedback</strong>: Provide immediate visual feedback when users interact with ratings</li>
+    </ol>
+  </section>
+</div>

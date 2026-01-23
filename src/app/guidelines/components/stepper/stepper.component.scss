@@ -1,0 +1,21 @@
+@use '../_shared-styles' as *;
+
+.component-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.component-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.component-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100%;
+  flex: 0 0 100%;
+}

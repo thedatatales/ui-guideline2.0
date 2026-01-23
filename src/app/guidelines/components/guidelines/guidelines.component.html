@@ -1,0 +1,111 @@
+<div class="guidelines-container" fxLayout="row" fxLayoutAlign="start stretch">
+  <!-- Left Navigation -->
+  <div class="left-nav" [class.collapsed]="isNavCollapsed" [fxFlex]="isNavCollapsed ? '0 0 60px' : '0 0 280px'">
+    <div class="nav-header">
+      <div class="logo-container" *ngIf="!isNavCollapsed">
+        <div class="logo">BNTV</div>
+        <div class="version">ver-2.1</div>
+      </div>
+      <div class="logo-collapsed" *ngIf="isNavCollapsed">
+        <div class="logo">B</div>
+      </div>
+      <div class="header-actions">
+        <bntv-icon
+          [iconName]="isNavCollapsed ? 'Arrow-Right' : 'Arrow-Left'"
+          [type]="'fontset'"
+          [fontSet]="'icomoon'"
+          class="toggle-icon"
+          (click)="toggleNav()"
+          title="{{ isNavCollapsed ? 'Expand' : 'Collapse' }}"
+        ></bntv-icon>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <div
+        *ngFor="let item of navItems"
+        class="nav-item"
+        [class.active]="item.active"
+        [class.has-children]="item.children"
+      >
+        <div
+          *ngIf="!item.hidden"
+          class="nav-item-header"
+          (click)="item.children ? toggleExpand(item) : navigate(item.route)"
+          [title]="isNavCollapsed ? item.title : ''"
+        >
+          <div class="nav-item-content">
+            <bntv-icon
+              *ngIf="item.icon"
+              [iconName]="item.icon"
+              [type]="'fontset'"
+              [fontSet]="'icomoon'"
+              class="nav-item-icon"
+            ></bntv-icon>
+            <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ item.title }}</span>
+          </div>
+          <bntv-icon
+            *ngIf="item.children && !isNavCollapsed"
+            [iconName]="item.expanded ? 'Minus' : 'Plus'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            class="expand-icon"
+          ></bntv-icon>
+        </div>
+        <div *ngIf="item.children && item.expanded && !item.hidden && !isNavCollapsed" class="nav-children">
+          <div
+            *ngFor="let child of item.children"
+            class="nav-item"
+            [class.active]="child.active"
+            [class.has-children]="child.children"
+          >
+            <div
+              *ngIf="!child.hidden"
+              class="nav-item-header child-header"
+              (click)="child.children ? toggleExpand(child) : navigate(child.route)"
+              [title]="isNavCollapsed ? child.title : ''"
+            >
+              <div class="nav-item-content">
+                <bntv-icon
+                  *ngIf="child.icon"
+                  [iconName]="child.icon"
+                  [type]="'fontset'"
+                  [fontSet]="'icomoon'"
+                  class="nav-item-icon"
+                ></bntv-icon>
+                <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ child.title }}</span>
+              </div>
+              <bntv-icon
+                *ngIf="child.children && !isNavCollapsed"
+                [iconName]="child.expanded ? 'Minus' : 'Plus'"
+                [type]="'fontset'"
+                [fontSet]="'icomoon'"
+                class="expand-icon"
+              ></bntv-icon>
+            </div>
+            <div *ngIf="child.children && child.expanded && !child.hidden && !isNavCollapsed" class="nav-children">
+              <div
+                *ngFor="let grandChild of child.children"
+                class="nav-item"
+                [class.active]="grandChild.active"
+              >
+                <div
+                  *ngIf="!grandChild.hidden"
+                  class="nav-item-header grandchild-header"
+                  (click)="navigate(grandChild.route)"
+                  [title]="isNavCollapsed ? grandChild.title : ''"
+                >
+                  <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ grandChild.title }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content-area" fxFlex="1 1 auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

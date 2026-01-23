@@ -1,0 +1,112 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Error Pages</h1>
+    <p class="subtitle">
+      The Error Pages component displays user-friendly error messages for various HTTP error codes. 
+      It provides a consistent way to show error states throughout the application.
+    </p>
+  </div>
+
+  <!-- Basic Error Page Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Error Page</h2>
+    <p class="section-description">
+      Display a single error page by providing an error code. The component automatically 
+      shows the appropriate error message and icon for the specified code.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-gx-error [errorCode]="404"></bntv-gx-error>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Error Page</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Common Error Codes Section -->
+  <section class="content-section">
+    <h2 class="section-title">Common Error Codes</h2>
+    <p class="section-description">
+      Display multiple error pages for common HTTP error codes. The component supports 
+      various error codes including 400, 401, 403, 404, 500, 503, and more.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        @for (errorCode of commonErrorCodes; track errorCode) {
+          <div class="component-item">
+            <bntv-gx-error [errorCode]="errorCode"></bntv-gx-error>
+          </div>
+        }
+        <div class="component-item">
+          <a class="view-code-link" (click)="onVariantClick('commonErrors', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Common Error Codes</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('commonErrors')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['commonErrors'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- All Error Codes Section -->
+  <section class="content-section">
+    <h2 class="section-title">All Supported Error Codes</h2>
+    <p class="section-description">
+      The Error Pages component supports a wide range of HTTP error codes. 
+      Here are all the available error codes that can be displayed.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1em;">
+        @for (errorCode of errorCodes; track errorCode) {
+          <div class="component-item">
+            <bntv-gx-error [errorCode]="errorCode"></bntv-gx-error>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>

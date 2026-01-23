@@ -1,0 +1,274 @@
+<div class="uploader-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Uploader Component</h1>
+    <p class="subtitle">
+      The uploader component provides a file upload interface with drag-and-drop support, progress tracking, 
+      and file validation. It supports single and multiple file uploads with customizable styling and restrictions.
+    </p>
+  </div>
+
+  <!-- Basic Uploader Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Uploader</h2>
+    <p class="section-description">
+      Basic uploader displays a file upload interface. Use <code>fileChange</code> event to get selected files 
+      and <code>UploadBoxService</code> to upload files to the server.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="uploader-demo">
+        <div class="uploader-item">
+          <bntv-upload-box
+            [progress]="progress"
+            (fileChange)="onFileChange($event)"
+          ></bntv-upload-box>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Uploader</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Drag and Drop Uploader Section -->
+  <section class="content-section">
+    <h2 class="section-title">Drag and Drop Uploader</h2>
+    <p class="section-description">
+      Uploader component supports drag-and-drop functionality. Customize the title and action text using 
+      <code>titleText</code> and <code>actionText</code> properties.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="uploader-demo">
+        <div class="uploader-item">
+          <bntv-upload-box
+            [titleText]="'Drag and drop files here'"
+            [actionText]="'or click to browse'"
+            [progress]="progress"
+            (fileChange)="onFileChange($event)"
+          ></bntv-upload-box>
+          <a class="view-code-link" (click)="onVariantClick('dragDrop', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Drag and Drop Uploader</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('dragDrop')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['dragDrop'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Multiple File Upload Section -->
+  <section class="content-section">
+    <h2 class="section-title">Multiple File Upload with Restrictions</h2>
+    <p class="section-description">
+      Uploader supports multiple file selection with file type and size restrictions. Use <code>acceptFile</code> 
+      for file types, <code>maxFileSize</code> for size limits, and <code>multiple</code> for multiple file selection.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="uploader-demo">
+        <div class="uploader-item">
+          <bntv-upload-box
+            [acceptFile]="'.pdf,.doc,.docx'"
+            [maxFileSize]="[5242880]"
+            [fileNameLimit]="50"
+            [isMultiSelect]="true"
+            [progress]="progress"
+            (fileChange)="onFileChange($event)"
+          ></bntv-upload-box>
+          <a class="view-code-link" (click)="onVariantClick('multiple', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Multiple File Upload with Restrictions</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('multiple')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['multiple'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>acceptFile</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Accepted file extensions (e.g., '.pdf,.doc,.docx')</td>
+        </tr>
+        <tr>
+          <td><code>maxFileSize</code></td>
+          <td><code>number[]</code></td>
+          <td>-</td>
+          <td>Maximum file size in bytes</td>
+        </tr>
+        <tr>
+          <td><code>fileNameLimit</code></td>
+          <td><code>number</code></td>
+          <td><code>1000</code></td>
+          <td>Maximum length of file name</td>
+        </tr>
+        <tr>
+          <td><code>isMultiSelect</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Allow multiple file selection</td>
+        </tr>
+        <tr>
+          <td><code>progress</code></td>
+          <td><code>number</code></td>
+          <td><code>0</code></td>
+          <td>Upload progress percentage (0-100)</td>
+        </tr>
+        <tr>
+          <td><code>titleText</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Title text displayed in upload box</td>
+        </tr>
+        <tr>
+          <td><code>actionText</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Action text displayed in upload box</td>
+        </tr>
+        <tr>
+          <td><code>iconName</code></td>
+          <td><code>string</code></td>
+          <td><code>'cloud-arrow-up-bold'</code></td>
+          <td>Icon name for upload box</td>
+        </tr>
+        <tr>
+          <td><code>iconColor</code></td>
+          <td><code>string</code></td>
+          <td><code>'var(--grayColor400)'</code></td>
+          <td>Color of the upload icon</td>
+        </tr>
+        <tr>
+          <td><code>boxBackgroundColor</code></td>
+          <td><code>string</code></td>
+          <td><code>'var(--bgColor10)'</code></td>
+          <td>Background color of the upload box</td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Disable the upload box</td>
+        </tr>
+        <tr>
+          <td><code>fileChange</code></td>
+          <td><code>EventEmitter&lt;File[]&gt;</code></td>
+          <td>-</td>
+          <td>Event emitted when files are selected</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Service Methods -->
+  <section class="content-section">
+    <h2 class="section-title">UploadBoxService Methods</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Parameters</th>
+          <th>Returns</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>uploadFilesToServer()</code></td>
+          <td><code>uploadUrl: string, selectedFiles: File[]</code></td>
+          <td><code>Observable</code></td>
+          <td>Upload files to server and emit progress updates</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>File Selection:</strong> Handle file selection using the fileChange event emitter</li>
+      <li><strong>File Validation:</strong> Set acceptFile and maxFileSize to restrict file types and sizes</li>
+      <li><strong>Progress Tracking:</strong> Update progress property based on upload progress from UploadBoxService</li>
+      <li><strong>Drag and Drop:</strong> Component automatically supports drag-and-drop functionality</li>
+      <li><strong>Multiple Files:</strong> Enable multiple file selection by setting isMultiSelect to true</li>
+      <li><strong>Upload Service:</strong> Use UploadBoxService.uploadFilesToServer() to handle file uploads</li>
+      <li><strong>Error Handling:</strong> Handle upload errors and display appropriate messages to users</li>
+      <li><strong>File Preview:</strong> Component can display file previews for images and other supported formats</li>
+      <li><strong>Customization:</strong> Customize appearance using iconColor, boxBackgroundColor, and other styling properties</li>
+    </ul>
+  </section>
+</div>

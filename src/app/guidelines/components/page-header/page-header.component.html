@@ -1,0 +1,130 @@
+<div class="page-header-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Page Header Component</h1>
+    <p class="subtitle">
+      The page header component provides a consistent header layout for pages across the application. 
+      It supports left, middle, and right content sections using content projection.
+    </p>
+  </div>
+
+  <!-- Basic Page Header Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Page Header</h2>
+    <p class="section-description">
+      Basic page header displays content in the default left section. Use content projection to add 
+      your header content.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="page-header-demo">
+        <div class="page-header-item">
+          <bntv-page-header>
+            <div>Page Title</div>
+          </bntv-page-header>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Page Header</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Page Header with Multiple Sections Section -->
+  <section class="content-section">
+    <h2 class="section-title">Page Header with Multiple Sections</h2>
+    <p class="section-description">
+      Page header supports three content sections: left, middle, and right. Use the content projection 
+      selectors <code>header-content-left</code>, <code>header-content-middle</code>, and 
+      <code>header-content-right</code> to place content in specific sections.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="page-header-demo">
+        <div class="page-header-item">
+          <bntv-page-header>
+            <div header-content-left>
+              <h2 style="margin: 0; font-size: 1.5em;">Page Title</h2>
+            </div>
+            <div header-content-middle>
+              <span style="color: var(--grayColor600);">Middle content area</span>
+            </div>
+            <div header-content-right>
+              <bntv-mat-button [value]="'Action'" [type]="'stroked'"></bntv-mat-button>
+            </div>
+          </bntv-page-header>
+          <a class="view-code-link" (click)="onVariantClick('withContent', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Page Header with Multiple Sections</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withContent')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withContent'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Content Projection -->
+  <section class="content-section">
+    <h2 class="section-title">Content Projection</h2>
+    <p class="section-description">
+      The page header component uses Angular content projection to allow flexible content placement. 
+      Use the following selectors to target specific sections:
+    </p>
+    <ul class="usage-list">
+      <li><strong>Default content:</strong> Content without a selector is placed in the left section</li>
+      <li><strong><code>header-content-left</code>:</strong> Content for the left section of the header</li>
+      <li><strong><code>header-content-middle</code>:</strong> Content for the middle section of the header</li>
+      <li><strong><code>header-content-right</code>:</strong> Content for the right section of the header</li>
+    </ul>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Consistency:</strong> Use page header consistently across all pages for a unified user experience</li>
+      <li><strong>Content Organization:</strong> Place primary navigation/title in left, search/filters in middle, actions in right</li>
+      <li><strong>Responsive Design:</strong> Ensure header content adapts well to different screen sizes</li>
+      <li><strong>Accessibility:</strong> Include proper heading hierarchy and ARIA labels for screen readers</li>
+      <li><strong>Flexibility:</strong> Use content projection to customize header content based on page requirements</li>
+    </ul>
+  </section>
+</div>

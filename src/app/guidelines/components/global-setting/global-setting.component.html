@@ -1,0 +1,98 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Global Setting</h1>
+    <p class="subtitle">
+      The Global Setting component provides a dialog interface for managing application-wide settings 
+      such as language preferences, date formats, time formats, and notification settings.
+    </p>
+  </div>
+
+  <!-- Basic Global Setting Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Global Setting</h2>
+    <p class="section-description">
+      Open the global settings dialog using the GenericModalService. The dialog allows users 
+      to configure various application settings.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-mat-button
+            [value]="'Open Global Settings'"
+            (clickButton)="openGlobalSettings(false)"
+            [theme]="'primary'"
+            [type]="'basic'"
+          >
+          </bntv-mat-button>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Global Setting</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Default Module Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Default Module Visible</h2>
+    <p class="section-description">
+      Open the global settings dialog with the default module selection visible. 
+      This allows users to set a default module for the application.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-mat-button
+            [value]="'Open Global Settings (With Default Module)'"
+            (clickButton)="openGlobalSettings(true)"
+            [theme]="'primary'"
+            [type]="'basic'"
+          >
+          </bntv-mat-button>
+          <a class="view-code-link" (click)="onVariantClick('withDefaultModule', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Default Module Visible</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withDefaultModule')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withDefaultModule'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

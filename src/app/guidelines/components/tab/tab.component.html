@@ -1,0 +1,270 @@
+<div class="tab-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Tab Component</h1>
+    <p class="subtitle">
+      The tab component organizes content into multiple panels accessible via tabs. It supports horizontal and vertical layouts, icons, routing, and various styling options.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic tabs component with multiple tab panels. Use <code>bntv-tabs</code> as the container and <code>bntv-tab</code> for each tab panel. Use two-way binding with <code>selectedIndex</code> to control the active tab.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="tab-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="tab-item">
+          <bntv-tabs [(selectedIndex)]="selectedIndex">
+            <bntv-tab [title]="'Tab 1'">
+              <div style="padding: 20px;">Content for Tab 1</div>
+            </bntv-tab>
+            <bntv-tab [title]="'Tab 2'">
+              <div style="padding: 20px;">Content for Tab 2</div>
+            </bntv-tab>
+            <bntv-tab [title]="'Tab 3'">
+              <div style="padding: 20px;">Content for Tab 3</div>
+            </bntv-tab>
+          </bntv-tabs>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Icons Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Icons</h2>
+    <p class="section-description">
+      Tabs with icons. Use the <code>icon</code> property on <code>bntv-tab</code> to display icons. Icon format: <code>'iconName$fontset$fontSetName'</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="tab-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="tab-item">
+          <bntv-tabs [(selectedIndex)]="selectedIndex2" [theme]="'accent'">
+            <bntv-tab [title]="'Home'" [icon]="'home$fontset$icomoon'">
+              <div style="padding: 20px;">Home content</div>
+            </bntv-tab>
+            <bntv-tab [title]="'Settings'" [icon]="'settings$fontset$icomoon'">
+              <div style="padding: 20px;">Settings content</div>
+            </bntv-tab>
+            <bntv-tab [title]="'Profile'" [icon]="'user$fontset$icomoon'">
+              <div style="padding: 20px;">Profile content</div>
+            </bntv-tab>
+          </bntv-tabs>
+          <a class="view-code-link" (click)="onVariantClick('withIcons', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Icons</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withIcons')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withIcons'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Vertical Section -->
+  <section class="content-section">
+    <h2 class="section-title">Vertical Tabs</h2>
+    <p class="section-description">
+      Vertical tabs layout. Set <code>isVertical</code> to <code>true</code> on <code>bntv-tabs</code> to display tabs vertically.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="tab-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="tab-item">
+          <bntv-tabs [(selectedIndex)]="selectedIndex3" [isVertical]="true" [style.height]="'300px'">
+            <bntv-tab [title]="'Tab 1'">
+              <div style="padding: 20px;">Vertical Tab 1 Content</div>
+            </bntv-tab>
+            <bntv-tab [title]="'Tab 2'">
+              <div style="padding: 20px;">Vertical Tab 2 Content</div>
+            </bntv-tab>
+            <bntv-tab [title]="'Tab 3'">
+              <div style="padding: 20px;">Vertical Tab 3 Content</div>
+            </bntv-tab>
+          </bntv-tabs>
+          <a class="view-code-link" (click)="onVariantClick('vertical', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Vertical Tabs</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('vertical')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['vertical'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4" style="font-weight: 600; background-color: #f5f5f5;">bntv-tabs</td>
+        </tr>
+        <tr>
+          <td><code>selectedIndex</code></td>
+          <td>number</td>
+          <td><code>0</code></td>
+          <td>Index of the selected tab - use two-way binding [(selectedIndex)]</td>
+        </tr>
+        <tr>
+          <td><code>theme</code></td>
+          <td>string</td>
+          <td><code>'accent'</code></td>
+          <td>Theme color: 'primary', 'accent', 'warn'</td>
+        </tr>
+        <tr>
+          <td><code>isVertical</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Display tabs vertically</td>
+        </tr>
+        <tr>
+          <td><code>strechedTabs</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Stretch tabs to fill available width</td>
+        </tr>
+        <tr>
+          <td><code>enableRouting</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Enable routing for tabs</td>
+        </tr>
+        <tr>
+          <td><code>headerPosition</code></td>
+          <td>string</td>
+          <td><code>'above'</code></td>
+          <td>Position of tab header: 'above' or 'below'</td>
+        </tr>
+        <tr>
+          <td><code>selectedIndexChange</code></td>
+          <td>EventEmitter</td>
+          <td>-</td>
+          <td>Event emitted when selected tab index changes</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="font-weight: 600; background-color: #f5f5f5;">bntv-tab</td>
+        </tr>
+        <tr>
+          <td><code>title</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Title text displayed on the tab</td>
+        </tr>
+        <tr>
+          <td><code>icon</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Icon for the tab (format: 'iconName$fontset$fontSetName')</td>
+        </tr>
+        <tr>
+          <td><code>isDisabled</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable the tab</td>
+        </tr>
+        <tr>
+          <td><code>route</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Route path (used when enableRouting is true)</td>
+        </tr>
+        <tr>
+          <td><code>badge</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Badge text to display on the tab</td>
+        </tr>
+        <tr>
+          <td><code>hide</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Hide the tab</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Tab Organization</strong>: Use tabs to organize related content into logical groups</li>
+      <li><strong>Tab Count</strong>: Limit the number of tabs to avoid overwhelming users (typically 3-7 tabs)</li>
+      <li><strong>Icons</strong>: Use icons to enhance visual recognition and improve navigation</li>
+      <li><strong>Vertical Layout</strong>: Use vertical tabs when horizontal space is limited</li>
+      <li><strong>Routing</strong>: Enable routing for tabs that represent different pages or views</li>
+      <li><strong>Accessibility</strong>: Ensure tabs have proper keyboard navigation and ARIA labels</li>
+      <li><strong>Content Loading</strong>: Consider lazy loading tab content for better performance</li>
+    </ol>
+  </section>
+</div>

@@ -1,0 +1,236 @@
+<div class="html-container-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">HTML Container Component</h1>
+    <p class="subtitle">
+      The HTML container component renders HTML content with optional "show more/less" functionality. 
+      It supports custom styling, content truncation, and flexible toggle button positioning.
+    </p>
+  </div>
+
+  <!-- Basic HTML Container Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic HTML Container</h2>
+    <p class="section-description">
+      Basic HTML container renders HTML content directly. Use the <code>content</code> property to 
+      provide HTML string content.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="html-container-demo">
+        <div class="html-container-item">
+          <bntv-html-container [content]="sampleHtmlContent"></bntv-html-container>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic HTML Container</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- HTML Container with Show More Section -->
+  <section class="content-section">
+    <h2 class="section-title">HTML Container with Show More/Less</h2>
+    <p class="section-description">
+      HTML container can truncate long content and provide a "show more/less" toggle. Set 
+      <code>showMoreOption</code> to <code>true</code> and configure <code>linesToShow</code> or 
+      <code>showHeight</code> to control truncation.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="html-container-demo">
+        <div class="html-container-item">
+          <bntv-html-container
+            [content]="longHtmlContent"
+            [showMoreOption]="true"
+            [linesToShow]="3"
+            [showHeight]="'120px'"
+            [togglePosition]="'block-end'"
+          ></bntv-html-container>
+          <a class="view-code-link" (click)="onVariantClick('showMore', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">HTML Container with Show More/Less</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('showMore')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['showMore'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Custom Styling Section -->
+  <section class="content-section">
+    <h2 class="section-title">HTML Container with Custom Styling</h2>
+    <p class="section-description">
+      Customize the appearance of HTML container using <code>contentClass</code>, <code>color</code>, 
+      and custom toggle button text.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="html-container-demo">
+        <div class="html-container-item">
+          <bntv-html-container
+            [content]="sampleHtmlContent"
+            [contentClass]="true"
+            [color]="'var(--grayColor800)'"
+            [showMoreOption]="true"
+            [linesToShow]="2"
+            [showMoreText]="'Read More'"
+            [showLessText]="'Read Less'"
+          ></bntv-html-container>
+          <a class="view-code-link" (click)="onVariantClick('custom', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">HTML Container with Custom Styling</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('custom')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['custom'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>content</code></td>
+          <td><code>string</code></td>
+          <td><code>''</code></td>
+          <td>HTML content string to be rendered in the container</td>
+        </tr>
+        <tr>
+          <td><code>contentClass</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Apply custom content class styling</td>
+        </tr>
+        <tr>
+          <td><code>showMoreOption</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Enable show more/less functionality</td>
+        </tr>
+        <tr>
+          <td><code>color</code></td>
+          <td><code>string</code></td>
+          <td><code>'var(--grayColor600)'</code></td>
+          <td>Custom color for the container content</td>
+        </tr>
+        <tr>
+          <td><code>showHeight</code></td>
+          <td><code>string</code></td>
+          <td>-</td>
+          <td>Maximum height before showing "show more" option</td>
+        </tr>
+        <tr>
+          <td><code>linesToShow</code></td>
+          <td><code>number</code></td>
+          <td><code>2</code></td>
+          <td>Number of lines to display before truncating</td>
+        </tr>
+        <tr>
+          <td><code>showMoreText</code></td>
+          <td><code>string</code></td>
+          <td><code>'Show More'</code></td>
+          <td>Text for the "show more" button</td>
+        </tr>
+        <tr>
+          <td><code>showLessText</code></td>
+          <td><code>string</code></td>
+          <td><code>'Show Less'</code></td>
+          <td>Text for the "show less" button</td>
+        </tr>
+        <tr>
+          <td><code>togglePosition</code></td>
+          <td><code>string</code></td>
+          <td><code>'block-start'</code></td>
+          <td>Position of toggle button: 'block-start', 'block-end', or 'inline-end'</td>
+        </tr>
+        <tr>
+          <td><code>hideToggle</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Hide the toggle button</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>HTML Content:</strong> Provide HTML content as a string. Ensure content is sanitized for security</li>
+      <li><strong>Show More/Less:</strong> Use showMoreOption for long content that needs truncation</li>
+      <li><strong>Truncation:</strong> Use linesToShow for line-based truncation or showHeight for height-based truncation</li>
+      <li><strong>Customization:</strong> Customize toggle button text and position based on design requirements</li>
+      <li><strong>Styling:</strong> Use contentClass and color properties to match your application's design system</li>
+      <li><strong>Security:</strong> Be cautious when rendering user-generated HTML content. Consider sanitization</li>
+      <li><strong>Performance:</strong> For large HTML content, consider lazy loading or virtualization</li>
+      <li><strong>Accessibility:</strong> Ensure HTML content is accessible with proper semantic markup and ARIA attributes</li>
+    </ul>
+  </section>
+</div>

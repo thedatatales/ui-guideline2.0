@@ -1,0 +1,1167 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Date Picker Component</h1>
+    <p class="subtitle">
+      The <code>bntv-datetime-picker</code> component provides comprehensive date and time selection capabilities with multiple picker types and selection modes. All date picker components are production-ready, accessible, and theme-aware.
+    </p>
+    <p class="subtitle" style="margin-top: 12px; font-weight: 500;">
+      <strong>Choose the appropriate picker type and configuration based on your use case.</strong>
+    </p>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- PICKER TYPE CALENDAR -->
+  <!-- ============================================ -->
+  <h2 class="picker-type-title">Picker type calendar</h2>
+
+  <!-- Basic Calendar -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic calendar picker for single date selection. Use <code>[pickerType]="'calendar'"</code> for date-only selection.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Simple date picker'"
+            [pickerType]="'calendar'"
+            [hideActions]="true"
+            [showSecondsTimer]="false"
+            [(data)]="calendarValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarBasic', 'simple')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Disabled date picker'"
+            [disabled]="true"
+            [pickerType]="'calendar'"
+            [hideActions]="true"
+            [showSecondsTimer]="false"
+            [(data)]="calendarDisabled"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarBasic', 'disabled')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Date picker left position'"
+            [pickerPosition]="'left'"
+            [pickerType]="'calendar'"
+            [hideActions]="true"
+            [showSecondsTimer]="false"
+            [(data)]="calendarValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarBasic', 'leftPosition')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('calendarBasic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['calendarBasic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Range Selection -->
+  <section class="content-section">
+    <h2 class="section-title">Range Selection</h2>
+    <p class="section-description">
+      Calendar picker with range selection modes. Use <code>[selectMode]="'range'"</code> for full range selection, <code>'rangeFrom'</code> for start date only, or <code>'rangeTo'</code> for end date only.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Range date picker'"
+            [pickerType]="'calendar'"
+            [selectMode]="'range'"
+            [rangeSeparator]="'~'"
+            [setMaxZeroHour]="false"
+            [min]="minDate"
+            [max]="maxDate"
+            [(data)]="calendarRange"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarRange', 'range')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Month range picker'"
+            [readonly]="false"
+            [required]="true"
+            [(data)]="calendarRange"
+            [pickerType]="'calendar'"
+            [selectMode]="'range'"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarRange', 'monthRange')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Calendar range'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'calendar'"
+            [selectMode]="'range'"
+            [(data)]="calendarRange"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarRange', 'range')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Calendar rangeFrom'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'calendar'"
+            [selectMode]="'rangeFrom'"
+            [(data)]="calendarRangeFrom"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarRange', 'rangeFrom')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Calendar rangeTo'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'calendar'"
+            [selectMode]="'rangeTo'"
+            [(data)]="calendarRangeTo"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarRange', 'rangeTo')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Range Selection</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('calendarRange')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['calendarRange'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Week Selection -->
+  <section class="content-section">
+    <h2 class="section-title">Week Selection</h2>
+    <p class="section-description">
+      Calendar picker for selecting a week. Use <code>[selectMode]="'week'"</code> to enable week selection mode.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Week picker'"
+            [readonly]="false"
+            [required]="true"
+            [selectMode]="'week'"
+            [pickerType]="'calendar'"
+            [(data)]="calendarWeek"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarWeek', 'week')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Calendar week'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'calendar'"
+            [selectMode]="'week'"
+            [(data)]="calendarWeek"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarWeek', 'calendarWeek')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Week Selection</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('calendarWeek')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['calendarWeek'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Multiple Selection -->
+  <section class="content-section">
+    <h2 class="section-title">Multiple Date Selection</h2>
+    <p class="section-description">
+      Calendar picker for selecting multiple dates. Use <code>[selectMode]="'multiple'"</code> to enable multiple date selection.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Select multiple date'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'calendar'"
+            [selectMode]="'multiple'"
+            [(data)]="calendarMultiple"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('calendarMultiple', 'multiple')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Multiple Date Selection</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('calendarMultiple')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['calendarMultiple'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- ============================================ -->
+  <!-- PICKER TYPE TIMER -->
+  <!-- ============================================ -->
+  <h2 class="picker-type-title">Picker type timer</h2>
+
+  <!-- Single Time -->
+  <section class="content-section">
+    <h2 class="section-title">Single Time</h2>
+    <p class="section-description">
+      Time-only picker for single time selection. Use <code>[pickerType]="'timer'"</code> for time-only selection.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Timer single'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [showSecondsTimer]="false"
+            [pickerType]="'timer'"
+            [(data)]="timerValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerSingle', 'single')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Time picker'"
+            [pickerType]="'timer'"
+            [showSecondsTimer]="false"
+            [(data)]="timerValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerSingle', 'timePicker')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Single Time</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('timerSingle')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['timerSingle'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Time Range -->
+  <section class="content-section">
+    <h2 class="section-title">Time Range</h2>
+    <p class="section-description">
+      Time picker with range selection modes. Use <code>[selectMode]="'range'"</code> for full range, <code>'rangeFrom'</code> for start time only, or <code>'rangeTo'</code> for end time only.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Timer range'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'timer'"
+            [selectMode]="'range'"
+            [(data)]="timerRange"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerRange', 'range')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Timer rangeFrom'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'timer'"
+            [selectMode]="'rangeFrom'"
+            [(data)]="timerRangeFrom"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerRange', 'rangeFrom')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Timer rangeTo'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'timer'"
+            [selectMode]="'rangeTo'"
+            [(data)]="timerRangeTo"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerRange', 'rangeTo')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Time Range</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('timerRange')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['timerRange'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Time with Min/Max -->
+  <section class="content-section">
+    <h2 class="section-title">Time with Min/Max Constraints</h2>
+    <p class="section-description">
+      Time picker with minimum and maximum time constraints. Use <code>minTime</code> and <code>maxTime</code> properties to restrict selectable time ranges.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Time with minTime maxTime'"
+            [pickerType]="'timer'"
+            [minTime]="minTime"
+            [maxTime]="maxTime"
+            [(data)]="timerValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerMinMax', 'minMax')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Time with minTime maxTime with error message'"
+            [pickerType]="'timer'"
+            [minTime]="minTime"
+            [maxTime]="maxTime"
+            [minTimeErrorMsg]="'Invalid minTime'"
+            [maxTimeErrorMsg]="'Invalid maxTime'"
+            [(data)]="timerValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('timerMinMax', 'minMaxError')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Time with Min/Max Constraints</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('timerMinMax')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['timerMinMax'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- ============================================ -->
+  <!-- PICKER TYPE BOTH -->
+  <!-- ============================================ -->
+  <h2 class="picker-type-title">Picker type Both</h2>
+
+  <!-- Single Date & Time -->
+  <section class="content-section">
+    <h2 class="section-title">Single Date & Time</h2>
+    <p class="section-description">
+      Combined date and time picker for single selection. Use <code>[pickerType]="'both'"</code> with <code>[selectMode]="'single'"</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Select past date with time'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'both'"
+            [min]="min"
+            [max]="max"
+            [(data)]="bothPastDate"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothSingle', 'pastDate')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Select Date & Time (DD-MMM-YYYY hh:mm AM/PM)'"
+            [required]="true"
+            [showSecondsTimer]="false"
+            [hour12Timer]="true"
+            [multiYearView]="true"
+            [selectMode]="'single'"
+            [pickerType]="'both'"
+            [timeFormat]="'hh:mm A'"
+            [(data)]="bothFormatted"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothSingle', 'formatted')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Picker type both and selectMode single'"
+            [readonly]="false"
+            [required]="true"
+            [hideHeaderDate]="true"
+            [hour12Timer]="true"
+            [pickerType]="'both'"
+            [selectMode]="'single'"
+            [(data)]="bothValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothSingle', 'single')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Single Date & Time</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('bothSingle')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['bothSingle'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Date & Time Range -->
+  <section class="content-section">
+    <h2 class="section-title">Date & Time Range</h2>
+    <p class="section-description">
+      Combined date and time picker with range selection modes. Use <code>[selectMode]="'range'"</code> for full range, <code>'rangeFrom'</code> for start date/time only, or <code>'rangeTo'</code> for end date/time only.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'PickerType both & selectMode range'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'both'"
+            [selectMode]="'range'"
+            [(data)]="bothRange"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothRange', 'range')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'PickerType both & selectMode rangeFrom'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'both'"
+            [selectMode]="'rangeFrom'"
+            [(data)]="bothRangeFrom"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothRange', 'rangeFrom')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Date & Time (From-To) pickerType both & selectMode rangeTo'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'both'"
+            [selectMode]="'rangeTo'"
+            [(data)]="bothRangeTo"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothRange', 'rangeTo')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Date & Time Range</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('bothRange')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['bothRange'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Week & Time -->
+  <section class="content-section">
+    <h2 class="section-title">Week & Time</h2>
+    <p class="section-description">
+      Combined week and time picker. Use <code>[selectMode]="'week'"</code> with <code>[pickerType]="'both'"</code> to select a week with time.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Select Week & Time Range, picker type both & selectMode week'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'both'"
+            [selectMode]="'week'"
+            [(data)]="bothWeek"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothWeek', 'week')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Week & Time</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('bothWeek')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['bothWeek'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Multiple Dates with Time -->
+  <section class="content-section">
+    <h2 class="section-title">Multiple Dates with Time</h2>
+    <p class="section-description">
+      Combined date and time picker for selecting multiple dates. Use <code>[selectMode]="'multiple'"</code> with <code>[pickerType]="'both'"</code>.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Select multiple dates, both multiple'"
+            [readonly]="false"
+            [required]="true"
+            [hour12Timer]="true"
+            [pickerType]="'both'"
+            [selectMode]="'multiple'"
+            [(data)]="bothMultiple"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothMultiple', 'multiple')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Multiple Dates with Time</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('bothMultiple')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['bothMultiple'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Date & Time with Min/Max -->
+  <section class="content-section">
+    <h2 class="section-title">Date & Time with Min/Max Constraints</h2>
+    <p class="section-description">
+      Combined date and time picker with minimum and maximum constraints. Use <code>minTime</code>/<code>maxTime</code> for time constraints or <code>min</code>/<code>max</code> for date constraints.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Date time picker with minTime maxTime'"
+            [pickerType]="'both'"
+            [minTime]="minTime"
+            [maxTime]="maxTime"
+            [(data)]="bothValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothMinMax', 'minMaxTime')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Date time picker with minTime maxTime with error message'"
+            [pickerType]="'both'"
+            [minTime]="minTime"
+            [maxTime]="maxTime"
+            [minTimeErrorMsg]="'Invalid minTime'"
+            [maxTimeErrorMsg]="'Invalid maxTime'"
+            [(data)]="bothValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothMinMax', 'minMaxTimeError')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Date time picker with minDate maxDate'"
+            [pickerType]="'both'"
+            [min]="minDate"
+            [max]="maxDate"
+            [(data)]="bothValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothMinMax', 'minMaxDate')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Date time picker with minDate maxDate with defaultTime'"
+            [pickerType]="'both'"
+            [minTime]="defaultTime"
+            [min]="minDate"
+            [max]="maxDate"
+            [(data)]="bothValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('bothMinMax', 'minMaxDateDefaultTime')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Date & Time with Min/Max Constraints</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('bothMinMax')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['bothMinMax'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- ============================================ -->
+  <!-- PICKER TYPE MONTH-CALENDAR -->
+  <!-- ============================================ -->
+  <h2 class="picker-type-title">Picker type month-calendar</h2>
+
+  <!-- Month Picker -->
+  <section class="content-section">
+    <h2 class="section-title">Month Picker</h2>
+    <p class="section-description">
+      Month and year selection using <code>[pickerType]="'month-calendar'"</code>. Allows users to select a specific month and year.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Month Picker'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'month-calendar'"
+            [(data)]="monthValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('monthBasic', 'month')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Select month & year'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'month-calendar'"
+            [selectMode]="'single'"
+            [(data)]="monthYear"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('monthBasic', 'monthYear')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Month Picker</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('monthBasic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['monthBasic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- ============================================ -->
+  <!-- PICKER TYPE YEAR-CALENDAR -->
+  <!-- ============================================ -->
+  <h2 class="picker-type-title">Picker type year-calendar</h2>
+
+  <!-- Year Picker -->
+  <section class="content-section">
+    <h2 class="section-title">Year Picker</h2>
+    <p class="section-description">
+      Year-only selection using <code>[pickerType]="'year-calendar'"</code>. Allows users to select a specific year.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Year picker'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'year-calendar'"
+            [(data)]="yearValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('yearBasic', 'year')">view code</a>
+        </div>
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Year-calendar single'"
+            [readonly]="false"
+            [required]="true"
+            [pickerType]="'year-calendar'"
+            [selectMode]="'single'"
+            [(data)]="yearSingle"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('yearBasic', 'yearSingle')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Year Picker</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('yearBasic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['yearBasic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- ============================================ -->
+  <!-- ADVANCE -->
+  <!-- ============================================ -->
+  <h2 class="picker-type-title">Advance</h2>
+
+  <!-- Advanced Calendar -->
+  <section class="content-section">
+    <h2 class="section-title">Advanced Calendar</h2>
+    <p class="section-description">
+      Advanced calendar with custom options using <code>[advancedCalendar]="true"</code>. Provides enhanced calendar functionality with custom configurations.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="date-picker-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="date-picker-item">
+          <bntv-datetime-picker
+            [label]="'Advance'"
+            [readonly]="false"
+            [required]="true"
+            [advancedCalendar]="true"
+            [hour12Timer]="true"
+            [(data)]="advancedValue"
+          >
+          </bntv-datetime-picker>
+          <a class="view-code-link" (click)="onVariantClick('advanced', 'advanced')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Advanced Calendar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('advanced')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['advanced'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>pickerType</code></td>
+          <td>string</td>
+          <td><code>'both'</code></td>
+          <td>Picker type: 'calendar', 'timer', 'both', 'month-calendar', 'year-calendar'</td>
+        </tr>
+        <tr>
+          <td><code>selectMode</code></td>
+          <td>string</td>
+          <td><code>'single'</code></td>
+          <td>Selection mode: 'single', 'range', 'rangeFrom', 'rangeTo', 'week', 'multiple'</td>
+        </tr>
+        <tr>
+          <td><code>data</code></td>
+          <td>Date | Date[]</td>
+          <td>-</td>
+          <td>Two-way binding for selected date/time value(s)</td>
+        </tr>
+        <tr>
+          <td><code>label</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Label text displayed above or beside the picker</td>
+        </tr>
+        <tr>
+          <td><code>placeholder</code></td>
+          <td>string</td>
+          <td><code>''</code></td>
+          <td>Placeholder text for the input field</td>
+        </tr>
+        <tr>
+          <td><code>pickerPosition</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Calendar popup position: 'left' or default (right)</td>
+        </tr>
+        <tr>
+          <td><code>rangeSeparator</code></td>
+          <td>string</td>
+          <td><code>'~'</code></td>
+          <td>Character to separate 'from' and 'to' in range mode</td>
+        </tr>
+        <tr>
+          <td><code>hour12Timer</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Use 12-hour format (AM/PM) for time picker</td>
+        </tr>
+        <tr>
+          <td><code>showSecondsTimer</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Show seconds in time picker</td>
+        </tr>
+        <tr>
+          <td><code>hideActions</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Hide action buttons in picker</td>
+        </tr>
+        <tr>
+          <td><code>min</code></td>
+          <td>Date</td>
+          <td>-</td>
+          <td>Minimum selectable date/time</td>
+        </tr>
+        <tr>
+          <td><code>max</code></td>
+          <td>Date</td>
+          <td>-</td>
+          <td>Maximum selectable date/time</td>
+        </tr>
+        <tr>
+          <td><code>minTime</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Minimum selectable time (format: 'HH:mm:ss')</td>
+        </tr>
+        <tr>
+          <td><code>maxTime</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Maximum selectable time (format: 'HH:mm:ss')</td>
+        </tr>
+        <tr>
+          <td><code>minTimeErrorMsg</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Error message for invalid minTime</td>
+        </tr>
+        <tr>
+          <td><code>maxTimeErrorMsg</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Error message for invalid maxTime</td>
+        </tr>
+        <tr>
+          <td><code>setMaxZeroHour</code></td>
+          <td>boolean</td>
+          <td><code>true</code></td>
+          <td>Set max date time to 00:00:00</td>
+        </tr>
+        <tr>
+          <td><code>timeFormat</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Custom time format (e.g., 'hh:mm A')</td>
+        </tr>
+        <tr>
+          <td><code>multiYearView</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Show multiple years in year picker</td>
+        </tr>
+        <tr>
+          <td><code>hideHeaderDate</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Hide header date display</td>
+        </tr>
+        <tr>
+          <td><code>advancedCalendar</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Enable advanced calendar with custom options</td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Disable the picker</td>
+        </tr>
+        <tr>
+          <td><code>readonly</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Make input field readonly</td>
+        </tr>
+        <tr>
+          <td><code>required</code></td>
+          <td>boolean</td>
+          <td><code>false</code></td>
+          <td>Mark picker as required</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Calendar Type</strong>: Use <code>[pickerType]="'calendar'"</code> for date-only selection</li>
+      <li><strong>Timer Type</strong>: Use <code>[pickerType]="'timer'"</code> for time-only selection</li>
+      <li><strong>Both Type</strong>: Use <code>[pickerType]="'both'"</code> for combined date and time selection</li>
+      <li><strong>Month Calendar</strong>: Use <code>[pickerType]="'month-calendar'"</code> for month and year selection</li>
+      <li><strong>Year Calendar</strong>: Use <code>[pickerType]="'year-calendar'"</code> for year-only selection</li>
+      <li><strong>Single Selection</strong>: Use <code>[selectMode]="'single'"</code> for single date/time selection</li>
+      <li><strong>Range Selection</strong>: Use <code>[selectMode]="'range'"</code> for full range, 'rangeFrom'/'rangeTo' for partial ranges</li>
+      <li><strong>Week Selection</strong>: Use <code>[selectMode]="'week'"</code> for week selection</li>
+      <li><strong>Multiple Selection</strong>: Use <code>[selectMode]="'multiple'"</code> for selecting multiple dates</li>
+      <li><strong>Time Constraints</strong>: Use <code>minTime</code> and <code>maxTime</code> to restrict selectable time ranges</li>
+      <li><strong>Date Constraints</strong>: Use <code>min</code> and <code>max</code> to restrict selectable dates</li>
+      <li><strong>Time Format</strong>: Use <code>hour12Timer</code> for 12-hour format and <code>timeFormat</code> for custom formats</li>
+      <li><strong>Advanced Calendar</strong>: Use <code>[advancedCalendar]="true"</code> for enhanced calendar functionality</li>
+      <li><strong>Accessibility</strong>: Ensure pickers have proper ARIA labels and keyboard navigation</li>
+    </ol>
+  </section>
+</div>

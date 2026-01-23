@@ -1,0 +1,136 @@
+<div class="dummy-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Dummy Component</h1>
+    <p class="subtitle">
+      The dummy loader component provides a placeholder loading state for grid components. It displays 
+      a blurred skeleton UI with header controls while data is being loaded, typically used within 
+      AG Grid components.
+    </p>
+  </div>
+
+  <!-- Basic Dummy Loader Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic Dummy Loader</h2>
+    <p class="section-description">
+      Dummy loader displays a loading placeholder with header controls. It's typically used within 
+      grid components to show a loading state while data is being fetched. Configure using 
+      <code>asyncLoader</code> and <code>headerTools</code> properties.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="dummy-demo">
+        <div class="dummy-item">
+          <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; background: #f9fafb; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+            <p style="color: var(--grayColor600);">Dummy Loader Component</p>
+            <p style="color: var(--grayColor500); font-size: 14px; margin-top: 8px;">(Typically used within grid components)</p>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Dummy Loader</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Properties Table -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>asyncLoader</code></td>
+          <td><code>IAsyncLoader</code></td>
+          <td>-</td>
+          <td>Configuration object for async loading state, including header options</td>
+        </tr>
+        <tr>
+          <td><code>headerTools</code></td>
+          <td><code>IHeaderTools</code></td>
+          <td>-</td>
+          <td>Configuration object for header tools and controls</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- AsyncLoader Configuration -->
+  <section class="content-section">
+    <h2 class="section-title">AsyncLoader Configuration</h2>
+    <p class="section-description">
+      The <code>asyncLoader</code> object can contain the following configuration:
+    </p>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>headerOptions.suppressHeader</code></td>
+          <td><code>boolean</code></td>
+          <td>Suppress the header display in dummy loader</td>
+        </tr>
+        <tr>
+          <td><code>headerOptions.filterButtonPosition</code></td>
+          <td><code>string</code></td>
+          <td>Position of filter button: 'left' or 'right'</td>
+        </tr>
+        <tr>
+          <td><code>headerOptions.suppressFilterButton</code></td>
+          <td><code>boolean</code></td>
+          <td>Suppress the filter button display</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ul class="usage-list">
+      <li><strong>Grid Integration:</strong> Dummy loader is primarily used within AG Grid components during data loading</li>
+      <li><strong>Loading States:</strong> Display dummy loader while fetching grid configuration or initial data</li>
+      <li><strong>User Experience:</strong> Provides visual feedback that content is loading, preventing blank screens</li>
+      <li><strong>Header Controls:</strong> Configure header options to match your grid's header configuration</li>
+      <li><strong>Placeholder:</strong> Acts as a placeholder that mimics the final grid layout</li>
+      <li><strong>Performance:</strong> Use dummy loader to improve perceived performance during data loading</li>
+      <li><strong>Consistency:</strong> Ensure dummy loader configuration matches the actual grid layout</li>
+      <li><strong>Accessibility:</strong> Dummy loader should indicate loading state to screen readers</li>
+    </ul>
+  </section>
+</div>

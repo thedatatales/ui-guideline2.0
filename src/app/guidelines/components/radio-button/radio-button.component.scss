@@ -1,0 +1,33 @@
+@use '../_shared-styles' as *;
+
+.component-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.radio-button-demo {
+  margin-bottom: 0;
+}
+
+.radio-button-demo {
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.radio-button-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 280px;
+  flex: 0 1 auto;
+  margin-bottom: 16px;
+}
+
+.subsection-title {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+}

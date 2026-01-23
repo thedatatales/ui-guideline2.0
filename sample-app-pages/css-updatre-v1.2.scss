@@ -1,0 +1,390 @@
+/* ============================================================================
+   VIEW SYSTEM (vw-) - Card & Component Classes
+   ============================================================================
+   This file contains the new standardized view classes (vw- prefix) that will
+   gradually replace legacy duplicated classes throughout the system.
+   
+   Focus: Card structures, typography, chips, and section components.
+   ============================================================================ */
+
+/* ============================================================================
+   1. PAGE & SECTION STRUCTURE
+   ============================================================================ */
+
+/* Page Title */
+.vw-page-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #252525;
+}
+
+/* Section Container (outer containers for grouping cards) */
+.vw-card-section {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+/* Parent Card (main cards in sections) */
+.vw-card-parent {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+/* Child Card (nested cards within parent cards) */
+.vw-card-child {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+/* ============================================================================
+   2. CARD BLOCK SYSTEM
+   ============================================================================ */
+
+/* Base Card Block
+   Use this class for card structure and apply relevant variant classes */
+.vw-card-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid;
+}
+
+/* Card Block Variants */
+
+/* Default Card */
+.vw-card--default {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* Error State Card */
+.vw-card--error {
+  background-color: #fffbfa;
+  border: 1px solid #fda29b;
+}
+
+/* Success State Card */
+.vw-card--success {
+  background-color: #fcfdfc;
+  border: 1px solid #81c784;
+}
+
+/* Warning State Card */
+.vw-card--warning {
+  background-color: #fffdf3;
+  border: 1px solid #ffce6d;
+}
+
+/* Info State Card */
+.vw-card--info {
+  background-color: #fbfeff;
+  border: 1px solid #94cfec;
+}
+
+/* ============================================================================
+   3. CARD TYPOGRAPHY
+   ============================================================================ */
+
+/* Card Title */
+.vw-card-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #252525;
+}
+
+/* Card Subtitle */
+.vw-card-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #252525;
+}
+
+/* Supporting / Meta Text */
+.vw-card-description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--grayColor600);
+}
+
+/* Primary Metric Value (Extra Large) */
+.vw-card-metric-xl {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+/* Secondary Metric Value (large) */
+.vw-card-metric-lg {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* Secondary Metric Value (Medium) */
+.vw-card-metric-lg {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* Tertiary Metric Value (Small) */
+.vw-card-metric-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+
+/* Metric Label / Descriptor */
+.vw-card-metric-label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #7c7c7c;
+}
+
+/* Variance / Delta Indicator */
+.vw-card-variance {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+/* Variance States */
+.vw-card-variance.is-positive {
+  color: #1a7f10;
+}
+
+.vw-card-variance.is-negative {
+  color: #d91818;
+}
+
+.vw-card-variance.is-neutral {
+  color: #7c7c7c;
+}
+
+/* ============================================================================
+   4. CHIP COMPONENT
+   ============================================================================ */
+
+/* Base Chip Class */
+.vw-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.375rem 0.75rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  border-radius: 9999px;
+  border: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Chip Variants */
+
+/* Success / Positive */
+.vw-chip--success {
+  background-color: #ebfbee; /* green 25 */
+  color: #1a7f10;           /* green 700 */
+}
+
+/* Error / Negative */
+.vw-chip--error {
+  background-color: #fcf6f5; /* red 25 */
+  color: #b21313;            /* red 700 */
+}
+
+/* Warning / Attention */
+.vw-chip--warning {
+  background-color: #fffae8; /* yellow 25 */
+  color: #926e00;            /* yellow 800 */
+}
+
+/* Info / System */
+.vw-chip--info {
+  background-color: #f5f9ff; /* blue 25 */
+  color: #124e8e;            /* blue 700 */
+}
+
+/* Neutral / Meta */
+.vw-chip--neutral {
+  background-color: #f4f4f4; /* black 5 */
+  color: #515151;            /* black 80 */
+}
+
+/* Purple – Special / Lifecycle / Exception */
+.vw-chip--purple {
+  background-color: #f5f0ff; /* purple 25 */
+  color: #5b2dab;            /* purple 700 */
+}
+
+/* Cyan – Internal / System Meta */
+.vw-chip--cyan {
+  background-color: #ebfbff; /* cyan 25 */
+  color: #25858f;            /* cyan 700 */
+}
+
+/* Orange – Escalated Warning / Priority */
+.vw-chip--orange {
+  background-color: #fff8ee; /* orange 25 */
+  color: #824313;            /* orange 800 */
+}
+
+/* Pink – Presentation / Event / Highlight */
+.vw-chip--pink {
+  background-color: #fff0f6; /* pink 25 */
+  color: #9b1c64;            /* pink 700 */
+}
+
+/* Chip Modifiers */
+
+/* Strong emphasis (rare) */
+.vw-chip.is-strong {
+  font-weight: 500;
+}
+
+/* Clickable chip */
+.vw-chip.is-clickable {
+  cursor: pointer;
+}
+
+/* ============================================================================
+   5. SECTION COMPONENT MIGRATION
+   ============================================================================ */
+
+/* Tabs Title */
+.vw-tabs-title {
+  font-size: 16px;
+  color: var(--accentColor800);
+  font-weight: 400;
+}
+
+/* ============================================================================
+   6. DEPRECATED / LEGACY CLASSES
+   ============================================================================
+   These classes are kept for migration reference. They are already implemented
+   throughout the system. Once the color palette is finalized, these will be
+   updated to use the same variables and gradually removed.
+   ============================================================================ */
+
+/* Legacy Chip Classes - To be migrated to vw-chip variants */
+
+.common-red-chip {
+  color: #F34141;
+  background-color: #FFE9E9;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-orange-chip {
+  color: #F16D25;
+  background-color: #FFF0E4;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-brown-chip {
+  color: #6D2932;
+  background-color: #F9F0F1;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-yellow-chip {
+  color: #F3C115;
+  background-color: #FFF8E1;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-coffee-chip {
+  color: #8F7248;
+  background-color: #F7ECE4;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-green-chip {
+  color: #75B057;
+  background-color: #F0FAE9;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-magenta-chip {
+  color: #D7407F;
+  background-color: #FEFAF7;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-lavender-chip {
+  color: #723FCA;
+  background-color: #F5EDFF;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-blue-chip {
+  color: #2F6ED9;
+  background-color: #E9F3FF;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-lightBlue-chip {
+  color: #5688DF;
+  background-color: #E9F3FF;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-teal-chip {
+  color: #58B3DF;
+  background-color: #E4F9FF;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-indigo-chip {
+  color: #5C68AC;
+  background-color: #EEF3FF;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-disable-chip {
+  color: #8B8B8B;
+  background-color: #F5F5F5;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-violet-chip {
+  color: #9A496C;
+  background-color: #FFEEF6;
+  font-size: 14px;
+  border-radius: 9999px;
+}
+
+.common-cyan-chip {
+  color: #1C8EC1;
+  background-color: #E4F9FF;
+  font-size: 14px;
+  border-radius: 9999px;
+}

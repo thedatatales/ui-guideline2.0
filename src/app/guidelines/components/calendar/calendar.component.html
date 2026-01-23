@@ -1,0 +1,130 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Calendar</h1>
+    <p class="subtitle">
+      The Calendar component provides a full-featured calendar interface built on FullCalendar.
+      It supports multiple views (month, week, day), event management, custom templates, and
+      integration with external calendar providers like Google Calendar.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Calendar</h2>
+    <p class="section-description">
+      Basic calendar with default configuration. The <code>calendarConfig</code> property
+      controls the calendar's behavior, including header options, side view, and event settings.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 500px;">
+          <bntv-calendar
+            [calendarConfig]="calendarConfig"
+            [style.height]="'500px'"
+          >
+          </bntv-calendar>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Calendar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Calendar with Sidebar</h2>
+    <p class="section-description">
+      Calendar with a sidebar mini-calendar. The <code>calendarSideTemplate</code> property
+      allows custom sidebar content, and <code>syncCalendars</code> synchronizes the mini-calendar
+      with the main calendar view.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 500px;">
+          <bntv-calendar
+            [calendarConfig]="calendarConfig"
+            [syncCalendars]="true"
+            [style.height]="'500px'"
+          >
+          </bntv-calendar>
+          <a class="view-code-link" (click)="onVariantClick('withSidebar', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Calendar with Sidebar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withSidebar')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withSidebar'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Custom Templates</h2>
+    <p class="section-description">
+      Calendar with custom templates for header, events, and dialogs. The component supports
+      custom templates for adding events, viewing events, and rendering event cells.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 500px;">
+          <bntv-calendar
+            [calendarConfig]="calendarConfig"
+            [style.height]="'500px'"
+          >
+          </bntv-calendar>
+          <a class="view-code-link" (click)="onVariantClick('customTemplates', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Templates</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customTemplates')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customTemplates'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

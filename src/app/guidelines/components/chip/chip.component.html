@@ -1,0 +1,275 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Chip</h1>
+    <p class="subtitle">
+      The Chip component displays compact elements that represent input, attribute, or action.
+      Chips can be used for tags, selections, input with autocomplete, and removable items.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Chip</h2>
+    <p class="section-description">
+      Basic chip component displaying a list of chips. The <code>data</code> property contains
+      the array of chip items, and <code>displayExpression</code> defines how to display each chip.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-chip
+            [label]="'Chips'"
+            [data]="chipData"
+            [formGroup]="formGroup"
+            [formControlKey]="'chips'"
+            [displayExpression]="'$name'"
+          >
+          </bntv-chip>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Chip</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Input</h2>
+    <p class="section-description">
+      Chip component with input field for adding new chips. The <code>chipWithInput</code> property
+      is set to <code>true</code> to enable input functionality, and <code>autocompleteoptions</code>
+      provides suggestions.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-chip
+            [label]="'Add Chips'"
+            [data]="chipDataWithInput"
+            [formGroup]="formGroup"
+            [formControlKey]="'chipsWithInput'"
+            [chipWithInput]="true"
+            [autocompleteoptions]="autocompleteOptions"
+            [displayExpression]="'$name'"
+          >
+          </bntv-chip>
+          <a class="view-code-link" (click)="onVariantClick('withInput', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Input</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withInput')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withInput'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Variants</h2>
+    <p class="section-description">
+      Chip component with predefined variants. The <code>chipVariant</code> property can be set to
+      'success', 'error', 'warning', 'info', 'purple', 'orange', 'pink', 'cyan', or 'neutral'.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-chip
+            [label]="'Chip Variants'"
+            [data]="chipDataVariants"
+            [formGroup]="formGroup"
+            [formControlKey]="'chipVariants'"
+            [displayExpression]="'$name'"
+          >
+          </bntv-chip>
+          <a class="view-code-link" (click)="onVariantClick('variants', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Variants</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('variants')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['variants'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Removable</h2>
+    <p class="section-description">
+      Chip component with removable chips. The <code>removable</code> property is set to <code>true</code>
+      to display a remove icon on each chip, allowing users to delete chips individually.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-chip
+            [label]="'Removable Chips'"
+            [data]="chipData"
+            [formGroup]="formGroup"
+            [formControlKey]="'removableChips'"
+            [displayExpression]="'$name'"
+            [removable]="true"
+          >
+          </bntv-chip>
+          <a class="view-code-link" (click)="onVariantClick('removable', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Removable</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('removable')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['removable'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled chip component. The <code>disabled</code> property is set to <code>true</code>
+      to prevent user interaction with the chips.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-chip
+            [label]="'Disabled Chips'"
+            [data]="chipData"
+            [formGroup]="formGroup"
+            [formControlKey]="'disabledChips'"
+            [displayExpression]="'$name'"
+            [disabled]="true"
+          >
+          </bntv-chip>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Chip Variants & CSS Variables</h2>
+    <p class="section-description">
+      Chip component supports predefined variants with corresponding CSS variables for background and text colors.
+      Use the <code>chipVariant</code> property on individual chips or set a component-level <code>chipVariant</code>.
+    </p>
+
+    <div class="chip-variants-container">
+      <div class="chip-variant-item" *ngFor="let variant of chipVariants">
+        <div class="chip-variant-demo">
+          <bntv-chip
+            [data]="[{ name: variant.name, chipVariant: variant.variant }]"
+            [formGroup]="formGroup"
+            [formControlKey]="'variant' + variant.variant"
+            [displayExpression]="'$name'"
+            [removable]="false"
+          >
+          </bntv-chip>
+        </div>
+        <div class="chip-variant-info">
+          <div class="variant-name">{{ variant.name }}</div>
+          <div class="variant-details">
+            <div class="variant-detail-row">
+              <span class="variant-label">Background:</span>
+              <span class="variant-value" (click)="copyVariable(variant.bgColorVar)" [title]="'Click to copy'">
+                {{ variant.bgColorVar }}
+              </span>
+              <span class="variant-hex" (click)="copyVariable(variant.bgColor)" [title]="'Click to copy'">
+                {{ variant.bgColor }}
+              </span>
+            </div>
+            <div class="variant-detail-row">
+              <span class="variant-label">Text Color:</span>
+              <span class="variant-value" (click)="copyVariable(variant.textColorVar)" [title]="'Click to copy'">
+                {{ variant.textColorVar }}
+              </span>
+              <span class="variant-hex" (click)="copyVariable(variant.textColor)" [title]="'Click to copy'">
+                {{ variant.textColor }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

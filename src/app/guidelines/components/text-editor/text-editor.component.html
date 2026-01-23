@@ -1,0 +1,207 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Text Editor</h1>
+    <p class="subtitle">
+      The Text Editor component provides a rich text editing experience built on CKEditor.
+      It supports various formatting options, images, emojis, signatures, and attachments.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Text Editor</h2>
+    <p class="section-description">
+      Basic Text Editor with default toolbar configuration. Provides standard rich text editing
+      capabilities including formatting, lists, tables, and more.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-text-editor
+            [(ngModel)]="editorData"
+            [config]="EditorConfig"
+          >
+          </bntv-text-editor>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Text Editor</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Custom Toolbar</h2>
+    <p class="section-description">
+      Text Editor with custom toolbar configuration. The <code>config</code> property
+      allows customization of toolbar items and their grouping.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-text-editor
+            [(ngModel)]="editorData2"
+            [config]="EditorConfig"
+          >
+          </bntv-text-editor>
+          <a class="view-code-link" (click)="onVariantClick('customToolbar', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Toolbar</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customToolbar')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customToolbar'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Image Support</h2>
+    <p class="section-description">
+      Text Editor with image insertion support. The toolbar includes the <code>'image'</code> item
+      to allow users to insert images into the editor content.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-text-editor
+            [(ngModel)]="editorData"
+            [config]="EditorConfigWithImage"
+          >
+          </bntv-text-editor>
+          <a class="view-code-link" (click)="onVariantClick('withImage', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Image Support</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withImage')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withImage'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Emoji Support</h2>
+    <p class="section-description">
+      Text Editor with emoji insertion support. The toolbar includes the <code>'Emoji'</code> item
+      to allow users to insert emojis into the editor content.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-text-editor
+            [(ngModel)]="editorData"
+            [config]="EditorConfigWithEmoji"
+          >
+          </bntv-text-editor>
+          <a class="view-code-link" (click)="onVariantClick('withEmoji', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Emoji Support</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withEmoji')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withEmoji'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Signature Support</h2>
+    <p class="section-description">
+      Text Editor with signature insertion support. The toolbar includes the <code>'Signature'</code> item
+      to allow users to insert digital signatures into the editor content.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-text-editor
+            [(ngModel)]="editorData"
+            [config]="EditorConfigWithSignature"
+          >
+          </bntv-text-editor>
+          <a class="view-code-link" (click)="onVariantClick('withSignature', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Signature Support</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withSignature')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withSignature'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

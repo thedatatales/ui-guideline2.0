@@ -1,0 +1,14 @@
+@use '../_shared-styles' as *;
+
+.component-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-note {
+  margin-top: 12px;
+  font-size: 0.9em;
+  color: var(--grayColor600);
+  font-style: italic;
+}

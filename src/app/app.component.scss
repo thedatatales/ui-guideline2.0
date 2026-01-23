@@ -1,0 +1,8 @@
+::ng-deep {
+    scrollbar-width: none !important; 
+    -ms-overflow-style: none !important;
+    ::-webkit-scrollbar {
+        display: none !important;
+    }
+    scroll-behavior: smooth !important;
+}

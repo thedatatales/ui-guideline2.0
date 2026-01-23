@@ -1,0 +1,225 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Currency Input</h1>
+    <p class="subtitle">
+      The Currency Input component provides an input field with a currency selector dropdown.
+      It supports different currency positions, custom currency lists, and formatted currency display.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Currency Input</h2>
+    <p class="section-description">
+      Basic currency input with default configuration. The <code>itemList</code> property provides
+      the list of available currencies, and the currency selector appears on the left by default.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-currency-input
+            [label]="'Amount'"
+            [itemList]="currencyList"
+            [formGroup]="formGroup"
+            [formControlKey]="'amount'"
+            [(data)]="currencyData"
+          >
+          </bntv-currency-input>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Currency Input</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Left Position</h2>
+    <p class="section-description">
+      Currency input with currency selector on the left side. The <code>currencyInputPosition</code>
+      property is set to <code>'left'</code>.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-currency-input
+            [label]="'Amount'"
+            [itemList]="currencyList"
+            [currencyInputPosition]="'left'"
+            [formGroup]="formGroup"
+            [formControlKey]="'amountLeft'"
+            [(data)]="currencyData"
+          >
+          </bntv-currency-input>
+          <a class="view-code-link" (click)="onVariantClick('leftPosition', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Left Position</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('leftPosition')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['leftPosition'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Right Position</h2>
+    <p class="section-description">
+      Currency input with currency selector on the right side. The <code>currencyInputPosition</code>
+      property is set to <code>'right'</code>.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-currency-input
+            [label]="'Amount'"
+            [itemList]="currencyList"
+            [currencyInputPosition]="'right'"
+            [formGroup]="formGroup"
+            [formControlKey]="'amountRight'"
+            [(data)]="currencyData"
+          >
+          </bntv-currency-input>
+          <a class="view-code-link" (click)="onVariantClick('rightPosition', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Right Position</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('rightPosition')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['rightPosition'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Pre-filled Value</h2>
+    <p class="section-description">
+      Currency input with a pre-filled value. The <code>data</code> property is bound to a value
+      that includes both the currency code and amount.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-currency-input
+            [label]="'Amount'"
+            [itemList]="currencyList"
+            [formGroup]="formGroup"
+            [formControlKey]="'amountWithValue'"
+            [(data)]="currencyData2"
+          >
+          </bntv-currency-input>
+          <a class="view-code-link" (click)="onVariantClick('withValue', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Pre-filled Value</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withValue')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withValue'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Disabled</h2>
+    <p class="section-description">
+      Disabled currency input. The <code>disabled</code> property is set to <code>true</code>
+      to prevent user interaction.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-currency-input
+            [label]="'Amount'"
+            [itemList]="currencyList"
+            [formGroup]="formGroup"
+            [formControlKey]="'amountDisabled'"
+            [(data)]="currencyData"
+            [disabled]="true"
+          >
+          </bntv-currency-input>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Disabled</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

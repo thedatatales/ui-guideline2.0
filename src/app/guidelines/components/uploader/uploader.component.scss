@@ -1,0 +1,19 @@
+@use '../shared-styles' as *;
+
+.uploader-documentation-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.uploader-demo {
+  margin-bottom: 0;
+}
+
+.uploader-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100%;
+  flex: 0 0 100%;
+}

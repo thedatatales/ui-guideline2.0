@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build -- --configuration production",
+  "outputDirectory": "dist/apps",
+  "installCommand": "npm install --force --legacy-peer-deps",
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/ui-guidelines",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/ui-guidelines/:path*",
+      "destination": "/ui-guidelines/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/ui-guidelines/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+

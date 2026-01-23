@@ -1,0 +1,260 @@
+<div class="card-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Card Component</h1>
+    <p class="subtitle">
+      The card component provides a container for displaying content in a structured format. Cards can include headers, titles, subtitles, and customizable styling options.
+    </p>
+  </div>
+
+  <!-- Basic Section -->
+  <section class="content-section">
+    <h2 class="section-title">Basic</h2>
+    <p class="section-description">
+      Basic card component with content. Use <code>card-content</code> selector to add content to the card body.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="card-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="card-item">
+          <bntv-simple-card>
+            <div card-content>
+              <p>This is the card content. You can add any content here.</p>
+            </div>
+          </bntv-simple-card>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Header Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Header</h2>
+    <p class="section-description">
+      Card with header, title, and subtitle. Set <code>isHeader</code> to <code>true</code> and use <code>card-title</code> and <code>card-subtitle</code> selectors.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="card-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="card-item">
+          <bntv-simple-card [isHeader]="true">
+            <div card-title>Card Title</div>
+            <div card-subtitle>Card Subtitle</div>
+            <div card-content>
+              <p>This card has a header with title and subtitle.</p>
+            </div>
+          </bntv-simple-card>
+          <a class="view-code-link" (click)="onVariantClick('withHeader', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Header</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withHeader')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withHeader'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Shadow Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Box Shadow</h2>
+    <p class="section-description">
+      Card with box shadow effect. Set <code>boxShadow</code> to <code>true</code> to add a shadow effect.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="card-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="card-item">
+          <bntv-simple-card [boxShadow]="true">
+            <div card-content>
+              <p>This card has a box shadow effect.</p>
+            </div>
+          </bntv-simple-card>
+          <a class="view-code-link" (click)="onVariantClick('withShadow', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Box Shadow</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withShadow')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withShadow'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Custom Padding Section -->
+  <section class="content-section">
+    <h2 class="section-title">Custom Padding</h2>
+    <p class="section-description">
+      Card with custom padding. Use the <code>padding</code> property to set custom padding values.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="card-demo" fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="32px">
+        <div class="card-item">
+          <bntv-simple-card [padding]="'2em'">
+            <div card-content>
+              <p>This card has custom padding of 2em.</p>
+            </div>
+          </bntv-simple-card>
+          <a class="view-code-link" (click)="onVariantClick('customPadding', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Padding</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customPadding')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customPadding'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Component Properties Section -->
+  <section class="content-section">
+    <h2 class="section-title">Component Properties</h2>
+    <table class="properties-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>isHeader</code></td>
+          <td>boolean</td>
+          <td><code>true</code></td>
+          <td>Show/hide card header</td>
+        </tr>
+        <tr>
+          <td><code>boxShadow</code></td>
+          <td>boolean</td>
+          <td><code>true</code></td>
+          <td>Enable box shadow effect</td>
+        </tr>
+        <tr>
+          <td><code>padding</code></td>
+          <td>string</td>
+          <td><code>'1.5em'</code></td>
+          <td>Card padding value</td>
+        </tr>
+        <tr>
+          <td><code>errorCode</code></td>
+          <td>number</td>
+          <td>-</td>
+          <td>Error code to display error message</td>
+        </tr>
+        <tr>
+          <td><code>errorMessage</code></td>
+          <td>string</td>
+          <td>-</td>
+          <td>Custom error message</td>
+        </tr>
+        <tr>
+          <td><code>card-title</code></td>
+          <td>ng-content</td>
+          <td>-</td>
+          <td>Content selector for card title</td>
+        </tr>
+        <tr>
+          <td><code>card-subtitle</code></td>
+          <td>ng-content</td>
+          <td>-</td>
+          <td>Content selector for card subtitle</td>
+        </tr>
+        <tr>
+          <td><code>card-content</code></td>
+          <td>ng-content</td>
+          <td>-</td>
+          <td>Content selector for card body</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Usage Guidelines Section -->
+  <section class="content-section">
+    <h2 class="section-title">Usage Guidelines</h2>
+    <ol class="usage-list">
+      <li><strong>Content Organization</strong>: Use cards to group related content together</li>
+      <li><strong>Headers</strong>: Include headers with titles and subtitles for better content hierarchy</li>
+      <li><strong>Visual Hierarchy</strong>: Use box shadows to create visual depth and separation</li>
+      <li><strong>Spacing</strong>: Adjust padding based on content density and design requirements</li>
+      <li><strong>Error Handling</strong>: Use errorCode and errorMessage for displaying error states</li>
+      <li><strong>Accessibility</strong>: Ensure card content is properly structured with semantic HTML</li>
+      <li><strong>Responsive Design</strong>: Cards should adapt to different screen sizes</li>
+    </ol>
+  </section>
+</div>

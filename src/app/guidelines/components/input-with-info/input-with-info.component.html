@@ -1,0 +1,154 @@
+<div class="component-documentation-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h1 class="main-title">Input with Info</h1>
+    <p class="subtitle">
+      The Input with Info component extends the standard input box with informational messages 
+      or icons that provide helpful context to users. It supports info messages, label info icons, 
+      and custom info templates.
+    </p>
+  </div>
+
+  <!-- With Info Message Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Info Message</h2>
+    <p class="section-description">
+      Display an informational message below the input field. This is useful for providing 
+      helpful hints or validation information to users.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; max-width: 400px;">
+          <bntv-input-box
+            [label]="'Input with Info'"
+            [placeholder]="'Enter text'"
+            [type]="'text'"
+            [infoMessage]="infoMessage"
+            [(data)]="textValue"
+          >
+          </bntv-input-box>
+          <a class="view-code-link" (click)="onVariantClick('withInfoMessage', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Info Message</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withInfoMessage')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withInfoMessage'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Label Info Icon Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Label Info Icon</h2>
+    <p class="section-description">
+      Display an info icon next to the label that shows a tooltip message when hovered. 
+      This is useful for providing contextual help without cluttering the interface.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; max-width: 400px;">
+          <bntv-input-box
+            [label]="'Input with Label Info'"
+            [placeholder]="'Enter text'"
+            [type]="'text'"
+            [lableinfoIconMessage]="labelInfoMessage"
+            [(data)]="textValue"
+          >
+          </bntv-input-box>
+          <a class="view-code-link" (click)="onVariantClick('withLabelInfoIcon', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Label Info Icon</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withLabelInfoIcon')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withLabelInfoIcon'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- With Info Template Section -->
+  <section class="content-section">
+    <h2 class="section-title">With Info Template</h2>
+    <p class="section-description">
+      Use a custom template for displaying info content. This allows for more complex 
+      information displays with custom styling and interactive elements.
+    </p>
+    
+    <!-- Visual Demo -->
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; max-width: 400px;">
+          <bntv-input-box
+            [label]="'Input with Info Template'"
+            [placeholder]="'Enter text'"
+            [type]="'text'"
+            [infoTemplateRef]="infoTemplate"
+            [(data)]="textValue"
+          >
+          </bntv-input-box>
+          <a class="view-code-link" (click)="onVariantClick('withInfoTemplate', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Code Example -->
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Info Template</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withInfoTemplate')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withInfoTemplate'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Info Template -->
+<ng-template #infoTemplate>
+  <div style="padding: 8px; background: var(--bgColor50); border-radius: 4px; font-size: 0.9em;">
+    Custom info template content with <strong>rich formatting</strong>
+  </div>
+</ng-template>

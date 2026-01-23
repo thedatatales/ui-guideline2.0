@@ -1,0 +1,146 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">View Switcher</h1>
+    <p class="subtitle">
+      The View Switcher (Split View) component displays a split-pane interface with
+      a list/grid on one side and detail view on the other. It allows users to
+      switch between different views and see details for selected items.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic View Switcher</h2>
+    <p class="section-description">
+      Basic split view displaying a grid/list on the left side. The <code>proxyRequired</code>
+      property controls whether proxy is needed for data fetching.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-split-view
+            [proxyRequired]="false"
+            [agGridName]="'demoGrid'"
+            [gridJson]="gridJson"
+            [style.height]="'400px'"
+          >
+          </bntv-split-view>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic View Switcher</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">View Switcher with Detail Template</h2>
+    <p class="section-description">
+      Split view with a custom detail template displayed on the right side when
+      an item is selected. The <code>splitViewDetailTemplateRef</code> property
+      references the detail template.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <ng-template #detailTemplate let-data="data">
+            <div class="detail-content" style="padding: 20px;">
+              <h3>{{ data?.name || 'Select an item' }}</h3>
+              <p>Status: {{ data?.status || 'N/A' }}</p>
+              <p>Date: {{ data?.date || 'N/A' }}</p>
+            </div>
+          </ng-template>
+          <bntv-split-view
+            [proxyRequired]="false"
+            [agGridName]="'demoGridWithDetail'"
+            [gridJson]="gridJson"
+            [splitViewDetailTemplateRef]="detailTemplate"
+            [style.height]="'400px'"
+          >
+          </bntv-split-view>
+          <a class="view-code-link" (click)="onVariantClick('withDetail', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">View Switcher with Detail Template</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('withDetail')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['withDetail'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Custom Configuration</h2>
+    <p class="section-description">
+      View switcher with custom configuration including action handlers and
+      row action visibility. The <code>actionClicked</code> event emits when
+      actions are triggered.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item" style="width: 100%; height: 400px;">
+          <bntv-split-view
+            [proxyRequired]="false"
+            [agGridName]="'customGrid'"
+            [gridJson]="gridJson"
+            [hideRowActions]="false"
+            (actionClicked)="onActionClick($event)"
+            [style.height]="'400px'"
+          >
+          </bntv-split-view>
+          <a class="view-code-link" (click)="onVariantClick('custom', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Configuration</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('custom')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['custom'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

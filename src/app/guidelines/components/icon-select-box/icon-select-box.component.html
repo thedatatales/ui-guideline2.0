@@ -1,0 +1,235 @@
+<div class="component-documentation-container">
+  <div class="header-section">
+    <h1 class="main-title">Icon Select Box</h1>
+    <p class="subtitle">
+      The Icon Select Box component provides a dropdown interface for selecting icons or images.
+      It supports different display modes, custom sizing, and can display icons with or without names.
+    </p>
+  </div>
+
+  <section class="content-section">
+    <h2 class="section-title">Basic Icon Select Box</h2>
+    <p class="section-description">
+      Basic icon select box displaying icons only. The <code>displayMode</code> property is set to
+      <code>'onlyIcon'</code> to show only icons without text labels.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-icon-select-box
+            [itemList]="iconList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [iconKey]="'icon'"
+            [type]="'icon'"
+            [displayMode]="'onlyIcon'"
+            [(data)]="selectedIcon"
+          >
+          </bntv-icon-select-box>
+          <a class="view-code-link" (click)="onVariantClick('basic', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Basic Icon Select Box</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('basic')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['basic'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Icon with Name</h2>
+    <p class="section-description">
+      Icon select box displaying both icons and names. The <code>displayMode</code> property is set to
+      <code>'iconWithName'</code> to show icons alongside their names.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-icon-select-box
+            [itemList]="iconList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [iconKey]="'icon'"
+            [type]="'icon'"
+            [displayMode]="'iconWithName'"
+            [(data)]="selectedIcon2"
+          >
+          </bntv-icon-select-box>
+          <a class="view-code-link" (click)="onVariantClick('iconWithName', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Icon with Name</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('iconWithName')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['iconWithName'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Name Only</h2>
+    <p class="section-description">
+      Icon select box displaying only names without icons. The <code>displayMode</code> property is set to
+      <code>'onlyName'</code> to show text labels only.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-icon-select-box
+            [itemList]="iconList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [type]="'icon'"
+            [displayMode]="'onlyName'"
+            [(data)]="selectedIcon3"
+          >
+          </bntv-icon-select-box>
+          <a class="view-code-link" (click)="onVariantClick('onlyName', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Name Only</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('onlyName')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['onlyName'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">Custom Size</h2>
+    <p class="section-description">
+      Icon select box with custom sizing. The <code>height</code> property sets the dropdown height,
+      and <code>itemInRows</code> controls how many items are displayed per row.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-icon-select-box
+            [itemList]="iconList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [iconKey]="'icon'"
+            [type]="'icon'"
+            [displayMode]="'onlyIcon'"
+            [height]="'4em'"
+            [itemInRows]="3"
+            [(data)]="selectedIcon"
+          >
+          </bntv-icon-select-box>
+          <a class="view-code-link" (click)="onVariantClick('customSize', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">Custom Size</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('customSize')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['customSize'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <section class="content-section">
+    <h2 class="section-title">With Custom Position</h2>
+    <p class="section-description">
+      Icon select box with custom dropdown position. The <code>xPosition</code> and <code>yPosition</code>
+      properties control where the dropdown menu appears relative to the trigger.
+    </p>
+
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <bntv-icon-select-box
+            [itemList]="iconList"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [iconKey]="'icon'"
+            [type]="'icon'"
+            [displayMode]="'onlyIcon'"
+            [xPosition]="'before'"
+            [yPosition]="'above'"
+            [(data)]="selectedIcon"
+          >
+          </bntv-icon-select-box>
+          <a class="view-code-link" (click)="onVariantClick('disabled', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">With Custom Position</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('disabled')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['disabled'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>
