@@ -13,13 +13,13 @@
 .main-title {
   font-size: 32px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 16px;
 }
 
 .subtitle {
   font-size: 16px;
-  color: var(--grayColor600);
+  color: var(--textColorTertiary, var(--grayColor600));
   line-height: 1.6;
 }
 
@@ -30,20 +30,20 @@
 .section-title {
   font-size: 24px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 24px;
 }
 
 .subsection-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 16px;
 }
 
 .section-description {
   font-size: 16px;
-  color: var(--grayColor600);
+  color: var(--textColorTertiary, var(--grayColor600));
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -57,34 +57,34 @@
 
 .typeface-item {
   padding: 20px;
-  background-color: var(--bgColor50);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
   border-radius: 8px;
-  border: 1px solid var(--grayColor200);
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
 }
 
 .typeface-label {
   font-size: 18px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 8px;
 }
 
 .typeface-value {
   font-size: 20px;
   font-weight: 500;
-  color: var(--accentColor500);
+  color: var(--textColorLink, var(--accentColor500));
   margin-bottom: 8px;
   font-family: 'Courier New', monospace;
 }
 
 .typeface-description {
   font-size: 14px;
-  color: var(--grayColor600);
+  color: var(--textColorTertiary, var(--grayColor600));
   line-height: 1.6;
   margin-top: 8px;
   
   code {
-    background-color: var(--bgColor100);
+    background-color: var(--surfaceColorMuted, var(--bgColor100));
     padding: 2px 6px;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
@@ -97,14 +97,14 @@
   align-items: center;
   gap: 8px;
   padding: 12px;
-  background-color: var(--bgColor100);
+  background-color: var(--surfaceColorMuted, var(--bgColor100));
   border-radius: 4px;
   margin: 8px 0;
   
   code {
     font-family: 'Courier New', monospace;
     font-size: 14px;
-    color: var(--grayColor800);
+    color: var(--textColor, var(--grayColor800));
     flex: 1;
   }
 }
@@ -119,7 +119,7 @@
 
 .rationale-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   
   li {
     margin-bottom: 8px;
@@ -133,49 +133,49 @@
   border-collapse: collapse;
   margin-top: 16px;
   background: white;
-  border: 1px solid var(--grayColor200);
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
   border-radius: 8px;
   overflow: hidden;
   
   thead {
-    background-color: var(--bgColor50);
+    background-color: var(--surfaceColorSubtle, var(--bgColor50));
     
     th {
       padding: 16px;
       text-align: left;
       font-weight: 600;
-      color: var(--grayColor800);
-      border-bottom: 2px solid var(--grayColor200);
+      color: var(--textColor, var(--grayColor800));
+      border-bottom: 2px solid var(--borderColorLight, var(--grayColor200));
       font-size: 14px;
     }
   }
   
   tbody {
     tr {
-      border-bottom: 1px solid var(--grayColor200);
+      border-bottom: 1px solid var(--borderColorLight, var(--grayColor200));
       
       &:last-child {
         border-bottom: none;
       }
       
       &:hover {
-        background-color: var(--bgColor50);
+        background-color: var(--surfaceColorSubtle, var(--bgColor50));
       }
     }
     
     td {
       padding: 16px;
-      color: var(--grayColor700);
+      color: var(--textColorSecondary, var(--grayColor700));
       font-size: 14px;
       line-height: 1.6;
       
       code {
-        background-color: var(--bgColor100);
+        background-color: var(--surfaceColorMuted, var(--bgColor100));
         padding: 2px 6px;
         border-radius: 3px;
         font-family: 'Courier New', monospace;
         font-size: 13px;
-        color: var(--accentColor500);
+        color: var(--textColorLink, var(--accentColor500));
       }
     }
   }
@@ -188,7 +188,7 @@
 // Hierarchy Rules
 .hierarchy-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -204,7 +204,7 @@
   border-left: 4px solid #ffc107;
   border-radius: 4px;
   margin-top: 24px;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   font-size: 14px;
 }
 
@@ -214,28 +214,28 @@
   flex-direction: column;
   gap: 12px;
   padding: 20px;
-  background-color: var(--bgColor50);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
   border-radius: 8px;
-  border: 1px solid var(--grayColor200);
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
 }
 
 .readability-item {
   font-size: 16px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.6;
 }
 
 // Accessibility Rules
 .accessibility-rules {
   padding: 20px;
-  background-color: var(--bgColor50);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
   border-radius: 8px;
-  border: 1px solid var(--grayColor200);
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
 }
 
 .rules-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -248,7 +248,7 @@
   }
   
   code {
-    background-color: var(--bgColor100);
+    background-color: var(--surfaceColorMuted, var(--bgColor100));
     padding: 2px 6px;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
@@ -262,21 +262,21 @@
   flex-direction: column;
   gap: 12px;
   padding: 20px;
-  background-color: var(--bgColor50);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
   border-radius: 8px;
-  border: 1px solid var(--grayColor200);
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
 }
 
 .spacing-item {
   font-size: 16px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.6;
 }
 
 // Layout Guidelines
 .layout-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -295,7 +295,7 @@
     align-items: center;
     padding: 12px 0;
     font-size: 16px;
-    color: var(--grayColor700);
+    color: var(--textColorSecondary, var(--grayColor700));
     line-height: 1.6;
   }
 }
@@ -334,14 +334,14 @@
   align-items: center;
   font-size: 18px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 16px;
 }
 
 .do-list,
 .dont-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -360,7 +360,7 @@
     align-items: center;
     padding: 12px 0;
     font-size: 16px;
-    color: var(--grayColor700);
+    color: var(--textColorSecondary, var(--grayColor700));
     line-height: 1.6;
   }
 }

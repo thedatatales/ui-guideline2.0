@@ -56,14 +56,14 @@
                 "bundleName": "theme-indigo"
               },
               {
-                "input": "node_modules/@enttribe/themes-theme-black/src/styles/theme-black.scss",
-                "inject": true,
-                "bundleName": "theme-black"
-              },
-              {
                 "input": "node_modules/@enttribe/themes-theme-greenwave/src/styles/theme-greenwave.scss",
                 "inject": true,
                 "bundleName": "theme-greenwave"
+              },
+              {
+                "input": "node_modules/@enttribe/themes-theme-black/src/styles/theme-black.scss",
+                "inject": true,
+                "bundleName": "theme-black"
               },
               {
                 "input": "node_modules/@enttribe/themes-gx-theme/src/lib/variables.scss",

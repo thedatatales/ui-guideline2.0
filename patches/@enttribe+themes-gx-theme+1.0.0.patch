@@ -1,0 +1,238 @@
+--- a/src/lib/variables.scss
++++ b/src/lib/variables.scss
+@@ -123,6 +123,117 @@
+ 
+ 
+ .level4-style {
++  /* ==========================================================================
++     GENERAL ROLE TOKENS (FOUNDATION)
++     PURPOSE:
++     - Component-agnostic design contracts
++     - Bridge between semantic tokens and component tokens
++
++     RULES:
++     - Do NOT add component-specific tokens here
++     - Do NOT use directly in feature-level layout CSS
++     - Prefer component role tokens when available
++     ========================================================================== */
++
++  /* Text Colors - General purpose text roles */
++  --textColor: var(--vw-color-text-primary, var(--grayColor900));
++  --textColorSecondary: var(--vw-color-text-secondary, var(--grayColor600));
++  --textColorTertiary: var(--vw-color-text-tertiary, var(--grayColor500));
++  --textColorDisabled: var(--vw-color-text-disabled, var(--grayColor400));
++  --textColorInverse: var(--vw-color-text-inverse, var(--grayColor10));
++  --textColorLink: var(--vw-color-text-link, var(--primaryColor500));
++  --textColorLinkHover: var(--vw-color-text-link-hover, var(--primaryColor600));
++  --textColorError: var(--vw-color-danger, var(--warnColor600));
++  --textColorSuccess: var(--vw-color-success, var(--accentColor500));
++  --textColorWarning: var(--vw-color-warning, var(--warnColor500));
++
++  /* Icon Colors - General purpose icon roles */
++  --iconColor: var(--vw-color-icon-primary, var(--grayColor700));
++  --iconColorSecondary: var(--vw-color-icon-secondary, var(--grayColor500));
++  --iconColorDisabled: var(--vw-color-icon-disabled, var(--grayColor400));
++  --iconColorInverse: var(--vw-color-icon-inverse, var(--grayColor10));
++  --iconColorInteractive: var(--vw-color-icon-interactive, var(--primaryColor500));
++  --iconColorError: var(--vw-color-danger, var(--warnColor600));
++  --iconColorSuccess: var(--vw-color-success, var(--accentColor500));
++  --iconColorWarning: var(--vw-color-warning, var(--warnColor500));
++
++  /* Border Colors - General purpose border roles */
++  --borderColor: var(--vw-color-border, var(--grayColor300));
++  --borderColorHover: var(--vw-color-border-hover, var(--grayColor400));
++  --borderColorFocus: var(--vw-color-border-focus, var(--primaryColor500));
++  --borderColorError: var(--vw-color-border-error, var(--vw-color-danger));
++  --borderColorSuccess: var(--vw-color-border-success, var(--vw-color-success));
++  --borderColorDisabled: var(--vw-color-border-disabled, var(--grayColor200));
++  --borderColorLight: var(--grayColor100);
++  --borderColorMedium: var(--grayColor300);
++  --borderColorDark: var(--grayColor600);
++
++  /* Surface Colors - General purpose surface/background roles */
++  --surfaceColor: var(--vw-color-surface, var(--bgColor10));
++  --surfaceColorHover: var(--vw-color-surface-hover, var(--bgColor100));
++  --surfaceColorActive: var(--vw-color-surface-active, var(--bgColor200));
++  --surfaceColorSelected: var(--vw-color-surface-selected, var(--bgColor50));
++  --surfaceColorDisabled: var(--vw-color-surface-disabled, var(--bgColor100));
++  --surfaceColorElevated: var(--vw-color-surface-elevated, var(--grayColor10));
++  --surfaceColorSubtle: var(--bgColor50);
++  --surfaceColorMuted: var(--bgColor100);
++
++  /* Divider Colors & Styles */
++  --dividerColor: var(--grayColor200);
++  --dividerWidth: 1px;
++  --dividerStyle: solid;
++  --dividerSpacing: 1em;
++
++  /* Shadow & Elevation */
++  --shadowColor: rgba(0, 0, 0, 0.1);
++  --shadowColorHover: rgba(0, 0, 0, 0.15);
++  --shadowColorFocus: rgba(0, 0, 0, 0.2);
++  --shadowElevation1: 0 1px 2px 0 var(--shadowColor);
++  --shadowElevation2: 0 2px 4px 0 var(--shadowColor);
++  --shadowElevation3: 0 4px 8px 0 var(--shadowColor);
++  --shadowElevation4: 0 8px 16px 0 var(--shadowColor);
++  --shadowElevation5: 0 16px 32px 0 var(--shadowColor);
++
++  /* Spacing - General spacing roles */
++  --spacingUnit: 0.25em; // Base spacing unit (4px equivalent)
++  --spacingXxs: calc(var(--spacingUnit) * 0.5); // 2px
++  --spacingXs: var(--spacingUnit); // 4px
++  --spacingSm: calc(var(--spacingUnit) * 2); // 8px
++  --spacingMd: calc(var(--spacingUnit) * 4); // 16px
++  --spacingLg: calc(var(--spacingUnit) * 8); // 32px
++  --spacingXl: calc(var(--spacingUnit) * 16); // 64px
++  --spacingXxl: calc(var(--spacingUnit) * 32); // 128px
++
++  /* Border Radius - General radius roles */
++  --radiusNone: 0;
++  --radiusXs: 0.25em;
++  --radiusSm: 0.5em;
++  --radiusMd: 0.67em;
++  --radiusLg: 1em;
++  --radiusXl: 1.5em;
++  --radiusFull: 9999px;
++
++  /* Transition - General transition roles */
++  --transitionDurationFast: 150ms;
++  --transitionDurationBase: 200ms;
++  --transitionDurationSlow: 300ms;
++  --transitionTimingEase: ease;
++  --transitionTimingEaseIn: ease-in;
++  --transitionTimingEaseOut: ease-out;
++  --transitionTimingEaseInOut: ease-in-out;
++
++  /* Focus Ring - General focus roles */
++  --focusRingColor: var(--vw-color-focus-ring, rgba(33, 150, 243, 0.4));
++  --focusRingColorDanger: var(--vw-color-focus-ring-danger, rgba(244, 67, 54, 0.4));
++  --focusRingWidth: 2px;
++  --focusRingOffset: 2px;
++  --focusRingStyle: solid;
++
++  /* Overlay - General overlay roles */
++  --overlayColor: var(--vw-color-overlay, rgba(0, 0, 0, 0.5));
++  --overlayColorLight: var(--vw-color-overlay-light, rgba(0, 0, 0, 0.3));
++  --overlayZIndex: 1000;
++
+   /* -------------------- App Container -------------------- */
+   --appContainerGap: 2em;
+   --appContainerRadius: 1em;
+@@ -733,6 +844,117 @@
+ }
+ 
+ .template13-style {
++  /* ==========================================================================
++     GENERAL ROLE TOKENS (FOUNDATION)
++     PURPOSE:
++     - Component-agnostic design contracts
++     - Bridge between semantic tokens and component tokens
++
++     RULES:
++     - Do NOT add component-specific tokens here
++     - Do NOT use directly in feature-level layout CSS
++     - Prefer component role tokens when available
++     ========================================================================== */
++
++  /* Text Colors - General purpose text roles */
++  --textColor: var(--vw-color-text-primary, var(--grayColor900));
++  --textColorSecondary: var(--vw-color-text-secondary, var(--grayColor600));
++  --textColorTertiary: var(--vw-color-text-tertiary, var(--grayColor500));
++  --textColorDisabled: var(--vw-color-text-disabled, var(--grayColor400));
++  --textColorInverse: var(--vw-color-text-inverse, var(--grayColor10));
++  --textColorLink: var(--vw-color-text-link, var(--primaryColor500));
++  --textColorLinkHover: var(--vw-color-text-link-hover, var(--primaryColor600));
++  --textColorError: var(--vw-color-danger, var(--warnColor600));
++  --textColorSuccess: var(--vw-color-success, var(--accentColor500));
++  --textColorWarning: var(--vw-color-warning, var(--warnColor500));
++
++  /* Icon Colors - General purpose icon roles */
++  --iconColor: var(--vw-color-icon-primary, var(--grayColor700));
++  --iconColorSecondary: var(--vw-color-icon-secondary, var(--grayColor500));
++  --iconColorDisabled: var(--vw-color-icon-disabled, var(--grayColor400));
++  --iconColorInverse: var(--vw-color-icon-inverse, var(--grayColor10));
++  --iconColorInteractive: var(--vw-color-icon-interactive, var(--primaryColor500));
++  --iconColorError: var(--vw-color-danger, var(--warnColor600));
++  --iconColorSuccess: var(--vw-color-success, var(--accentColor500));
++  --iconColorWarning: var(--vw-color-warning, var(--warnColor500));
++
++  /* Border Colors - General purpose border roles */
++  --borderColor: var(--vw-color-border, var(--grayColor300));
++  --borderColorHover: var(--vw-color-border-hover, var(--grayColor400));
++  --borderColorFocus: var(--vw-color-border-focus, var(--primaryColor500));
++  --borderColorError: var(--vw-color-border-error, var(--vw-color-danger));
++  --borderColorSuccess: var(--vw-color-border-success, var(--vw-color-success));
++  --borderColorDisabled: var(--vw-color-border-disabled, var(--grayColor200));
++  --borderColorLight: var(--grayColor100);
++  --borderColorMedium: var(--grayColor300);
++  --borderColorDark: var(--grayColor600);
++
++  /* Surface Colors - General purpose surface/background roles */
++  --surfaceColor: var(--vw-color-surface, var(--bgColor10));
++  --surfaceColorHover: var(--vw-color-surface-hover, var(--bgColor100));
++  --surfaceColorActive: var(--vw-color-surface-active, var(--bgColor200));
++  --surfaceColorSelected: var(--vw-color-surface-selected, var(--bgColor50));
++  --surfaceColorDisabled: var(--vw-color-surface-disabled, var(--bgColor100));
++  --surfaceColorElevated: var(--vw-color-surface-elevated, var(--grayColor10));
++  --surfaceColorSubtle: var(--bgColor50);
++  --surfaceColorMuted: var(--bgColor100);
++
++  /* Divider Colors & Styles */
++  --dividerColor: var(--grayColor200);
++  --dividerWidth: 1px;
++  --dividerStyle: solid;
++  --dividerSpacing: 1em;
++
++  /* Shadow & Elevation */
++  --shadowColor: rgba(0, 0, 0, 0.1);
++  --shadowColorHover: rgba(0, 0, 0, 0.15);
++  --shadowColorFocus: rgba(0, 0, 0, 0.2);
++  --shadowElevation1: 0 1px 2px 0 var(--shadowColor);
++  --shadowElevation2: 0 2px 4px 0 var(--shadowColor);
++  --shadowElevation3: 0 4px 8px 0 var(--shadowColor);
++  --shadowElevation4: 0 8px 16px 0 var(--shadowColor);
++  --shadowElevation5: 0 16px 32px 0 var(--shadowColor);
++
++  /* Spacing - General spacing roles */
++  --spacingUnit: 0.25em; // Base spacing unit (4px equivalent)
++  --spacingXxs: calc(var(--spacingUnit) * 0.5); // 2px
++  --spacingXs: var(--spacingUnit); // 4px
++  --spacingSm: calc(var(--spacingUnit) * 2); // 8px
++  --spacingMd: calc(var(--spacingUnit) * 4); // 16px
++  --spacingLg: calc(var(--spacingUnit) * 8); // 32px
++  --spacingXl: calc(var(--spacingUnit) * 16); // 64px
++  --spacingXxl: calc(var(--spacingUnit) * 32); // 128px
++
++  /* Border Radius - General radius roles */
++  --radiusNone: 0;
++  --radiusXs: 0.25em;
++  --radiusSm: 0.5em;
++  --radiusMd: 0.67em;
++  --radiusLg: 1em;
++  --radiusXl: 1.5em;
++  --radiusFull: 9999px;
++
++  /* Transition - General transition roles */
++  --transitionDurationFast: 150ms;
++  --transitionDurationBase: 200ms;
++  --transitionDurationSlow: 300ms;
++  --transitionTimingEase: ease;
++  --transitionTimingEaseIn: ease-in;
++  --transitionTimingEaseOut: ease-out;
++  --transitionTimingEaseInOut: ease-in-out;
++
++  /* Focus Ring - General focus roles */
++  --focusRingColor: var(--vw-color-focus-ring, rgba(33, 150, 243, 0.4));
++  --focusRingColorDanger: var(--vw-color-focus-ring-danger, rgba(244, 67, 54, 0.4));
++  --focusRingWidth: 2px;
++  --focusRingOffset: 2px;
++  --focusRingStyle: solid;
++
++  /* Overlay - General overlay roles */
++  --overlayColor: var(--vw-color-overlay, rgba(0, 0, 0, 0.5));
++  --overlayColorLight: var(--vw-color-overlay-light, rgba(0, 0, 0, 0.3));
++  --overlayZIndex: 1000;
++
+   /* -------------------- App Container -------------------- */
+   --appContainerGap: 2em;
+   --appContainerRadius: 1em;

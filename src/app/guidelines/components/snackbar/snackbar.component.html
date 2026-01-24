@@ -60,7 +60,7 @@
             [iconName]="'Copy-Outline'"
             [type]="'fontset'"
             [fontSet]="'icomoon'"
-            [color]="'var(--accentColor500)'"
+            [color]="'var(--iconColorInteractive, var(--textColorLink, var(--accentColor500)))'"
             (clickIcon)="copyCode('basic')"
             class="copy-icon"
           ></bntv-icon>
@@ -112,7 +112,7 @@
             [iconName]="'Copy-Outline'"
             [type]="'fontset'"
             [fontSet]="'icomoon'"
-            [color]="'var(--accentColor500)'"
+            [color]="'var(--iconColorInteractive, var(--textColorLink, var(--accentColor500)))'"
             (clickIcon)="copyCode('withTitle')"
             class="copy-icon"
           ></bntv-icon>
@@ -164,7 +164,7 @@
             [iconName]="'Copy-Outline'"
             [type]="'fontset'"
             [fontSet]="'icomoon'"
-            [color]="'var(--accentColor500)'"
+            [color]="'var(--iconColorInteractive, var(--textColorLink, var(--accentColor500)))'"
             (clickIcon)="copyCode('solid')"
             class="copy-icon"
           ></bntv-icon>

@@ -53,7 +53,7 @@
 
 .view-code-link {
   margin-top: 16px;
-  color: var(--accentColor500, #1976d2);
+  color: var(--textColorLink, var(--accentColor500, #1976d2));
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
@@ -61,6 +61,7 @@
   
   &:hover {
     text-decoration: underline;
+    color: var(--textColorLinkHover, var(--accentColor600));
   }
 }
 

@@ -13,14 +13,14 @@
 .main-title {
   font-size: 32px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 16px;
 }
 
 .subtitle {
   font-size: 18px;
   font-weight: 500;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.6;
 }
 
@@ -31,20 +31,20 @@
 .section-title {
   font-size: 24px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 16px;
 }
 
 .subsection-title {
   font-size: 20px;
   font-weight: 600;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   margin-bottom: 12px;
 }
 
 .section-description {
   font-size: 16px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -52,7 +52,7 @@
 // Purpose List
 .purpose-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -70,14 +70,14 @@
 
 .covers-item {
   padding: 20px;
-  background-color: var(--bgColor50);
-  border: 1px solid var(--grayColor200);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
   border-radius: 8px;
 }
 
 .covers-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -88,7 +88,7 @@
 // Not Covers List
 .not-covers-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -99,7 +99,7 @@
 // Audience List
 .audience-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -110,7 +110,7 @@
 // Usage List
 .usage-list {
   margin-left: 24px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.8;
   
   li {
@@ -119,32 +119,33 @@
 }
 
 .guide-link {
-  color: var(--accentColor500);
+  color: var(--textColorLink, var(--accentColor500));
   text-decoration: none;
   font-weight: 500;
   
   &:hover {
     text-decoration: underline;
+    color: var(--textColorLinkHover, var(--accentColor600));
   }
 }
 
 // Principle Box
 .principle-box {
   padding: 24px;
-  background-color: var(--bgColor50);
-  border-left: 4px solid var(--accentColor500);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
+  border-left: 4px solid var(--borderColorFocus, var(--accentColor500));
   border-radius: 4px;
   margin-top: 16px;
 }
 
 .principle-text {
   font-size: 16px;
-  color: var(--grayColor800);
+  color: var(--textColor, var(--grayColor800));
   line-height: 1.8;
   margin: 0;
   
   strong {
-    color: var(--grayColor900);
+    color: var(--textColor, var(--grayColor900));
   }
 }
 
@@ -160,22 +161,22 @@
   display: flex;
   align-items: flex-start;
   padding: 16px;
-  background-color: var(--bgColor50);
-  border: 1px solid var(--grayColor200);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: var(--bgColor100);
-    border-color: var(--accentColor500);
+    background-color: var(--surfaceColorHover, var(--bgColor100));
+    border-color: var(--borderColorFocus, var(--accentColor500));
     transform: translateX(4px);
   }
 }
 
 .next-arrow {
   font-size: 20px;
-  color: var(--accentColor500);
+  color: var(--iconColorInteractive, var(--accentColor500));
   margin-right: 12px;
   font-weight: 600;
 }
@@ -183,11 +184,11 @@
 .next-text {
   flex: 1;
   font-size: 16px;
-  color: var(--grayColor700);
+  color: var(--textColorSecondary, var(--grayColor700));
   line-height: 1.6;
   
   strong {
-    color: var(--grayColor800);
+    color: var(--textColor, var(--grayColor800));
     font-weight: 600;
   }
 }
@@ -195,18 +196,18 @@
 // Version Info
 .version-info {
   padding: 20px;
-  background-color: var(--bgColor50);
+  background-color: var(--surfaceColorSubtle, var(--bgColor50));
   border-radius: 8px;
-  border: 1px solid var(--grayColor200);
+  border: 1px solid var(--borderColorLight, var(--grayColor200));
 }
 
 .version-text {
   font-size: 14px;
-  color: var(--grayColor600);
+  color: var(--textColorTertiary, var(--grayColor600));
   line-height: 1.8;
   margin: 0;
   
   strong {
-    color: var(--grayColor700);
+    color: var(--textColorSecondary, var(--grayColor700));
   }
 }

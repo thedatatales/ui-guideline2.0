@@ -72,7 +72,7 @@ export class GuidelinesComponent implements OnInit {
               expanded: false,
               icon: 'Graph',
               children: [
-                { title: 'Card', route: '/guidelines/card',hidden: this.isHidden},
+                { title: 'Card', route: '/guidelines/card' },
                 { title: 'Chart', route: '/guidelines/chart' },
                 { title: 'Grid', route: '/guidelines/grid'},
                 { title: 'History', route: '/guidelines/history',hidden: this.isHidden},
