@@ -1,3 +1,6 @@
 .vercel
 node_modules
 .angular/cache
+
+# Exclude algorithm folder from this repo
+algorithm/
