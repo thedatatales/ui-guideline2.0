@@ -1,0 +1,87 @@
+<div class="vw-page-container">
+  <div class="header-section">
+    <h1 class="main-title">Panes &amp; Layouts</h1>
+    <p class="subtitle">
+      Layout patterns and pane structures for dashboards and detail views. Use design tokens
+      (<code>--vw-space-*</code>, <code>--vw-radius-*</code>) for consistent spacing and surfaces.
+      This section will define pane entities, split layouts, and main/sidebar patterns.
+    </p>
+  </div>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 1. Split pane (left/right) -->
+  <section class="content-section">
+    <h2 class="section-title">1. Split pane (left / right)</h2>
+    <p class="section-description">
+      Two panes side by side. List or filters on the left, main content on the right.
+      Gaps and padding use <code>--vw-space-*</code>; borders use <code>--borderColor</code>.
+    </p>
+    <div class="demo-container">
+      <div class="panes-layouts-demo panes-layouts-demo--split">
+        <aside class="vw-pane vw-pane--sidebar">
+          <div class="vw-pane__header">Sidebar</div>
+          <div class="vw-pane__body">
+            <p>Filters, nav, or list.</p>
+          </div>
+        </aside>
+        <main class="vw-pane vw-pane--main">
+          <div class="vw-pane__header">Main content</div>
+          <div class="vw-pane__body">
+            <p>Detail view or primary content area.</p>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 2. Three-column layout -->
+  <section class="content-section">
+    <h2 class="section-title">2. Three-column layout</h2>
+    <p class="section-description">
+      Left sidebar, center content, right rail. Useful for dashboards or settings.
+    </p>
+    <div class="demo-container">
+      <div class="panes-layouts-demo panes-layouts-demo--three-col">
+        <aside class="vw-pane vw-pane--sidebar">Left</aside>
+        <main class="vw-pane vw-pane--main">Center</main>
+        <aside class="vw-pane vw-pane--rail">Right</aside>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 3. Stacked sections -->
+  <section class="content-section">
+    <h2 class="section-title">3. Stacked sections</h2>
+    <p class="section-description">
+      Vertical stack of layout blocks with token-based gaps. Headers and bodies use consistent padding.
+    </p>
+    <div class="demo-container">
+      <div class="panes-layouts-demo panes-layouts-demo--stacked">
+        <div class="vw-pane">
+          <div class="vw-pane__header">Section A</div>
+          <div class="vw-pane__body">Content A.</div>
+        </div>
+        <div class="vw-pane">
+          <div class="vw-pane__header">Section B</div>
+          <div class="vw-pane__body">Content B.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 4. Core components reference -->
+  <section class="content-section">
+    <h2 class="section-title">4. Related components</h2>
+    <p class="section-description">
+      For full split-view UIs with grid + detail, use <code>bntv-split-view</code> (see View Switcher guidelines).
+      Panes &amp; Layouts here focus on token-based layout structure and pane vocabulary for future theming.
+    </p>
+  </section>
+</div>

@@ -44,6 +44,8 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/assets/icons/phosphor/light/style.css",
+              "src/assets/icons/phosphor/regular/style.css",
               "node_modules/@enttribe/themes-gx-theme/src/lib/_global.scss",
               "node_modules/@enttribe/themes-gx-theme/src/lib/resources/icomoon/style.scss",
               "node_modules/quill/dist/quill.core.css",
@@ -69,7 +71,8 @@
                 "input": "node_modules/@enttribe/themes-gx-theme/src/lib/variables.scss",
                 "inject": true,
                 "bundleName": "gx-theme"
-              }
+              },
+              "sample-app-pages/css-updatre-v1.2.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

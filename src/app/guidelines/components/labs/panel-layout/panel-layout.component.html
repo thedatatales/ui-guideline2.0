@@ -1,0 +1,109 @@
+<div class="vw-page-container">
+  <div class="header-section">
+    <h1 class="main-title">Panel</h1>
+    <p class="subtitle">
+      Page-level content organizers. Panels <strong>structure</strong>, they do not explain content.
+      Entity set is small and non-overlapping with cards. See <code>migration-plan/PANEL_SYSTEM_REFERENCE.md</code>.
+      Styles live in <code>panel-layout.component.scss</code> for now; will move to theme later.
+    </p>
+  </div>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 1. Canonical panel (full structure) -->
+  <section class="content-section">
+    <h2 class="section-title">1. Canonical panel</h2>
+    <p class="section-description">
+      Full structure: header (title, subtitle, description, actions), divider, body, footer (status, cta).
+      Spacing uses <code>--panel-padding</code>, <code>--panel-section-gap</code>, <code>--panel-header-gap</code>.
+    </p>
+    <div class="demo-container">
+      <div class="vw-panel">
+        <div class="vw-panel__header">
+          <div>
+            <span class="vw-panel__title">Order Lines</span>
+            <p class="vw-panel__subtitle">Context or date range</p>
+            <div class="vw-panel__description">
+              Optional description. Panel does not care if this is plain text or HTML.
+            </div>
+          </div>
+          <div class="vw-panel__actions">
+            <button mat-stroked-button color="primary">Export</button>
+          </div>
+        </div>
+
+        <div class="vw-panel__divider"></div>
+
+        <div class="vw-panel__body">
+          <p>Body is layout-neutral. Tabs, tables, forms, cards, grids go here. Panel only regulates grouping.</p>
+        </div>
+
+        <div class="vw-panel__footer">
+          <span class="vw-panel__status">Draft</span>
+          <div class="vw-panel__cta">
+            <button mat-flat-button color="primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 2. Panel with header + body only -->
+  <section class="content-section">
+    <h2 class="section-title">2. Panel with header and body only</h2>
+    <p class="section-description">
+      Header and body are the minimum. No divider, no footer. Demonstrates optional entities.
+    </p>
+    <div class="demo-container">
+      <div class="vw-panel">
+        <div class="vw-panel__header">
+          <div>
+            <span class="vw-panel__title">Executive Overview</span>
+            <p class="vw-panel__subtitle">Last 12 months</p>
+          </div>
+          <div class="vw-panel__actions">
+            <button mat-icon-button aria-label="More"><i class="ph ph-dots-three" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <div class="vw-panel__body">
+          <p>Charts, KPI strips, or other components can be composed here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 3. Entity table reference -->
+  <section class="content-section">
+    <h2 class="section-title">3. Entity reference</h2>
+    <p class="section-description">
+      Core structural and placement entities. Forbidden: <code>__metric</code>, <code>__icon</code>, <code>__delta</code>, <code>__value</code>, <code>__kpi</code>.
+    </p>
+    <table class="panel-entity-table">
+      <thead>
+        <tr>
+          <th>Entity</th>
+          <th>Required</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>.vw-panel</code></td><td>✓</td><td>Root container</td></tr>
+        <tr><td><code>.vw-panel__header</code></td><td>Optional</td><td>Title, subtitle, description, actions</td></tr>
+        <tr><td><code>.vw-panel__body</code></td><td>✓</td><td>Free-form content (layout-neutral)</td></tr>
+        <tr><td><code>.vw-panel__footer</code></td><td>Optional</td><td>Status, CTA, meta</td></tr>
+        <tr><td><code>.vw-panel__divider</code></td><td>Optional</td><td>Separator between sections</td></tr>
+        <tr><td><code>.vw-panel__title</code></td><td>Optional</td><td>Primary heading (header)</td></tr>
+        <tr><td><code>.vw-panel__subtitle</code></td><td>Optional</td><td>Context (header)</td></tr>
+        <tr><td><code>.vw-panel__description</code></td><td>Optional</td><td>Explanatory text (header)</td></tr>
+        <tr><td><code>.vw-panel__actions</code></td><td>Optional</td><td>Buttons/links (header)</td></tr>
+        <tr><td><code>.vw-panel__status</code></td><td>Optional</td><td>Status text/pills (footer)</td></tr>
+        <tr><td><code>.vw-panel__cta</code></td><td>Optional</td><td>Actions (footer)</td></tr>
+        <tr><td><code>.vw-panel__meta</code></td><td>Optional</td><td>Timestamps, pagination (footer)</td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>

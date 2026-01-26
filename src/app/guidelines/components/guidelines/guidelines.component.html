@@ -10,14 +10,12 @@
         <div class="logo">B</div>
       </div>
       <div class="header-actions">
-        <bntv-icon
-          [iconName]="isNavCollapsed ? 'Arrow-Right' : 'Arrow-Left'"
-          [type]="'fontset'"
-          [fontSet]="'icomoon'"
-          class="toggle-icon"
+        <i
+          [class]="'ph ph-caret-' + (isNavCollapsed ? 'right' : 'left') + ' toggle-icon'"
           (click)="toggleNav()"
           title="{{ isNavCollapsed ? 'Expand' : 'Collapse' }}"
-        ></bntv-icon>
+          aria-hidden="true"
+        ></i>
       </div>
     </div>
     <nav class="nav-menu">
@@ -34,22 +32,18 @@
           [title]="isNavCollapsed ? item.title : ''"
         >
           <div class="nav-item-content">
-            <bntv-icon
+            <i
               *ngIf="item.icon"
-              [iconName]="item.icon"
-              [type]="'fontset'"
-              [fontSet]="'icomoon'"
-              class="nav-item-icon"
-            ></bntv-icon>
+              [class]="'ph ph-' + item.icon + ' nav-item-icon'"
+              aria-hidden="true"
+            ></i>
             <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ item.title }}</span>
           </div>
-          <bntv-icon
+          <i
             *ngIf="item.children && !isNavCollapsed"
-            [iconName]="item.expanded ? 'Minus' : 'Plus'"
-            [type]="'fontset'"
-            [fontSet]="'icomoon'"
-            class="expand-icon"
-          ></bntv-icon>
+            [class]="'ph expand-icon ' + (item.expanded ? 'ph-caret-down' : 'ph-caret-right')"
+            aria-hidden="true"
+          ></i>
         </div>
         <div *ngIf="item.children && item.expanded && !item.hidden && !isNavCollapsed" class="nav-children">
           <div
@@ -65,22 +59,18 @@
               [title]="isNavCollapsed ? child.title : ''"
             >
               <div class="nav-item-content">
-                <bntv-icon
+                <i
                   *ngIf="child.icon"
-                  [iconName]="child.icon"
-                  [type]="'fontset'"
-                  [fontSet]="'icomoon'"
-                  class="nav-item-icon"
-                ></bntv-icon>
+                  [class]="'ph ph-' + child.icon + ' nav-item-icon'"
+                  aria-hidden="true"
+                ></i>
                 <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ child.title }}</span>
               </div>
-              <bntv-icon
+              <i
                 *ngIf="child.children && !isNavCollapsed"
-                [iconName]="child.expanded ? 'Minus' : 'Plus'"
-                [type]="'fontset'"
-                [fontSet]="'icomoon'"
-                class="expand-icon"
-              ></bntv-icon>
+                [class]="'ph expand-icon ' + (child.expanded ? 'ph-caret-down' : 'ph-caret-right')"
+                aria-hidden="true"
+              ></i>
             </div>
             <div *ngIf="child.children && child.expanded && !child.hidden && !isNavCollapsed" class="nav-children">
               <div

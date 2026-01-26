@@ -116,6 +116,12 @@ import { IframeComponent } from './components/iframe/iframe.component';
 import { ImageViewerGuidelineComponent } from './components/image-viewer/image-viewer.component';
 import { InputWithInfoComponent } from './components/input-with-info/input-with-info.component';
 import { LabsComponent } from './components/labs/labs.component';
+import { LabsShellComponent } from './components/labs/labs-shell.component';
+import { GenericCardComponent } from './components/labs/generic-card/generic-card.component';
+import { VwCardsComponent } from './components/labs/vw-cards/vw-cards.component';
+import { PanesLayoutsComponent } from './components/labs/panes-layouts/panes-layouts.component';
+import { PanelLayoutComponent } from './components/labs/panel-layout/panel-layout.component';
+import { Layout1Component } from './components/labs/layout-1/layout-1.component';
 import { CalendarModule } from '@enttribe/core/tools/calendar';
 import { ImageAnnotationModule } from '@enttribe/core/tools/image-annotation';
 import { CalendarModule as AngularCalendarModule, DateAdapter } from 'angular-calendar';
@@ -188,6 +194,12 @@ import { EmbededIframeModule } from '@enttribe/core';
     ImageViewerGuidelineComponent,
     InputWithInfoComponent,
     LabsComponent,
+    LabsShellComponent,
+    GenericCardComponent,
+    VwCardsComponent,
+    PanesLayoutsComponent,
+    PanelLayoutComponent,
+    Layout1Component,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,235 @@
+@use '../../_shared-styles' as *;
+
+/* vw-cards lab: layout for demo sections only. Card entity styles come from theme scss/components/_cards.scss */
+
+.vw-cards-demo-grid {
+  display: grid;
+  gap: var(--vw-space-xl);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  align-items: stretch;
+
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .vw-cards-demo-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .vw-cards-demo-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   8. Activity card sample (borderless rows, separator)
+   ----------------------------------------------------------------------------- */
+.vw-cards-activity-sample {
+  max-width: 400px;
+}
+
+.vw-cards-activity-row {
+  display: flex;
+  gap: var(--vw-space-md);
+  padding: var(--vw-space-sm) 0;
+  align-items: flex-start;
+}
+
+.vw-cards-activity-avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: var(--vw-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &--email {
+    background-color: #ede9fe;
+    color: #6d28d9;
+  }
+
+  &--meeting {
+    background-color: #dbeafe;
+    color: #2563eb;
+  }
+}
+
+.vw-cards-activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.vw-cards-activity-desc {
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+  margin: 0 0 var(--vw-space-xs) 0;
+}
+
+.vw-cards-activity-date {
+  font-size: var(--vw-font-legend, 0.75rem);
+  color: var(--grayColor500, var(--vw-color-gray-500));
+}
+
+.vw-cards-activity-separator {
+  height: 1px;
+  width: 100%;
+  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
+}
+
+/* -----------------------------------------------------------------------------
+   9. Panel heading card sample (task card with progress, assignee, dates)
+   ----------------------------------------------------------------------------- */
+.vw-cards-panel-heading-card {
+  max-width: 360px;
+  min-width: 0;
+}
+
+.vw-cards-task-title-row {
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  .vw-card__title {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.vw-cards-task-menu {
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  padding: var(--vw-space-xs);
+  cursor: pointer;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--vw-radius-xs);
+
+  &:hover {
+    background: var(--grayColor100, var(--vw-color-gray-100));
+    color: var(--grayColor800, var(--vw-color-gray-800));
+  }
+}
+
+.vw-cards-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vw-space-xs);
+}
+
+.vw-cards-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--vw-space-sm);
+  border-radius: var(--vw-radius-full, 9999px);
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 500;
+
+  &--success {
+    background-color: var(--successColor, #1a7f10);
+    color: #fff;
+  }
+}
+
+.vw-cards-progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-space-sm);
+
+  bntv-progress-bar {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.vw-cards-progress-label {
+  font-size: var(--vw-font-description, 0.875rem);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  flex-shrink: 0;
+}
+
+.vw-cards-assignee {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-space-sm);
+}
+
+.vw-cards-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--grayColor800, var(--vw-color-gray-800));
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vw-cards-assignee-name {
+  font-size: var(--vw-font-description, 0.875rem);
+  color: var(--grayColor700, var(--vw-color-gray-700));
+}
+
+.vw-cards-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vw-space-sm);
+  font-size: var(--vw-font-legend, 0.75rem);
+}
+
+.vw-cards-dates-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vw-cards-dates-label {
+  font-weight: 600;
+  color: var(--grayColor700, var(--vw-color-gray-700));
+}
+
+.vw-cards-dates-value {
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+.entity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--vw-font-description, 0.875rem);
+
+  th,
+  td {
+    padding: var(--vw-space-sm) var(--vw-space-md);
+    text-align: left;
+    border-bottom: 1px solid var(--borderColor, var(--vw-color-gray-200));
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--grayColor800, var(--vw-color-gray-800));
+  }
+
+  code {
+    background: var(--grayColor100, var(--vw-color-gray-100));
+    padding: 2px 6px;
+    border-radius: var(--vw-radius-xs, 4px);
+    font-size: 0.9em;
+  }
+}

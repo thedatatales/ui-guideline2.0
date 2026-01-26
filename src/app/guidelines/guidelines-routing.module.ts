@@ -62,6 +62,12 @@ import { IframeComponent } from './components/iframe/iframe.component';
 import { ImageViewerGuidelineComponent } from './components/image-viewer/image-viewer.component';
 import { InputWithInfoComponent } from './components/input-with-info/input-with-info.component';
 import { LabsComponent } from './components/labs/labs.component';
+import { LabsShellComponent } from './components/labs/labs-shell.component';
+import { GenericCardComponent } from './components/labs/generic-card/generic-card.component';
+import { VwCardsComponent } from './components/labs/vw-cards/vw-cards.component';
+import { PanesLayoutsComponent } from './components/labs/panes-layouts/panes-layouts.component';
+import { PanelLayoutComponent } from './components/labs/panel-layout/panel-layout.component';
+import { Layout1Component } from './components/labs/layout-1/layout-1.component';
 
 const routes: Routes = [
   {
@@ -129,7 +135,18 @@ const routes: Routes = [
       { path: 'iframe', component: IframeComponent },
       { path: 'image-viewer', component: ImageViewerGuidelineComponent },
       { path: 'input-with-info', component: InputWithInfoComponent },
-      { path: 'labs', component: LabsComponent },
+      {
+        path: 'labs',
+        component: LabsShellComponent,
+        children: [
+          { path: '', component: LabsComponent },
+          { path: 'generic-card', component: GenericCardComponent },
+          { path: 'vw-cards', component: VwCardsComponent },
+          { path: 'panes-layouts', component: PanesLayoutsComponent },
+          { path: 'panel', component: PanelLayoutComponent },
+          { path: 'layout-1', component: Layout1Component },
+        ],
+      },
     ],
   },
 ];

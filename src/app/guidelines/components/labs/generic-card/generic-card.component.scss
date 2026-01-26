@@ -1,0 +1,582 @@
+@use '../../_shared-styles' as *;
+
+/* Uses --vw-space-*, --vw-radius-*, --vw-font-*, --vw-line-* from gx-theme scss/_space.scss
+   and --vw-color-* from gx-theme scss/_palette.scss (scope: .level4-style, .template13-style) */
+
+// Ensure Phosphor font loads for vw cards (icons use class="ph ph-*").
+// Global phosphor style.css can fail if font URLs break after build; this path is resolved from the component.
+@font-face {
+  font-family: "Phosphor";
+  src:
+    url("../../../../../assets/icons/phosphor/regular/Phosphor.woff2") format("woff2"),
+    url("../../../../../assets/icons/phosphor/regular/Phosphor.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+// Layout and typography use theme variables (gx-theme / theme-black). Page container uses .vw-page-container from _shared-styles.
+:host {
+  color: var(--grayColor800, var(--vw-color-gray-800));
+  // Fallback Phosphor icon styles for vw cards (in case global phosphor CSS doesn’t apply)
+  .ph {
+    font-family: "Phosphor" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &:before {
+      font-family: "Phosphor" !important;
+    }
+  }
+  .ph.ph-currency-inr:before { content: "\e558"; }
+  .ph.ph-gauge:before { content: "\e628"; }
+  .ph.ph-users:before { content: "\e4d6"; }
+  .ph.ph-percent:before { content: "\e3b6"; }
+  .ph.ph-quotes:before { content: "\e660"; }
+  .ph.ph-briefcase:before { content: "\e0ee"; }
+  .ph.ph-trend-up:before { content: "\e4ae"; }
+  .ph.ph-trend-down:before { content: "\e4ac"; }
+  .ph.ph-calendar:before { content: "\e108"; }
+  .ph.ph-currency-dollar:before { content: "\e550"; }
+  .ph.ph-target:before { content: "\e47c"; }
+  .ph.ph-arrow-up-right:before { content: "\e092"; }
+  .ph.ph-arrow-down-right:before { content: "\e042"; }
+  .ph.ph-info:before { content: "\e2ce"; }
+}
+
+// Metric row: label left, value right — theme-based
+.metric-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--vw-space-md);
+  margin-bottom: var(--vw-space-md);
+
+  &:last-child {
+    margin-bottom: var(--vw-space-none);
+  }
+}
+
+.metric-label {
+  font-size: var(--vw-font-description, 0.875rem);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+.metric-value {
+  font-size: var(--vw-font-value-lg, 1.25rem);
+  font-weight: 600;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+}
+
+.metric-trend {
+  font-size: var(--vw-font-legend, 0.75rem);
+  font-weight: 500;
+
+  &.trend-up {
+    color: var(--successColor, var(--vw-color-green-500));
+  }
+
+  &.trend-down {
+    color: var(--warnColor500, var(--dangerColor, var(--vw-color-red-500)));
+  }
+}
+
+// Four KPI cards in a horizontal row (dashboard-style)
+.kpi-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--vw-space-2xl);
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .kpi-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .kpi-cards-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kpi-cards-row__card {
+  min-width: 0; // allow shrinking in grid
+}
+
+// KPI card — title + icon row, value, delta (shared by each card)
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--vw-space-sm);
+  height: 100%;
+}
+
+.kpi-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.kpi-card__title {
+  font-size: var(--vw-font-heading-md, 1rem);
+  font-weight: 500;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+}
+
+.kpi-card__action-icon {
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.kpi-card__value {
+  font-size: var(--vw-font-value-xl, 1.75rem);
+  font-weight: 700;
+  color: var(--grayColor900, var(--vw-color-gray-900));
+  line-height: var(--vw-line-heading-xl, 1.2);
+}
+
+.kpi-card__delta {
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 400;
+
+  &--up {
+    color: var(--successColor, var(--vw-color-green-600));
+  }
+
+  &--down {
+    color: var(--warnColor500, var(--dangerColor, var(--vw-color-red-500)));
+  }
+}
+
+// --- Proposed vw- classes (v1.2) preview layout ---
+.vw-preview-section .demo-container {
+  border-color: var(--borderColor, var(--vw-color-gray-200));
+}
+
+.vw-preview-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--vw-space-lg);
+}
+
+.vw-preview-variance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vw-space-lg);
+  align-items: center;
+}
+
+.vw-preview-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vw-space-sm);
+  align-items: center;
+}
+
+.vw-kpi-card {
+  min-width: 0;
+  height: 100%;
+}
+
+.vw-kpi-card__header {
+  width: 100%;
+}
+
+// --- KPI grid — container for 3 detailed cards in a row ---
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vw-space-2xl);
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Ensure border and base look for vw-card-block cards in the lab (fix: border not visible)
+.detailed-kpi-card,
+.leads-kpi-card {
+  border: 1px solid var(--borderColor, var(--vw-color-gray-300)) !important;
+  border-radius: var(--vw-radius-lg);
+  background-color: var(--vw-color-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.detailed-kpi-card {
+  min-width: 0;
+  height: 100%;
+}
+
+// Apply vw- typography in lab so it’s not overridden (fix: vw- classes not applied as expected)
+.detailed-kpi-card .vw-card-title,
+.leads-kpi-card .vw-card-title {
+  font-size: var(--vw-font-heading-md, 1rem);
+  font-weight: 400;
+  line-height: var(--vw-line-heading-md, 1.25);
+  color: var(--vw-color-gray-800);
+}
+
+.detailed-kpi-card .vw-card-metric-xl,
+.leads-kpi-card .vw-card-metric-xl {
+  font-size: var(--vw-font-value-xl, 1.75rem);
+  font-weight: 700;
+  line-height: var(--vw-line-heading-xl, 1.2);
+  color: var(--vw-color-gray-800);
+}
+
+// --- Leads KPI card (detailed) — header icon, main row, divider, 2×2 metrics ---
+.leads-kpi-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.kpi-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--vw-radius-sm);
+  width: var(--vw-space-4xl);
+  height: var(--vw-space-4xl);
+
+  bntv-icon,
+  .mat-icon {
+    display: block;
+  }
+}
+
+.kpi-icon-bg--leads {
+  background-color: var(--vw-color-orange-50);
+  color: var(--vw-color-orange-600);
+}
+
+.kpi-icon-bg--quotes {
+  background-color: var(--vw-color-indigo-50);
+  color: var(--vw-color-indigo-500);
+}
+
+.kpi-icon-bg--deals {
+  background-color: var(--vw-color-blue-50);
+  color: var(--vw-color-blue-600);
+}
+
+.kpi-card__primary {
+  min-width: 0;
+}
+
+.kpi-card__primary-label {
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 400;
+  line-height: var(--vw-line-description, 1.4);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+.kpi-card__main {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.kpi-card__divider {
+  height: 1px;
+  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
+  width: 100%;
+  margin: var(--vw-space-sm) 0;
+}
+
+.kpi-card__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vw-space-lg) var(--vw-space-2xl);
+}
+
+.kpi-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-xs);
+}
+
+.kpi-card__metric-label {
+  font-size: var(--vw-font-legend, 0.75rem);
+  font-weight: 400;
+  line-height: var(--vw-line-legend, 1.2);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+.kpi-card__metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vw-space-sm);
+}
+
+.kpi-card__metric-value {
+  font-size: var(--vw-font-value-sm, 1rem);
+  font-weight: 600;
+  line-height: var(--vw-line-heading-md, 1.25);
+  color: var(--grayColor900, var(--vw-color-gray-900));
+}
+
+.kpi-card__metric-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vw-space-xs);
+  font-size: var(--vw-font-legend, 0.75rem);
+  font-weight: 500;
+  line-height: var(--vw-line-legend, 1.2);
+
+  bntv-icon,
+  .mat-icon {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.kpi-delta--up {
+  color: var(--successColor, var(--vw-color-green-700));
+}
+
+.kpi-delta--down {
+  color: var(--textColorError, var(--warnColor500, var(--vw-color-red-600)));
+}
+
+// =============================================================================
+// Card Model (vw-*) — copy from sample-app-pages/css-analysis-and-correction/vw-card-model.scss
+// =============================================================================
+// Model classes for metric/KPI-style cards: 1px border, no box-shadow.
+// Tokens: --vw-space-*, --vw-radius-*, --vw-font-*, --vw-line-* from gx-theme scss/_space.scss.
+
+:root {
+  /* Card-specific space aliases (reference theme --vw-space-*) */
+  --vw-card-space-xs: var(--vw-space-xs, 0.25rem);
+  --vw-card-space-sm: var(--vw-space-sm, 0.5rem);
+  --vw-card-space-md: var(--vw-space-md, 0.75rem);
+  --vw-card-space-lg: var(--vw-space-lg, 1rem);
+  --vw-card-space-xl: var(--vw-space-xl, 1.25rem);
+  --vw-card-space-2xl: var(--vw-space-2xl, 1.5rem);
+}
+
+.vw-card {
+  --vw-card-radius: var(--vw-radius-lg);
+  --vw-card-padding: var(--vw-card-space-xl, var(--vw-space-xl));
+  --vw-card-border-color: var(--borderColor, var(--vw-color-gray-200));
+  --vw-card-bg: var(--bgColor10, var(--vw-color-white));
+  --vw-card-gap: var(--vw-card-space-md, var(--vw-space-md));
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-card-gap);
+  padding: var(--vw-card-padding);
+  border: 1px solid var(--vw-card-border-color);
+  border-radius: var(--vw-card-radius);
+  background-color: var(--vw-card-bg);
+  box-shadow: none;
+  min-width: 0;
+}
+
+.vw-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-card-space-xs, var(--vw-space-xs));
+}
+
+.vw-card__header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--vw-card-space-sm, 0.5rem);
+  flex-wrap: wrap;
+}
+
+.vw-card__header-bottom {
+  display: flex;
+  justify-content: flex-end;
+
+  .vw-card__legend {
+    margin: 0;
+  }
+}
+
+.vw-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-card-space-sm, 0.5rem);
+}
+
+.vw-card__icon {
+  font-size: 1.25em;
+  line-height: 1;
+  flex-shrink: 0;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vw-card__icon--lead { color: var(--vw-color-orange-600); }
+.vw-card__icon--quote { color: var(--vw-color-indigo-500); }
+.vw-card__icon--deal { color: var(--vw-color-blue-600); }
+
+.vw-card__heading {
+  font-weight: 500;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+  margin: 0;
+  &--xs { font-size: var(--vw-font-heading-xs, 0.75rem); line-height: var(--vw-line-heading-xs, 1.25); }
+  &--sm { font-size: var(--vw-font-heading-sm, 0.875rem); line-height: var(--vw-line-heading-sm, 1.25); }
+  &--md { font-size: var(--vw-font-heading-md, 1rem); line-height: var(--vw-line-heading-md, 1.25); }
+  &--lg { font-size: var(--vw-font-heading-lg, 1.125rem); line-height: var(--vw-line-heading-lg, 1.25); }
+  &--xl { font-size: var(--vw-font-heading-xl, 1.25rem); line-height: var(--vw-line-heading-xl, 1.2); }
+}
+
+.vw-card__description {
+  font-size: var(--vw-font-description, 0.875rem);
+  line-height: var(--vw-line-description, 1.4);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  margin: 0;
+}
+
+.vw-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-card-space-xs, 0.25rem);
+}
+
+.vw-card__metric-label {
+  font-weight: 400;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  &--xs { font-size: var(--vw-font-label-xs, 0.6875rem); }
+  &--sm { font-size: var(--vw-font-label-sm, 0.75rem); }
+  &--md { font-size: var(--vw-font-label-md, 0.875rem); }
+  &--lg { font-size: var(--vw-font-label-lg, 1rem); }
+}
+
+.vw-card__metric-value {
+  font-weight: 600;
+  color: var(--grayColor900, var(--vw-color-gray-900));
+  &--xs { font-size: var(--vw-font-value-xs, 0.875rem); }
+  &--sm { font-size: var(--vw-font-value-sm, 1rem); }
+  &--md { font-size: var(--vw-font-value-md, 1.125rem); }
+  &--lg { font-size: var(--vw-font-value-lg, 1.25rem); }
+  &--xl { font-size: var(--vw-font-value-xl, 1.75rem); }
+}
+
+.vw-card__metric-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--vw-card-space-sm, 0.5rem);
+  flex-wrap: wrap;
+}
+
+.vw-card__metric--sm-lg {
+  .vw-card__metric-label { font-size: var(--vw-font-label-sm, 0.75rem); }
+  .vw-card__metric-value { font-size: var(--vw-font-value-lg, 1.25rem); }
+}
+.vw-card__metric--md-md {
+  .vw-card__metric-label { font-size: var(--vw-font-label-md, 0.875rem); }
+  .vw-card__metric-value { font-size: var(--vw-font-value-md, 1.125rem); }
+}
+.vw-card__metric--md-lg {
+  .vw-card__metric-label { font-size: var(--vw-font-label-md, 0.875rem); }
+  .vw-card__metric-value { font-size: var(--vw-font-value-lg, 1.25rem); }
+}
+.vw-card__metric--sm-xl {
+  .vw-card__metric-label { font-size: var(--vw-font-label-sm, 0.75rem); }
+  .vw-card__metric-value { font-size: var(--vw-font-value-xl, 1.75rem); }
+}
+
+.vw-card__legend {
+  font-size: var(--vw-font-legend, 0.75rem);
+  line-height: var(--vw-line-legend, 1.2);
+  color: var(--grayColor500, var(--vw-color-gray-500));
+  margin: 0;
+}
+
+.vw-card__divider {
+  height: 1px;
+  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
+  width: 100%;
+  margin: var(--vw-space-none);
+}
+
+.vw-card__delta {
+  font-size: var(--vw-font-legend, 0.75rem);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vw-card-space-xs, var(--vw-space-xs));
+  &--positive { color: var(--successColor, var(--vw-color-green-700)); }
+  &--negative { color: var(--textColorError, var(--warnColor500, var(--vw-color-red-600))); }
+  &--neutral { color: var(--grayColor600, var(--vw-color-gray-600)); }
+}
+
+.vw-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--vw-card-space-xl, var(--vw-space-xl));
+  align-items: stretch;
+}
+
+.vw-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vw-card-space-xl, var(--vw-space-xl));
+  align-items: stretch;
+}
+
+.vw-card__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vw-card-space-lg, var(--vw-space-lg)) var(--vw-card-space-xl, var(--vw-space-xl));
+}
+
+@media (max-width: 900px) {
+  .vw-cards-row { grid-template-columns: repeat(2, 1fr); }
+  .vw-cards-row--3 { grid-template-columns: repeat(2, 1fr); }
+  .vw-cards-row--2 { grid-template-columns: 1fr; }
+  .vw-cards-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 500px) {
+  .vw-cards-row,
+  .vw-cards-row--3,
+  .vw-cards-row--2 { grid-template-columns: 1fr; }
+}
+
+// EVM-style cards: tinted backgrounds and colored values (Planned value, Actual cost, Earned value, variances)
+.vw-cards-row--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.vw-cards-row--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.vw-card--tint-blue {
+  background-color: var(--vw-color-blue-50);
+  border-color: var(--vw-color-blue-300);
+}
+.vw-card--tint-red {
+  background-color: var(--vw-color-red-50);
+  border-color: var(--vw-color-red-200);
+}
+.vw-card--tint-green {
+  background-color: var(--vw-color-green-50);
+  border-color: var(--vw-color-green-200);
+}
+.vw-card__metric-value--blue { color: var(--vw-color-blue-600); }
+.vw-card__metric-value--red { color: var(--vw-color-red-600); }
+.vw-card__metric-value--green { color: var(--vw-color-green-600); }
+.vw-card__icon--blue { color: var(--vw-color-blue-600); }
+.vw-card__icon--red { color: var(--vw-color-red-600); }
+.vw-card__icon--green { color: var(--vw-color-green-600); }

@@ -1,0 +1,67 @@
+@use '../../_shared-styles' as *;
+
+/* Panes & Layouts lab: demo layout structure. Pane styles are local to this lab for now. */
+
+.vw-pane {
+  background: var(--vw-color-gray-10, #fff);
+  border: 1px solid var(--borderColor, var(--vw-color-gray-200));
+  border-radius: var(--vw-radius-md);
+  overflow: hidden;
+
+  &__header {
+    padding: var(--vw-space-sm) var(--vw-space-md);
+    font-weight: 600;
+    font-size: var(--vw-font-label-md, 0.875rem);
+    color: var(--grayColor800, var(--vw-color-gray-800));
+    border-bottom: 1px solid var(--borderColor, var(--vw-color-gray-200));
+  }
+
+  &__body {
+    padding: var(--vw-space-md);
+    font-size: var(--vw-font-description, 0.875rem);
+    color: var(--grayColor700, var(--vw-color-gray-700));
+  }
+
+  &--sidebar {
+    min-width: 180px;
+  }
+
+  &--main {
+    flex: 1;
+  }
+
+  &--rail {
+    min-width: 200px;
+  }
+}
+
+.panes-layouts-demo {
+  display: flex;
+  gap: var(--vw-space-md);
+  min-height: 120px;
+
+  &--split {
+    .vw-pane--sidebar {
+      flex: 0 0 220px;
+    }
+    .vw-pane--main {
+      flex: 1;
+    }
+  }
+
+  &--three-col {
+    .vw-pane--sidebar {
+      flex: 0 0 160px;
+    }
+    .vw-pane--main {
+      flex: 1;
+    }
+    .vw-pane--rail {
+      flex: 0 0 180px;
+    }
+  }
+
+  &--stacked {
+    flex-direction: column;
+  }
+}

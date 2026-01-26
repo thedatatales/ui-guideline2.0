@@ -1,0 +1,384 @@
+@use '../../_shared-styles' as *;
+
+/* =============================================================================
+   LAYOUT-1 — Dashboard layout using vw-panel and vw-card
+   =============================================================================
+   Panel entity styles included so layout works standalone (panel not yet in theme).
+   Same tokens as PANEL_SYSTEM_REFERENCE.md.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   Panel tokens + entities (mirror panel-layout until theme has _panels.scss)
+   ----------------------------------------------------------------------------- */
+:host {
+  --panel-padding: var(--vw-space-md);
+  --panel-section-gap: var(--vw-space-sm);
+  --panel-header-gap: var(--vw-space-xs);
+}
+
+.vw-panel {
+  background-color: var(--bgColor10, var(--vw-color-white));
+  border: 1px solid var(--borderColor, var(--vw-color-slate-200, var(--vw-color-gray-200)));
+  border-radius: var(--vw-radius-lg, 16px);
+  padding: var(--panel-padding, var(--vw-space-md));
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-section-gap, var(--vw-space-sm));
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.vw-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--panel-section-gap, var(--vw-space-sm));
+
+  & > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: var(--panel-header-gap, var(--vw-space-xs));
+  }
+}
+
+.vw-panel__body {
+  display: block;
+}
+
+.vw-panel__title {
+  font-size: var(--vw-font-heading-md, 1rem);
+  line-height: var(--vw-line-heading-md, 1.25);
+  font-weight: 500;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+  margin: 0;
+}
+
+.vw-panel__subtitle {
+  font-size: var(--vw-font-description, 0.875rem);
+  line-height: var(--vw-line-description, 1.4);
+  font-weight: 400;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  margin: 0;
+}
+
+.vw-panel__description {
+  font-size: var(--vw-font-description, 0.875rem);
+  line-height: var(--vw-line-description, 1.4);
+  font-weight: 400;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  margin: 0;
+}
+
+.vw-panel__actions {
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   Layout-1 page structure
+   ----------------------------------------------------------------------------- */
+.layout-1-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-lg);
+}
+
+.layout-1-title-chip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-space-sm);
+  flex-wrap: wrap;
+}
+
+.layout-1-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--vw-space-sm);
+  border-radius: var(--vw-radius-full, 9999px);
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 500;
+
+  &--success {
+    background-color: var(--successColor, #1a7f10);
+    color: #fff;
+  }
+
+  &--muted {
+    background-color: var(--grayColor200, var(--vw-color-gray-200));
+    color: var(--grayColor700, var(--vw-color-gray-700));
+  }
+
+  &--danger {
+    background-color: var(--red-25, #fef2f2);
+    color: var(--textColorError, var(--warnColor500, #b91c1c));
+  }
+}
+
+.layout-1-chip-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* Row of four cards */
+.layout-1-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--vw-space-md);
+}
+
+.layout-1-card {
+  min-height: 80px;
+  justify-content: center;
+}
+
+.layout-1-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2rem;
+  font-size: var(--vw-font-description, 0.875rem);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+/* Main two-column area — 16-grid: 12 for panel heading, 4 for activities.
+   Each task card = 4 grid width (12/3), so activities panel = same width as one card. */
+.layout-1-main {
+  display: grid;
+  grid-template-columns: 12fr 4fr;
+  gap: var(--vw-space-lg);
+  align-items: start;
+}
+
+.layout-1-panel-left {
+  min-width: 0;
+}
+
+.layout-1-task-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--vw-space-md);
+}
+
+.layout-1-task-card {
+  min-width: 0;
+}
+
+/* Title and three-dots on one line: title left (truncates if long), dots right */
+.layout-1-card-title-row {
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: var(--vw-space-sm);
+
+  .vw-card__title {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.layout-1-card-menu {
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  padding: var(--vw-space-xs);
+  cursor: pointer;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--vw-radius-xs);
+
+  &:hover {
+    background: var(--grayColor100, var(--vw-color-gray-100));
+    color: var(--grayColor800, var(--vw-color-gray-800));
+  }
+}
+
+.layout-1-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vw-space-xs);
+}
+
+.layout-1-progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-space-sm);
+
+  bntv-progress-bar {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.layout-1-progress-label {
+  font-size: var(--vw-font-description, 0.875rem);
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  flex-shrink: 0;
+}
+
+.layout-1-assignee {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-space-sm);
+}
+
+.layout-1-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--grayColor800, var(--vw-color-gray-800));
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.layout-1-assignee-name {
+  font-size: var(--vw-font-description, 0.875rem);
+  color: var(--grayColor700, var(--vw-color-gray-700));
+}
+
+.layout-1-dates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vw-space-sm);
+  font-size: var(--vw-font-legend, 0.75rem);
+}
+
+.layout-1-dates-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.layout-1-dates-label {
+  font-weight: 600;
+  color: var(--grayColor700, var(--vw-color-gray-700));
+}
+
+.layout-1-dates-value {
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+.layout-1-panel-right {
+  min-width: 0;
+}
+
+/* Activities list — card-like items without border, separator between */
+.layout-1-activities-header {
+  .vw-panel__actions {
+    align-items: center;
+  }
+}
+
+.layout-1-btn-all {
+  padding: var(--vw-space-xs) var(--vw-space-sm);
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 500;
+  color: var(--accentColor500, var(--vw-color-blue-500, #2563eb));
+  background-color: var(--accentColor50, var(--vw-color-blue-25, #eff6ff));
+  border: none;
+  border-radius: var(--vw-radius-sm);
+  cursor: pointer;
+}
+
+.layout-1-activities-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-1-activity-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-1-activity-row {
+  display: flex;
+  gap: var(--vw-space-md);
+  padding: var(--vw-space-sm) 0;
+  align-items: flex-start;
+}
+
+.layout-1-activity-avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: var(--vw-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &--email {
+    background-color: #ede9fe;
+    color: #6d28d9;
+  }
+
+  &--meeting {
+    background-color: #dbeafe;
+    color: #2563eb;
+  }
+}
+
+.layout-1-activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.layout-1-activity-desc {
+  font-size: var(--vw-font-description, 0.875rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+  margin: 0 0 var(--vw-space-xs) 0;
+}
+
+.layout-1-activity-date {
+  font-size: var(--vw-font-legend, 0.75rem);
+  color: var(--grayColor500, var(--vw-color-gray-500));
+}
+
+.layout-1-activity-separator {
+  height: 1px;
+  width: 100%;
+  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .layout-1-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .layout-1-main {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-1-task-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .layout-1-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-1-task-grid {
+    grid-template-columns: 1fr;
+  }
+}

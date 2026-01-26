@@ -1,0 +1,142 @@
+<div class="vw-page-container layout-1-page">
+  <!-- 1. Top header panel -->
+  <div class="vw-panel layout-1-header-panel">
+    <div class="vw-panel__header">
+      <div>
+        <div class="layout-1-title-chip-row">
+          <span class="vw-panel__title">Header</span>
+          <span class="layout-1-chip layout-1-chip--success">Completed</span>
+        </div>
+        <p class="vw-panel__subtitle">ID-5883</p>
+        <div class="vw-panel__description">
+          A sleek, modern dashboard that helps users track tasks, monitor progress, and manage priorities in one place. Clean layout, quick actions, and smart filters make daily work faster.
+        </div>
+      </div>
+      <div class="vw-panel__actions"></div>
+    </div>
+  </div>
+
+  <!-- 2. Row of four Simple KPI cards -->
+  <div class="layout-1-cards-row">
+    <article class="vw-card layout-1-kpi-simple" *ngFor="let kpi of kpiCards">
+      <header class="vw-card__header">
+        <div class="vw-card__title-row">
+          <i
+            class="ph ph-{{ kpi.icon }} vw-card__icon"
+            [style.color]="kpi.iconColor"
+            aria-hidden="true"
+          ></i>
+          <span class="vw-card__title">{{ kpi.title }}</span>
+        </div>
+        <span class="vw-card__metric vw-card__metric--primary">{{ kpi.value }}</span>
+        <span
+          class="vw-card__delta"
+          [ngClass]="kpi.deltaPositive ? 'vw-card__delta--positive' : 'vw-card__delta--negative'"
+        >
+          {{ kpi.delta }}
+        </span>
+      </header>
+    </article>
+  </div>
+
+  <!-- 3. Main content: two columns -->
+  <div class="layout-1-main">
+    <!-- Left: panel with KPI grid -->
+    <div class="vw-panel layout-1-panel-left">
+      <div class="vw-panel__header">
+        <div>
+          <span class="vw-panel__title">Panel heading</span>
+        </div>
+        <div class="vw-panel__actions"></div>
+      </div>
+      <div class="vw-panel__body">
+        <div class="layout-1-task-grid">
+          <article class="vw-card layout-1-task-card" *ngFor="let task of taskCards">
+            <header class="vw-card__header">
+              <div class="vw-card__title-row layout-1-card-title-row">
+                <span class="vw-card__title">{{ task.title }}</span>
+                <button type="button" class="layout-1-card-menu" aria-label="More options">
+                  <i class="ph ph-dots-three-vertical" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="vw-card__subtitle">{{ task.subtitle }}</p>
+            </header>
+            <div class="vw-card__body">
+              <div class="layout-1-status-row">
+                <span
+                  *ngFor="let s of task.statuses"
+                  class="layout-1-chip"
+                  [ngClass]="{
+                    'layout-1-chip--success': s.type === 'success',
+                    'layout-1-chip--muted': s.type === 'muted',
+                    'layout-1-chip--danger': s.type === 'danger'
+                  }"
+                >
+                  <span class="layout-1-chip-dot" *ngIf="s.type === 'success' || s.type === 'muted'"></span>
+                  {{ s.label }}
+                </span>
+              </div>
+              <div class="layout-1-progress-row">
+                <bntv-progress-bar
+                  [type]="'line'"
+                  [mode]="'determinate'"
+                  [value]="task.progress"
+                  [theme]="'primary'"
+                ></bntv-progress-bar>
+                <span class="layout-1-progress-label">{{ task.progress }}% Progress</span>
+              </div>
+              <div class="layout-1-assignee">
+                <div class="layout-1-avatar" [attr.aria-label]="task.assigneeName">{{ task.assigneeInitials }}</div>
+                <span class="layout-1-assignee-name">{{ task.assigneeName }}</span>
+              </div>
+              <div class="layout-1-dates">
+                <div class="layout-1-dates-col">
+                  <span class="layout-1-dates-label">Planned</span>
+                  <span class="layout-1-dates-value">{{ task.plannedStart }}</span>
+                  <span class="layout-1-dates-value">{{ task.plannedEnd }}</span>
+                </div>
+                <div class="layout-1-dates-col">
+                  <span class="layout-1-dates-label">Actual</span>
+                  <span class="layout-1-dates-value">{{ task.actualStart }}</span>
+                  <span class="layout-1-dates-value">{{ task.actualEnd }}</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: activities panel -->
+    <div class="vw-panel layout-1-panel-right">
+      <div class="vw-panel__header layout-1-activities-header">
+        <div>
+          <span class="vw-panel__title">Activities</span>
+        </div>
+        <div class="vw-panel__actions">
+          <button type="button" class="layout-1-btn-all">All</button>
+        </div>
+      </div>
+      <div class="vw-panel__body">
+        <div class="layout-1-activities-list">
+          <div class="layout-1-activity-item" *ngFor="let activity of activities; let last = last">
+            <div class="layout-1-activity-row">
+              <div
+                class="layout-1-activity-avatar"
+                [class.layout-1-activity-avatar--email]="activity.type === 'email'"
+                [class.layout-1-activity-avatar--meeting]="activity.type === 'meeting'"
+              >
+                {{ activity.letter }}
+              </div>
+              <div class="layout-1-activity-content">
+                <p class="layout-1-activity-desc">{{ activity.description }}</p>
+                <span class="layout-1-activity-date">{{ activity.date }}</span>
+              </div>
+            </div>
+            <div class="layout-1-activity-separator" *ngIf="!last"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

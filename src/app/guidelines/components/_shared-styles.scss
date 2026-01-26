@@ -1,5 +1,15 @@
 // Shared styles for guideline component documentation pages
 
+/* Single class for all guidelines page containers. */
+.vw-page-container {
+  background: var(--vw-color-stone-50);
+  margin: var(--vw-space-sm);
+  border-radius: var(--vw-radius-lg);
+  padding: var(--vw-space-2xl);
+  max-width: 100%;
+  margin: var(--vw-space-sm);
+}
+
 .header-section {
   margin-bottom: 40px;
 }

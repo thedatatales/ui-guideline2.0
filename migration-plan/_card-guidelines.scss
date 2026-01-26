@@ -1,0 +1,221 @@
+/* =============================================================================
+   CARD GUIDELINES — Entity-based card system
+   =============================================================================
+   Single card base + fixed entity vocabulary. No variants. Tokens only.
+   Scope: .level4-style, .template13-style (--vw-*, role tokens).
+
+   Usage: Ensure token scope and space/palette are loaded (e.g. via theme),
+   then add this file to your build (e.g. angular.json styles or
+   @use 'migration-plan/card-guidelines' in a component).
+   See: migration-plan/CARD_GUIDELINES.md
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   CARD BASE
+   Surface, border, radius, padding, background. No hardcoded values.
+   ----------------------------------------------------------------------------- */
+.vw-card {
+  background-color: var(--bgColor10, var(--vw-color-white));
+  border: 1px solid var(--borderColor, var(--vw-color-gray-200));
+  border-radius: var(--vw-radius-lg);
+  padding: var(--vw-space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-md);
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* -----------------------------------------------------------------------------
+   STRUCTURAL ENTITIES
+   ----------------------------------------------------------------------------- */
+.vw-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-xs);
+}
+
+.vw-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-md);
+}
+
+.vw-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-sm);
+  margin-top: var(--vw-space-none);
+}
+
+.vw-card__divider {
+  height: 1px;
+  width: 100%;
+  margin: var(--vw-space-none);
+  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
+  border: none;
+  flex-shrink: 0;
+}
+
+/* Header row: icon + title (header-left). Layout only; no typography. */
+.vw-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vw-space-sm);
+  flex-wrap: wrap;
+}
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY ENTITIES
+   rem + tokens only. No em.
+   ----------------------------------------------------------------------------- */
+.vw-card__title {
+  font-size: var(--vw-font-heading-md, 1rem);
+  line-height: var(--vw-line-heading-md, 1.25);
+  font-weight: 500;
+  color: var(--grayColor800, var(--vw-color-gray-800));
+  margin: 0;
+}
+
+.vw-card__subtitle {
+  font-size: var(--vw-font-description, 0.875rem);
+  line-height: var(--vw-line-description, 1.4);
+  font-weight: 400;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  margin: 0;
+}
+
+.vw-card__description {
+  font-size: var(--vw-font-description, 0.875rem);
+  line-height: var(--vw-line-description, 1.4);
+  font-weight: 400;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+  margin: 0;
+}
+
+/* Migration: same intent as __subtitle (context/caption e.g. "Open (L12M)"). */
+.vw-card__legend {
+  font-size: var(--vw-font-legend, 0.75rem);
+  line-height: var(--vw-line-legend, 1.2);
+  font-weight: 400;
+  color: var(--grayColor500, var(--vw-color-gray-500));
+  margin: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   METRIC ENTITIES
+   ----------------------------------------------------------------------------- */
+.vw-card__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--vw-space-lg) var(--vw-space-xl);
+}
+
+.vw-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vw-space-xs);
+
+  /* Primary = standalone main value (e.g. "20"). No flex layout. */
+  &--primary {
+    display: block;
+    font-size: var(--vw-font-value-xl, 1.75rem);
+    line-height: var(--vw-line-heading-xl, 1.2);
+    font-weight: 600;
+    color: var(--grayColor900, var(--vw-color-gray-900));
+  }
+
+  /* Secondary = container for label + metric-row. */
+  &--secondary {
+    /* Uses child __metric-label, __metric-row, __metric-value, __delta */
+  }
+}
+
+.vw-card__metric-label {
+  font-size: var(--vw-font-label-md, 0.875rem);
+  font-weight: 400;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+.vw-card__metric-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--vw-space-sm);
+  flex-wrap: wrap;
+}
+
+.vw-card__metric-value {
+  font-size: var(--vw-font-value-sm, 1rem);
+  font-weight: 600;
+  color: var(--grayColor900, var(--vw-color-gray-900));
+}
+
+/* -----------------------------------------------------------------------------
+   DELTA ENTITIES
+   ----------------------------------------------------------------------------- */
+.vw-card__delta {
+  font-size: var(--vw-font-legend, 0.75rem);
+  line-height: var(--vw-line-legend, 1.2);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vw-space-xs);
+
+  &--positive {
+    color: var(--successColor, var(--vw-color-green-700));
+  }
+
+  &--negative {
+    color: var(--textColorError, var(--warnColor500, var(--vw-color-red-600)));
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   ICON ENTITY
+   Contextual only. Header-left or header-right. Semantic colors via modifiers
+   or parent; this class defines size/alignment only. No layout/spacing.
+   ----------------------------------------------------------------------------- */
+.vw-card__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--grayColor600, var(--vw-color-gray-600));
+}
+
+/* -----------------------------------------------------------------------------
+   CHIP ENTITY
+   Wrapper/slot only. Use existing .vw-chip and semantic modifiers.
+   Chips never define spacing.
+   ----------------------------------------------------------------------------- */
+.vw-card__chip {
+  /* No layout or spacing. Content uses .vw-chip and variants. */
+}
+
+/* -----------------------------------------------------------------------------
+   ACTION ENTITIES
+   Prefer footer. Standard button sizing; no overrides here.
+   ----------------------------------------------------------------------------- */
+.vw-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vw-space-sm);
+  align-items: center;
+}
+
+.vw-card__action {
+  /* Sizing from Core/button; we only provide spacing via __actions. */
+}
+
+/* -----------------------------------------------------------------------------
+   CHILD CARD
+   Max depth 1. Smaller radius, subtle border. No typography overrides.
+   ----------------------------------------------------------------------------- */
+.vw-card__child.vw-card {
+  border-radius: var(--vw-radius-sm);
+  border-color: var(--borderColor, var(--vw-color-gray-200));
+  padding: var(--vw-space-md);
+}
