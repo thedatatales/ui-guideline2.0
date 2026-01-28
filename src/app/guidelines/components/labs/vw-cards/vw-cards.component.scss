@@ -209,6 +209,28 @@
   color: var(--grayColor600, var(--vw-color-gray-600));
 }
 
+/* -----------------------------------------------------------------------------
+   11. Revenue card icon container
+   ----------------------------------------------------------------------------- */
+.vw-card-revenue-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: var(--card-radius-sm, var(--vw-radius-sm));
+  background-color: var(--vw-color-sky-100, #e6f1ff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  i {
+    font-size: 1.5rem;
+    color: var(--vw-color-white, #ffffff);
+  }
+}
+
+/* vw-card entity variants (header-row, metrics--list, metric--row, metric-value--success|--warning|--negative) live in theme scss/components/_cards.scss */
+
 .entity-table {
   width: 100%;
   border-collapse: collapse;

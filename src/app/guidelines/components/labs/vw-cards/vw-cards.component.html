@@ -14,15 +14,37 @@
     <h2 class="section-title">1. Minimal card</h2>
     <p class="section-description">Title + description. No header icon, no metrics, no footer.</p>
     <div class="demo-container">
-      <article class="vw-card" style="max-width: 360px;">
-        <header class="vw-card__header">
-          <span class="vw-card__title">Report name</span>
-          <p class="vw-card__subtitle">Last updated today</p>
-        </header>
-        <div class="vw-card__body">
-          <p class="vw-card__description">Short summary. Use only entity classes and tokens.</p>
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 360px;">
+            <header class="vw-card__header">
+              <span class="vw-card__title">Report name</span>
+              <p class="vw-card__subtitle">Last updated today</p>
+            </header>
+            <div class="vw-card__body">
+              <p class="vw-card__description">Short summary. Use only entity classes and tokens.</p>
+            </div>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('minimal', 'default')">view code</a>
         </div>
-      </article>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">1. Minimal card</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('minimal')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['minimal'] }}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -33,27 +55,49 @@
     <h2 class="section-title">2. Simple KPI card</h2>
     <p class="section-description">Header (icon + title), primary value, delta. Entities: __header, __title-row, __icon, __title, __metric--primary, __delta.</p>
     <div class="demo-container">
-      <div class="vw-cards-demo-grid">
-        <article class="vw-card">
-          <header class="vw-card__header">
-            <div class="vw-card__title-row">
-              <i class="ph ph-chart-line vw-card__icon" aria-hidden="true"></i>
-              <span class="vw-card__title">Potential Revenue</span>
-            </div>
-            <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
-            <span class="vw-card__delta vw-card__delta--positive">+12% from last week</span>
-          </header>
-        </article>
-        <article class="vw-card">
-          <header class="vw-card__header">
-            <div class="vw-card__title-row">
-              <i class="ph ph-users vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-leads, var(--vw-color-orange-600))"></i>
-              <span class="vw-card__title">Open Leads</span>
-            </div>
-            <span class="vw-card__metric vw-card__metric--primary">38</span>
-            <span class="vw-card__delta vw-card__delta--positive">+18% from last week</span>
-          </header>
-        </article>
+      <div class="component-demo">
+        <div class="component-item">
+          <div class="vw-cards-demo-grid">
+            <article class="vw-card">
+              <header class="vw-card__header">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-chart-line vw-card__icon" aria-hidden="true"></i>
+                  <span class="vw-card__title">Potential Revenue</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
+                <span class="vw-card__delta vw-card__delta--positive">+12% from last week</span>
+              </header>
+            </article>
+            <article class="vw-card">
+              <header class="vw-card__header">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-users vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-leads, var(--vw-color-orange-600))"></i>
+                  <span class="vw-card__title">Open Leads</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">38</span>
+                <span class="vw-card__delta vw-card__delta--positive">+18% from last week</span>
+              </header>
+            </article>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('simpleKpi', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">2. Simple KPI card</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('simpleKpi')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['simpleKpi'] }}</code></pre>
       </div>
     </div>
   </section>
@@ -65,47 +109,69 @@
     <h2 class="section-title">3. KPI grid — 4 cards</h2>
     <p class="section-description">Same as simple KPI, in a responsive grid. Header + icon + title + primary value + delta.</p>
     <div class="demo-container">
-      <div class="vw-cards-demo-grid vw-cards-demo-grid--4">
-        <article class="vw-card">
-          <header class="vw-card__header">
-            <div class="vw-card__title-row">
-              <i class="ph ph-chart-line vw-card__icon" aria-hidden="true"></i>
-              <span class="vw-card__title">Potential Revenue</span>
-            </div>
-            <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
-            <span class="vw-card__delta vw-card__delta--positive">+12%</span>
-          </header>
-        </article>
-        <article class="vw-card">
-          <header class="vw-card__header">
-            <div class="vw-card__title-row">
-              <i class="ph ph-clock vw-card__icon" aria-hidden="true"></i>
-              <span class="vw-card__title">Lead Velocity</span>
-            </div>
-            <span class="vw-card__metric vw-card__metric--primary">10</span>
-            <span class="vw-card__delta vw-card__delta--negative">−8%</span>
-          </header>
-        </article>
-        <article class="vw-card">
-          <header class="vw-card__header">
-            <div class="vw-card__title-row">
-              <i class="ph ph-users vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-leads, var(--vw-color-orange-600))"></i>
-              <span class="vw-card__title">Open Leads</span>
-            </div>
-            <span class="vw-card__metric vw-card__metric--primary">38</span>
-            <span class="vw-card__delta vw-card__delta--positive">+18%</span>
-          </header>
-        </article>
-        <article class="vw-card">
-          <header class="vw-card__header">
-            <div class="vw-card__title-row">
-              <i class="ph ph-arrow-clockwise vw-card__icon" aria-hidden="true"></i>
-              <span class="vw-card__title">Conversion Rate</span>
-            </div>
-            <span class="vw-card__metric vw-card__metric--primary">23.5%</span>
-            <span class="vw-card__delta vw-card__delta--positive">+5.2%</span>
-          </header>
-        </article>
+      <div class="component-demo">
+        <div class="component-item">
+          <div class="vw-cards-demo-grid vw-cards-demo-grid--4">
+            <article class="vw-card">
+              <header class="vw-card__header">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-chart-line vw-card__icon" aria-hidden="true"></i>
+                  <span class="vw-card__title">Potential Revenue</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
+                <span class="vw-card__delta vw-card__delta--positive">+12%</span>
+              </header>
+            </article>
+            <article class="vw-card">
+              <header class="vw-card__header">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-clock vw-card__icon" aria-hidden="true"></i>
+                  <span class="vw-card__title">Lead Velocity</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">10</span>
+                <span class="vw-card__delta vw-card__delta--negative">−8%</span>
+              </header>
+            </article>
+            <article class="vw-card">
+              <header class="vw-card__header">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-users vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-leads, var(--vw-color-orange-600))"></i>
+                  <span class="vw-card__title">Open Leads</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">38</span>
+                <span class="vw-card__delta vw-card__delta--positive">+18%</span>
+              </header>
+            </article>
+            <article class="vw-card">
+              <header class="vw-card__header">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-arrow-clockwise vw-card__icon" aria-hidden="true"></i>
+                  <span class="vw-card__title">Conversion Rate</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">23.5%</span>
+                <span class="vw-card__delta vw-card__delta--positive">+5.2%</span>
+              </header>
+            </article>
+          </div>
+          <a class="view-code-link" (click)="onVariantClick('kpiGrid', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">3. KPI grid — 4 cards</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('kpiGrid')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['kpiGrid'] }}</code></pre>
       </div>
     </div>
   </section>
@@ -117,49 +183,71 @@
     <h2 class="section-title">4. Card with header, chips, and metrics</h2>
     <p class="section-description">Header (icon + title + chip), subtitle, divider, metrics grid. Chips use existing <code>vw-chip</code> semantics.</p>
     <div class="demo-container">
-      <article class="vw-card" style="max-width: 420px;">
-        <header class="vw-card__header">
-          <div class="vw-card__title-row">
-            <i class="ph ph-users vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-leads, var(--vw-color-orange-600))"></i>
-            <span class="vw-card__title">Leads</span>
-            <span class="vw-card__chip"><span class="vw-chip vw-chip--success">Active</span></span>
-          </div>
-          <p class="vw-card__legend">Open (L12M)</p>
-          <span class="vw-card__metric vw-card__metric--primary">20</span>
-        </header>
-        <div class="vw-card__divider" role="presentation"></div>
-        <div class="vw-card__body">
-          <div class="vw-card__metrics">
-            <div class="vw-card__metric vw-card__metric--secondary">
-              <span class="vw-card__metric-label">Created (L30D)</span>
-              <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value">10</span>
-                <span class="vw-card__delta vw-card__delta--positive">+12%</span>
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 420px;">
+            <header class="vw-card__header">
+              <div class="vw-card__title-row">
+                <i class="ph ph-users vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-leads, var(--vw-color-orange-600))"></i>
+                <span class="vw-card__title">Leads</span>
+                <span class="vw-card__chip"><span class="vw-chip vw-chip--success">Active</span></span>
+              </div>
+              <p class="vw-card__legend">Open (L12M)</p>
+              <span class="vw-card__metric vw-card__metric--primary">20</span>
+            </header>
+            <div class="vw-card__divider" role="presentation"></div>
+            <div class="vw-card__body">
+              <div class="vw-card__metrics">
+                <div class="vw-card__metric vw-card__metric--secondary">
+                  <span class="vw-card__metric-label">Created (L30D)</span>
+                  <div class="vw-card__metric-row">
+                    <span class="vw-card__metric-value">10</span>
+                    <span class="vw-card__delta vw-card__delta--positive">+12%</span>
+                  </div>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary">
+                  <span class="vw-card__metric-label">Conversion Rate</span>
+                  <div class="vw-card__metric-row">
+                    <span class="vw-card__metric-value">18.5%</span>
+                    <span class="vw-card__delta vw-card__delta--positive">+2.3%</span>
+                  </div>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary">
+                  <span class="vw-card__metric-label">Potential Value (L12M)</span>
+                  <div class="vw-card__metric-row">
+                    <span class="vw-card__metric-value">₹430.2M</span>
+                  </div>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary">
+                  <span class="vw-card__metric-label">Stale Leads (L12M)</span>
+                  <div class="vw-card__metric-row">
+                    <span class="vw-card__metric-value">5</span>
+                    <span class="vw-card__delta vw-card__delta--negative">−2</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--secondary">
-              <span class="vw-card__metric-label">Conversion Rate</span>
-              <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value">18.5%</span>
-                <span class="vw-card__delta vw-card__delta--positive">+2.3%</span>
-              </div>
-            </div>
-            <div class="vw-card__metric vw-card__metric--secondary">
-              <span class="vw-card__metric-label">Potential Value (L12M)</span>
-              <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value">₹430.2M</span>
-              </div>
-            </div>
-            <div class="vw-card__metric vw-card__metric--secondary">
-              <span class="vw-card__metric-label">Stale Leads (L12M)</span>
-              <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value">5</span>
-                <span class="vw-card__delta vw-card__delta--negative">−2</span>
-              </div>
-            </div>
-          </div>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('headerChipsMetrics', 'default')">view code</a>
         </div>
-      </article>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">4. Card with header, chips, and metrics</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('headerChipsMetrics')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['headerChipsMetrics'] }}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -170,38 +258,60 @@
     <h2 class="section-title">5. Card with footer actions</h2>
     <p class="section-description">Header + body + divider + footer with <code>vw-card__actions</code> and Core buttons.</p>
     <div class="demo-container">
-      <article class="vw-card" style="max-width: 400px;">
-        <header class="vw-card__header">
-          <span class="vw-card__title">Billing summary</span>
-          <p class="vw-card__subtitle">Q4 2024</p>
-        </header>
-        <div class="vw-card__divider" role="presentation"></div>
-        <div class="vw-card__body">
-          <p class="vw-card__description">Outstanding receivables and paid amount for the period.</p>
-          <div class="vw-card__metrics">
-            <div class="vw-card__metric vw-card__metric--secondary">
-              <span class="vw-card__metric-label">Outstanding</span>
-              <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value">₹73.5M</span>
-                <span class="vw-card__delta vw-card__delta--negative">−4%</span>
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 400px;">
+            <header class="vw-card__header">
+              <span class="vw-card__title">Billing summary</span>
+              <p class="vw-card__subtitle">Q4 2024</p>
+            </header>
+            <div class="vw-card__divider" role="presentation"></div>
+            <div class="vw-card__body">
+              <p class="vw-card__description">Outstanding receivables and paid amount for the period.</p>
+              <div class="vw-card__metrics">
+                <div class="vw-card__metric vw-card__metric--secondary">
+                  <span class="vw-card__metric-label">Outstanding</span>
+                  <div class="vw-card__metric-row">
+                    <span class="vw-card__metric-value">₹73.5M</span>
+                    <span class="vw-card__delta vw-card__delta--negative">−4%</span>
+                  </div>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary">
+                  <span class="vw-card__metric-label">Paid</span>
+                  <div class="vw-card__metric-row">
+                    <span class="vw-card__metric-value">₹120.2M</span>
+                    <span class="vw-card__delta vw-card__delta--positive">+8%</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--secondary">
-              <span class="vw-card__metric-label">Paid</span>
-              <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value">₹120.2M</span>
-                <span class="vw-card__delta vw-card__delta--positive">+8%</span>
+            <footer class="vw-card__footer">
+              <div class="vw-card__actions">
+                <bntv-mat-button [value]="'View details'" [theme]="'accent'" [type]="'stroked'"></bntv-mat-button>
+                <bntv-mat-button [value]="'Export'" [theme]="'primary'" [type]="'raised'"></bntv-mat-button>
               </div>
-            </div>
-          </div>
+            </footer>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('footerActions', 'default')">view code</a>
         </div>
-        <footer class="vw-card__footer">
-          <div class="vw-card__actions">
-            <bntv-mat-button [value]="'View details'" [theme]="'accent'" [type]="'stroked'"></bntv-mat-button>
-            <bntv-mat-button [value]="'Export'" [theme]="'primary'" [type]="'raised'"></bntv-mat-button>
-          </div>
-        </footer>
-      </article>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">5. Card with footer actions</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('footerActions')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['footerActions'] }}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -212,31 +322,53 @@
     <h2 class="section-title">6. Card with child card</h2>
     <p class="section-description">Parent card with <code>vw-card__child vw-card</code> inside body. Max depth 1.</p>
     <div class="demo-container">
-      <article class="vw-card" style="max-width: 440px;">
-        <header class="vw-card__header">
-          <span class="vw-card__title">Config section</span>
-          <p class="vw-card__subtitle">Dataset and filters</p>
-        </header>
-        <div class="vw-card__body">
-          <p class="vw-card__description">Nested context uses a child card for grouping.</p>
-          <div class="vw-card__child vw-card">
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 440px;">
+            <header class="vw-card__header">
+              <span class="vw-card__title">Config section</span>
+              <p class="vw-card__subtitle">Dataset and filters</p>
+            </header>
             <div class="vw-card__body">
-              <div class="vw-card__metric vw-card__metric--secondary">
-                <span class="vw-card__metric-label">Records</span>
-                <div class="vw-card__metric-row">
-                  <span class="vw-card__metric-value">1,240</span>
-                </div>
-              </div>
-              <div class="vw-card__metric vw-card__metric--secondary">
-                <span class="vw-card__metric-label">Last sync</span>
-                <div class="vw-card__metric-row">
-                  <span class="vw-card__metric-value">2 hours ago</span>
+              <p class="vw-card__description">Nested context uses a child card for grouping.</p>
+              <div class="vw-card__child vw-card">
+                <div class="vw-card__body">
+                  <div class="vw-card__metric vw-card__metric--secondary">
+                    <span class="vw-card__metric-label">Records</span>
+                    <div class="vw-card__metric-row">
+                      <span class="vw-card__metric-value">1,240</span>
+                    </div>
+                  </div>
+                  <div class="vw-card__metric vw-card__metric--secondary">
+                    <span class="vw-card__metric-label">Last sync</span>
+                    <div class="vw-card__metric-row">
+                      <span class="vw-card__metric-value">2 hours ago</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('childCard', 'default')">view code</a>
         </div>
-      </article>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">6. Card with child card</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('childCard')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['childCard'] }}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -247,18 +379,40 @@
     <h2 class="section-title">7. Card with chips in header</h2>
     <p class="section-description">Title row with icon, title, and multiple chips (status/category).</p>
     <div class="demo-container">
-      <article class="vw-card" style="max-width: 380px;">
-        <header class="vw-card__header">
-          <div class="vw-card__title-row">
-            <i class="ph ph-quotes vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-quotes, var(--vw-color-indigo-500))"></i>
-            <span class="vw-card__title">Quote pipeline</span>
-            <span class="vw-card__chip"><span class="vw-chip vw-chip--info">Draft</span></span>
-            <span class="vw-card__chip"><span class="vw-chip vw-chip--neutral">B2B</span></span>
-          </div>
-          <span class="vw-card__metric vw-card__metric--primary">67</span>
-          <p class="vw-card__legend">Active (L12M)</p>
-        </header>
-      </article>
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 380px;">
+            <header class="vw-card__header">
+              <div class="vw-card__title-row">
+                <i class="ph ph-quotes vw-card__icon" aria-hidden="true" style="color: var(--kpi-icon-quotes, var(--vw-color-indigo-500))"></i>
+                <span class="vw-card__title">Quote pipeline</span>
+                <span class="vw-card__chip"><span class="vw-chip vw-chip--info">Draft</span></span>
+                <span class="vw-card__chip"><span class="vw-chip vw-chip--neutral">B2B</span></span>
+              </div>
+              <span class="vw-card__metric vw-card__metric--primary">67</span>
+              <p class="vw-card__legend">Active (L12M)</p>
+            </header>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('chipsHeader', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">7. Card with chips in header</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('chipsHeader')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['chipsHeader'] }}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -271,22 +425,44 @@
       One activity item: avatar (E/M), description, date. Borderless card-style row with separator below. Used in Activities panels (see Layout-1).
     </p>
     <div class="demo-container">
-      <div class="vw-cards-activity-sample">
-        <div class="vw-cards-activity-row">
-          <div class="vw-cards-activity-avatar vw-cards-activity-avatar--email">E</div>
-          <div class="vw-cards-activity-content">
-            <p class="vw-cards-activity-desc">Email - Avalon Technologies requires 300 Mbps leased lines</p>
-            <span class="vw-cards-activity-date">Jan 12, 2026</span>
+      <div class="component-demo">
+        <div class="component-item">
+          <div class="vw-cards-activity-sample">
+            <div class="vw-cards-activity-row">
+              <div class="vw-cards-activity-avatar vw-cards-activity-avatar--email">E</div>
+              <div class="vw-cards-activity-content">
+                <p class="vw-cards-activity-desc">Email - Avalon Technologies requires 300 Mbps leased lines</p>
+                <span class="vw-cards-activity-date">Jan 12, 2026</span>
+              </div>
+            </div>
+            <div class="vw-cards-activity-separator"></div>
+            <div class="vw-cards-activity-row">
+              <div class="vw-cards-activity-avatar vw-cards-activity-avatar--meeting">M</div>
+              <div class="vw-cards-activity-content">
+                <p class="vw-cards-activity-desc">Customer meeting - Avalon Technologies requires 300 Mbps leased lines</p>
+                <span class="vw-cards-activity-date">Jan 10, 2026</span>
+              </div>
+            </div>
           </div>
+          <a class="view-code-link" (click)="onVariantClick('activity', 'default')">view code</a>
         </div>
-        <div class="vw-cards-activity-separator"></div>
-        <div class="vw-cards-activity-row">
-          <div class="vw-cards-activity-avatar vw-cards-activity-avatar--meeting">M</div>
-          <div class="vw-cards-activity-content">
-            <p class="vw-cards-activity-desc">Customer meeting - Avalon Technologies requires 300 Mbps leased lines</p>
-            <span class="vw-cards-activity-date">Jan 10, 2026</span>
-          </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">8. Activity card</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('activity')"
+            class="copy-icon"
+          ></bntv-icon>
         </div>
+        <pre><code>{{ currentCode['activity'] }}</code></pre>
       </div>
     </div>
   </section>
@@ -300,42 +476,193 @@
       Task/project card used inside panels: title + menu, subtitle, status chips, progress bar, assignee, Planned/Actual dates. One sample (see Layout-1 for full grid).
     </p>
     <div class="demo-container">
-      <article class="vw-card vw-cards-panel-heading-card">
-        <header class="vw-card__header">
-          <div class="vw-card__title-row vw-cards-task-title-row">
-            <span class="vw-card__title">WIFI commissioning and verification</span>
-            <button type="button" class="vw-cards-task-menu" aria-label="More options">
-              <i class="ph ph-dots-three-vertical" aria-hidden="true"></i>
-            </button>
-          </div>
-          <p class="vw-card__subtitle">WIFI2-Wifi-00001065</p>
-        </header>
-        <div class="vw-card__body">
-          <div class="vw-cards-status-row">
-            <span class="vw-cards-chip vw-cards-chip--success">Completed</span>
-          </div>
-          <div class="vw-cards-progress-row">
-            <bntv-progress-bar [type]="'line'" [mode]="'determinate'" [value]="100" [theme]="'primary'"></bntv-progress-bar>
-            <span class="vw-cards-progress-label">100% Progress</span>
-          </div>
-          <div class="vw-cards-assignee">
-            <div class="vw-cards-avatar" aria-label="Legal consultant">LC</div>
-            <span class="vw-cards-assignee-name">Legal consultant</span>
-          </div>
-          <div class="vw-cards-dates">
-            <div class="vw-cards-dates-col">
-              <span class="vw-cards-dates-label">Planned</span>
-              <span class="vw-cards-dates-value">16-Jan-2026</span>
-              <span class="vw-cards-dates-value">27-Jan-2026</span>
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card vw-cards-panel-heading-card">
+            <header class="vw-card__header">
+              <div class="vw-card__title-row vw-cards-task-title-row">
+                <span class="vw-card__title">WIFI commissioning and verification</span>
+                <button type="button" class="vw-cards-task-menu" aria-label="More options">
+                  <i class="ph ph-dots-three-vertical" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="vw-card__subtitle">WIFI2-Wifi-00001065</p>
+            </header>
+            <div class="vw-card__body">
+              <div class="vw-cards-status-row">
+                <span class="vw-cards-chip vw-cards-chip--success">Completed</span>
+              </div>
+              <div class="vw-cards-progress-row">
+                <bntv-progress-bar [type]="'line'" [mode]="'determinate'" [value]="100" [theme]="'primary'"></bntv-progress-bar>
+                <span class="vw-cards-progress-label">100% Progress</span>
+              </div>
+              <div class="vw-cards-assignee">
+                <div class="vw-cards-avatar" aria-label="Legal consultant">LC</div>
+                <span class="vw-cards-assignee-name">Legal consultant</span>
+              </div>
+              <div class="vw-cards-dates">
+                <div class="vw-cards-dates-col">
+                  <span class="vw-cards-dates-label">Planned</span>
+                  <span class="vw-cards-dates-value">16-Jan-2026</span>
+                  <span class="vw-cards-dates-value">27-Jan-2026</span>
+                </div>
+                <div class="vw-cards-dates-col">
+                  <span class="vw-cards-dates-label">Actual</span>
+                  <span class="vw-cards-dates-value">16-Jan-2026</span>
+                  <span class="vw-cards-dates-value">16-Jan-2026</span>
+                </div>
+              </div>
             </div>
-            <div class="vw-cards-dates-col">
-              <span class="vw-cards-dates-label">Actual</span>
-              <span class="vw-cards-dates-value">16-Jan-2026</span>
-              <span class="vw-cards-dates-value">16-Jan-2026</span>
-            </div>
-          </div>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('panelHeading', 'default')">view code</a>
         </div>
-      </article>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">9. Panel heading card</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('panelHeading')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['panelHeading'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 10. Flows card — header spread, metrics list with dividers, semantic colors -->
+  <section class="content-section">
+    <h2 class="section-title">10. Flows card (summary + dividers + semantic colors)</h2>
+    <p class="section-description">
+      Header: title left, total right. Body: <code>vw-card__metrics vw-card__metrics--list vw-card__metrics--divided</code> for a single-column list with dividers between rows. Each row <code>vw-card__metric--row</code>. Semantic colors: <code>vw-card__metric-value--info</code> (New), <code>--warning</code> (Awaiting approval), <code>--success</code> (Approved), <code>--negative</code> (Rejected / danger).
+    </p>
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 360px;">
+            <header class="vw-card__header">
+              <div class="vw-card__header-row vw-card__header-row--spread">
+                <div class="vw-card__title-row">
+                  <i class="ph ph-squares-four vw-card__icon" aria-hidden="true"></i>
+                  <span class="vw-card__title">Flows</span>
+                </div>
+                <span class="vw-card__metric vw-card__metric--primary">60</span>
+              </div>
+            </header>
+            <div class="vw-card__body">
+              <div class="vw-card__metrics vw-card__metrics--list vw-card__metrics--divided">
+                <div class="vw-card__metric vw-card__metric--secondary vw-card__metric--row">
+                  <span class="vw-card__metric-label">New</span>
+                  <span class="vw-card__metric-value vw-card__metric-value--info">20</span>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary vw-card__metric--row">
+                  <span class="vw-card__metric-label">Awaiting approval</span>
+                  <span class="vw-card__metric-value vw-card__metric-value--warning">0</span>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary vw-card__metric--row">
+                  <span class="vw-card__metric-label">Approved</span>
+                  <span class="vw-card__metric-value vw-card__metric-value--success">40</span>
+                </div>
+                <div class="vw-card__metric vw-card__metric--secondary vw-card__metric--row">
+                  <span class="vw-card__metric-label">Rejected</span>
+                  <span class="vw-card__metric-value vw-card__metric-value--negative">0</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('flows', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">10. Flows card (summary + dividers + semantic colors)</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('flows')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['flows'] }}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 11. Revenue card with icon and footer metric -->
+  <section class="content-section">
+    <h2 class="section-title">11. Revenue card with icon and footer metric</h2>
+    <p class="section-description">
+      Header with icon container, primary metric with delta indicator, divider, and footer with secondary metric. Uses <code>vw-card__header</code>, <code>vw-card__metric--primary</code>, <code>vw-card__delta</code>, <code>vw-card__divider</code>, and <code>vw-card__footer</code>.
+    </p>
+    <div class="demo-container">
+      <div class="component-demo">
+        <div class="component-item">
+          <article class="vw-card" style="max-width: 380px;">
+            <header class="vw-card__header">
+              <div class="vw-card__header-row vw-card__header-row--spread">
+                <div class="vw-card__title-row">
+                  <div class="vw-card-revenue-icon">
+                    <i class="ph ph-currency-dollar" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <div style="flex: 1; min-width: 0; margin-left: var(--card-gap-md, var(--vw-space-md));">
+                  <div class="vw-card__metric-label" style="margin-bottom: var(--card-gap-xs, var(--vw-space-xs));">
+                    Total revenue <span style="font-size: 0.85em; opacity: 0.7;">(ITD)</span>
+                  </div>
+                  <div style="display: flex; align-items: baseline; gap: var(--card-gap, var(--vw-space-sm)); flex-wrap: wrap;">
+                    <span class="vw-card__metric vw-card__metric--primary">90.6M</span>
+                    <span class="vw-card__delta vw-card__delta--positive">
+                      <i class="ph ph-arrow-up" aria-hidden="true"></i>
+                      15.2% <span style="font-size: 0.85em; opacity: 0.8;">(MoM)</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div class="vw-card__divider" role="presentation"></div>
+            <footer class="vw-card__footer">
+              <div class="vw-card__metric vw-card__metric--row" style="width: 100%;">
+                <span class="vw-card__metric-label">Total invoice</span>
+                <span class="vw-card__metric-value">2028</span>
+              </div>
+            </footer>
+          </article>
+          <a class="view-code-link" (click)="onVariantClick('revenueCard', 'default')">view code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example-section">
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-title">11. Revenue card with icon and footer metric</span>
+          <bntv-icon
+            [iconName]="'Copy-Outline'"
+            [type]="'fontset'"
+            [fontSet]="'icomoon'"
+            [color]="'var(--accentColor500)'"
+            (clickIcon)="copyCode('revenueCard')"
+            class="copy-icon"
+          ></bntv-icon>
+        </div>
+        <pre><code>{{ currentCode['revenueCard'] }}</code></pre>
+      </div>
     </div>
   </section>
 
@@ -359,8 +686,11 @@
           <tr><td>Title / Subtitle / Description</td><td><code>.vw-card__title</code>, <code>.vw-card__subtitle</code>, <code>.vw-card__description</code></td></tr>
           <tr><td>Context label</td><td><code>.vw-card__legend</code></td></tr>
           <tr><td>Metric (primary / secondary)</td><td><code>.vw-card__metric</code>, <code>.vw-card__metric--primary</code>, <code>.vw-card__metric--secondary</code></td></tr>
+          <tr><td>Metric row variant</td><td><code>.vw-card__metric--row</code> (flex row, space-between; label left, value right)</td></tr>
           <tr><td>Metric label / value / row</td><td><code>.vw-card__metric-label</code>, <code>.vw-card__metric-value</code>, <code>.vw-card__metric-row</code></td></tr>
-          <tr><td>Metrics grid</td><td><code>.vw-card__metrics</code></td></tr>
+          <tr><td>Metric value semantic</td><td><code>.vw-card__metric-value--info</code>, <code>--success</code>, <code>--warning</code>, <code>--negative</code> (danger/error)</td></tr>
+          <tr><td>Metrics grid</td><td><code>.vw-card__metrics</code>, <code>.vw-card__metrics--list</code> (single column), <code>.vw-card__metrics--divided</code> (dividers between rows)</td></tr>
+          <tr><td>Header row</td><td><code>.vw-card__header-row</code>, <code>.vw-card__header-row--spread</code> (title left, value right)</td></tr>
           <tr><td>Delta</td><td><code>.vw-card__delta</code>, <code>.vw-card__delta--positive</code>, <code>.vw-card__delta--negative</code></td></tr>
           <tr><td>Icon / Chip / Actions</td><td><code>.vw-card__icon</code>, <code>.vw-card__chip</code>, <code>.vw-card__actions</code>, <code>.vw-card__action</code></td></tr>
           <tr><td>Child card</td><td><code>.vw-card__child.vw-card</code></td></tr>
