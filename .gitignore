@@ -2,5 +2,11 @@
 node_modules
 .angular/cache
 
+# macOS
+.DS_Store
+
+# Archives / backups (optional; remove if you want to track zips)
+*.zip
+
 # Exclude algorithm folder from this repo
 algorithm/

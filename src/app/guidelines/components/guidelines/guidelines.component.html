@@ -1,12 +1,19 @@
 <div class="guidelines-container" fxLayout="row" fxLayoutAlign="start stretch">
   <!-- Left Navigation -->
-  <div class="left-nav" [class.collapsed]="isNavCollapsed" [fxFlex]="isNavCollapsed ? '0 0 60px' : '0 0 280px'">
+  <div 
+    class="left-nav" 
+    [class.collapsed]="isNavCollapsed" 
+    [class.hover-expanded]="isNavHovered"
+    [fxFlex]="shouldShowExpandedNav ? '0 0 280px' : '0 0 60px'"
+    (mouseenter)="onNavMouseEnter()"
+    (mouseleave)="onNavMouseLeave()"
+  >
     <div class="nav-header">
-      <div class="logo-container" *ngIf="!isNavCollapsed">
+      <div class="logo-container" *ngIf="shouldShowExpandedNav">
         <div class="logo">BNTV</div>
         <div class="version">ver-2.1</div>
       </div>
-      <div class="logo-collapsed" *ngIf="isNavCollapsed">
+      <div class="logo-collapsed" *ngIf="!shouldShowExpandedNav">
         <div class="logo">B</div>
       </div>
       <div class="header-actions">
@@ -28,8 +35,8 @@
         <div
           *ngIf="!item.hidden"
           class="nav-item-header"
-          (click)="item.children ? toggleExpand(item) : navigate(item.route)"
-          [title]="isNavCollapsed ? item.title : ''"
+          (click)="item.children ? toggleExpand(item, navItems) : navigate(item.route)"
+          [title]="!shouldShowExpandedNav ? item.title : ''"
         >
           <div class="nav-item-content">
             <i
@@ -37,26 +44,27 @@
               [class]="'ph ph-' + item.icon + ' nav-item-icon'"
               aria-hidden="true"
             ></i>
-            <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ item.title }}</span>
+            <span class="nav-item-title" *ngIf="shouldShowExpandedNav">{{ item.title }}</span>
           </div>
           <i
-            *ngIf="item.children && !isNavCollapsed"
+            *ngIf="item.children && (item.expanded || shouldShowExpandedNav)"
             [class]="'ph expand-icon ' + (item.expanded ? 'ph-caret-down' : 'ph-caret-right')"
             aria-hidden="true"
           ></i>
         </div>
-        <div *ngIf="item.children && item.expanded && !item.hidden && !isNavCollapsed" class="nav-children">
+        <div *ngIf="item.children && item.expanded && !item.hidden" class="nav-children" [class.show-icons-only]="!shouldShowExpandedNav">
           <div
             *ngFor="let child of item.children"
             class="nav-item"
             [class.active]="child.active"
             [class.has-children]="child.children"
+            [class.force-visible]="item.title === 'Components' && item.expanded"
           >
             <div
               *ngIf="!child.hidden"
               class="nav-item-header child-header"
-              (click)="child.children ? toggleExpand(child) : navigate(child.route)"
-              [title]="isNavCollapsed ? child.title : ''"
+              (click)="child.children ? toggleExpand(child, item.children) : navigate(child.route)"
+              [title]="!shouldShowExpandedNav ? child.title : ''"
             >
               <div class="nav-item-content">
                 <i
@@ -64,15 +72,21 @@
                   [class]="'ph ph-' + child.icon + ' nav-item-icon'"
                   aria-hidden="true"
                 ></i>
-                <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ child.title }}</span>
+                <span class="nav-item-title" *ngIf="shouldShowExpandedNav">{{ child.title }}</span>
               </div>
+              <!-- Show icon when collapsed and expanded -->
               <i
-                *ngIf="child.children && !isNavCollapsed"
+                *ngIf="child.children && child.expanded && !shouldShowExpandedNav"
+                [class]="'ph expand-icon ' + (child.expanded ? 'ph-caret-down' : 'ph-caret-right')"
+                aria-hidden="true"
+              ></i>
+              <i
+                *ngIf="child.children && (child.expanded || shouldShowExpandedNav)"
                 [class]="'ph expand-icon ' + (child.expanded ? 'ph-caret-down' : 'ph-caret-right')"
                 aria-hidden="true"
               ></i>
             </div>
-            <div *ngIf="child.children && child.expanded && !child.hidden && !isNavCollapsed" class="nav-children">
+            <div *ngIf="child.children && child.expanded && !child.hidden" class="nav-children nav-children-level-2" [class.show-icons-only]="!shouldShowExpandedNav">
               <div
                 *ngFor="let grandChild of child.children"
                 class="nav-item"
@@ -82,9 +96,14 @@
                   *ngIf="!grandChild.hidden"
                   class="nav-item-header grandchild-header"
                   (click)="navigate(grandChild.route)"
-                  [title]="isNavCollapsed ? grandChild.title : ''"
+                  [title]="!shouldShowExpandedNav ? grandChild.title : ''"
                 >
-                  <span class="nav-item-title" *ngIf="!isNavCollapsed">{{ grandChild.title }}</span>
+                  <i
+                    *ngIf="grandChild.icon && !shouldShowExpandedNav"
+                    [class]="'ph ph-' + grandChild.icon + ' nav-item-icon'"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="nav-item-title" *ngIf="shouldShowExpandedNav">{{ grandChild.title }}</span>
                 </div>
               </div>
             </div>

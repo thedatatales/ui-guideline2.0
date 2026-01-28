@@ -1,0 +1,1131 @@
+<div class="vw-page-container">
+  <div class="header-section">
+    <h1 class="main-title">vw-cards (Card Classes Release)</h1>
+    <p class="subtitle">
+      Cards using only classes from <code>core-mixin.scss</code> (lines 159-305). These classes include:
+      <code>.vw-card-section</code>, <code>.vw-card-parent</code>, <code>.vw-card-child</code>,
+      <code>.vw-card-title</code>, <code>.vw-card-description</code>, <code>.vw-card-metric-lg</code>,
+      <code>.vw-card-metric-md</code>, <code>.vw-card-metric-sm</code>, <code>.vw-card-metric-label</code>,
+      <code>.vw-card-variance</code>, semantic variants (<code>.vw-card--success</code>, <code>.vw-card--error</code>, etc.),
+      and <code>.vw-chip</code> variants.
+    </p>
+    <div class="demo-banner">
+      Click any element in the card sample to show its CSS in the second column. The third column shows the static HTML for the whole card.
+    </div>
+  </div>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 1. Basic card -->
+  <section class="content-section">
+    <h2 class="section-title">1. Basic card</h2>
+    <p class="section-description">Simple card with title and description using <code>.vw-card-section</code>, <code>.vw-card-title</code>, and <code>.vw-card-description</code>.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 360px;">
+          <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Report name</div>
+          <div class="vw-card-description clickable-class" (click)="onClassClick('vw-card-description'); $event.stopPropagation()" tabindex="0" role="button">Short summary. Use only core-mixin.scss card classes.</div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['basic'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 2. Card with icon on right -->
+  <section class="content-section">
+    <h2 class="section-title">2. Card with icon on right</h2>
+    <p class="section-description">KPI-style card with title, metric, and variance; icon in the top-right. Two variants: icon only (no background) or icon inside a chip-style background (<code>.vw-chip .vw-chip--neutral</code>).</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="card-icon-right-variants">
+          <div class="variant-label">Variant 1: Icon only</div>
+          <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 300px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-direction: row;">
+              <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Potential Revenue</div>
+              <div class="clickable-class" (click)="onClassClick('vw-card-icon-right'); $event.stopPropagation()" tabindex="0" role="button" style="flex-shrink: 0;">
+                <bntv-icon [iconName]="'Refresh-New'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#374151'"></bntv-icon>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">₹2.5M</div>
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +12% from last week</div>
+            </div>
+          </div>
+          <div class="variant-label">Variant 2: Icon with background</div>
+          <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 300px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-direction: row;">
+              <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Potential Revenue</div>
+              <span class="vw-chip vw-chip--neutral clickable-class" (click)="onClassClick('vw-chip--neutral'); $event.stopPropagation()" tabindex="0" role="button" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem;">
+                <bntv-icon [iconName]="'Refresh-New'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'"></bntv-icon>
+              </span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">₹2.5M</div>
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +12% from last week</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <div class="snippet-variant-label">Variant 1: Icon only</div>
+          <pre class="html-snippet-pre"><code>{{ currentCode['cardIconRight'] }}</code></pre>
+          <div class="snippet-variant-label">Variant 2: Icon with background</div>
+          <pre class="html-snippet-pre"><code>{{ currentCode['cardIconRightWithBg'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 3. KPI card -->
+  <section class="content-section">
+    <h2 class="section-title">3. KPI card</h2>
+    <p class="section-description">Card with title, large metric, and variance indicator using <code>.vw-card-metric-lg</code> and <code>.vw-card-variance</code>.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 300px;">
+          <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Potential Revenue</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+            <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">₹2.5M</div>
+            <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +12% from last week</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['kpi'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 4. KPI card with icon and MoM delta -->
+  <section class="content-section">
+    <h2 class="section-title">4. KPI card with icon and MoM delta</h2>
+    <p class="section-description">Row 1: Card title (left) and icon with background (right). Row 2: Metrics value XL (left) and delta / Metrics value MD with MoM label (right). MoM uses <code>.vw-card-metric-label-sub</code> (core-mixin 258-263, in component SCSS for now).</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 360px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-direction: row;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Total purchases</div>
+            <div class="clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button" style="width: 48px; height: 48px; background-color: #e0f2fe; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <bntv-icon [iconName]="'Cart-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#0369a1'"></bntv-icon>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 0.75rem; flex-direction: row;">
+            <div class="vw-card-metric-xl clickable-class" (click)="onClassClick('vw-card-metric-xl'); $event.stopPropagation()" tabindex="0" role="button">₹19.39M</div>
+            <div style="display: flex; flex-direction: row; gap: 0.25rem; align-items: flex-end;">
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> <span class="vw-card-metric-md">₹2.49M</span></div>
+              <div class="vw-card-metric-label-sub clickable-class" (click)="onClassClick('vw-card-metric-label-sub'); $event.stopPropagation()" tabindex="0" role="button">MoM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['kpiIconMom'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 5. KPI grid -->
+  <section class="content-section">
+    <h2 class="section-title">5. KPI grid — 4 cards</h2>
+    <p class="section-description">Multiple KPI cards in a responsive grid layout.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem;">
+          <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Potential Revenue</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">₹2.5M</div>
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +12%</div>
+            </div>
+          </div>
+          <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Lead Velocity</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">10</div>
+              <div class="vw-card-variance is-negative clickable-class" (click)="onClassClick('vw-card-variance.is-negative'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-down-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> −8%</div>
+            </div>
+          </div>
+          <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Open Leads</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">38</div>
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +18%</div>
+            </div>
+          </div>
+          <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Conversion Rate</div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">23.5%</div>
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +5.2%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['kpiGrid'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 6. Card with chips -->
+  <section class="content-section">
+    <h2 class="section-title">6. Card with chips</h2>
+    <p class="section-description">Card with title, chip badge, and metrics using <code>.vw-chip</code> variants.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 420px;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Leads</div>
+            <span class="vw-chip vw-chip--success clickable-class" (click)="onClassClick('vw-chip--success'); $event.stopPropagation()" tabindex="0" role="button">Active</span>
+          </div>
+          <div>
+            <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">20</div>
+            <div class="vw-card-metric-label clickable-class" (click)="onClassClick('vw-card-metric-label'); $event.stopPropagation()" style="margin-top: 0.75rem;" tabindex="0" role="button">Created (L30D)</div>
+            <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" tabindex="0" role="button">10</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['withChips'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 7. Semantic variants -->
+  <section class="content-section">
+    <h2 class="section-title">7. Semantic card variants</h2>
+    <p class="section-description">Cards with semantic color variants: <code>.vw-card--success</code>, <code>.vw-card--error</code>, <code>.vw-card--warning</code>, <code>.vw-card--info</code>.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="vw-card-section vw-card--success clickable-class" (click)="onClassClick('vw-card--success')" style="display: flex; flex-direction: column; justify-content: space-between; margin-top: 0;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Success</div>
+            <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">100</div>
+          </div>
+          <div class="vw-card-section vw-card--error clickable-class" (click)="onClassClick('vw-card--error')" style="display: flex; flex-direction: column; justify-content: space-between; margin-top: 0;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Error</div>
+            <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">5</div>
+          </div>
+          <div class="vw-card-section vw-card--warning clickable-class" (click)="onClassClick('vw-card--warning')" style="display: flex; flex-direction: column; justify-content: space-between; margin-top: 0;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Warning</div>
+            <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">15</div>
+          </div>
+          <div class="vw-card-section vw-card--info clickable-class" (click)="onClassClick('vw-card--info')" style="display: flex; flex-direction: column; justify-content: space-between; margin-top: 0;">
+            <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Info</div>
+            <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">42</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['semanticVariants'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 8. Card with variance and footer -->
+  <section class="content-section">
+    <h2 class="section-title">8. Card with variance and footer metric</h2>
+    <p class="section-description">Card with title, large metric, variance indicator, and footer section with secondary metric.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 380px;">
+          <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Total Revenue</div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+              <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">90.6M</div>
+              <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +15.2% (MoM)</div>
+            </div>
+            <div style="border-top: 1px solid #e2e8f0; margin-top: 1rem; padding-top: 1rem;">
+              <div class="vw-card-metric-label clickable-class" (click)="onClassClick('vw-card-metric-label'); $event.stopPropagation()" tabindex="0" role="button">Total invoice</div>
+              <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">2028</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['withVariance'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 9. Parent-child cards -->
+  <section class="content-section">
+    <h2 class="section-title">9. Parent-child cards</h2>
+    <p class="section-description">Nested card structure using <code>.vw-card-parent</code> and <code>.vw-card-child</code>.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-parent clickable-class" (click)="onClassClick('vw-card-parent')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 400px;">
+          <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Parent Card</div>
+          <div>
+            <div class="vw-card-description clickable-class" (click)="onClassClick('vw-card-description'); $event.stopPropagation()" style="margin-top: 0.5rem;" tabindex="0" role="button">This is a parent card with child cards inside.</div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+              <div class="vw-card-child clickable-class" (click)="onClassClick('vw-card-child'); $event.stopPropagation()">
+                <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Child Card 1</div>
+                <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">Value 1</div>
+              </div>
+              <div class="vw-card-child clickable-class" (click)="onClassClick('vw-card-child'); $event.stopPropagation()">
+                <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" style="font-size: 14px;" tabindex="0" role="button">Child Card 2</div>
+                <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">Value 2</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['parentChild'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 10. Revenue card with icon -->
+  <section class="content-section">
+    <h2 class="section-title">10. Revenue card with icon and footer</h2>
+    <p class="section-description">Card with icon container, metric label, large metric, variance indicator, and footer metric.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 380px;">
+          <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+            <div class="clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button" style="width: 48px; height: 48px; background-color: #e6f1ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <bntv-icon [iconName]="'Dollar-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#ffffff'"></bntv-icon>
+            </div>
+            <div style="flex: 1; min-width: 0;">
+              <div class="vw-card-metric-label clickable-class" (click)="onClassClick('vw-card-metric-label'); $event.stopPropagation()" style="margin-bottom: 0.25rem;" tabindex="0" role="button">
+                Total revenue <span style="font-size: 0.85em; opacity: 0.7;">(ITD)</span>
+              </div>
+              <div style="display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;">
+                <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">90.6M</div>
+                <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button">
+                  <bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> 15.2% <span style="font-size: 0.85em; opacity: 0.8;">(MoM)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="border-top: 1px solid #e2e8f0; margin-top: 1rem; padding-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="vw-card-metric-label clickable-class" (click)="onClassClick('vw-card-metric-label'); $event.stopPropagation()" tabindex="0" role="button">Total invoice</div>
+              <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" tabindex="0" role="button">2028</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['revenueCard'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 11. Recent documents list card -->
+  <section class="content-section">
+    <h2 class="section-title">11. Recent documents list card</h2>
+    <p class="section-description">
+      Card with list of documents using <code>.vw-card-section</code>, <code>.vw-card-title</code> for section header, 
+      <code>.vw-card-activity-label</code> for document names (e.g. Knowledge Hub), and <code>.vw-card-activity-value</code> for dates (e.g. December 26, 2024).
+    </p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 400px;">
+          <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" style="font-weight: 500;" tabindex="0" role="button">Recent documents</div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div class="clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button" style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div class="vw-card-activity-label clickable-class" (click)="onClassClick('vw-card-activity-label'); $event.stopPropagation()" tabindex="0" role="button">Knowledge Hub</div>
+                <div class="vw-card-activity-value clickable-class" (click)="onClassClick('vw-card-activity-value'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">December 26, 2024</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <bntv-icon [iconName]="'Folder-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div class="vw-card-activity-label clickable-class" (click)="onClassClick('vw-card-activity-label'); $event.stopPropagation()" tabindex="0" role="button">first created folder</div>
+                <div class="vw-card-activity-value clickable-class" (click)="onClassClick('vw-card-activity-value'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">January 27, 2026</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div class="vw-card-activity-label clickable-class" (click)="onClassClick('vw-card-activity-label'); $event.stopPropagation()" tabindex="0" role="button">Legal Compliance.pdf</div>
+                <div class="vw-card-activity-value clickable-class" (click)="onClassClick('vw-card-activity-value'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">1.99 KB · January 21, 2026</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div class="vw-card-activity-label clickable-class" (click)="onClassClick('vw-card-activity-label'); $event.stopPropagation()" tabindex="0" role="button">Project Proposal.docx</div>
+                <div class="vw-card-activity-value clickable-class" (click)="onClassClick('vw-card-activity-value'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">January 20, 2026</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <bntv-icon [iconName]="'Folder-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div class="vw-card-activity-label clickable-class" (click)="onClassClick('vw-card-activity-label'); $event.stopPropagation()" tabindex="0" role="button">Archive</div>
+                <div class="vw-card-activity-value clickable-class" (click)="onClassClick('vw-card-activity-value'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">January 15, 2026</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div class="vw-card-activity-label clickable-class" (click)="onClassClick('vw-card-activity-label'); $event.stopPropagation()" tabindex="0" role="button">Meeting Notes.txt</div>
+                <div class="vw-card-activity-value clickable-class" (click)="onClassClick('vw-card-activity-value'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">January 10, 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['recentDocuments'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- 12. Quick action card -->
+  <section class="content-section">
+    <h2 class="section-title">12. Quick action card</h2>
+    <p class="section-description">Card with centered icon, title, and description for quick actions (e.g. Create new flow). Uses <code>.vw-card-section</code>, <code>.vw-card-title</code>, and <code>.vw-card-description</code>. <span class="migrate-note">* Icon container uses <code>.vw-card-icon-large</code> from vw-cards.component.scss (to be migrated to core-mixin).</span></p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Card sample</div>
+        <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; max-width: 320px;">
+          <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Create new flow</div>
+          <div>
+            <div class="vw-card-icon-large clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button">
+              <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#374151'"></bntv-icon>
+            </div>
+            <div class="vw-card-description clickable-class" (click)="onClassClick('vw-card-description'); $event.stopPropagation()" style="margin-top: 1rem;" tabindex="0" role="button">Build flows to orchestrate automated workflows</div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['quickAction'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Classes Summary -->
+  <section class="content-section">
+    <h2 class="section-title">Classes Reference</h2>
+    <p class="section-description">
+      Complete reference of all card classes available from <code>core-mixin.scss</code> (lines 159-305) with usage guidelines.
+    </p>
+    <div class="demo-container">
+      <table class="classes-table">
+        <thead>
+          <tr>
+            <th>Class</th>
+            <th>Sample</th>
+            <th>Usage</th>
+            <th>When to Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>.vw-card-section</code></td>
+            <td>
+              <div class="vw-card-section" style="max-width: 200px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 12px; margin: 0;">Card Content</div>
+              </div>
+            </td>
+            <td>Main card container</td>
+            <td>Use as the primary wrapper for standard cards. Provides white background, border, rounded corners (16px via <code>--vw-radius-lg</code>), and padding (1rem via <code>--vw-space-lg</code>). Best for standalone cards or card grids.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-parent</code></td>
+            <td>
+              <div class="vw-card-parent" style="max-width: 200px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 12px; margin: 0;">Parent Card</div>
+              </div>
+            </td>
+            <td>Parent card container</td>
+            <td>Use when creating nested card structures. Border radius 16px (via <code>--vw-radius-lg</code>), padding 1rem (via <code>--vw-space-lg</code>), gap 0.5rem (via <code>--vw-space-sm</code>). Ideal for cards that contain child cards or grouped content.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-child</code></td>
+            <td>
+              <div class="vw-card-child" style="max-width: 200px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 11px; margin: 0;">Child Card</div>
+              </div>
+            </td>
+            <td>Child card container</td>
+            <td>Use inside <code>.vw-card-parent</code> for nested card hierarchies. Padding 0.5rem (via <code>--vw-space-sm</code>) and border radius 8px (via <code>--vw-radius-sm</code>). Perfect for sub-items or related content groups.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-child-shaded</code></td>
+            <td>
+              <div class="vw-card-child-shaded" style="max-width: 200px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 11px; margin: 0;">Shaded Child</div>
+              </div>
+            </td>
+            <td>Shaded child card container</td>
+            <td>Use inside <code>.vw-card-parent</code> for nested card hierarchies with a subtle background. Same padding and border radius as <code>.vw-card-child</code>, but with slate-50 background (via <code>--vw-color-slate-50</code>). Perfect for alternating or highlighted sub-items.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-title</code></td>
+            <td><div class="vw-card-title" style="margin: 0;">Card Title</div></td>
+            <td>Card title text</td>
+            <td>Use for primary heading text within cards. Font size 1rem (16px via <code>--vw-font-heading-md</code>), weight 500, line height 1.25 (via <code>--vw-line-heading-md</code>), gray-800 color. Apply to main card titles, section headers, or primary labels.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-activity-label</code></td>
+            <td><div class="vw-card-activity-label" style="margin: 0;">Knowledge Hub</div></td>
+            <td>Card activity label text</td>
+            <td>Use for activity labels or list item titles within cards. Font size 1rem (16px via <code>--vw-font-heading-md</code>), weight 500, line height 1.5, gray-700 color. Apply to document names, folder names, or labels that precede activity values.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-activity-value</code></td>
+            <td><div class="vw-card-activity-value" style="margin: 0;">December 26, 2024</div></td>
+            <td>Card activity value text</td>
+            <td>Use for activity values like dates, file sizes, or metadata. Font size 0.875rem (14px via <code>--vw-font-description</code>), line height 1.4 (via <code>--vw-line-description</code>), gray-500 color. Apply below list titles or after activity labels.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-description</code></td>
+            <td><div class="vw-card-description" style="margin: 0;">Card description text</div></td>
+            <td>Card description text</td>
+            <td>Use for secondary or explanatory text. Font size 0.875rem (14px via <code>--vw-font-description</code>), weight 400, line height 1.4 (via <code>--vw-line-description</code>), gray-600 color. Ideal for subtitles, captions, or supporting information.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-metric-xxl</code></td>
+            <td><div class="vw-card-metric-xxl" style="margin: 0;">₹5.0M</div></td>
+            <td>Extra extra large metric value</td>
+            <td>Use for the largest numeric values or hero metrics. Font size 2rem (32px), weight 400, line height 1.2, gray-800 color. Best for hero sections, main KPIs, or the most prominent data displays.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-metric-xl</code></td>
+            <td><div class="vw-card-metric-xl" style="margin: 0;">₹2.5M</div></td>
+            <td>Extra large metric value</td>
+            <td>Use for primary numeric values or key metrics. Font size 1.5rem (24px via <code>--vw-font-value-xl-alt</code>), weight 400, line height 1.2, gray-800 color. Best for KPI cards, dashboards, or prominent data displays.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-metric-lg</code></td>
+            <td><div class="vw-card-metric-lg" style="margin: 0;">₹1.8M</div></td>
+            <td>Large metric value</td>
+            <td>Use for large numeric values or secondary metrics. Font size 1.25rem (20px via <code>--vw-font-value-lg</code>), weight 400, line height 1.2, gray-800 color. Suitable for supporting data or secondary KPIs.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-metric-md</code></td>
+            <td><div class="vw-card-metric-md" style="margin: 0;">1,250</div></td>
+            <td>Medium metric value</td>
+            <td>Use for medium numeric values or moderate emphasis metrics. Font size 1.125rem (18px via <code>--vw-font-value-md</code>), weight 400, line height 1.25, gray-800 color. Suitable for supporting data or secondary metrics.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-metric-sm</code></td>
+            <td><div class="vw-card-metric-sm" style="margin: 0;">42</div></td>
+            <td>Small metric value</td>
+            <td>Use for small numeric values or less prominent metrics. Font size 1rem (16px via <code>--vw-font-value-sm</code>), weight 400, line height 1.25, gray-800 color. Good for supplementary data or compact displays.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-metric-label</code></td>
+            <td><div class="vw-card-metric-label" style="margin: 0;">Total Revenue</div></td>
+            <td>Metric label text</td>
+            <td>Use to label metric values. Font size 0.875rem (14px via <code>--vw-font-label-md</code>), weight 400, line height 1.2, gray-600 color. Place above or beside metric values to provide context.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-variance</code></td>
+            <td><div class="vw-card-variance" style="margin: 0;">+12%</div></td>
+            <td>Variance indicator</td>
+            <td>Use to show change indicators (percentage, trend). Font size 0.75rem (12px via <code>--vw-font-legend</code>), weight 500, line height 1.2 (via <code>--vw-line-legend</code>). Combine with modifier classes for color coding.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-variance.is-positive</code></td>
+            <td><div class="vw-card-variance is-positive" style="margin: 0;">+15.2%</div></td>
+            <td>Positive variance</td>
+            <td>Use for positive changes, increases, or gains. Green color (via <code>--vw-color-green-700</code>). Apply to upward trends, growth metrics, or favorable changes.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-variance.is-negative</code></td>
+            <td><div class="vw-card-variance is-negative" style="margin: 0;">−8.5%</div></td>
+            <td>Negative variance</td>
+            <td>Use for negative changes, decreases, or losses. Red color (via <code>--vw-color-red-600</code>). Apply to downward trends, decline metrics, or unfavorable changes.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-variance.is-neutral</code></td>
+            <td><div class="vw-card-variance is-neutral" style="margin: 0;">0%</div></td>
+            <td>Neutral variance</td>
+            <td>Use for neutral changes, no change, or stable metrics. Gray color (via <code>--vw-color-gray-500</code>). Apply when there's no significant change or status is unchanged.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card--success</code></td>
+            <td>
+              <div class="vw-card-section vw-card--success" style="max-width: 150px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 12px; margin: 0;">Success</div>
+              </div>
+            </td>
+            <td>Success variant</td>
+            <td>Use for success states, completed actions, or positive status. Light green background (via <code>--vw-color-green-50</code>) with green border (via <code>--vw-color-green-400</code>). Apply to success messages, completed tasks, or positive indicators.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card--error</code></td>
+            <td>
+              <div class="vw-card-section vw-card--error" style="max-width: 150px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 12px; margin: 0;">Error</div>
+              </div>
+            </td>
+            <td>Error variant</td>
+            <td>Use for error states, failed actions, or critical issues. Light red background (via <code>--vw-color-red-50</code>) with red border (via <code>--vw-color-red-300</code>). Apply to error messages, failed operations, or critical alerts.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card--warning</code></td>
+            <td>
+              <div class="vw-card-section vw-card--warning" style="max-width: 150px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 12px; margin: 0;">Warning</div>
+              </div>
+            </td>
+            <td>Warning variant</td>
+            <td>Use for warning states, cautionary messages, or attention-needed items. Light yellow background (via <code>--vw-color-yellow-50</code>) with yellow border (via <code>--vw-color-yellow-400</code>). Apply to warnings, cautions, or items requiring attention.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card--info</code></td>
+            <td>
+              <div class="vw-card-section vw-card--info" style="max-width: 150px; padding: 0.5rem; margin: 0;">
+                <div class="vw-card-title" style="font-size: 12px; margin: 0;">Info</div>
+              </div>
+            </td>
+            <td>Info variant</td>
+            <td>Use for informational states, general messages, or neutral status. Light blue background (via <code>--vw-color-blue-50</code>) with blue border (via <code>--vw-color-blue-300</code>). Apply to informational messages, tips, or neutral status indicators.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip</code></td>
+            <td><span class="vw-chip" style="margin: 0;">Chip</span></td>
+            <td>Base chip component</td>
+            <td>Use for badges, tags, or status indicators. Padding 0.375rem 0.75rem, rounded pill shape (9999px). Combine with variant classes for different semantic meanings.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--success</code></td>
+            <td><span class="vw-chip vw-chip--success" style="margin: 0;">Active</span></td>
+            <td>Success chip</td>
+            <td>Use for success badges or positive status tags. Green background (via <code>--chipSuccessBgColor</code> or <code>--vw-color-green-100</code>) with green text (via <code>--chipSuccessTextColor</code> or <code>--vw-color-green-700</code>).</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--error</code></td>
+            <td><span class="vw-chip vw-chip--error" style="margin: 0;">Failed</span></td>
+            <td>Error chip</td>
+            <td>Use for error badges or negative status tags. Red background (via <code>--chipErrorBgColor</code> or <code>--vw-color-red-100</code>) with red text (via <code>--chipErrorTextColor</code> or <code>--vw-color-red-700</code>).</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--warning</code></td>
+            <td><span class="vw-chip vw-chip--warning" style="margin: 0;">Pending</span></td>
+            <td>Warning chip</td>
+            <td>Use for warning badges or cautionary tags. Yellow background (via <code>--chipWarningBgColor</code> or <code>--vw-color-yellow-100</code>) with yellow text (via <code>--chipWarningTextColor</code> or <code>--vw-color-yellow-700</code>).</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--info</code></td>
+            <td><span class="vw-chip vw-chip--info" style="margin: 0;">New</span></td>
+            <td>Info chip</td>
+            <td>Use for informational badges or neutral tags. Blue background (via <code>--chipInfoBgColor</code> or <code>--vw-color-blue-100</code>) with blue text (via <code>--chipInfoTextColor</code> or <code>--vw-color-blue-700</code>).</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--neutral</code></td>
+            <td><span class="vw-chip vw-chip--neutral" style="margin: 0;">Default</span></td>
+            <td>Neutral chip</td>
+            <td>Use for neutral badges or default tags. Gray background (via <code>--vw-color-gray-100</code>) with gray text (via <code>--vw-color-gray-600</code>).</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--purple</code></td>
+            <td><span class="vw-chip vw-chip--purple" style="margin: 0;">Custom</span></td>
+            <td>Purple chip</td>
+            <td>Use for custom badges or special category tags. Purple background (via <code>--vw-color-purple-100</code>) with purple text (via <code>--vw-color-purple-700</code>).</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--cyan</code></td>
+            <td><span class="vw-chip vw-chip--cyan" style="margin: 0;">Cyan</span></td>
+            <td>Cyan chip</td>
+            <td>Use for cyan badges or category tags. From <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--orange</code></td>
+            <td><span class="vw-chip vw-chip--orange" style="margin: 0;">Orange</span></td>
+            <td>Orange chip</td>
+            <td>Use for orange badges or category tags. From <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip--pink</code></td>
+            <td><span class="vw-chip vw-chip--pink" style="margin: 0;">Pink</span></td>
+            <td>Pink chip</td>
+            <td>Use for pink badges or category tags. From <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip.is-strong</code></td>
+            <td><span class="vw-chip vw-chip--neutral is-strong" style="margin: 0;">Strong</span></td>
+            <td>Strong weight chip</td>
+            <td>Modifier: font-weight 500. Combine with any <code>.vw-chip--*</code> variant.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-chip.is-clickable</code></td>
+            <td><span class="vw-chip vw-chip--neutral is-clickable" style="margin: 0;">Clickable</span></td>
+            <td>Clickable chip</td>
+            <td>Modifier: cursor pointer. Combine with any <code>.vw-chip--*</code> variant.</td>
+          </tr>
+          <tr>
+            <td><code>.common-red-chip</code></td>
+            <td><span class="common-red-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Red</span></td>
+            <td>Common red chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>. Use for red badges or tags.</td>
+          </tr>
+          <tr>
+            <td><code>.common-orange-chip</code></td>
+            <td><span class="common-orange-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Orange</span></td>
+            <td>Common orange chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-brown-chip</code></td>
+            <td><span class="common-brown-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Brown</span></td>
+            <td>Common brown chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-yellow-chip</code></td>
+            <td><span class="common-yellow-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Yellow</span></td>
+            <td>Common yellow chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-coffee-chip</code></td>
+            <td><span class="common-coffee-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Coffee</span></td>
+            <td>Common coffee chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-green-chip</code></td>
+            <td><span class="common-green-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Green</span></td>
+            <td>Common green chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-magenta-chip</code></td>
+            <td><span class="common-magenta-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Magenta</span></td>
+            <td>Common magenta chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-lavender-chip</code></td>
+            <td><span class="common-lavender-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Lavender</span></td>
+            <td>Common lavender chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-blue-chip</code></td>
+            <td><span class="common-blue-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Blue</span></td>
+            <td>Common blue chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-lightBlue-chip</code></td>
+            <td><span class="common-lightBlue-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Light blue</span></td>
+            <td>Common light blue chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-teal-chip</code></td>
+            <td><span class="common-teal-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Teal</span></td>
+            <td>Common teal chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-indigo-chip</code></td>
+            <td><span class="common-indigo-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Indigo</span></td>
+            <td>Common indigo chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-disable-chip</code></td>
+            <td><span class="common-disable-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Disabled</span></td>
+            <td>Common disable chip</td>
+            <td>Legacy chip variant for disabled or muted state. From <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-violet-chip</code></td>
+            <td><span class="common-violet-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Violet</span></td>
+            <td>Common violet chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.common-cyan-chip</code></td>
+            <td><span class="common-cyan-chip" style="margin: 0; padding: 0.375rem 0.75rem;">Cyan</span></td>
+            <td>Common cyan chip</td>
+            <td>Legacy chip variant from <code>core-mixin.scss</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Typography Reference -->
+  <section class="content-section">
+    <h2 class="section-title">Card Typography</h2>
+    <p class="section-description">
+      Typography classes available for card content. All typography comes from <code>core-mixin.scss</code> and uses tokens from <code>variables.scss</code>. All classes should be used within card containers.
+    </p>
+    <div class="demo-container">
+      <div class="typography-tiles">
+        
+        <!-- Title -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-title">Card Title</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-title</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-heading-md</code> (1rem/16px)<br>
+              Weight: 500<br>
+              Line Height: <code>--vw-line-heading-md</code> (1.25)<br>
+              Color: <code>--vw-color-gray-800</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-description">
+            This is a card description. It provides secondary information, context, or explanatory text for the card content.
+          </div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-description</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-description</code> (0.875rem/14px)<br>
+              Weight: 400<br>
+              Line Height: <code>--vw-line-description</code> (1.4)<br>
+              Color: <code>--vw-color-gray-600</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Label -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-activity-label">Knowledge Hub</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-activity-label</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-heading-md</code> (1rem/16px)<br>
+              Weight: 500<br>
+              Line Height: 1.5<br>
+              Color: <code>--vw-color-gray-700</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Value -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-activity-value">December 26, 2024</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-activity-value</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-description</code> (0.875rem/14px)<br>
+              Weight: 400<br>
+              Line Height: <code>--vw-line-description</code> (1.4)<br>
+              Color: <code>--vw-color-gray-500</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Label -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-metric-label">Metric Label</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-metric-label</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-label-md</code> (0.875rem/14px)<br>
+              Weight: 400<br>
+              Line Height: 1.2<br>
+              Color: <code>--vw-color-gray-600</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Extra Large Metric -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-metric-xxl">₹5.0M</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-metric-xxl</code>
+            </div>
+            <div class="tile-details">
+              Font: 2rem (32px)<br>
+              Weight: 400<br>
+              Line Height: 1.2<br>
+              Color: <code>--vw-color-gray-800</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra Large Metric -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-metric-xl">₹2.5M</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-metric-xl</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-value-xl-alt</code> (1.5rem/24px)<br>
+              Weight: 400<br>
+              Line Height: 1.2<br>
+              Color: <code>--vw-color-gray-800</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large Metric -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-metric-lg">₹1.8M</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-metric-lg</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-value-lg</code> (1.25rem/20px)<br>
+              Weight: 400<br>
+              Line Height: 1.2<br>
+              Color: <code>--vw-color-gray-800</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium Metric -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-metric-md">1,250</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-metric-md</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-value-md</code> (1.125rem/18px)<br>
+              Weight: 400<br>
+              Line Height: 1.25<br>
+              Color: <code>--vw-color-gray-800</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small Metric -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-metric-sm">42</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-metric-sm</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-value-sm</code> (1rem/16px)<br>
+              Weight: 400<br>
+              Line Height: 1.25<br>
+              Color: <code>--vw-color-gray-800</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variance Positive -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-variance is-positive">+15.2%</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-variance.is-positive</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-legend</code> (0.75rem/12px)<br>
+              Weight: 500<br>
+              Line Height: <code>--vw-line-legend</code> (1.2)<br>
+              Color: <code>--vw-color-green-700</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variance Negative -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-variance is-negative">−8.5%</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-variance.is-negative</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-legend</code> (0.75rem/12px)<br>
+              Weight: 500<br>
+              Line Height: <code>--vw-line-legend</code> (1.2)<br>
+              Color: <code>--vw-color-red-600</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variance Neutral -->
+        <div class="vw-card-section typography-tile">
+          <div class="vw-card-variance is-neutral">0%</div>
+          <div class="tile-divider">
+            <div class="tile-class-name">
+              <code>.vw-card-variance.is-neutral</code>
+            </div>
+            <div class="tile-details">
+              Font: <code>--vw-font-legend</code> (0.75rem/12px)<br>
+              Weight: 500<br>
+              Line Height: <code>--vw-line-legend</code> (1.2)<br>
+              Color: <code>--vw-color-gray-500</code>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>

@@ -21,6 +21,7 @@ interface NavItem {
 export class GuidelinesComponent implements OnInit {
   isHidden=true;
   isNavCollapsed = true;
+  isNavHovered = false;
   navItems: NavItem[] = [
     {
       title: 'Overview',
@@ -36,6 +37,16 @@ export class GuidelinesComponent implements OnInit {
       title: 'Typography',
       route: '/guidelines/typography',
       icon: 'text-aa',
+    },
+    {
+      title: 'vw-cards',
+      route: '/guidelines/vw-cards',
+      icon: 'squares-four',
+    },
+    {
+      title: 'vw-card Ext',
+      route: '/guidelines/vw-cards-ext',
+      icon: 'squares-four',
     },
     {
       title: 'Components',
@@ -74,6 +85,7 @@ export class GuidelinesComponent implements OnInit {
               children: [
                 { title: 'Card', route: '/guidelines/card', icon: 'credit-card' },
                 { title: 'Chart', route: '/guidelines/chart', icon: 'chart-line' },
+                { title: 'vw-charts', route: '/guidelines/chart', icon: 'chart-line' },
                 { title: 'Grid', route: '/guidelines/grid', icon: 'grid-four' },
                 { title: 'History', route: '/guidelines/history', hidden: this.isHidden, icon: 'clock-counter-clockwise' },
                 { title: 'List', route: '/guidelines/list', hidden: this.isHidden, icon: 'list-bullets' },
@@ -161,8 +173,8 @@ export class GuidelinesComponent implements OnInit {
     {
       title: 'Labs',
       icon: 'flask',
+      hidden: true,
       children: [
-        { title: 'Color palette', route: '/guidelines/labs', icon: 'palette' },
         { title: 'Generic Card', route: '/guidelines/labs/generic-card', icon: 'credit-card' },
         { title: 'vw-cards', route: '/guidelines/labs/vw-cards', icon: 'squares-four' },
         { title: 'Panes & Layouts', route: '/guidelines/labs/panes-layouts', icon: 'sidebar-simple' },
@@ -195,16 +207,25 @@ export class GuidelinesComponent implements OnInit {
 
   updateActiveState(): void {
     const currentUrl = this.router.url;
-    this.setActiveState(this.navItems, currentUrl);
+    this.setActiveState(this.navItems, currentUrl, undefined);
   }
 
-  setActiveState(items: NavItem[], currentUrl: string): void {
+  setActiveState(items: NavItem[], currentUrl: string, parentItems?: NavItem[]): void {
     items.forEach((item) => {
       item.active = item.route === currentUrl;
       if (item.children) {
-        this.setActiveState(item.children, currentUrl);
-        // Expand parent if any child is active
+        this.setActiveState(item.children, currentUrl, items);
+        // Expand parent if any child is active (but respect accordion)
         if (item.children.some((child) => child.active || this.hasActiveChild(child))) {
+          // Accordion: close siblings before expanding
+          if (parentItems) {
+            parentItems.forEach(sibling => {
+              if (sibling !== item && sibling.expanded) {
+                sibling.expanded = false;
+                this.collapseAllChildren(sibling);
+              }
+            });
+          }
           item.expanded = true;
         }
       }
@@ -216,9 +237,58 @@ export class GuidelinesComponent implements OnInit {
     return item.children.some((child) => child.active || this.hasActiveChild(child));
   }
 
-  toggleExpand(item: NavItem): void {
+  toggleExpand(item: NavItem, parentItems?: NavItem[]): void {
     if (item.children) {
-      item.expanded = !item.expanded;
+      const wasExpanded = item.expanded;
+      
+      // Accordion behavior: close all siblings at the same level
+      if (parentItems) {
+        parentItems.forEach(sibling => {
+          if (sibling !== item && sibling.expanded) {
+            sibling.expanded = false;
+            // Also close all children of closed siblings
+            this.collapseAllChildren(sibling);
+          }
+        });
+      }
+      
+      // Toggle the clicked item
+      item.expanded = !wasExpanded;
+      
+      // Special case: When Labs opens, close all other root menus
+      if (item.title === 'Labs' && item.expanded) {
+        this.navItems.forEach(rootItem => {
+          if (rootItem !== item && rootItem.expanded) {
+            rootItem.expanded = false;
+            this.collapseAllChildren(rootItem);
+          }
+        });
+      }
+      
+      // Special case: When Components > Form Controls opens
+      // Show all second-level items but keep them closed, keep Form Controls children open
+      if (item.title === 'Form Controls' && item.expanded && parentItems) {
+        // Find Components parent
+        const componentsParent = parentItems.find(p => p.title === 'Components');
+        if (componentsParent && componentsParent.children) {
+          componentsParent.children.forEach(secondLevel => {
+            if (secondLevel !== item && secondLevel.children) {
+              // Show but keep closed
+              secondLevel.expanded = false;
+              this.collapseAllChildren(secondLevel);
+            }
+          });
+        }
+      }
+    }
+  }
+  
+  collapseAllChildren(item: NavItem): void {
+    if (item.children) {
+      item.children.forEach(child => {
+        child.expanded = false;
+        this.collapseAllChildren(child);
+      });
     }
   }
 
@@ -230,5 +300,21 @@ export class GuidelinesComponent implements OnInit {
 
   toggleNav(): void {
     this.isNavCollapsed = !this.isNavCollapsed;
+  }
+
+  onNavMouseEnter(): void {
+    if (this.isNavCollapsed) {
+      this.isNavHovered = true;
+    }
+  }
+
+  onNavMouseLeave(): void {
+    if (this.isNavCollapsed) {
+      this.isNavHovered = false;
+    }
+  }
+
+  get shouldShowExpandedNav(): boolean {
+    return !this.isNavCollapsed || this.isNavHovered;
   }
 }

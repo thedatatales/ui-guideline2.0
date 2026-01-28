@@ -32,6 +32,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Blue',
         colors: [
+          { name: '25', value: '#f8fcff', variableName: '--vw-color-blue-25' },
           { name: '50', value: '#eff6ff', variableName: '--vw-color-blue-50' },
           { name: '100', value: '#dbeafe', variableName: '--vw-color-blue-100' },
           { name: '200', value: '#bfdbfe', variableName: '--vw-color-blue-200' },
@@ -48,6 +49,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Teal',
         colors: [
+          { name: '25', value: '#f7fffe', variableName: '--vw-color-teal-25' },
           { name: '50', value: '#f0fdfa', variableName: '--vw-color-teal-50' },
           { name: '100', value: '#ccfbf1', variableName: '--vw-color-teal-100' },
           { name: '200', value: '#99f6e4', variableName: '--vw-color-teal-200' },
@@ -64,6 +66,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Green',
         colors: [
+          { name: '25', value: '#f7fff9', variableName: '--vw-color-green-25' },
           { name: '50', value: '#f0fdf4', variableName: '--vw-color-green-50' },
           { name: '100', value: '#dcfce7', variableName: '--vw-color-green-100' },
           { name: '200', value: '#bbf7d0', variableName: '--vw-color-green-200' },
@@ -80,6 +83,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Amber',
         colors: [
+          { name: '25', value: '#fffef7', variableName: '--vw-color-amber-25' },
           { name: '50', value: '#fffbeb', variableName: '--vw-color-amber-50' },
           { name: '100', value: '#fef3c7', variableName: '--vw-color-amber-100' },
           { name: '200', value: '#fde68a', variableName: '--vw-color-amber-200' },
@@ -96,6 +100,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Red',
         colors: [
+          { name: '25', value: '#fffcfc', variableName: '--vw-color-red-25' },
           { name: '50', value: '#fef2f2', variableName: '--vw-color-red-50' },
           { name: '100', value: '#fee2e2', variableName: '--vw-color-red-100' },
           { name: '200', value: '#fecaca', variableName: '--vw-color-red-200' },
@@ -146,6 +151,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Stone',
         colors: [
+          { name: '25', value: '#fcfcfb', variableName: '--vw-color-stone-25' },
           { name: '50', value: '#fafaf9', variableName: '--vw-color-stone-50' },
           { name: '100', value: '#f5f5f4', variableName: '--vw-color-stone-100' },
           { name: '200', value: '#e7e5e4', variableName: '--vw-color-stone-200' },
@@ -162,6 +168,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Neutral',
         colors: [
+          { name: '25', value: '#fcfcfc', variableName: '--vw-color-neutral-25' },
           { name: '50', value: '#fafafa', variableName: '--vw-color-neutral-50' },
           { name: '100', value: '#f5f5f5', variableName: '--vw-color-neutral-100' },
           { name: '200', value: '#e5e5e5', variableName: '--vw-color-neutral-200' },
@@ -178,6 +185,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Zinc',
         colors: [
+          { name: '25', value: '#fcfcfc', variableName: '--vw-color-zinc-25' },
           { name: '50', value: '#fafafa', variableName: '--vw-color-zinc-50' },
           { name: '100', value: '#f4f4f5', variableName: '--vw-color-zinc-100' },
           { name: '200', value: '#e4e4e7', variableName: '--vw-color-zinc-200' },
@@ -194,6 +202,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Gray',
         colors: [
+          { name: '25', value: '#fcfcfd', variableName: '--vw-color-gray-25' },
           { name: '50', value: '#f9fafb', variableName: '--vw-color-gray-50' },
           { name: '100', value: '#f3f4f6', variableName: '--vw-color-gray-100' },
           { name: '200', value: '#e5e7eb', variableName: '--vw-color-gray-200' },
@@ -210,6 +219,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Slate',
         colors: [
+          { name: '25', value: '#fbfcfe', variableName: '--vw-color-slate-25' },
           { name: '50', value: '#f8fafc', variableName: '--vw-color-slate-50' },
           { name: '100', value: '#f1f5f9', variableName: '--vw-color-slate-100' },
           { name: '200', value: '#e2e8f0', variableName: '--vw-color-slate-200' },
@@ -226,6 +236,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Rose',
         colors: [
+          { name: '25', value: '#fff8f9', variableName: '--vw-color-rose-25' },
           { name: '50', value: '#fff1f2', variableName: '--vw-color-rose-50' },
           { name: '100', value: '#ffe4e6', variableName: '--vw-color-rose-100' },
           { name: '200', value: '#fecdd3', variableName: '--vw-color-rose-200' },
@@ -242,6 +253,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Pink',
         colors: [
+          { name: '25', value: '#fef7fb', variableName: '--vw-color-pink-25' },
           { name: '50', value: '#fdf2f8', variableName: '--vw-color-pink-50' },
           { name: '100', value: '#fce7f3', variableName: '--vw-color-pink-100' },
           { name: '200', value: '#fbcfe8', variableName: '--vw-color-pink-200' },
@@ -258,6 +270,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Fuchsia',
         colors: [
+          { name: '25', value: '#fef9ff', variableName: '--vw-color-fuchsia-25' },
           { name: '50', value: '#fdf4ff', variableName: '--vw-color-fuchsia-50' },
           { name: '100', value: '#fae8ff', variableName: '--vw-color-fuchsia-100' },
           { name: '200', value: '#f5d0fe', variableName: '--vw-color-fuchsia-200' },
@@ -274,6 +287,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Purple',
         colors: [
+          { name: '25', value: '#fdfaff', variableName: '--vw-color-purple-25' },
           { name: '50', value: '#faf5ff', variableName: '--vw-color-purple-50' },
           { name: '100', value: '#f3e8ff', variableName: '--vw-color-purple-100' },
           { name: '200', value: '#e9d5ff', variableName: '--vw-color-purple-200' },
@@ -290,6 +304,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Violet',
         colors: [
+          { name: '25', value: '#faf9ff', variableName: '--vw-color-violet-25' },
           { name: '50', value: '#f5f3ff', variableName: '--vw-color-violet-50' },
           { name: '100', value: '#ede9fe', variableName: '--vw-color-violet-100' },
           { name: '200', value: '#ddd6fe', variableName: '--vw-color-violet-200' },
@@ -306,6 +321,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Sky',
         colors: [
+          { name: '25', value: '#f8fcff', variableName: '--vw-color-sky-25' },
           { name: '50', value: '#f0f9ff', variableName: '--vw-color-sky-50' },
           { name: '100', value: '#e0f2fe', variableName: '--vw-color-sky-100' },
           { name: '200', value: '#bae6fd', variableName: '--vw-color-sky-200' },
@@ -322,6 +338,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Cyan',
         colors: [
+          { name: '25', value: '#f5feff', variableName: '--vw-color-cyan-25' },
           { name: '50', value: '#ecfeff', variableName: '--vw-color-cyan-50' },
           { name: '100', value: '#cffafe', variableName: '--vw-color-cyan-100' },
           { name: '200', value: '#a5f3fc', variableName: '--vw-color-cyan-200' },
@@ -338,6 +355,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Yellow',
         colors: [
+          { name: '25', value: '#fffef5', variableName: '--vw-color-yellow-25' },
           { name: '50', value: '#fefce8', variableName: '--vw-color-yellow-50' },
           { name: '100', value: '#fef9c3', variableName: '--vw-color-yellow-100' },
           { name: '200', value: '#fef08a', variableName: '--vw-color-yellow-200' },
@@ -354,6 +372,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Lime',
         colors: [
+          { name: '25', value: '#fbfff3', variableName: '--vw-color-lime-25' },
           { name: '50', value: '#f7fee7', variableName: '--vw-color-lime-50' },
           { name: '100', value: '#ecfccb', variableName: '--vw-color-lime-100' },
           { name: '200', value: '#d9f99d', variableName: '--vw-color-lime-200' },
@@ -370,6 +389,7 @@ export class LabsComponent implements OnInit {
       {
         colorName: 'Emerald',
         colors: [
+          { name: '25', value: '#f7fffb', variableName: '--vw-color-emerald-25' },
           { name: '50', value: '#ecfdf5', variableName: '--vw-color-emerald-50' },
           { name: '100', value: '#d1fae5', variableName: '--vw-color-emerald-100' },
           { name: '200', value: '#a7f3d0', variableName: '--vw-color-emerald-200' },

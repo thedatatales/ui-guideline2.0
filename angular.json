@@ -71,8 +71,7 @@
                 "input": "node_modules/@enttribe/themes-gx-theme/src/lib/variables.scss",
                 "inject": true,
                 "bundleName": "gx-theme"
-              },
-              "sample-app-pages/css-updatre-v1.2.scss"
+              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -132,7 +131,12 @@
               "xlsx",
               "ng2-konva",
               "lodash.deburr",
-              "numbro"
+              "numbro",
+              "quill-image-resize-module--fix-imports-error",
+              "jspreadsheet-ce-no-init-focus",
+              "print-js",
+              "@tensorflow/tfjs-core",
+              "quill-delta"
             ],
             "customWebpackConfig": {
               "path": "./webpack.config.js"

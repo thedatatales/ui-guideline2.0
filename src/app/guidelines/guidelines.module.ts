@@ -119,6 +119,8 @@ import { LabsComponent } from './components/labs/labs.component';
 import { LabsShellComponent } from './components/labs/labs-shell.component';
 import { GenericCardComponent } from './components/labs/generic-card/generic-card.component';
 import { VwCardsComponent } from './components/labs/vw-cards/vw-cards.component';
+import { VwCardsRootComponent } from './components/vw-cards/vw-cards.component';
+import { VwCardsExtComponent } from './components/vw-cards-ext/vw-cards-ext.component';
 import { PanesLayoutsComponent } from './components/labs/panes-layouts/panes-layouts.component';
 import { PanelLayoutComponent } from './components/labs/panel-layout/panel-layout.component';
 import { Layout1Component } from './components/labs/layout-1/layout-1.component';
@@ -147,6 +149,8 @@ import { EmbededIframeModule } from '@enttribe/core';
     SliderComponent,
     ToggleComponent,
     CardComponent,
+    VwCardsRootComponent,
+    VwCardsExtComponent,
     ChartComponent,
     GridComponent,
     ListComponent,

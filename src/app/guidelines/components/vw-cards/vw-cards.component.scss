@@ -1,0 +1,250 @@
+@use '../_shared-styles' as *;
+
+/* vw-cards component: Uses only classes from core-mixin.scss (lines 159-305)
+ * Classes below marked with (*) are defined here and will be migrated to core-mixin later. */
+
+/* Min-height for demo cards (content-dependent); scoped to demo column so reference table is unaffected */
+.demo-column-sample {
+  .vw-card-section {
+    min-height: 100px;
+  }
+  .vw-card-parent {
+    min-height: 140px;
+  }
+}
+
+/* From core-mixin.scss (258-263); in component for now */
+.vw-card-metric-label-sub {
+  font-size: var(--vw-font-label-sm);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--vw-color-gray-400);
+}
+
+/* (*) Card icon container (large) — uses VW variables; to be migrated to core-mixin */
+.vw-card-icon-large {
+  width: 3rem; /* 48px — to be tokenized when migrated */
+  height: 3rem;
+  background-color: var(--vw-color-gray-100, #f3f4f6);
+  border-radius: var(--vw-radius-sm, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.migrate-note {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--vw-color-gray-600, #6b7280);
+}
+
+.card-icon-right-variants {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  .variant-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--vw-color-gray-600, #6b7280);
+    margin-bottom: -0.25rem;
+  }
+}
+
+.snippet-variant-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vw-color-gray-600, #6b7280);
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.demo-banner {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #0c4a6e;
+}
+
+.component-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.component-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.classes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th,
+  td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  th {
+    font-weight: 600;
+    color: #000000;
+    background-color: #f9fafb;
+  }
+
+  td {
+    color: #424242;
+    vertical-align: middle;
+
+    &:first-child {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    &:last-child {
+      min-width: 180px;
+      max-width: 250px;
+    }
+
+    code {
+      background-color: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+    }
+  }
+
+  tr:hover {
+    background-color: #f9fafb;
+  }
+}
+
+.typography-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+
+  .typography-tile {
+    .tile-divider {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .tile-class-name {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 0.25rem;
+    }
+
+    .tile-details {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+    }
+  }
+}
+
+/* Three-column demo: Card sample | Class CSS | HTML snippet */
+.three-column-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+
+  .column-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  &.demo-column-css {
+    .class-css-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      min-height: 120px;
+    }
+
+    .class-css-pre {
+      margin: 0;
+      font-size: 13px;
+      font-family: 'Courier New', Consolas, monospace;
+      white-space: pre;
+      color: #334155;
+
+      &.is-placeholder code {
+        color: #64748b;
+        font-style: italic;
+      }
+
+      code {
+        font-size: inherit;
+      }
+    }
+  }
+
+  &.demo-column-html {
+    .html-snippet-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      min-height: 120px;
+    }
+
+    .html-snippet-pre {
+      margin: 0;
+      font-size: 12px;
+      font-family: 'Courier New', Consolas, monospace;
+      white-space: pre;
+      color: #334155;
+
+      code {
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+.clickable-class {
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}

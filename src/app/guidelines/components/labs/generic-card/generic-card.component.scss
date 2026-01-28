@@ -1,7 +1,9 @@
 @use '../../_shared-styles' as *;
+@use '../../../../../node_modules/@enttribe/themes-gx-theme/src/lib/scss/components/cards' as *;
 
 /* Uses --vw-space-*, --vw-radius-*, --vw-font-*, --vw-line-* from gx-theme scss/_space.scss
-   and --vw-color-* from gx-theme scss/_palette.scss (scope: .level4-style, .template13-style) */
+   and --vw-color-* from gx-theme scss/_palette.scss (scope: .level4-style, .template13-style)
+   Card styles now come from @enttribe/themes-gx-theme/src/lib/scss/components/_cards.scss */
 
 // Ensure Phosphor font loads for vw cards (icons use class="ph ph-*").
 // Global phosphor style.css can fail if font URLs break after build; this path is resolved from the component.
@@ -353,50 +355,15 @@
   color: var(--textColorError, var(--warnColor500, var(--vw-color-red-600)));
 }
 
-// =============================================================================
-// Card Model (vw-*) — copy from sample-app-pages/css-analysis-and-correction/vw-card-model.scss
-// =============================================================================
-// Model classes for metric/KPI-style cards: 1px border, no box-shadow.
-// Tokens: --vw-space-*, --vw-radius-*, --vw-font-*, --vw-line-* from gx-theme scss/_space.scss.
+// Card styles are now imported from @enttribe/themes-gx-theme/src/lib/scss/components/_cards.scss
+// Local component-specific styles below (grid layouts, custom KPI card styles, etc.)
 
-:root {
-  /* Card-specific space aliases (reference theme --vw-space-*) */
-  --vw-card-space-xs: var(--vw-space-xs, 0.25rem);
-  --vw-card-space-sm: var(--vw-space-sm, 0.5rem);
-  --vw-card-space-md: var(--vw-space-md, 0.75rem);
-  --vw-card-space-lg: var(--vw-space-lg, 1rem);
-  --vw-card-space-xl: var(--vw-space-xl, 1.25rem);
-  --vw-card-space-2xl: var(--vw-space-2xl, 1.5rem);
-}
-
-.vw-card {
-  --vw-card-radius: var(--vw-radius-lg);
-  --vw-card-padding: var(--vw-card-space-xl, var(--vw-space-xl));
-  --vw-card-border-color: var(--borderColor, var(--vw-color-gray-200));
-  --vw-card-bg: var(--bgColor10, var(--vw-color-white));
-  --vw-card-gap: var(--vw-card-space-md, var(--vw-space-md));
-  display: flex;
-  flex-direction: column;
-  gap: var(--vw-card-gap);
-  padding: var(--vw-card-padding);
-  border: 1px solid var(--vw-card-border-color);
-  border-radius: var(--vw-card-radius);
-  background-color: var(--vw-card-bg);
-  box-shadow: none;
-  min-width: 0;
-}
-
-.vw-card__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--vw-card-space-xs, var(--vw-space-xs));
-}
-
+// Component-specific header variants (not in theme)
 .vw-card__header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--vw-card-space-sm, 0.5rem);
+  gap: var(--vw-space-sm, 0.5rem);
   flex-wrap: wrap;
 }
 
@@ -409,137 +376,39 @@
   }
 }
 
-.vw-card__title-row {
-  display: flex;
-  align-items: center;
-  gap: var(--vw-card-space-sm, 0.5rem);
-}
+// Note: Use .vw-card__title from theme instead of .vw-card__heading
+// The theme's .vw-card__title uses --card-heading-lg-* typography variables
 
-.vw-card__icon {
-  font-size: 1.25em;
-  line-height: 1;
-  flex-shrink: 0;
-  color: var(--grayColor600, var(--vw-color-gray-600));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
+// Component-specific icon color variants
 .vw-card__icon--lead { color: var(--vw-color-orange-600); }
 .vw-card__icon--quote { color: var(--vw-color-indigo-500); }
 .vw-card__icon--deal { color: var(--vw-color-blue-600); }
 
-.vw-card__heading {
-  font-weight: 500;
-  color: var(--grayColor800, var(--vw-color-gray-800));
-  margin: 0;
-  &--xs { font-size: var(--vw-font-heading-xs, 0.75rem); line-height: var(--vw-line-heading-xs, 1.25); }
-  &--sm { font-size: var(--vw-font-heading-sm, 0.875rem); line-height: var(--vw-line-heading-sm, 1.25); }
-  &--md { font-size: var(--vw-font-heading-md, 1rem); line-height: var(--vw-line-heading-md, 1.25); }
-  &--lg { font-size: var(--vw-font-heading-lg, 1.125rem); line-height: var(--vw-line-heading-lg, 1.25); }
-  &--xl { font-size: var(--vw-font-heading-xl, 1.25rem); line-height: var(--vw-line-heading-xl, 1.2); }
-}
+// Note: Metric label and value typography now come from theme's _cards.scss
+// which uses --card-metric-label-* and --card-metric-{size}-* variables
+// Component-specific metric size combinations removed - use theme classes directly
 
-.vw-card__description {
-  font-size: var(--vw-font-description, 0.875rem);
-  line-height: var(--vw-line-description, 1.4);
-  color: var(--grayColor600, var(--vw-color-gray-600));
-  margin: 0;
-}
-
-.vw-card__metric {
-  display: flex;
-  flex-direction: column;
-  gap: var(--vw-card-space-xs, 0.25rem);
-}
-
-.vw-card__metric-label {
-  font-weight: 400;
-  color: var(--grayColor600, var(--vw-color-gray-600));
-  &--xs { font-size: var(--vw-font-label-xs, 0.6875rem); }
-  &--sm { font-size: var(--vw-font-label-sm, 0.75rem); }
-  &--md { font-size: var(--vw-font-label-md, 0.875rem); }
-  &--lg { font-size: var(--vw-font-label-lg, 1rem); }
-}
-
-.vw-card__metric-value {
-  font-weight: 600;
-  color: var(--grayColor900, var(--vw-color-gray-900));
-  &--xs { font-size: var(--vw-font-value-xs, 0.875rem); }
-  &--sm { font-size: var(--vw-font-value-sm, 1rem); }
-  &--md { font-size: var(--vw-font-value-md, 1.125rem); }
-  &--lg { font-size: var(--vw-font-value-lg, 1.25rem); }
-  &--xl { font-size: var(--vw-font-value-xl, 1.75rem); }
-}
-
-.vw-card__metric-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--vw-card-space-sm, 0.5rem);
-  flex-wrap: wrap;
-}
-
-.vw-card__metric--sm-lg {
-  .vw-card__metric-label { font-size: var(--vw-font-label-sm, 0.75rem); }
-  .vw-card__metric-value { font-size: var(--vw-font-value-lg, 1.25rem); }
-}
-.vw-card__metric--md-md {
-  .vw-card__metric-label { font-size: var(--vw-font-label-md, 0.875rem); }
-  .vw-card__metric-value { font-size: var(--vw-font-value-md, 1.125rem); }
-}
-.vw-card__metric--md-lg {
-  .vw-card__metric-label { font-size: var(--vw-font-label-md, 0.875rem); }
-  .vw-card__metric-value { font-size: var(--vw-font-value-lg, 1.25rem); }
-}
-.vw-card__metric--sm-xl {
-  .vw-card__metric-label { font-size: var(--vw-font-label-sm, 0.75rem); }
-  .vw-card__metric-value { font-size: var(--vw-font-value-xl, 1.75rem); }
-}
-
-.vw-card__legend {
-  font-size: var(--vw-font-legend, 0.75rem);
-  line-height: var(--vw-line-legend, 1.2);
-  color: var(--grayColor500, var(--vw-color-gray-500));
-  margin: 0;
-}
-
-.vw-card__divider {
-  height: 1px;
-  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
-  width: 100%;
-  margin: var(--vw-space-none);
-}
-
-.vw-card__delta {
-  font-size: var(--vw-font-legend, 0.75rem);
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--vw-card-space-xs, var(--vw-space-xs));
-  &--positive { color: var(--successColor, var(--vw-color-green-700)); }
-  &--negative { color: var(--textColorError, var(--warnColor500, var(--vw-color-red-600))); }
-  &--neutral { color: var(--grayColor600, var(--vw-color-gray-600)); }
-}
-
+// Component-specific grid layouts
 .vw-cards-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--vw-card-space-xl, var(--vw-space-xl));
+  gap: var(--vw-space-xl, 1.25rem);
   align-items: stretch;
 }
 
 .vw-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--vw-card-space-xl, var(--vw-space-xl));
+  gap: var(--vw-space-xl, 1.25rem);
   align-items: stretch;
 }
 
-.vw-card__metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--vw-card-space-lg, var(--vw-space-lg)) var(--vw-card-space-xl, var(--vw-space-xl));
+.vw-cards-row--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.vw-cards-row--2 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (max-width: 900px) {
@@ -555,13 +424,7 @@
   .vw-cards-row--2 { grid-template-columns: 1fr; }
 }
 
-// EVM-style cards: tinted backgrounds and colored values (Planned value, Actual cost, Earned value, variances)
-.vw-cards-row--3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-.vw-cards-row--2 {
-  grid-template-columns: repeat(2, 1fr);
-}
+// EVM-style cards: tinted backgrounds and colored values
 .vw-card--tint-blue {
   background-color: var(--vw-color-blue-50);
   border-color: var(--vw-color-blue-300);

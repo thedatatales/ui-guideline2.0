@@ -65,6 +65,8 @@ import { LabsComponent } from './components/labs/labs.component';
 import { LabsShellComponent } from './components/labs/labs-shell.component';
 import { GenericCardComponent } from './components/labs/generic-card/generic-card.component';
 import { VwCardsComponent } from './components/labs/vw-cards/vw-cards.component';
+import { VwCardsRootComponent } from './components/vw-cards/vw-cards.component';
+import { VwCardsExtComponent } from './components/vw-cards-ext/vw-cards-ext.component';
 import { PanesLayoutsComponent } from './components/labs/panes-layouts/panes-layouts.component';
 import { PanelLayoutComponent } from './components/labs/panel-layout/panel-layout.component';
 import { Layout1Component } from './components/labs/layout-1/layout-1.component';
@@ -76,7 +78,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent },
-      { path: 'color-palette', component: ColorPaletteComponent },
+      { path: 'color-palette', component: LabsComponent },
       { path: 'typography', component: TypographyComponent },
       { path: 'button', component: ButtonComponent },
       { path: 'checkbox', component: CheckboxComponent },
@@ -90,6 +92,8 @@ const routes: Routes = [
       { path: 'slider', component: SliderComponent },
       { path: 'toggle', component: ToggleComponent },
       { path: 'card', component: CardComponent },
+      { path: 'vw-cards', component: VwCardsRootComponent },
+      { path: 'vw-cards-ext', component: VwCardsExtComponent },
       { path: 'chart', component: ChartComponent },
       { path: 'grid', component: GridComponent },
       { path: 'list', component: ListComponent },

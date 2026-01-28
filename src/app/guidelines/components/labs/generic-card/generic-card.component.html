@@ -23,7 +23,7 @@
   <section class="content-section vw-preview-section">
     <h2 class="section-title">Proposed vw- classes (v1.2) — preview</h2>
     <p class="section-description">
-      Classes from <code>css-updatre-v1.2.scss</code> applied here to compare with core (gx-theme core-mixin / variables).
+      Card classes from <code>@enttribe/themes-gx-theme/src/lib/scss/components/_cards.scss</code> applied here.
       If this looks good, we can align core-level or component SCSS with these tokens.
     </p>
 
@@ -31,48 +31,48 @@
       <h3 class="vw-page-title">Section with vw-page-title</h3>
       <div class="vw-card-section" style="margin-top: 1rem;">
         <div class="vw-card-parent" style="margin-bottom: 1rem;">
-          <div class="vw-card-block vw-card--default">
-            <span class="vw-card-title">Potential Revenue</span>
-            <span class="vw-card-metric-xl">₹2.5M</span>
-            <span class="vw-card-variance is-positive">+12% from last week</span>
+          <div class="vw-card-block vw-card-block--info">
+            <span class="vw-card__title">Potential Revenue</span>
+            <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
+            <span class="vw-card__delta vw-card__delta--positive">+12% from last week</span>
           </div>
         </div>
-        <p class="vw-card-description">Above: vw-card-block vw-card--default + vw-card-title, vw-card-metric-xl, vw-card-variance.is-positive</p>
+        <p class="vw-card__description">Above: vw-card-block vw-card-block--info + vw-card__title, vw-card__metric--primary, vw-card__delta--positive</p>
       </div>
     </div>
 
     <div class="demo-container" style="margin-top: 1.5rem;">
       <h3 class="section-title" style="font-size: 18px;">Card block variants</h3>
       <div class="vw-preview-cards-row">
-        <div class="vw-card-block vw-card--default">
-          <span class="vw-card-metric-label">Default</span>
-          <span class="vw-card-metric-lg">100</span>
+        <div class="vw-card-block">
+          <span class="vw-card__metric-label">Default</span>
+          <span class="vw-card__metric vw-card__metric--primary">100</span>
         </div>
-        <div class="vw-card-block vw-card--error">
-          <span class="vw-card-metric-label">Error</span>
-          <span class="vw-card-metric-md">—</span>
+        <div class="vw-card-block vw-card-block--error">
+          <span class="vw-card__metric-label">Error</span>
+          <span class="vw-card__metric vw-card__metric--primary">—</span>
         </div>
-        <div class="vw-card-block vw-card--success">
-          <span class="vw-card-metric-label">Success</span>
-          <span class="vw-card-metric-md">Done</span>
+        <div class="vw-card-block vw-card-block--success">
+          <span class="vw-card__metric-label">Success</span>
+          <span class="vw-card__metric vw-card__metric--primary">Done</span>
         </div>
-        <div class="vw-card-block vw-card--warning">
-          <span class="vw-card-metric-label">Warning</span>
-          <span class="vw-card-metric-md">Review</span>
+        <div class="vw-card-block vw-card-block--warning">
+          <span class="vw-card__metric-label">Warning</span>
+          <span class="vw-card__metric vw-card__metric--primary">Review</span>
         </div>
-        <div class="vw-card-block vw-card--info">
-          <span class="vw-card-metric-label">Info</span>
-          <span class="vw-card-metric-md">Tip</span>
+        <div class="vw-card-block vw-card-block--info">
+          <span class="vw-card__metric-label">Info</span>
+          <span class="vw-card__metric vw-card__metric--primary">Tip</span>
         </div>
       </div>
     </div>
 
     <div class="demo-container" style="margin-top: 1.5rem;">
-      <h3 class="section-title" style="font-size: 18px;">vw-card variance</h3>
+      <h3 class="section-title" style="font-size: 18px;">vw-card delta</h3>
       <div class="vw-preview-variance">
-        <span class="vw-card-variance is-positive">+12% positive</span>
-        <span class="vw-card-variance is-negative">−8% negative</span>
-        <span class="vw-card-variance is-neutral">0% neutral</span>
+        <span class="vw-card__delta vw-card__delta--positive">+12% positive</span>
+        <span class="vw-card__delta vw-card__delta--negative">−8% negative</span>
+        <span class="vw-card__delta">0% neutral</span>
       </div>
     </div>
 
@@ -96,36 +96,36 @@
     <div class="demo-container" style="margin-top: 1.5rem;">
       <h3 class="section-title" style="font-size: 18px;">KPI row using only vw- classes</h3>
       <p class="section-description" style="margin-bottom: 12px;">
-        Same structure as the bntv-simple-card KPI row, but with vw-card-block, vw-card-title, vw-card-metric-xl, vw-card-variance.
+        Same structure as the bntv-simple-card KPI row, but with vw-card-block, vw-card__title, vw-card__metric--primary, vw-card__delta.
       </p>
       <div class="kpi-cards-row">
-        <div class="vw-card-block vw-card--default vw-kpi-card">
+        <div class="vw-card-block vw-kpi-card">
           <div class="vw-kpi-card__header">
-            <span class="vw-card-title">Potential Revenue</span>
+            <span class="vw-card__title">Potential Revenue</span>
           </div>
-          <span class="vw-card-metric-xl">₹2.5M</span>
-          <span class="vw-card-variance is-positive">+12% from last week</span>
+          <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
+          <span class="vw-card__delta vw-card__delta--positive">+12% from last week</span>
         </div>
-        <div class="vw-card-block vw-card--default vw-kpi-card">
+        <div class="vw-card-block vw-kpi-card">
           <div class="vw-kpi-card__header">
-            <span class="vw-card-title">Lead Velocity</span>
+            <span class="vw-card__title">Lead Velocity</span>
           </div>
-          <span class="vw-card-metric-xl">10</span>
-          <span class="vw-card-variance is-negative">−8% vs last 30 days</span>
+          <span class="vw-card__metric vw-card__metric--primary">10</span>
+          <span class="vw-card__delta vw-card__delta--negative">−8% vs last 30 days</span>
         </div>
-        <div class="vw-card-block vw-card--default vw-kpi-card">
+        <div class="vw-card-block vw-kpi-card">
           <div class="vw-kpi-card__header">
-            <span class="vw-card-title">Open Leads</span>
+            <span class="vw-card__title">Open Leads</span>
           </div>
-          <span class="vw-card-metric-xl">38</span>
-          <span class="vw-card-variance is-positive">+18% from last week</span>
+          <span class="vw-card__metric vw-card__metric--primary">38</span>
+          <span class="vw-card__delta vw-card__delta--positive">+18% from last week</span>
         </div>
-        <div class="vw-card-block vw-card--default vw-kpi-card">
+        <div class="vw-card-block vw-kpi-card">
           <div class="vw-kpi-card__header">
-            <span class="vw-card-title">Conversion Rate</span>
+            <span class="vw-card__title">Conversion Rate</span>
           </div>
-          <span class="vw-card-metric-xl">23.5%</span>
-          <span class="vw-card-variance is-positive">+5.2% from last week</span>
+          <span class="vw-card__metric vw-card__metric--primary">23.5%</span>
+          <span class="vw-card__delta vw-card__delta--positive">+5.2% from last week</span>
         </div>
       </div>
     </div>
@@ -159,8 +159,8 @@
           </div>
         </div>
         <div class="kpi-card__main">
-          <div class="vw-card-title">Leads</div>
-          <div class="vw-card-metric-xl">20</div>
+          <div class="vw-card__title">Leads</div>
+          <div class="vw-card__metric vw-card__metric--primary">20</div>
         </div>
         <div class="kpi-card__divider"></div>
         <div class="kpi-card__metrics">
@@ -251,8 +251,8 @@
             </div>
           </div>
           <div class="kpi-card__main">
-            <div class="vw-card-title">Leads</div>
-            <div class="vw-card-metric-xl">20</div>
+            <div class="vw-card__title">Leads</div>
+            <div class="vw-card__metric vw-card__metric--primary">20</div>
           </div>
           <div class="kpi-card__divider"></div>
           <div class="kpi-card__metrics">
@@ -306,8 +306,8 @@
             </div>
           </div>
           <div class="kpi-card__main">
-            <div class="vw-card-title">Quotes</div>
-            <div class="vw-card-metric-xl">67</div>
+            <div class="vw-card__title">Quotes</div>
+            <div class="vw-card__metric vw-card__metric--primary">67</div>
           </div>
           <div class="kpi-card__divider"></div>
           <div class="kpi-card__metrics">
@@ -357,8 +357,8 @@
             </div>
           </div>
           <div class="kpi-card__main">
-            <div class="vw-card-title">Deals</div>
-            <div class="vw-card-metric-xl">11</div>
+            <div class="vw-card__title">Deals</div>
+            <div class="vw-card__metric vw-card__metric--primary">11</div>
           </div>
           <div class="kpi-card__divider"></div>
           <div class="kpi-card__metrics">
@@ -606,40 +606,40 @@
 
     <h3 class="section-title" style="font-size: 18px; margin-top: 1.5rem;">vw row — 4 simple KPI cards</h3>
     <p class="section-description" style="margin-bottom: 12px;">
-      <code>vw-card</code>, <code>vw-card__title-row</code> + Phosphor icon, <code>vw-card__heading--md</code>, large value, <code>vw-card__delta</code> with <code>ph-trend-up</code> / <code>ph-trend-down</code>.
+      <code>vw-card</code>, <code>vw-card__title-row</code> + Phosphor icon, <code>vw-card__title</code>, primary metric value, <code>vw-card__delta</code> with <code>ph-trend-up</code> / <code>ph-trend-down</code>.
     </p>
     <div class="demo-container">
       <div class="vw-cards-row">
         <div class="vw-card">
           <div class="vw-card__title-row">
             <i class="ph ph-currency-inr vw-card__icon" aria-hidden="true"></i>
-            <h3 class="vw-card__heading vw-card__heading--md">Potential Revenue</h3>
+            <span class="vw-card__title">Potential Revenue</span>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">₹2.5M</span>
+          <span class="vw-card__metric vw-card__metric--primary">₹2.5M</span>
           <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+12% from last week</span>
         </div>
         <div class="vw-card">
           <div class="vw-card__title-row">
             <i class="ph ph-gauge vw-card__icon" aria-hidden="true"></i>
-            <h3 class="vw-card__heading vw-card__heading--md">Lead Velocity</h3>
+            <span class="vw-card__title">Lead Velocity</span>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">10</span>
+          <span class="vw-card__metric vw-card__metric--primary">10</span>
           <span class="vw-card__delta vw-card__delta--negative"><i class="ph ph-trend-down" aria-hidden="true"></i>−8% vs last 30 days</span>
         </div>
         <div class="vw-card">
           <div class="vw-card__title-row">
             <i class="ph ph-users vw-card__icon" aria-hidden="true"></i>
-            <h3 class="vw-card__heading vw-card__heading--md">Open Leads</h3>
+            <span class="vw-card__title">Open Leads</span>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">38</span>
+          <span class="vw-card__metric vw-card__metric--primary">38</span>
           <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+18% from last week</span>
         </div>
         <div class="vw-card">
           <div class="vw-card__title-row">
             <i class="ph ph-percent vw-card__icon" aria-hidden="true"></i>
-            <h3 class="vw-card__heading vw-card__heading--md">Conversion Rate</h3>
+            <span class="vw-card__title">Conversion Rate</span>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">23.5%</span>
+          <span class="vw-card__metric vw-card__metric--primary">23.5%</span>
           <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+5.2% from last week</span>
         </div>
       </div>
@@ -647,7 +647,7 @@
 
     <h3 class="section-title" style="font-size: 18px; margin-top: 1.5rem;">vw grid — 3 detailed cards (Leads, Quotes, Deals)</h3>
     <p class="section-description" style="margin-bottom: 12px;">
-      <code>vw-card</code> with Phosphor icon + <code>vw-card__heading--lg</code>, primary metric, <code>vw-card__divider</code>,
+      <code>vw-card</code> with Phosphor icon + <code>vw-card__title</code>, primary metric, <code>vw-card__divider</code>,
       then <code>vw-card__metrics</code> (2×2) and <code>vw-card__delta</code> with <code>ph-trend-up</code> / <code>ph-trend-down</code>.
     </p>
     <div class="demo-container">
@@ -657,9 +657,9 @@
             <div class="vw-card__header-top">
               <div class="vw-card__title-row">
                 <i class="ph ph-users vw-card__icon vw-card__icon--lead" aria-hidden="true"></i>
-                <h3 class="vw-card__heading vw-card__heading--lg">Leads</h3>
+                <span class="vw-card__title">Leads</span>
               </div>
-              <span class="vw-card__metric-value vw-card__metric-value--xl">20</span>
+              <span class="vw-card__metric vw-card__metric--primary">20</span>
             </div>
             <div class="vw-card__header-bottom">
               <p class="vw-card__legend">Open (L12M)</p>
@@ -667,30 +667,30 @@
           </div>
           <div class="vw-card__divider"></div>
           <div class="vw-card__metrics">
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Created (L30D)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Created (L30D)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">10</span>
+                <span class="vw-card__metric-value">10</span>
                 <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+12%</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Conversion Rate</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Conversion Rate</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">18.5%</span>
+                <span class="vw-card__metric-value">18.5%</span>
                 <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+2.3%</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Potential Value (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Potential Value (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">₹430.2M</span>
+                <span class="vw-card__metric-value">₹430.2M</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Stale Leads (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Stale Leads (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">5</span>
+                <span class="vw-card__metric-value">5</span>
                 <span class="vw-card__delta vw-card__delta--negative"><i class="ph ph-trend-down" aria-hidden="true"></i>−2</span>
               </div>
             </div>
@@ -702,9 +702,9 @@
             <div class="vw-card__header-top">
               <div class="vw-card__title-row">
                 <i class="ph ph-quotes vw-card__icon vw-card__icon--quote" aria-hidden="true"></i>
-                <h3 class="vw-card__heading vw-card__heading--lg">Quotes</h3>
+                <span class="vw-card__title">Quotes</span>
               </div>
-              <span class="vw-card__metric-value vw-card__metric-value--xl">67</span>
+              <span class="vw-card__metric vw-card__metric--primary">67</span>
             </div>
             <div class="vw-card__header-bottom">
               <p class="vw-card__legend">Active (L12M)</p>
@@ -712,30 +712,30 @@
           </div>
           <div class="vw-card__divider"></div>
           <div class="vw-card__metrics">
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Created (L30D)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Created (L30D)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">4</span>
+                <span class="vw-card__metric-value">4</span>
                 <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+8%</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Acceptance Rate (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Acceptance Rate (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">67.5%</span>
+                <span class="vw-card__metric-value">67.5%</span>
                 <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+4.2%</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Expected Revenue (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Expected Revenue (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">₹545.3M</span>
+                <span class="vw-card__metric-value">₹545.3M</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Avg Quote Value (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Avg Quote Value (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">₹2.8L</span>
+                <span class="vw-card__metric-value">₹2.8L</span>
               </div>
             </div>
           </div>
@@ -746,9 +746,9 @@
             <div class="vw-card__header-top">
               <div class="vw-card__title-row">
                 <i class="ph ph-briefcase vw-card__icon vw-card__icon--deal" aria-hidden="true"></i>
-                <h3 class="vw-card__heading vw-card__heading--lg">Deals</h3>
+                <span class="vw-card__title">Deals</span>
               </div>
-              <span class="vw-card__metric-value vw-card__metric-value--xl">11</span>
+              <span class="vw-card__metric vw-card__metric--primary">11</span>
             </div>
             <div class="vw-card__header-bottom">
               <p class="vw-card__legend">In Progress (L12M)</p>
@@ -756,29 +756,29 @@
           </div>
           <div class="vw-card__divider"></div>
           <div class="vw-card__metrics">
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Avg Deal Size (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Avg Deal Size (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">₹2.0M</span>
+                <span class="vw-card__metric-value">₹2.0M</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Win Rate (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Win Rate (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">42.8%</span>
+                <span class="vw-card__metric-value">42.8%</span>
                 <span class="vw-card__delta vw-card__delta--positive"><i class="ph ph-trend-up" aria-hidden="true"></i>+3.1%</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Target Value (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Target Value (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">₹61.7M</span>
+                <span class="vw-card__metric-value">₹61.7M</span>
               </div>
             </div>
-            <div class="vw-card__metric vw-card__metric--md-md">
-              <span class="vw-card__metric-label vw-card__metric-label--md">Avg Velocity (L12M)</span>
+            <div class="vw-card__metric vw-card__metric--secondary">
+              <span class="vw-card__metric-label">Avg Velocity (L12M)</span>
               <div class="vw-card__metric-row">
-                <span class="vw-card__metric-value vw-card__metric-value--md">24 days</span>
+                <span class="vw-card__metric-value">24 days</span>
                 <span class="vw-card__delta vw-card__delta--negative"><i class="ph ph-trend-down" aria-hidden="true"></i>−3d</span>
               </div>
             </div>
@@ -797,26 +797,26 @@
       <div class="vw-cards-row vw-cards-row--3" style="margin-bottom: 1.25rem;">
         <div class="vw-card vw-card--tint-blue">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">Planned value</h3>
+            <span class="vw-card__title">Planned value</span>
             <i class="ph ph-calendar vw-card__icon vw-card__icon--blue" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl vw-card__metric-value--blue">626.5K</span>
+          <span class="vw-card__metric vw-card__metric--primary" style="color: var(--vw-color-blue-600);">626.5K</span>
           <p class="vw-card__legend">PV</p>
         </div>
         <div class="vw-card vw-card--tint-red">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">Actual cost</h3>
+            <span class="vw-card__title">Actual cost</span>
             <i class="ph ph-currency-dollar vw-card__icon vw-card__icon--red" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl vw-card__metric-value--red">692.1K</span>
+          <span class="vw-card__metric vw-card__metric--primary" style="color: var(--vw-color-red-600);">692.1K</span>
           <p class="vw-card__legend">AC</p>
         </div>
         <div class="vw-card vw-card--tint-green">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">Earned value</h3>
+            <span class="vw-card__title">Earned value</span>
             <i class="ph ph-target vw-card__icon vw-card__icon--green" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl vw-card__metric-value--green">528.66K</span>
+          <span class="vw-card__metric vw-card__metric--primary" style="color: var(--vw-color-green-600);">528.66K</span>
           <p class="vw-card__legend">EV</p>
         </div>
       </div>
@@ -824,18 +824,18 @@
       <div class="vw-cards-row vw-cards-row--2" style="margin-bottom: 1.25rem;">
         <div class="vw-card vw-card--tint-green">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">Cost variance</h3>
+            <span class="vw-card__title">Cost variance</span>
             <i class="ph ph-arrow-up-right vw-card__icon vw-card__icon--green" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl vw-card__metric-value--green">163.34K</span>
+          <span class="vw-card__metric vw-card__metric--primary" style="color: var(--vw-color-green-600);">163.34K</span>
           <p class="vw-card__legend">CV = EV - AC</p>
         </div>
         <div class="vw-card vw-card--tint-red">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">Schedule variance</h3>
+            <span class="vw-card__title">Schedule variance</span>
             <i class="ph ph-arrow-down-right vw-card__icon vw-card__icon--red" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl vw-card__metric-value--red">−97.9K</span>
+          <span class="vw-card__metric vw-card__metric--primary" style="color: var(--vw-color-red-600);">−97.9K</span>
           <p class="vw-card__legend">SV = EV - PV</p>
         </div>
       </div>
@@ -843,31 +843,31 @@
       <div class="vw-cards-row">
         <div class="vw-card">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">BAC</h3>
+            <span class="vw-card__title">BAC</span>
             <i class="ph ph-info vw-card__icon" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">979K</span>
+          <span class="vw-card__metric vw-card__metric--primary">979K</span>
         </div>
         <div class="vw-card">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">EAC</h3>
+            <span class="vw-card__title">EAC</span>
             <i class="ph ph-info vw-card__icon" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">1,142.34K</span>
+          <span class="vw-card__metric vw-card__metric--primary">1,142.34K</span>
         </div>
         <div class="vw-card">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">ETC</h3>
+            <span class="vw-card__title">ETC</span>
             <i class="ph ph-info vw-card__icon" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl">613.68K</span>
+          <span class="vw-card__metric vw-card__metric--primary">613.68K</span>
         </div>
         <div class="vw-card">
           <div class="vw-card__title-row" style="justify-content: space-between; width: 100%;">
-            <h3 class="vw-card__heading vw-card__heading--md">VAC</h3>
+            <span class="vw-card__title">VAC</span>
             <i class="ph ph-info vw-card__icon" aria-hidden="true"></i>
           </div>
-          <span class="vw-card__metric-value vw-card__metric-value--xl vw-card__metric-value--red">−163.34K</span>
+          <span class="vw-card__metric vw-card__metric--primary" style="color: var(--vw-color-red-600);">−163.34K</span>
         </div>
       </div>
     </div>

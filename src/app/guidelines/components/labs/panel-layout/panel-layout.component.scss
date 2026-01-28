@@ -12,22 +12,22 @@
    Panel-specific tokens (when not yet in theme)
    ----------------------------------------------------------------------------- */
 :host {
-  --panel-padding: var(--vw-space-lg);     /* 16px — outer padding */
-  --panel-section-gap: var(--vw-space-lg); /* 12px — header↔body↔footer */
-  --panel-header-gap: var(--vw-space-xs);  /* 8px — title↔subtitle↔description */
+  --panel-padding: var(--vw-space-lg, 1rem);       /* 16px — outer padding */
+  --panel-section-gap: var(--vw-space-lg, 1rem);   /* 16px — header↔body↔footer */
+  --panel-header-gap: var(--vw-space-xs, 0.5rem);  /* 8px — title↔subtitle↔description */
 }
 
 /* -----------------------------------------------------------------------------
    CORE STRUCTURAL ENTITIES
    ----------------------------------------------------------------------------- */
 .vw-panel {
-  background-color: var(--bgColor10, var(--vw-color-white));
-  border: 1px solid var(--borderColor, var(--vw-color-slate-200, var(--vw-color-gray-200)));
-  border-radius: var(--vw-radius-lg, 16px);
-  padding: var(--panel-padding, var(--vw-space-md));
+  background-color: var(--bgColor10, var(--vw-color-white, #ffffff));
+  border: 1px solid var(--borderColor, var(--vw-color-slate-200, var(--vw-color-gray-200, #e5e7eb)));
+  border-radius: var(--vw-radius-lg, 1rem);
+  padding: var(--panel-padding, var(--vw-space-md, 1rem));
   display: flex;
   flex-direction: column;
-  gap: var(--panel-section-gap, var(--vw-space-sm));
+  gap: var(--panel-section-gap, var(--vw-space-sm, 0.5rem));
   min-width: 0;
   box-sizing: border-box;
 }
@@ -37,13 +37,13 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: var(--panel-section-gap, var(--vw-space-sm));
+  gap: var(--panel-section-gap, var(--vw-space-sm, 0.5rem));
 
   /* Inner group (title + subtitle + description) uses header gap */
   & > div:first-child {
     display: flex;
     flex-direction: column;
-    gap: var(--panel-header-gap, var(--vw-space-xs));
+    gap: var(--panel-header-gap, var(--vw-space-xs, 0.25rem));
   }
 }
 
@@ -56,7 +56,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--vw-space-sm);
+  gap: var(--vw-space-sm, 0.5rem);
   /* Not a button bar by default; CTA layout neutral */
 }
 
@@ -64,7 +64,7 @@
   height: 1px;
   width: 100%;
   margin: 0;
-  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200)));
+  background-color: var(--dividerColor, var(--grayColor200, var(--vw-color-gray-200, #e5e7eb)));
   border: none;
   flex-shrink: 0;
 }
@@ -76,7 +76,7 @@
   font-size: var(--vw-font-heading-md, 1rem);
   line-height: var(--vw-line-heading-md, 1.25);
   font-weight: 500;
-  color: var(--grayColor800, var(--vw-color-gray-800));
+  color: var(--grayColor800, var(--vw-color-gray-800, #1f2937));
   margin: 0;
 }
 
@@ -84,7 +84,7 @@
   font-size: var(--vw-font-description, 0.875rem);
   line-height: var(--vw-line-description, 1.4);
   font-weight: 400;
-  color: var(--grayColor600, var(--vw-color-gray-600));
+  color: var(--grayColor600, var(--vw-color-gray-600, #4b5563));
   margin: 0;
 }
 
@@ -92,7 +92,7 @@
   font-size: var(--vw-font-description, 0.875rem);
   line-height: var(--vw-line-description, 1.4);
   font-weight: 400;
-  color: var(--grayColor600, var(--vw-color-gray-600));
+  color: var(--grayColor600, var(--vw-color-gray-600, #4b5563));
   margin: 0;
 }
 
@@ -119,20 +119,20 @@
 
   th,
   td {
-    padding: var(--vw-space-sm) var(--vw-space-md);
+    padding: var(--vw-space-sm, 0.5rem) var(--vw-space-md, 1rem);
     text-align: left;
-    border-bottom: 1px solid var(--borderColor, var(--vw-color-gray-200));
+    border-bottom: 1px solid var(--borderColor, var(--vw-color-gray-200, #e5e7eb));
   }
 
   th {
     font-weight: 600;
-    color: var(--grayColor800, var(--vw-color-gray-800));
+    color: var(--grayColor800, var(--vw-color-gray-800, #1f2937));
   }
 
   code {
-    background: var(--grayColor100, var(--vw-color-gray-100));
+    background: var(--grayColor100, var(--vw-color-gray-100, #f3f4f6));
     padding: 2px 6px;
-    border-radius: var(--vw-radius-xs, 4px);
+    border-radius: var(--vw-radius-xs, 0.25rem);
     font-size: 0.9em;
   }
 }

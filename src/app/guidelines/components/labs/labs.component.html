@@ -1,17 +1,17 @@
-<div class="vw-page-container">
+<div class="vw-page-container labs-container">
   <!-- Header Section -->
   <div class="header-section">
-    <h1 class="main-title">Labs</h1>
+    <h1 class="main-title">Color Palette</h1>
     <p class="subtitle">
-      Color palette comparison and experimental features
+      All available vw color variables from the design system. Use these CSS custom properties in your components.
     </p>
   </div>
 
   <!-- Two Column Layout -->
   <div class="palette-comparison" fxLayout="row" fxLayoutGap="24px">
-    <!-- Column 1: bntv-palette -->
+    <!-- Column 1: vw-palette -->
     <div class="palette-column" fxFlex="1 1 50%">
-      <h2 class="column-title">bntv-palette</h2>
+      <h2 class="column-title">vw-palette</h2>
       @for (group of bntvPalette; track group.colorName) {
         <div class="color-group">
           <h3 class="color-group-title">{{ group.colorName }}</h3>
