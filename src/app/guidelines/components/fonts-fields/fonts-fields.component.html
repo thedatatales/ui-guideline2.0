@@ -1,0 +1,277 @@
+<div class="vw-page-container">
+  <div class="header-section">
+    <h1 class="main-title">Fonts &amp; Fields</h1>
+    <p class="subtitle">
+      Reference for form fields (input, select, textarea) and typography scale from <code>variables.scss</code> and <code>core-mixin.scss</code>.
+      Use this page to compare field components and all font size variations (headings, card titles, metrics, labels).
+    </p>
+  </div>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Fields -->
+  <section class="content-section">
+    <h2 class="section-title">Fields</h2>
+    <p class="section-description">
+      Form controls: text input, select, textarea. Use <code>bntv-input-box</code> and <code>bntv-select-box</code> from the design system.
+    </p>
+    <div class="demo-container">
+      <div class="fonts-fields-demo">
+        <div class="field-item">
+          <bntv-input-box
+            [label]="'Input (text)'"
+            [placeholder]="'Enter text'"
+            [type]="'text'"
+            [(data)]="inputValue"
+          ></bntv-input-box>
+        </div>
+        <div class="field-item">
+          <bntv-input-box
+            [label]="'Email'"
+            [placeholder]="'email@example.com'"
+            [type]="'email'"
+            [(data)]="emailValue"
+          ></bntv-input-box>
+        </div>
+        <div class="field-item">
+          <bntv-input-box
+            [label]="'Number'"
+            [placeholder]="'0'"
+            [type]="'number'"
+            [(data)]="numberValue"
+          ></bntv-input-box>
+        </div>
+        <div class="field-item">
+          <bntv-select-box
+            [label]="'Select'"
+            [placeholder]="'Choose option'"
+            [itemList]="selectOptions"
+            [displayExpression]="'$name'"
+            [value]="'value'"
+            [(data)]="selectedOption"
+          ></bntv-select-box>
+        </div>
+        <div class="field-item" style="min-width: 320px;">
+          <bntv-input-box
+            [label]="'Textarea'"
+            [placeholder]="'Enter multiple lines…'"
+            [type]="'textbox'"
+            [(data)]="textareaValue"
+          ></bntv-input-box>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Font sizes: Headings -->
+  <section class="content-section">
+    <h2 class="section-title">Font sizes — Headings</h2>
+    <p class="section-description">
+      Heading scale from <code>variables.scss</code>: <code>--vw-font-heading-xs</code> through <code>--vw-font-heading-2xl</code>.
+      Use for page titles (e.g. h1, h2) and section headings.
+    </p>
+    <div class="demo-container">
+      <div class="font-size-grid">
+        <div class="font-group-title">Token scale (sample text)</div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-heading-2xl); font-weight: 500;">Heading 2XL</span>
+          <span class="font-meta">--vw-font-heading-2xl (1.5rem)</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-heading-xl); font-weight: 500;">Heading XL</span>
+          <span class="font-meta">--vw-font-heading-xl (1.25rem)</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-heading-lg); font-weight: 500;">Heading LG</span>
+          <span class="font-meta">--vw-font-heading-lg (1.125rem)</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-heading-md); font-weight: 500;">Heading MD</span>
+          <span class="font-meta">--vw-font-heading-md (1rem)</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-heading-sm); font-weight: 500;">Heading SM</span>
+          <span class="font-meta">--vw-font-heading-sm (0.875rem)</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-heading-xs); font-weight: 500;">Heading XS</span>
+          <span class="font-meta">--vw-font-heading-xs (0.75rem)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Font sizes: Card title variations -->
+  <section class="content-section">
+    <h2 class="section-title">Font sizes — Card title</h2>
+    <p class="section-description">
+      Card title classes from <code>core-mixin.scss</code>: <code>.vw-card-title</code>, <code>.vw-card-title-lg</code>, <code>.vw-card-title-sm</code>.
+    </p>
+    <div class="demo-container">
+      <div class="font-size-grid">
+        <div class="font-row">
+          <span class="font-sample vw-card-title-lg">Card title LG</span>
+          <span class="font-meta">.vw-card-title-lg</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-title">Card title (default)</span>
+          <span class="font-meta">.vw-card-title</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-title-sm">Card title SM</span>
+          <span class="font-meta">.vw-card-title-sm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Font sizes: Metrics -->
+  <section class="content-section">
+    <h2 class="section-title">Font sizes — Metrics</h2>
+    <p class="section-description">
+      Metric value classes from <code>core-mixin.scss</code>: <code>.vw-card-metric-xxl</code> through <code>.vw-card-metric-sm</code>.
+    </p>
+    <div class="demo-container">
+      <div class="font-size-grid">
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-xxl">₹5.0M</span>
+          <span class="font-meta">.vw-card-metric-xxl</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-xl">₹2.5M</span>
+          <span class="font-meta">.vw-card-metric-xl</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-lg">₹1.8M</span>
+          <span class="font-meta">.vw-card-metric-lg</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-md">1,250</span>
+          <span class="font-meta">.vw-card-metric-md</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-sm">42</span>
+          <span class="font-meta">.vw-card-metric-sm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Font sizes: Labels & description -->
+  <section class="content-section">
+    <h2 class="section-title">Font sizes — Labels &amp; description</h2>
+    <p class="section-description">
+      Label and description classes: <code>.vw-card-metric-label</code>, <code>.vw-card-metric-label-sub</code>,
+      <code>.vw-card-activity-label</code>, <code>.vw-card-activity-value</code>, <code>.vw-card-description</code>, and variance/legend.
+    </p>
+    <div class="demo-container">
+      <div class="font-size-grid">
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-label">Metric label</span>
+          <span class="font-meta">.vw-card-metric-label</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-metric-label-sub">Label sub (e.g. MoM)</span>
+          <span class="font-meta">.vw-card-metric-label-sub</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-activity-label">Activity label</span>
+          <span class="font-meta">.vw-card-activity-label</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-activity-value">December 26, 2024</span>
+          <span class="font-meta">.vw-card-activity-value</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-description">Card description text for secondary or explanatory content.</span>
+          <span class="font-meta">.vw-card-description</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample vw-card-variance is-positive">+12%</span>
+          <span class="font-meta">.vw-card-variance.is-positive (legend size)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Font sizes: Value tokens (raw) -->
+  <section class="content-section">
+    <h2 class="section-title">Font sizes — Value tokens</h2>
+    <p class="section-description">
+      Raw value tokens from <code>variables.scss</code>: <code>--vw-font-value-xs</code> through <code>--vw-font-value-xxxl</code>.
+      Used by metric classes; use directly when you need a custom numeral size.
+    </p>
+    <div class="demo-container">
+      <div class="font-size-grid">
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-xxxl); font-weight: 500;">XXXL</span>
+          <span class="font-meta">--vw-font-value-xxxl</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-xxl); font-weight: 500;">XXL</span>
+          <span class="font-meta">--vw-font-value-xxl</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-xl); font-weight: 500;">XL</span>
+          <span class="font-meta">--vw-font-value-xl</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-lg); font-weight: 500;">LG</span>
+          <span class="font-meta">--vw-font-value-lg</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-md); font-weight: 500;">MD</span>
+          <span class="font-meta">--vw-font-value-md</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-sm); font-weight: 500;">SM</span>
+          <span class="font-meta">--vw-font-value-sm</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-value-xs); font-weight: 500;">XS</span>
+          <span class="font-meta">--vw-font-value-xs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Font sizes: Label tokens -->
+  <section class="content-section">
+    <h2 class="section-title">Font sizes — Label tokens</h2>
+    <p class="section-description">
+      Label tokens: <code>--vw-font-label-xs</code>, <code>--vw-font-label-sm</code>, <code>--vw-font-label-md</code>, <code>--vw-font-label-lg</code>.
+    </p>
+    <div class="demo-container">
+      <div class="font-size-grid">
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-label-lg);">Label LG</span>
+          <span class="font-meta">--vw-font-label-lg</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-label-md);">Label MD</span>
+          <span class="font-meta">--vw-font-label-md</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-label-sm);">Label SM</span>
+          <span class="font-meta">--vw-font-label-sm</span>
+        </div>
+        <div class="font-row">
+          <span class="font-sample" style="font-size: var(--vw-font-label-xs);">Label XS</span>
+          <span class="font-meta">--vw-font-label-xs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

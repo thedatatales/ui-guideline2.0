@@ -1,5 +1,89 @@
 <div class="vw-page-container">
   <div class="header-section">
-    <h1 class="main-title">vw-card Ext</h1>
+    <h1 class="main-title">vw-utility</h1>
+    <p class="subtitle">
+      This page helps developers understand layout and utility classes (e.g. <code>.vw-page-gap</code>) from <code>core-mixin.scss</code>.
+      No new classes are added; we only show how to combine and use them.
+    </p>
   </div>
+
+  <bntv-divider></bntv-divider>
+
+  <!-- Section 1: vw-page-gap -->
+  <section class="content-section">
+    <h2 class="section-title">1. vw-page-gap</h2>
+    <p class="section-description">
+      <code>.vw-page-gap</code> is a utility from <code>core-mixin.scss</code> (lines 195–206) that sets <code>gap</code> on a flex container.
+      It uses <code>var(--vw-page-gap)</code> (0.75rem in gx-theme). Use it on the <strong>flex container</strong> (not on the children) to space flex items evenly.
+    </p>
+    <div class="variant-note">
+      <strong>Variants:</strong> <code>.vw-page-gap-xl</code> (<code>--vw-space-xl</code>), <code>.vw-page-gap-md</code> (<code>--vw-space-md</code>), <code>.vw-page-gap-sm</code> (<code>--vw-space-sm</code>). These additional classes are for specific needs when you want a different gap size than the default.
+    </div>
+
+    <!-- Symbolic layout: where to apply .vw-page-gap and highlight gap area on hover -->
+    <h3 class="subsection-title">Where to apply .vw-page-gap</h3>
+    <p class="section-description">
+      Apply <code>.vw-page-gap</code> on the <strong>flex container</strong> (column or row). The diagram below shows a flex column with three blocks; the strips between them represent the gap. Hover over the gap strips to see the spaced area.
+    </p>
+    <div class="gap-diagram-wrapper">
+      <div class="gap-diagram-label">Apply <code>.vw-page-gap</code> here (flex column)</div>
+      <!-- Symbolic: spacer divs represent the gap so we can highlight on hover; in real layout use .vw-page-gap on the container -->
+      <div class="gap-diagram">
+        <div class="gap-demo-block">Block 1</div>
+        <div class="gap-indicator" title="Gap (--vw-page-gap)"></div>
+        <div class="gap-demo-block">Block 2</div>
+        <div class="gap-indicator" title="Gap (--vw-page-gap)"></div>
+        <div class="gap-demo-block">Block 3</div>
+      </div>
+      <p class="gap-diagram-caption">Symbolic layout: the strips between blocks represent the gap. Hover over them to highlight. In your code, use <code>display: flex; flex-direction: column;</code> + <code>class="vw-page-gap"</code> on the container; the browser creates this space between items.</p>
+    </div>
+
+    <!-- Demo: flex row + vw-page-gap with multiple cards (same symbolic diagram as column) -->
+    <h3 class="subsection-title">Demo: flex row + .vw-page-gap with multiple cards</h3>
+    <p class="section-description">
+      Use a flex row container with <code>.vw-page-gap</code> and place cards (<code>.vw-card-section</code>) inside. The gap is applied between the cards.
+    </p>
+    <!-- Symbolic layout: flex row with blocks and gap strips (highlight on hover) -->
+    <div class="gap-diagram-wrapper gap-diagram-wrapper--row">
+      <div class="gap-diagram-label">Apply <code>.vw-page-gap</code> here (flex row)</div>
+      <div class="gap-diagram gap-diagram-row">
+        <div class="gap-demo-block">Card 1</div>
+        <div class="gap-indicator-h" title="Gap (--vw-page-gap)"></div>
+        <div class="gap-demo-block">Card 2</div>
+        <div class="gap-indicator-h" title="Gap (--vw-page-gap)"></div>
+        <div class="gap-demo-block">Card 3</div>
+        <div class="gap-indicator-h" title="Gap (--vw-page-gap)"></div>
+        <div class="gap-demo-block">Card 4</div>
+      </div>
+      <p class="gap-diagram-caption">Symbolic layout: the strips between blocks represent the gap. Hover over them to highlight. In your code, use <code>display: flex; flex-direction: row;</code> + <code>class="vw-page-gap"</code> on the container; the browser creates this space between items.</p>
+    </div>
+    <p class="section-description">Live demo with multiple cards:</p>
+    <div class="vw-page-gap-demo vw-page-gap">
+      <div class="vw-card-section vw-utility-card">
+        <div class="vw-card-title">Card 1</div>
+        <div class="vw-card-description">Content for card one.</div>
+      </div>
+      <div class="vw-card-section vw-utility-card">
+        <div class="vw-card-title">Card 2</div>
+        <div class="vw-card-description">Content for card two.</div>
+      </div>
+      <div class="vw-card-section vw-utility-card">
+        <div class="vw-card-title">Card 3</div>
+        <div class="vw-card-description">Content for card three.</div>
+      </div>
+      <div class="vw-card-section vw-utility-card">
+        <div class="vw-card-title">Card 4</div>
+        <div class="vw-card-description">Content for card four.</div>
+      </div>
+      <div class="vw-card-section vw-utility-card">
+        <div class="vw-card-title">Card 5</div>
+        <div class="vw-card-description">Content for card five.</div>
+      </div>
+    </div>
+    <pre class="code-snippet"><code>&lt;div class="vw-page-gap-demo vw-page-gap" style="display: flex; flex-direction: row; flex-wrap: wrap;"&gt;
+  &lt;div class="vw-card-section"&gt;...&lt;/div&gt;
+  &lt;div class="vw-card-section"&gt;...&lt;/div&gt;
+  &lt;!-- repeat for each card --&gt;
+&lt;/div&gt;</code></pre>
+  </section>
 </div>

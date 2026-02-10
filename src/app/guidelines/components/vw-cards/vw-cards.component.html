@@ -2,12 +2,14 @@
   <div class="header-section">
     <h1 class="main-title">vw-cards (Card Classes Release)</h1>
     <p class="subtitle">
-      Cards using only classes from <code>core-mixin.scss</code> (lines 159-305). These classes include:
-      <code>.vw-card-section</code>, <code>.vw-card-parent</code>, <code>.vw-card-child</code>,
-      <code>.vw-card-title</code>, <code>.vw-card-description</code>, <code>.vw-card-metric-lg</code>,
-      <code>.vw-card-metric-md</code>, <code>.vw-card-metric-sm</code>, <code>.vw-card-metric-label</code>,
+      Cards using only classes from <code>core-mixin.scss</code> (card block ~159–376, chip block ~380–483). These classes include:
+      <code>.vw-card-section</code>, <code>.vw-card-parent</code>, <code>.vw-card-child</code>, <code>.vw-card-child-shaded</code>,
+      <code>.vw-card-title</code>, <code>.vw-card-title-lg</code>, <code>.vw-card-title-sm</code>, <code>.vw-card-description</code>,
+      <code>.vw-card-metric-xxl</code>, <code>.vw-card-metric-xl</code>, <code>.vw-card-metric-lg</code>, <code>.vw-card-metric-md</code>, <code>.vw-card-metric-sm</code>,
+      <code>.vw-card-metric-label</code>, <code>.vw-card-metric-label-sub</code>,
+      <code>.vw-card-activity-label</code>, <code>.vw-card-activity-value</code>,
       <code>.vw-card-variance</code>, semantic variants (<code>.vw-card--success</code>, <code>.vw-card--error</code>, etc.),
-      and <code>.vw-chip</code> variants.
+      <code>.vw-card-icon-sm</code>, <code>.vw-card-icon-md</code>, <code>.vw-card-icon-lg</code>, and <code>.vw-chip</code> variants.
     </p>
     <div class="demo-banner">
       Click any element in the card sample to show its CSS in the second column. The third column shows the static HTML for the whole card.
@@ -143,7 +145,7 @@
         <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 360px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-direction: row;">
             <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Total purchases</div>
-            <div class="clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button" style="width: 48px; height: 48px; background-color: #e0f2fe; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="vw-card-icon-lg vw-chip--info clickable-class" (click)="onClassClick('vw-card-icon-lg'); $event.stopPropagation()" tabindex="0" role="button">
               <bntv-icon [iconName]="'Cart-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#0369a1'"></bntv-icon>
             </div>
           </div>
@@ -321,7 +323,7 @@
               <div class="vw-card-metric-lg clickable-class" (click)="onClassClick('vw-card-metric-lg'); $event.stopPropagation()" tabindex="0" role="button">90.6M</div>
               <div class="vw-card-variance is-positive clickable-class" (click)="onClassClick('vw-card-variance.is-positive'); $event.stopPropagation()" tabindex="0" role="button"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'" style="vertical-align: middle;"></bntv-icon> +15.2% (MoM)</div>
             </div>
-            <div style="border-top: 1px solid #e2e8f0; margin-top: 1rem; padding-top: 1rem;">
+            <div class="vw-card-footer-divider">
               <div class="vw-card-metric-label clickable-class" (click)="onClassClick('vw-card-metric-label'); $event.stopPropagation()" tabindex="0" role="button">Total invoice</div>
               <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">2028</div>
             </div>
@@ -348,7 +350,7 @@
   <!-- 9. Parent-child cards -->
   <section class="content-section">
     <h2 class="section-title">9. Parent-child cards</h2>
-    <p class="section-description">Nested card structure using <code>.vw-card-parent</code> and <code>.vw-card-child</code>.</p>
+    <p class="section-description">Nested card structure using <code>.vw-card-parent</code>, <code>.vw-card-child</code>, and <code>.vw-card-child-shaded</code> (shaded background for alternating/highlighted sub-items).</p>
     <div class="demo-container three-column-demo">
       <div class="demo-column demo-column-sample">
         <div class="column-label">Card sample</div>
@@ -364,6 +366,10 @@
               <div class="vw-card-child clickable-class" (click)="onClassClick('vw-card-child'); $event.stopPropagation()">
                 <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" style="font-size: 14px;" tabindex="0" role="button">Child Card 2</div>
                 <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">Value 2</div>
+              </div>
+              <div class="vw-card-child-shaded clickable-class" (click)="onClassClick('vw-card-child-shaded'); $event.stopPropagation()">
+                <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" style="font-size: 14px;" tabindex="0" role="button">Child Card 3 (shaded)</div>
+                <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" style="margin-top: 0.25rem;" tabindex="0" role="button">Value 3</div>
               </div>
             </div>
           </div>
@@ -395,7 +401,7 @@
         <div class="column-label">Card sample</div>
         <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 380px;">
           <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <div class="clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button" style="width: 48px; height: 48px; background-color: #e6f1ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="vw-card-icon-lg vw-chip--info clickable-class" (click)="onClassClick('vw-card-icon-lg'); $event.stopPropagation()" tabindex="0" role="button">
               <bntv-icon [iconName]="'Dollar-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#ffffff'"></bntv-icon>
             </div>
             <div style="flex: 1; min-width: 0;">
@@ -410,7 +416,7 @@
               </div>
             </div>
           </div>
-          <div style="border-top: 1px solid #e2e8f0; margin-top: 1rem; padding-top: 1rem;">
+          <div class="vw-card-footer-divider">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <div class="vw-card-metric-label clickable-class" (click)="onClassClick('vw-card-metric-label'); $event.stopPropagation()" tabindex="0" role="button">Total invoice</div>
               <div class="vw-card-metric-md clickable-class" (click)="onClassClick('vw-card-metric-md'); $event.stopPropagation()" tabindex="0" role="button">2028</div>
@@ -449,7 +455,7 @@
           <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" style="font-weight: 500;" tabindex="0" role="button">Recent documents</div>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div class="clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button" style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div class="vw-card-icon-md vw-chip--neutral clickable-class" (click)="onClassClick('vw-card-icon-md'); $event.stopPropagation()" tabindex="0" role="button">
                 <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
               </div>
               <div style="flex: 1; min-width: 0;">
@@ -458,7 +464,7 @@
               </div>
             </div>
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div class="vw-card-icon-md vw-chip--neutral">
                 <bntv-icon [iconName]="'Folder-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
               </div>
               <div style="flex: 1; min-width: 0;">
@@ -467,7 +473,7 @@
               </div>
             </div>
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div class="vw-card-icon-md vw-chip--neutral">
                 <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
               </div>
               <div style="flex: 1; min-width: 0;">
@@ -476,7 +482,7 @@
               </div>
             </div>
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div class="vw-card-icon-md vw-chip--neutral">
                 <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
               </div>
               <div style="flex: 1; min-width: 0;">
@@ -485,7 +491,7 @@
               </div>
             </div>
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div class="vw-card-icon-md vw-chip--neutral">
                 <bntv-icon [iconName]="'Folder-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
               </div>
               <div style="flex: 1; min-width: 0;">
@@ -494,7 +500,7 @@
               </div>
             </div>
             <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-              <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div class="vw-card-icon-md vw-chip--neutral">
                 <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
               </div>
               <div style="flex: 1; min-width: 0;">
@@ -525,14 +531,14 @@
   <!-- 12. Quick action card -->
   <section class="content-section">
     <h2 class="section-title">12. Quick action card</h2>
-    <p class="section-description">Card with centered icon, title, and description for quick actions (e.g. Create new flow). Uses <code>.vw-card-section</code>, <code>.vw-card-title</code>, and <code>.vw-card-description</code>. <span class="migrate-note">* Icon container uses <code>.vw-card-icon-large</code> from vw-cards.component.scss (to be migrated to core-mixin).</span></p>
+    <p class="section-description">Card with centered icon, title, and description for quick actions (e.g. Create new flow). Uses <code>.vw-card-section</code>, <code>.vw-card-title</code>, and <code>.vw-card-description</code>. <span class="migrate-note">* Icon container: <code>vw-card-icon-lg vw-chip--neutral</code> (or <code>vw-chip--success</code> etc. for colors). From core-mixin (gx theme).</span></p>
     <div class="demo-container three-column-demo">
       <div class="demo-column demo-column-sample">
         <div class="column-label">Card sample</div>
         <div class="vw-card-section clickable-class" (click)="onClassClick('vw-card-section')" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; max-width: 320px;">
           <div class="vw-card-title clickable-class" (click)="onClassClick('vw-card-title'); $event.stopPropagation()" tabindex="0" role="button">Create new flow</div>
           <div>
-            <div class="vw-card-icon-large clickable-class" (click)="onClassClick('vw-card-icon-large'); $event.stopPropagation()" tabindex="0" role="button">
+            <div class="vw-card-icon-lg vw-chip--neutral clickable-class" (click)="onClassClick('vw-card-icon-lg'); $event.stopPropagation()" tabindex="0" role="button">
               <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#374151'"></bntv-icon>
             </div>
             <div class="vw-card-description clickable-class" (click)="onClassClick('vw-card-description'); $event.stopPropagation()" style="margin-top: 1rem;" tabindex="0" role="button">Build flows to orchestrate automated workflows</div>
@@ -556,11 +562,73 @@
 
   <bntv-divider></bntv-divider>
 
+  <!-- 13. vw-icon -->
+  <section class="content-section">
+    <h2 class="section-title">13. vw-icon</h2>
+    <p class="section-description">Card icon from <code>core-mixin.scss</code> (gx theme). Use <code>.vw-card-icon-sm</code>, <code>.vw-card-icon-md</code>, or <code>.vw-card-icon-lg</code> with a color class (<code>.vw-chip--neutral</code>, <code>.vw-chip--success</code>, <code>.vw-chip--info</code>, etc.). Click any icon to see its CSS in the second column.</p>
+    <p class="section-description">Expected DOM: <code>&lt;div class="vw-card-icon-sm vw-chip--neutral"&gt;&lt;bntv-icon&gt;…&lt;/bntv-icon&gt;&lt;/div&gt;</code> — <code>bntv-icon</code> renders to <code>&lt;mat-icon fonticon="Plus" …&gt;</code>. Snippet below uses the same structure.</p>
+    <div class="demo-container three-column-demo">
+      <div class="demo-column demo-column-sample">
+        <div class="column-label">Icon samples</div>
+        <div class="vw-icon-demo-row">
+          <div class="vw-icon-demo-group">
+            <div class="vw-icon-demo-label">Sizes</div>
+            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+              <div class="vw-card-icon-sm vw-chip--neutral clickable-class" (click)="onClassClick('vw-card-icon-sm'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'12px'" [height]="'12px'" [color]="'#374151'"></bntv-icon>
+              </div>
+              <div class="vw-card-icon-md vw-chip--neutral clickable-class" (click)="onClassClick('vw-card-icon-md'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'16px'" [height]="'16px'" [color]="'#374151'"></bntv-icon>
+              </div>
+              <div class="vw-card-icon-lg vw-chip--neutral clickable-class" (click)="onClassClick('vw-card-icon-lg'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#374151'"></bntv-icon>
+              </div>
+            </div>
+          </div>
+          <div class="vw-icon-demo-group">
+            <div class="vw-icon-demo-label">Colors (vw-card-icon-lg + chip variant)</div>
+            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+              <div class="vw-card-icon-lg vw-chip--neutral clickable-class" (click)="onClassClick('vw-card-icon-lg'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#515151'"></bntv-icon>
+              </div>
+              <div class="vw-card-icon-lg vw-chip--success clickable-class" (click)="onClassClick('vw-chip--success'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Check'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#1a7f10'"></bntv-icon>
+              </div>
+              <div class="vw-card-icon-lg vw-chip--info clickable-class" (click)="onClassClick('vw-chip--info'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Info'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#124e8e'"></bntv-icon>
+              </div>
+              <div class="vw-card-icon-lg vw-chip--warning clickable-class" (click)="onClassClick('vw-chip--warning'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Warning'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#926e00'"></bntv-icon>
+              </div>
+              <div class="vw-card-icon-lg vw-chip--error clickable-class" (click)="onClassClick('vw-chip--error'); $event.stopPropagation()" tabindex="0" role="button">
+                <bntv-icon [iconName]="'Close'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#b21313'"></bntv-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-column demo-column-css">
+        <div class="column-label">Class CSS (click an element)</div>
+        <div class="class-css-block">
+          <pre class="class-css-pre" [class.is-placeholder]="!selectedClassKey"><code>{{ selectedClassCss }}</code></pre>
+        </div>
+      </div>
+      <div class="demo-column demo-column-html">
+        <div class="column-label">HTML snippet</div>
+        <div class="html-snippet-block">
+          <pre class="html-snippet-pre"><code>{{ currentCode['vwIcon'] }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <bntv-divider></bntv-divider>
+
   <!-- Classes Summary -->
   <section class="content-section">
     <h2 class="section-title">Classes Reference</h2>
     <p class="section-description">
-      Complete reference of all card classes available from <code>core-mixin.scss</code> (lines 159-305) with usage guidelines.
+      Complete reference of all card classes available from <code>core-mixin.scss</code> (card block ~159–376, chips ~380–483) with usage guidelines.
     </p>
     <div class="demo-container">
       <table class="classes-table">
@@ -617,19 +685,31 @@
             <td><code>.vw-card-title</code></td>
             <td><div class="vw-card-title" style="margin: 0;">Card Title</div></td>
             <td>Card title text</td>
-            <td>Use for primary heading text within cards. Font size 1rem (16px via <code>--vw-font-heading-md</code>), weight 500, line height 1.25 (via <code>--vw-line-heading-md</code>), gray-800 color. Apply to main card titles, section headers, or primary labels.</td>
+            <td>Use for primary heading text within cards. Font size 1.125rem (18px via <code>--vw-font-heading-lg</code>), weight 500, line height (via <code>--vw-line-heading-md</code>), gray-800 color. Apply to main card titles, section headers, or primary labels.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-title-lg</code></td>
+            <td><div class="vw-card-title-lg" style="margin: 0;">Large Title</div></td>
+            <td>Large card title text</td>
+            <td>Use for larger section headings. Font size 1.25rem (via <code>--vw-font-heading-xl</code>), weight 500. From <code>core-mixin.scss</code>.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-title-sm</code></td>
+            <td><div class="vw-card-title-sm" style="margin: 0;">Small Title</div></td>
+            <td>Small card title text</td>
+            <td>Use for smaller headings or sub-headings. Font size 1rem (via <code>--vw-font-heading-md</code>), weight 500. From <code>core-mixin.scss</code>.</td>
           </tr>
           <tr>
             <td><code>.vw-card-activity-label</code></td>
             <td><div class="vw-card-activity-label" style="margin: 0;">Knowledge Hub</div></td>
             <td>Card activity label text</td>
-            <td>Use for activity labels or list item titles within cards. Font size 1rem (16px via <code>--vw-font-heading-md</code>), weight 500, line height 1.5, gray-700 color. Apply to document names, folder names, or labels that precede activity values.</td>
+            <td>Use for activity labels or list item titles within cards. Font size 0.875rem (14px), weight 500, line height 1.5, gray-800 color. Apply to document names, folder names, or labels that precede activity values.</td>
           </tr>
           <tr>
             <td><code>.vw-card-activity-value</code></td>
             <td><div class="vw-card-activity-value" style="margin: 0;">December 26, 2024</div></td>
             <td>Card activity value text</td>
-            <td>Use for activity values like dates, file sizes, or metadata. Font size 0.875rem (14px via <code>--vw-font-description</code>), line height 1.4 (via <code>--vw-line-description</code>), gray-500 color. Apply below list titles or after activity labels.</td>
+            <td>Use for activity values like dates, file sizes, or metadata. Font size 0.75rem (12px), line height 1.4, gray-600 color. Apply below list titles or after activity labels.</td>
           </tr>
           <tr>
             <td><code>.vw-card-description</code></td>
@@ -738,64 +818,82 @@
             <td>Use for informational states, general messages, or neutral status. Light blue background (via <code>--vw-color-blue-50</code>) with blue border (via <code>--vw-color-blue-300</code>). Apply to informational messages, tips, or neutral status indicators.</td>
           </tr>
           <tr>
+            <td><code>.vw-card-icon-sm</code></td>
+            <td><span class="vw-card-icon-sm vw-chip--neutral" style="margin: 0;"><bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'12px'" [height]="'12px'" [color]="'#374151'"></bntv-icon></span></td>
+            <td>Card icon small (2rem)</td>
+            <td>From core-mixin (gx theme). 32px × 32px. Combine with <code>.vw-chip--neutral</code> or <code>.vw-chip--success</code> etc. for colors.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-icon-md</code></td>
+            <td><span class="vw-card-icon-md vw-chip--neutral" style="margin: 0;"><bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'16px'" [height]="'16px'" [color]="'#374151'"></bntv-icon></span></td>
+            <td>Card icon medium (2.5rem)</td>
+            <td>From core-mixin (gx theme). 40px × 40px.</td>
+          </tr>
+          <tr>
+            <td><code>.vw-card-icon-lg</code></td>
+            <td><span class="vw-card-icon-lg vw-chip--neutral" style="margin: 0;"><bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#374151'"></bntv-icon></span></td>
+            <td>Card icon large (3rem)</td>
+            <td>From core-mixin (gx theme). 48px × 48px. Combine with <code>.vw-chip--neutral</code> (default) or <code>.vw-chip--success</code> etc. for colors.</td>
+          </tr>
+          <tr>
             <td><code>.vw-chip</code></td>
             <td><span class="vw-chip" style="margin: 0;">Chip</span></td>
             <td>Base chip component</td>
             <td>Use for badges, tags, or status indicators. Padding 0.375rem 0.75rem, rounded pill shape (9999px). Combine with variant classes for different semantic meanings.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--success</code></td>
-            <td><span class="vw-chip vw-chip--success" style="margin: 0;">Active</span></td>
-            <td>Success chip</td>
-            <td>Use for success badges or positive status tags. Green background (via <code>--chipSuccessBgColor</code> or <code>--vw-color-green-100</code>) with green text (via <code>--chipSuccessTextColor</code> or <code>--vw-color-green-700</code>).</td>
+            <td><code>.vw-chip--success</code> / <code>.vw-chip--success-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--success" style="margin: 0;">Active</span><span class="vw-chip vw-chip--success-solid" style="margin: 0;">Active</span></span></td>
+            <td>Success chip (default / solid)</td>
+            <td>Default: light green bg, dark green text. Solid: dark green bg, light green text. Use for success badges or positive status tags.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--error</code></td>
-            <td><span class="vw-chip vw-chip--error" style="margin: 0;">Failed</span></td>
-            <td>Error chip</td>
-            <td>Use for error badges or negative status tags. Red background (via <code>--chipErrorBgColor</code> or <code>--vw-color-red-100</code>) with red text (via <code>--chipErrorTextColor</code> or <code>--vw-color-red-700</code>).</td>
+            <td><code>.vw-chip--error</code> / <code>.vw-chip--error-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--error" style="margin: 0;">Failed</span><span class="vw-chip vw-chip--error-solid" style="margin: 0;">Failed</span></span></td>
+            <td>Error chip (default / solid)</td>
+            <td>Default: light red bg, dark red text. Solid: dark red bg, light red text. Use for error badges or negative status tags.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--warning</code></td>
-            <td><span class="vw-chip vw-chip--warning" style="margin: 0;">Pending</span></td>
-            <td>Warning chip</td>
-            <td>Use for warning badges or cautionary tags. Yellow background (via <code>--chipWarningBgColor</code> or <code>--vw-color-yellow-100</code>) with yellow text (via <code>--chipWarningTextColor</code> or <code>--vw-color-yellow-700</code>).</td>
+            <td><code>.vw-chip--warning</code> / <code>.vw-chip--warning-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--warning" style="margin: 0;">Pending</span><span class="vw-chip vw-chip--warning-solid" style="margin: 0;">Pending</span></span></td>
+            <td>Warning chip (default / solid)</td>
+            <td>Default: light yellow bg, dark yellow text. Solid: dark yellow bg, light yellow text. Use for warning badges or cautionary tags.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--info</code></td>
-            <td><span class="vw-chip vw-chip--info" style="margin: 0;">New</span></td>
-            <td>Info chip</td>
-            <td>Use for informational badges or neutral tags. Blue background (via <code>--chipInfoBgColor</code> or <code>--vw-color-blue-100</code>) with blue text (via <code>--chipInfoTextColor</code> or <code>--vw-color-blue-700</code>).</td>
+            <td><code>.vw-chip--info</code> / <code>.vw-chip--info-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--info" style="margin: 0;">New</span><span class="vw-chip vw-chip--info-solid" style="margin: 0;">New</span></span></td>
+            <td>Info chip (default / solid)</td>
+            <td>Default: light blue bg, dark blue text. Solid: dark blue bg, light blue text. Use for informational badges or neutral tags.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--neutral</code></td>
-            <td><span class="vw-chip vw-chip--neutral" style="margin: 0;">Default</span></td>
-            <td>Neutral chip</td>
-            <td>Use for neutral badges or default tags. Gray background (via <code>--vw-color-gray-100</code>) with gray text (via <code>--vw-color-gray-600</code>).</td>
+            <td><code>.vw-chip--neutral</code> / <code>.vw-chip--neutral-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--neutral" style="margin: 0;">Default</span><span class="vw-chip vw-chip--neutral-solid" style="margin: 0;">Default</span></span></td>
+            <td>Neutral chip (default / solid)</td>
+            <td>Default: light gray bg, dark gray text. Solid: dark gray bg, light gray text. Use for neutral badges or default tags.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--purple</code></td>
-            <td><span class="vw-chip vw-chip--purple" style="margin: 0;">Custom</span></td>
-            <td>Purple chip</td>
-            <td>Use for custom badges or special category tags. Purple background (via <code>--vw-color-purple-100</code>) with purple text (via <code>--vw-color-purple-700</code>).</td>
+            <td><code>.vw-chip--purple</code> / <code>.vw-chip--purple-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--purple" style="margin: 0;">Custom</span><span class="vw-chip vw-chip--purple-solid" style="margin: 0;">Custom</span></span></td>
+            <td>Purple chip (default / solid)</td>
+            <td>Default: light purple bg, dark purple text. Solid: dark purple bg, light purple text. Use for custom badges or special category tags.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--cyan</code></td>
-            <td><span class="vw-chip vw-chip--cyan" style="margin: 0;">Cyan</span></td>
-            <td>Cyan chip</td>
-            <td>Use for cyan badges or category tags. From <code>core-mixin.scss</code>.</td>
+            <td><code>.vw-chip--cyan</code> / <code>.vw-chip--cyan-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--cyan" style="margin: 0;">Cyan</span><span class="vw-chip vw-chip--cyan-solid" style="margin: 0;">Cyan</span></span></td>
+            <td>Cyan chip (default / solid)</td>
+            <td>Default: light cyan bg, dark cyan text. Solid: dark cyan bg, light cyan text. From <code>core-mixin.scss</code>.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--orange</code></td>
-            <td><span class="vw-chip vw-chip--orange" style="margin: 0;">Orange</span></td>
-            <td>Orange chip</td>
-            <td>Use for orange badges or category tags. From <code>core-mixin.scss</code>.</td>
+            <td><code>.vw-chip--orange</code> / <code>.vw-chip--orange-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--orange" style="margin: 0;">Orange</span><span class="vw-chip vw-chip--orange-solid" style="margin: 0;">Orange</span></span></td>
+            <td>Orange chip (default / solid)</td>
+            <td>Default: light orange bg, dark orange text. Solid: dark orange bg, light orange text. From <code>core-mixin.scss</code>.</td>
           </tr>
           <tr>
-            <td><code>.vw-chip--pink</code></td>
-            <td><span class="vw-chip vw-chip--pink" style="margin: 0;">Pink</span></td>
-            <td>Pink chip</td>
-            <td>Use for pink badges or category tags. From <code>core-mixin.scss</code>.</td>
+            <td><code>.vw-chip--pink</code> / <code>.vw-chip--pink-solid</code></td>
+            <td><span class="chip-ref-sample"><span class="vw-chip vw-chip--pink" style="margin: 0;">Pink</span><span class="vw-chip vw-chip--pink-solid" style="margin: 0;">Pink</span></span></td>
+            <td>Pink chip (default / solid)</td>
+            <td>Default: light pink bg, dark pink text. Solid: dark pink bg, light pink text. From <code>core-mixin.scss</code>.</td>
           </tr>
           <tr>
             <td><code>.vw-chip.is-strong</code></td>
@@ -923,7 +1021,7 @@
               <code>.vw-card-title</code>
             </div>
             <div class="tile-details">
-              Font: <code>--vw-font-heading-md</code> (1rem/16px)<br>
+              Font: <code>--vw-font-heading-lg</code> (1.125rem/18px)<br>
               Weight: 500<br>
               Line Height: <code>--vw-line-heading-md</code> (1.25)<br>
               Color: <code>--vw-color-gray-800</code>
@@ -957,10 +1055,10 @@
               <code>.vw-card-activity-label</code>
             </div>
             <div class="tile-details">
-              Font: <code>--vw-font-heading-md</code> (1rem/16px)<br>
+              Font: 0.875rem (14px)<br>
               Weight: 500<br>
               Line Height: 1.5<br>
-              Color: <code>--vw-color-gray-700</code>
+              Color: <code>--vw-color-gray-800</code>
             </div>
           </div>
         </div>
@@ -973,10 +1071,10 @@
               <code>.vw-card-activity-value</code>
             </div>
             <div class="tile-details">
-              Font: <code>--vw-font-description</code> (0.875rem/14px)<br>
+              Font: 0.75rem (12px)<br>
               Weight: 400<br>
-              Line Height: <code>--vw-line-description</code> (1.4)<br>
-              Color: <code>--vw-color-gray-500</code>
+              Line Height: 1.4<br>
+              Color: <code>--vw-color-gray-600</code>
             </div>
           </div>
         </div>

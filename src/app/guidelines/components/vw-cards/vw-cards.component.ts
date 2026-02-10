@@ -22,6 +22,7 @@ export class VwCardsRootComponent implements OnInit {
     revenueCard: '',
     recentDocuments: '',
     quickAction: '',
+    vwIcon: '',
   };
 
   vwCardsCodeSnippets: { [key: string]: { [key: string]: string } } = {
@@ -72,7 +73,7 @@ export class VwCardsRootComponent implements OnInit {
       default: `<div class="vw-card-section" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 360px;">
   <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-direction: row;">
     <div class="vw-card-title">Total purchases</div>
-    <div style="width: 48px; height: 48px; background-color: #e0f2fe; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+    <div class="vw-card-icon-lg vw-chip--info">
       <bntv-icon [iconName]="'Cart-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#0369a1'"></bntv-icon>
     </div>
   </div>
@@ -145,7 +146,7 @@ export class VwCardsRootComponent implements OnInit {
       <div class="vw-card-metric-lg">90.6M</div>
       <div class="vw-card-variance is-positive"><bntv-icon [iconName]="'trend-up-bold'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'1em'" [height]="'1em'"></bntv-icon> +15.2% (MoM)</div>
     </div>
-    <div style="border-top: 1px solid #e2e8f0; margin-top: 1rem; padding-top: 1rem;">
+    <div class="vw-card-footer-divider">
       <div class="vw-card-metric-label">Total invoice</div>
       <div class="vw-card-metric-md">2028</div>
     </div>
@@ -166,6 +167,10 @@ export class VwCardsRootComponent implements OnInit {
         <div class="vw-card-title" style="font-size: 14px;">Child Card 2</div>
         <div class="vw-card-metric-md" style="margin-top: 0.25rem;">Value 2</div>
       </div>
+      <div class="vw-card-child-shaded">
+        <div class="vw-card-title" style="font-size: 14px;">Child Card 3 (shaded)</div>
+        <div class="vw-card-metric-md" style="margin-top: 0.25rem;">Value 3</div>
+      </div>
     </div>
   </div>
 </div>`,
@@ -173,7 +178,7 @@ export class VwCardsRootComponent implements OnInit {
     revenueCard: {
       default: `<div class="vw-card-section" style="display: flex; flex-direction: column; justify-content: space-between; max-width: 380px;">
   <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-    <div style="width: 48px; height: 48px; background-color: #e6f1ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+    <div class="vw-card-icon-lg vw-chip--info">
       <bntv-icon [iconName]="'Dollar-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#ffffff'"></bntv-icon>
     </div>
     <div style="flex: 1; min-width: 0;">
@@ -188,7 +193,7 @@ export class VwCardsRootComponent implements OnInit {
       </div>
     </div>
   </div>
-  <div style="border-top: 1px solid #e2e8f0; margin-top: 1rem; padding-top: 1rem;">
+  <div class="vw-card-footer-divider">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div class="vw-card-metric-label">Total invoice</div>
       <div class="vw-card-metric-md">2028</div>
@@ -201,7 +206,7 @@ export class VwCardsRootComponent implements OnInit {
   <div class="vw-card-title" style="font-weight: 500;">Recent documents</div>
   <div style="display: flex; flex-direction: column; gap: 0.75rem;">
     <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-      <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+      <div class="vw-card-icon-md vw-chip--neutral">
         <bntv-icon [iconName]="'File-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
       </div>
       <div style="flex: 1; min-width: 0;">
@@ -210,7 +215,7 @@ export class VwCardsRootComponent implements OnInit {
       </div>
     </div>
     <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-      <div style="width: 40px; height: 40px; background-color: #f3f4f6; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+      <div class="vw-card-icon-md vw-chip--neutral">
         <bntv-icon [iconName]="'Folder-Outline'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'20px'" [height]="'20px'" [color]="'#6b7280'"></bntv-icon>
       </div>
       <div style="flex: 1; min-width: 0;">
@@ -226,11 +231,30 @@ export class VwCardsRootComponent implements OnInit {
       default: `<div class="vw-card-section" style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; max-width: 320px;">
   <div class="vw-card-title">Create new flow</div>
   <div>
-    <div class="vw-card-icon-large">
+    <div class="vw-card-icon-lg vw-chip--neutral">
       <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#374151'"></bntv-icon>
     </div>
     <div class="vw-card-description" style="margin-top: 1rem;">Build flows to orchestrate automated workflows</div>
   </div>
+</div>`,
+    },
+    vwIcon: {
+      default: `<!-- Sizes from core-mixin: .vw-card-icon-sm | .vw-card-icon-md | .vw-card-icon-lg -->
+<!-- Colors: add .vw-chip--neutral | .vw-chip--success | .vw-chip--info etc. -->
+<div class="vw-card-icon-sm vw-chip--neutral">
+  <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'12px'" [height]="'12px'" [color]="'#374151'"></bntv-icon>
+</div>
+<div class="vw-card-icon-md vw-chip--neutral">
+  <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'16px'" [height]="'16px'" [color]="'#374151'"></bntv-icon>
+</div>
+<div class="vw-card-icon-lg vw-chip--neutral">
+  <bntv-icon [iconName]="'Plus'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#374151'"></bntv-icon>
+</div>
+<div class="vw-card-icon-lg vw-chip--success">
+  <bntv-icon [iconName]="'Check'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#1a7f10'"></bntv-icon>
+</div>
+<div class="vw-card-icon-lg vw-chip--info">
+  <bntv-icon [iconName]="'Info'" [type]="'fontset'" [fontSet]="'icomoon'" [width]="'24px'" [height]="'24px'" [color]="'#124e8e'"></bntv-icon>
 </div>`,
     },
   };
@@ -259,8 +283,14 @@ export class VwCardsRootComponent implements OnInit {
   border-radius: var(--vw-radius-sm);
   background-color: var(--vw-color-white);
 }`,
+    'vw-card-child-shaded': `.vw-card-child-shaded {
+  padding: var(--vw-space-sm);
+  border: 1px solid var(--vw-color-slate-200);
+  border-radius: var(--vw-radius-sm);
+  background-color: var(--vw-color-slate-50);
+}`,
     'vw-card-title': `.vw-card-title {
-  font-size: var(--vw-font-heading-md);
+  font-size: var(--vw-font-heading-lg);
   font-weight: 500;
   line-height: var(--vw-line-heading-md);
   color: var(--vw-color-gray-800);
@@ -273,7 +303,7 @@ export class VwCardsRootComponent implements OnInit {
 }`,
     'vw-card-metric-lg': `.vw-card-metric-lg {
   font-size: var(--vw-font-value-lg);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--vw-color-gray-800);
 }`,
@@ -283,9 +313,21 @@ export class VwCardsRootComponent implements OnInit {
   line-height: 1.2;
   color: var(--vw-color-gray-800);
 }`,
+    'vw-card-metric-xxl': `.vw-card-metric-xxl {
+  font-size: var(--vw-font-value-xxl);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--vw-color-gray-800);
+}`,
     'vw-card-metric-md': `.vw-card-metric-md {
   font-size: var(--vw-font-value-md);
-  font-weight: 400;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--vw-color-gray-800);
+}`,
+    'vw-card-metric-sm': `.vw-card-metric-sm {
+  font-size: var(--vw-font-value-sm);
+  font-weight: 500;
   line-height: 1.25;
   color: var(--vw-color-gray-800);
 }`,
@@ -344,6 +386,18 @@ export class VwCardsRootComponent implements OnInit {
   background-color: #f4f4f4;
   color: #515151;
 }`,
+    'vw-chip--info': `.vw-chip.vw-chip--info {
+  background-color: #f5f9ff;
+  color: #124e8e;
+}`,
+    'vw-chip--warning': `.vw-chip.vw-chip--warning {
+  background-color: #fffae8;
+  color: #926e00;
+}`,
+    'vw-chip--error': `.vw-chip.vw-chip--error {
+  background-color: #fcf6f5;
+  color: #b21313;
+}`,
     'vw-card-activity-label': `.vw-card-activity-label {
   font-size: 0.875rem;
   font-weight: 500;
@@ -356,20 +410,49 @@ export class VwCardsRootComponent implements OnInit {
   line-height: 1.4;
   color: var(--vw-color-gray-600);
 }`,
+    'vw-card-title-lg': `.vw-card-title-lg {
+  font-size: var(--vw-font-heading-xl);
+  font-weight: 500;
+  line-height: var(--vw-line-heading-md);
+  color: var(--vw-color-gray-800);
+}`,
+    'vw-card-title-sm': `.vw-card-title-sm {
+  font-size: var(--vw-font-heading-md);
+  font-weight: 500;
+  line-height: var(--vw-line-heading-md);
+  color: var(--vw-color-gray-800);
+}`,
     'vw-card-icon-right': `/* Icon on right — no wrapper; place icon in flex container */
 .icon-only {
   flex-shrink: 0;
   color: var(--vw-color-gray-700, #374151);
 }`,
-    'vw-card-icon-large': `.vw-card-icon-large {
-  width: 3rem; /* 48px — to be tokenized when migrated */
-  height: 3rem;
-  background-color: var(--vw-color-gray-100, #f3f4f6);
-  border-radius: var(--vw-radius-sm, 8px);
+    'vw-card-icon-sm': `.vw-card-icon-sm {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border-radius: var(--vw-radius-sm, 8px);
+  width: 2rem;
+  height: 2rem;
+}`,
+    'vw-card-icon-md': `.vw-card-icon-md {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--vw-radius-sm, 8px);
+  width: 2.5rem;
+  height: 2.5rem;
+}`,
+    'vw-card-icon-lg': `.vw-card-icon-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--vw-radius-sm, 8px);
+  width: 3rem;
+  height: 3rem;
 }`,
   };
 

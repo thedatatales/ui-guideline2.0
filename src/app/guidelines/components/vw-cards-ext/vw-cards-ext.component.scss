@@ -1,3 +1,181 @@
 @use '../_shared-styles' as *;
 
-/* vw-card Ext page — minimal styles; title only for now */
+/* vw-utility page — uses only core-mixin classes; no new mixins. */
+
+.subsection-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--primaryColor800, var(--grayColor900, #000));
+}
+
+/* Note block for gap variants */
+.variant-note {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  background: var(--grayColor50, #f9fafb);
+  border-left: 4px solid var(--accentColor500, #009688);
+  border-radius: 4px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--grayColor800, #1f2937);
+
+  code {
+    font-size: 0.875rem;
+    background: var(--grayColor100, #f3f4f6);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+}
+
+/* Symbolic diagram: where to apply .vw-page-gap */
+.gap-diagram-wrapper {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: var(--grayColor50, #f9fafb);
+  border: 1px solid var(--grayColor200, #e5e7eb);
+  border-radius: 8px;
+  max-width: 320px;
+
+  &.gap-diagram-wrapper--row {
+    max-width: 520px;
+  }
+}
+
+.gap-diagram-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--grayColor600, #4b5563);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+
+  code {
+    font-size: 0.7rem;
+    background: var(--grayColor100, #f3f4f6);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+}
+
+.gap-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 2px dashed var(--grayColor400, #9ca3af);
+  border-radius: 8px;
+  padding: 0.5rem;
+  background: var(--bgColor10, #fff);
+
+  &.gap-diagram-row {
+    flex-direction: row;
+    align-items: stretch;
+
+    .gap-demo-block {
+      min-width: 4rem;
+      min-height: 2.5rem;
+    }
+  }
+}
+
+.gap-demo-block {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--grayColor700, #374151);
+  background: var(--grayColor100, #f3f4f6);
+  border: 1px solid var(--grayColor200, #e5e7eb);
+  border-radius: 4px;
+}
+
+.gap-indicator {
+  min-height: var(--vw-page-gap, 0.75rem);
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px dashed var(--grayColor300, #d1d5db);
+  border-left: none;
+  border-right: none;
+  margin: 0;
+  font-size: 0.65rem;
+  color: var(--grayColor500, #6b7280);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 150, 136, 0.12);
+    border-color: var(--accentColor500, #009688);
+    color: var(--accentColor700, #00796b);
+  }
+}
+
+/* Horizontal gap strip (for flex row diagram) */
+.gap-indicator-h {
+  width: var(--vw-page-gap, 0.75rem);
+  min-width: var(--vw-page-gap, 0.75rem);
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px dashed var(--grayColor300, #d1d5db);
+  border-top: none;
+  border-bottom: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 150, 136, 0.12);
+    border-color: var(--accentColor500, #009688);
+  }
+}
+
+.gap-diagram-caption {
+  font-size: 0.8125rem;
+  color: var(--grayColor600, #4b5563);
+  margin: 0.75rem 0 0 0;
+  line-height: 1.4;
+
+  code {
+    font-size: 0.75rem;
+    background: var(--grayColor100, #f3f4f6);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+}
+
+/* Live demo: flex row + .vw-page-gap with multiple cards */
+.vw-page-gap-demo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.vw-utility-card {
+  flex: 1 1 200px;
+  min-width: 160px;
+  max-width: 280px;
+}
+
+.code-snippet {
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  background: var(--grayColor50, #f9fafb);
+  border: 1px solid var(--grayColor200, #e5e7eb);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+
+  code {
+    font-family: ui-monospace, monospace;
+    color: var(--grayColor800, #1f2937);
+    white-space: pre;
+  }
+}

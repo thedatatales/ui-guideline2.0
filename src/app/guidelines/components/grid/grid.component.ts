@@ -21,6 +21,13 @@ export class GridComponent implements OnInit {
         { id: 1, name: 'John Doe', email: 'john@example.com', status: 'Active' },
         { id: 2, name: 'Jane Smith', email: 'jane@example.com', status: 'Active' },
         { id: 3, name: 'Bob Johnson', email: 'bob@example.com', status: 'Inactive' },
+        { id: 4, name: 'Alice Williams', email: 'alice.w@example.com', status: 'Active' },
+        { id: 5, name: 'Charlie Brown', email: 'charlie.b@example.com', status: 'Pending' },
+        { id: 6, name: 'Diana Ross', email: 'diana.ross@example.com', status: 'Active' },
+        { id: 7, name: 'Edward Chen', email: 'edward.chen@example.com', status: 'Inactive' },
+        { id: 8, name: 'Fiona Martinez', email: 'fiona.m@example.com', status: 'Active' },
+        { id: 9, name: 'George Wilson', email: 'g.wilson@example.com', status: 'Pending' },
+        { id: 10, name: 'Hannah Lee', email: 'hannah.lee@example.com', status: 'Active' },
       ],
     },
   };
@@ -57,11 +64,15 @@ gridConfig: IGridConfig = {
     columnDefs: [
       { headerName: 'ID', field: 'id', width: 100 },
       { headerName: 'Name', field: 'name', width: 200 },
-      { headerName: 'Email', field: 'email', width: 250 }
+      { headerName: 'Email', field: 'email', width: 250 },
+      { headerName: 'Status', field: 'status', width: 150 }
     ],
     rowData: [
-      { id: 1, name: 'John Doe', email: 'john@example.com' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+      { id: 1, name: 'John Doe', email: 'john@example.com', status: 'Active' },
+      { id: 2, name: 'Jane Smith', email: 'jane@example.com', status: 'Active' },
+      { id: 3, name: 'Bob Johnson', email: 'bob@example.com', status: 'Inactive' },
+      { id: 4, name: 'Alice Williams', email: 'alice.w@example.com', status: 'Active' },
+      { id: 5, name: 'Charlie Brown', email: 'charlie.b@example.com', status: 'Pending' }
     ]
   }
 };`,

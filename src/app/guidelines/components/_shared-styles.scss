@@ -1,29 +1,37 @@
 // Shared styles for guideline component documentation pages
+//
+// Theme entities (which theme color to use where):
+//   Primary (--primaryColor*): Main titles (.main-title), section titles (.section-title), logo, active nav item.
+//   Accent (--accentColor*):   Links (.view-code-link, .guide-link, .next-link), interactive highlights.
+//   Gray   (--grayColor*):     Body/secondary text, borders, table text, code blocks, list text.
+//   Bg     (--bgColor*):       Surfaces (demo containers, code header, nav background via --fixedSideNavBg).
 
-/* Single class for all guidelines page containers. */
+/* Single class for all guidelines page containers.
+   Fallbacks ensure layout works when theme/gx-theme vars are missing. */
 .vw-page-container {
-  background: var(--vw-color-stone-50);
-  margin: var(--vw-space-sm);
-  border-radius: var(--vw-radius-lg);
-  padding: var(--vw-space-2xl);
+  background: var(--bgColor50, var(--vw-color-stone-50, #fafaf9));
+  margin: var(--vw-space-sm, 8px);
+  border-radius: var(--vw-radius-lg, 8px);
+  padding: var(--vw-space-2xl, 24px);
   max-width: 100%;
-  margin: var(--vw-space-sm);
 }
 
 .header-section {
   margin-bottom: 40px;
 }
 
+/* Primary: main page titles (theme primary color) */
 .main-title {
   font-size: 32px;
   font-weight: 500;
-  color: #000000;
+  color: var(--primaryColor800, var(--grayColor900, #000000));
   margin-bottom: 16px;
 }
 
+/* Gray: secondary/body text */
 .subtitle {
   font-size: 16px;
-  color: #424242;
+  color: var(--grayColor700, var(--grayColor600, #424242));
   line-height: 1.6;
 }
 
@@ -31,21 +39,22 @@
   margin-bottom: 40px;
 }
 
+/* Primary: section headings */
 .section-title {
   font-size: 24px;
   font-weight: 500;
-  color: #000000;
+  color: var(--primaryColor800, var(--grayColor900, #000000));
   margin-bottom: 12px;
 }
 
 .section-description {
   font-size: 16px;
-  color: #424242;
+  color: var(--grayColor700, var(--grayColor600, #424242));
   line-height: 1.6;
   margin-bottom: 24px;
   
   code {
-    background-color: #f5f5f5;
+    background-color: var(--grayColor100, #f5f5f5);
     padding: 2px 6px;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
@@ -56,14 +65,15 @@
 .demo-container {
   margin-bottom: 24px;
   padding: 24px;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  background-color: var(--bgColor10, #ffffff);
+  border: 1px solid var(--grayColor200, #e5e7eb);
   border-radius: 8px;
 }
 
+/* Accent: links and interactive text */
 .view-code-link {
   margin-top: 16px;
-  color: var(--textColorLink, var(--accentColor500, #1976d2));
+  color: var(--accentColor500, #1976d2);
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
@@ -71,7 +81,7 @@
   
   &:hover {
     text-decoration: underline;
-    color: var(--textColorLinkHover, var(--accentColor600));
+    color: var(--accentColor600, #1565c0);
   }
 }
 
@@ -80,10 +90,10 @@
 }
 
 .code-block {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--grayColor200, #e5e7eb);
   border-radius: 8px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--bgColor10, #ffffff);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -92,14 +102,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background-color: #f9fafb;
-  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--grayColor50, var(--bgColor50, #f9fafb));
+  border-bottom: 1px solid var(--grayColor200, #e5e7eb);
 }
 
 .code-title {
   font-size: 16px;
   font-weight: 500;
-  color: #000000;
+  color: var(--grayColor900, #000000);
 }
 
 .copy-icon {
@@ -113,14 +123,14 @@
 pre {
   margin: 0;
   padding: 16px;
-  background-color: #f9fafb;
+  background-color: var(--grayColor50, var(--bgColor50, #f9fafb));
   overflow-x: auto;
   
   code {
     font-family: 'Courier New', monospace;
     font-size: 14px;
     line-height: 1.6;
-    color: #1f2937;
+    color: var(--grayColor800, #1f2937);
     white-space: pre;
   }
 }
@@ -131,25 +141,25 @@ pre {
   margin-top: 16px;
   
   thead {
-    background-color: #fafafa;
+    background-color: var(--grayColor50, var(--bgColor50, #fafafa));
   }
   
   th, td {
     padding: 12px 16px;
     text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--grayColor200, #e0e0e0);
   }
   
   th {
     font-weight: 500;
-    color: #000000;
+    color: var(--grayColor900, #000000);
   }
   
   td {
-    color: #424242;
+    color: var(--grayColor700, #424242);
     
     code {
-      background-color: #f5f5f5;
+      background-color: var(--grayColor100, #f5f5f5);
       padding: 2px 6px;
       border-radius: 3px;
       font-family: 'Courier New', monospace;
@@ -163,12 +173,12 @@ pre {
   
   li {
     font-size: 16px;
-    color: #424242;
+    color: var(--grayColor700, #424242);
     line-height: 1.6;
     margin-bottom: 12px;
     
     strong {
-      color: #000000;
+      color: var(--grayColor900, #000000);
     }
   }
 }

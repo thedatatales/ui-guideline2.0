@@ -2,6 +2,9 @@
 node_modules
 .angular/cache
 
+# Build output (Angular)
+dist/
+
 # macOS
 .DS_Store
 

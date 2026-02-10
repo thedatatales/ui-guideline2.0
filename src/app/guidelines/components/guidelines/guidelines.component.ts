@@ -41,12 +41,17 @@ export class GuidelinesComponent implements OnInit {
     {
       title: 'vw-cards',
       route: '/guidelines/vw-cards',
-      icon: 'squares-four',
+      icon: 'credit-card',
     },
     {
-      title: 'vw-card Ext',
-      route: '/guidelines/vw-cards-ext',
-      icon: 'squares-four',
+      title: 'vw-utility',
+      route: '/guidelines/vw-utility',
+      icon: 'stack',
+    },
+    {
+      title: 'Fonts & Fields',
+      route: '/guidelines/fonts-fields',
+      icon: 'textbox',
     },
     {
       title: 'Components',

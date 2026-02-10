@@ -1,0 +1,58 @@
+@use '../_shared-styles' as *;
+
+.fonts-fields-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+
+  .field-item {
+    min-width: 260px;
+  }
+}
+
+.font-size-grid {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+
+  .font-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--vw-color-slate-200, #e2e8f0);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .font-sample {
+    min-width: 120px;
+  }
+
+  .font-meta {
+    font-size: 0.75rem;
+    color: var(--vw-color-gray-500, #6b7280);
+    font-family: monospace;
+  }
+}
+
+.font-group-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vw-color-gray-800, #1f2937);
+  margin: 1.5rem 0 0.5rem 0;
+  padding-bottom: 0.25rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.heading-sample {
+  margin: 0;
+  color: var(--vw-color-gray-800, #1f2937);
+}

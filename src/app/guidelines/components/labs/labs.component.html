@@ -31,17 +31,20 @@
       }
     </div>
 
-    <!-- Column 2: theme-colors -->
+    <!-- Column 2: theme-colors (from active theme: var(--primaryColor500), var(--accentColor500), etc.) -->
     <div class="palette-column" fxFlex="1 1 50%">
-      <h2 class="column-title">theme-colors</h2>
+      <h2 class="column-title">Theme color {{ activeThemeName }}</h2>
+      <p class="column-description" style="margin: 0 0 1em 0; font-size: 0.9em; opacity: 0.9;">
+        Primary, Accent, Warn, Gray from active theme (body class: theme-indigo, theme-black, or theme-greenwave).
+      </p>
       @for (group of themeColors; track group.colorName) {
         <div class="color-group">
           <h3 class="color-group-title">{{ group.colorName }}</h3>
           @for (color of group.colors; track color.variableName; let last = $last) {
-            <div class="color-row">
-              <div class="color-swatch" [style.background-color]="color.value"></div>
+            <div class="color-row" (click)="copyColor(color.value, color.variableName)" style="cursor: pointer;">
+              <div class="color-swatch" [style.background-color]="'var(' + color.variableName + ')'"></div>
               <div class="color-info">
-                <span class="color-hex">hex:{{ color.value }}</span>
+                <span class="color-hex">hex:{{ getResolvedColor(color.variableName) || color.value }}</span>
                 <span class="color-variable">{{ color.variableName }}</span>
               </div>
             </div>

@@ -121,6 +121,7 @@ import { GenericCardComponent } from './components/labs/generic-card/generic-car
 import { VwCardsComponent } from './components/labs/vw-cards/vw-cards.component';
 import { VwCardsRootComponent } from './components/vw-cards/vw-cards.component';
 import { VwCardsExtComponent } from './components/vw-cards-ext/vw-cards-ext.component';
+import { FontsFieldsComponent } from './components/fonts-fields/fonts-fields.component';
 import { PanesLayoutsComponent } from './components/labs/panes-layouts/panes-layouts.component';
 import { PanelLayoutComponent } from './components/labs/panel-layout/panel-layout.component';
 import { Layout1Component } from './components/labs/layout-1/layout-1.component';
@@ -151,6 +152,7 @@ import { EmbededIframeModule } from '@enttribe/core';
     CardComponent,
     VwCardsRootComponent,
     VwCardsExtComponent,
+    FontsFieldsComponent,
     ChartComponent,
     GridComponent,
     ListComponent,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 interface ColorSwatch {
   name: string;
@@ -11,6 +12,12 @@ interface ColorGroup {
   colors: ColorSwatch[];
 }
 
+const THEME_CLASS_TO_NAME: Record<string, string> = {
+  'theme-indigo': 'Indigo',
+  'theme-black': 'Black',
+  'theme-greenwave': 'Greenwave',
+};
+
 @Component({
   standalone: false,
   selector: 'pmgt-labs',
@@ -21,9 +28,38 @@ export class LabsComponent implements OnInit {
   bntvPalette: ColorGroup[] = [];
   themeColors: ColorGroup[] = [];
 
+  /** Active theme name from body class (theme-indigo, theme-black, theme-greenwave) */
+  activeThemeName = 'Indigo';
+
+  constructor(private clipboard: Clipboard) {}
+
   ngOnInit(): void {
+    this.detectActiveTheme();
     this.initializeBntvPalette();
     this.initializeThemeColors();
+  }
+
+  detectActiveTheme(): void {
+    if (typeof document === 'undefined' || !document.body) return;
+    const classList = document.body.classList;
+    for (const [themeClass, name] of Object.entries(THEME_CLASS_TO_NAME)) {
+      if (classList.contains(themeClass)) {
+        this.activeThemeName = name;
+        return;
+      }
+    }
+  }
+
+  /** Resolved value of a CSS variable from the active theme */
+  getResolvedColor(variableName: string): string {
+    if (!variableName || typeof document === 'undefined') return '';
+    const value = getComputedStyle(document.body).getPropertyValue(variableName).trim();
+    return value || '';
+  }
+
+  copyColor(value: string, variableName?: string): void {
+    const toCopy = variableName ? this.getResolvedColor(variableName) || value : value;
+    this.clipboard.copy(toCopy);
   }
 
   private initializeBntvPalette(): void {
@@ -129,6 +165,22 @@ export class LabsComponent implements OnInit {
           { name: '800', value: '#3730a3', variableName: '--vw-color-indigo-800' },
           { name: '900', value: '#312e81', variableName: '--vw-color-indigo-900' },
           { name: '950', value: '#1e1b4b', variableName: '--vw-color-indigo-950' },
+        ],
+      },
+      {
+        colorName: 'Violet (theme primary)',
+        colors: [
+          { name: '50', value: '#f5f3ff', variableName: '--vw-color-violet-50' },
+          { name: '100', value: '#ede9fe', variableName: '--vw-color-violet-100' },
+          { name: '200', value: '#ddd6fe', variableName: '--vw-color-violet-200' },
+          { name: '300', value: '#c4b5fd', variableName: '--vw-color-violet-300' },
+          { name: '400', value: '#a78bfa', variableName: '--vw-color-violet-400' },
+          { name: '500', value: '#8b5cf6', variableName: '--vw-color-violet-500' },
+          { name: '600', value: '#7c3aed', variableName: '--vw-color-violet-600' },
+          { name: '700', value: '#6d28d9', variableName: '--vw-color-violet-700' },
+          { name: '800', value: '#5b21b6', variableName: '--vw-color-violet-800' },
+          { name: '900', value: '#4c1d95', variableName: '--vw-color-violet-900' },
+          { name: '950', value: '#2e1065', variableName: '--vw-color-violet-950' },
         ],
       },
       {
@@ -407,61 +459,61 @@ export class LabsComponent implements OnInit {
   }
 
   private initializeThemeColors(): void {
-    // Theme colors from the theme system (Primary, Accent, Warn, Gray)
+    // Theme colors: variable names only; values resolved from active theme via var()
     this.themeColors = [
       {
         colorName: 'Primary',
         colors: [
-          { name: '50', value: '#e6e6ef', variableName: '--primaryColor50' },
-          { name: '100', value: '#c2c0d7', variableName: '--primaryColor100' },
-          { name: '200', value: '#9997bc', variableName: '--primaryColor200' },
-          { name: '300', value: '#706da1', variableName: '--primaryColor300' },
-          { name: '400', value: '#514d8c', variableName: '--primaryColor400' },
-          { name: '500', value: '#322e78', variableName: '--primaryColor500' },
-          { name: '600', value: '#2d2970', variableName: '--primaryColor600' },
-          { name: '700', value: '#262365', variableName: '--primaryColor700' },
-          { name: '800', value: '#1f1d5b', variableName: '--primaryColor800' },
-          { name: '900', value: '#131248', variableName: '--primaryColor900' },
-          { name: 'A100', value: '#8583ff', variableName: '--primaryColorA100' },
-          { name: 'A200', value: '#5450ff', variableName: '--primaryColorA200' },
-          { name: 'A400', value: '#221dff', variableName: '--primaryColorA400' },
-          { name: 'A700', value: '#0903ff', variableName: '--primaryColorA700' },
+          { name: '50', value: '#f5f3ff', variableName: '--primaryColor50' },
+          { name: '100', value: '#ede9fe', variableName: '--primaryColor100' },
+          { name: '200', value: '#ddd6fe', variableName: '--primaryColor200' },
+          { name: '300', value: '#c4b5fd', variableName: '--primaryColor300' },
+          { name: '400', value: '#a78bfa', variableName: '--primaryColor400' },
+          { name: '500', value: '#8b5cf6', variableName: '--primaryColor500' },
+          { name: '600', value: '#7c3aed', variableName: '--primaryColor600' },
+          { name: '700', value: '#6d28d9', variableName: '--primaryColor700' },
+          { name: '800', value: '#5b21b6', variableName: '--primaryColor800' },
+          { name: '900', value: '#4c1d95', variableName: '--primaryColor900' },
+          { name: 'A100', value: '#c4b5fd', variableName: '--primaryColorA100' },
+          { name: 'A200', value: '#a78bfa', variableName: '--primaryColorA200' },
+          { name: 'A400', value: '#7c3aed', variableName: '--primaryColorA400' },
+          { name: 'A700', value: '#2e1065', variableName: '--primaryColorA700' },
         ],
       },
       {
         colorName: 'Accent',
         colors: [
-          { name: '50', value: '#e0ebf1', variableName: '--accentColor50' },
-          { name: '100', value: '#b3cddc', variableName: '--accentColor100' },
-          { name: '200', value: '#80abc5', variableName: '--accentColor200' },
-          { name: '300', value: '#4d89ae', variableName: '--accentColor300' },
-          { name: '400', value: '#26709c', variableName: '--accentColor400' },
-          { name: '500', value: '#00578b', variableName: '--accentColor500' },
-          { name: '600', value: '#004f83', variableName: '--accentColor600' },
-          { name: '700', value: '#004678', variableName: '--accentColor700' },
-          { name: '800', value: '#003c6e', variableName: '--accentColor800' },
-          { name: '900', value: '#002c5b', variableName: '--accentColor900' },
-          { name: 'A100', value: '#8cb9ff', variableName: '--accentColorA100' },
-          { name: 'A200', value: '#5999ff', variableName: '--accentColorA200' },
-          { name: 'A400', value: '#267aff', variableName: '--accentColorA400' },
-          { name: 'A700', value: '#0d6aff', variableName: '--accentColorA700' },
+          { name: '50', value: '#f8fafc', variableName: '--accentColor50' },
+          { name: '100', value: '#f1f5f9', variableName: '--accentColor100' },
+          { name: '200', value: '#e2e8f0', variableName: '--accentColor200' },
+          { name: '300', value: '#cbd5e1', variableName: '--accentColor300' },
+          { name: '400', value: '#94a3b8', variableName: '--accentColor400' },
+          { name: '500', value: '#64748b', variableName: '--accentColor500' },
+          { name: '600', value: '#475569', variableName: '--accentColor600' },
+          { name: '700', value: '#334155', variableName: '--accentColor700' },
+          { name: '800', value: '#1e293b', variableName: '--accentColor800' },
+          { name: '900', value: '#0f172a', variableName: '--accentColor900' },
+          { name: 'A100', value: '#e2e8f0', variableName: '--accentColorA100' },
+          { name: 'A200', value: '#94a3b8', variableName: '--accentColorA200' },
+          { name: 'A400', value: '#475569', variableName: '--accentColorA400' },
+          { name: 'A700', value: '#1e293b', variableName: '--accentColorA700' },
         ],
       },
       {
         colorName: 'Warn',
         colors: [
-          { name: '10', value: '#FFFBFA', variableName: '--warnColor10' },
-          { name: '50', value: '#FEF3F2', variableName: '--warnColor50' },
-          { name: '100', value: '#FEE4E2', variableName: '--warnColor100' },
-          { name: '200', value: '#FECDCA', variableName: '--warnColor200' },
-          { name: '300', value: '#FDA29B', variableName: '--warnColor300' },
-          { name: '400', value: '#F97066', variableName: '--warnColor400' },
-          { name: '500', value: '#F04438', variableName: '--warnColor500' },
-          { name: '600', value: '#D92D20', variableName: '--warnColor600' },
-          { name: '700', value: '#B42318', variableName: '--warnColor700' },
-          { name: '800', value: '#912018', variableName: '--warnColor800' },
-          { name: '900', value: '#7A271A', variableName: '--warnColor900' },
-          { name: '1000', value: '#55160C', variableName: '--warnColor1000' },
+          { name: '10', value: '#fff7ed', variableName: '--warnColor10' },
+          { name: '50', value: '#fff7ed', variableName: '--warnColor50' },
+          { name: '100', value: '#ffedd5', variableName: '--warnColor100' },
+          { name: '200', value: '#fed7aa', variableName: '--warnColor200' },
+          { name: '300', value: '#fdba74', variableName: '--warnColor300' },
+          { name: '400', value: '#fb923c', variableName: '--warnColor400' },
+          { name: '500', value: '#f97316', variableName: '--warnColor500' },
+          { name: '600', value: '#ea580c', variableName: '--warnColor600' },
+          { name: '700', value: '#c2410c', variableName: '--warnColor700' },
+          { name: '800', value: '#9a3412', variableName: '--warnColor800' },
+          { name: '900', value: '#7c2d12', variableName: '--warnColor900' },
+          { name: '1000', value: '#451a03', variableName: '--warnColor1000' },
         ],
       },
       {

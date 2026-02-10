@@ -1,11 +1,12 @@
+/* Guidelines shell: uses theme primary (active nav), gray (text/borders), bgColor (surfaces) */
 .guidelines-container {
   height: 100vh;
-  background: #ffffff;
+  background: var(--bgColor10, #ffffff);
 }
 
 .left-nav {
-  background: #ffffff;
-  border-right: 1px solid #e0e0e0;
+  background: var(--fixedSideNavBg, var(--bgColor10, #ffffff));
+  border-right: 1px solid var(--grayColor200, #e0e0e0);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -29,7 +30,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--grayColor200, #e0e0e0);
   min-height: 60px;
   
   .left-nav.collapsed & {
@@ -46,7 +47,7 @@
   .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #000000;
+    color: var(--primaryColor700, var(--grayColor900, #000000));
   }
 }
 
@@ -64,13 +65,13 @@
 .logo {
   font-size: 20px;
   font-weight: bold;
-  color: #000000;
+  color: var(--primaryColor700, var(--grayColor900, #000000));
   line-height: 1.2;
 }
 
 .version {
   font-size: 12px;
-  color: #757575;
+  color: var(--grayColor600, #757575);
   font-weight: normal;
   line-height: 1.2;
   margin-top: 2px;
@@ -78,7 +79,7 @@
 
 .toggle-icon {
   cursor: pointer;
-  color: #000000;
+  color: var(--grayColor800, #000000);
   transition: transform 0.2s;
   
   &:hover {
@@ -98,13 +99,13 @@
 .nav-item {
   &.active {
     .nav-item-header {
-      background-color: #f5f5f5;
-      color: #000000;
+      background-color: var(--sidenavMenuSelectedBgColor, var(--primaryColor50, var(--grayColor100, #f5f5f5)));
+      color: var(--sidenavMenuSelectedTextColor, var(--primaryColor800, var(--grayColor900, #000000)));
       font-weight: 500;
       
       &.grandchild-header {
-        background-color: #f5f5f5;
-        border-left: 3px solid #000000;
+        background-color: var(--sidenavMenuSelectedBgColor, var(--primaryColor50, var(--grayColor100, #f5f5f5)));
+        border-left: 3px solid var(--primaryColor600, var(--grayColor900, #000000));
       }
     }
   }
@@ -121,14 +122,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #424242;
+  color: var(--menuTextColor, var(--grayColor700, #424242));
   transition: background-color 0.2s, padding 0.3s;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
   
   &:hover {
-    background-color: #fafafa;
+    background-color: var(--sidenavMenuHoverBgColor, var(--grayColor100, #fafafa));
   }
   
   .left-nav.collapsed & {
@@ -137,7 +138,7 @@
     min-height: 44px;
     
     &:hover {
-      background-color: #f0f0f0;
+      background-color: var(--grayColor100, #f0f0f0);
     }
     
     &::after {
@@ -148,7 +149,7 @@
       transform: translateY(-50%);
       width: 3px;
       height: 0;
-      background-color: #000000;
+      background-color: var(--primaryColor600, var(--grayColor900, #000000));
       transition: height 0.2s;
     }
     
@@ -187,7 +188,7 @@
 
 .nav-item-icon {
   font-size: 18px;
-  color: #424242;
+  color: var(--menuTextColor, var(--grayColor600, #424242));
   flex-shrink: 0;
   
   .left-nav.collapsed & {
@@ -204,7 +205,7 @@
 
 .expand-icon {
   font-size: 14px;
-  color: #757575;
+  color: var(--grayColor600, #757575);
   flex-shrink: 0;
   transition: transform 0.2s;
   
@@ -219,10 +220,10 @@
 }
 
 .nav-children {
-  background-color: #f5f5f5;
+  background-color: var(--grayColor50, var(--grayColor100, #f5f5f5));
   
   &.nav-children-level-2 {
-    background-color: #eeeeee;
+    background-color: var(--grayColor100, var(--grayColor200, #eeeeee));
   }
   
   // When collapsed, show icons only for expanded items
