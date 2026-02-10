@@ -2,7 +2,7 @@
   "version": 2,
   "buildCommand": "npm run build -- --configuration production",
   "outputDirectory": "dist/apps",
-  "installCommand": "npm install --force --legacy-peer-deps",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": null,
   "redirects": [
     {
